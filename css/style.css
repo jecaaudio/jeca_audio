@@ -25,20 +25,23 @@ h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; color: var(--primary); text
 
 .card { background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
 
+.equipo-lista { text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; font-size: 0.9rem; }
+.equipo-item { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 5px 0; }
+
 .btn-whatsapp { 
     background: #25d366; color: white; padding: 15px 25px; text-decoration: none; 
-    border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;
+    border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px;
 }
 
 .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
 .social-links a { 
     color: var(--primary); font-size: 2.5rem; transition: 0.3s; 
-    text-shadow: 0 0 0px rgba(243, 156, 18, 0);
+    text-shadow: 0 0 5px rgba(243, 156, 18, 0.3);
 }
 .social-links a:hover { 
     transform: translateY(-5px); color: #fff; 
     text-shadow: 0 0 15px rgba(243, 156, 18, 0.8); 
 }
 
-.lang-switch { position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; }
-.lang-switch button { background: rgba(0,0,0,0.5); border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 6px; cursor: pointer; }
+.lang-switch { position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; z-index: 1000; }
+.lang-switch button { background: rgba(0,0,0,0.5); border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
