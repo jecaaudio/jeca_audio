@@ -5,6 +5,11 @@ const infoEmpresa = {
             nombre: "Electro-Voice ELX200-18SP Subwoofer", 
             descripcion: "Professional 18-inch powered subwoofer with Deluxe Padded Cover. Delivers powerful low-frequency output for high-impact sound.",
             img: "img/productos/audio/zlx200/zlx200.jpg" 
+        },
+        { 
+            nombre: "Electro-Voice ZLX-12BT Loudspeaker", 
+            descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. High-quality audio streaming with professional-grade performance.",
+            img: "img/productos/audio/zlx12bt/zlx12bt.jpg" 
         }
     ]
 };
@@ -60,7 +65,6 @@ function cargarEquipoRental() {
     }
 }
 
-// Asegura que se carguen los datos al abrir la página
 document.addEventListener('DOMContentLoaded', () => {
     cargarEquipoRental();
 });
