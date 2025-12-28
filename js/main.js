@@ -2,26 +2,9 @@ const infoEmpresa = {
     // SECCIÓN DE RENTA (PRODUCTOS)
     equipos: [
         { 
-            nombre: "Electro-Voice ELX200 (Main)", 
-            descripcion: "Professional 18-inch Powered Subwoofer.",
-            img: "img/zlx200.jpg" 
-        },
-        { 
-            nombre: "EV ELX200 - Vista 1", 
-            descripcion: "Potencia y claridad para tus eventos.",
-            img: "img/zlx200 1.jpg" 
-        },
-        { 
-            nombre: "EV ELX200 - Vista 2", 
-            descripcion: "Diseño robusto y profesional.",
-            img: "img/zlx200 2.jpg" 
-        }
-    ],
-    // SECCIÓN DE EVENTOS
-    eventos: [
-        {
-            nombre: "Boda en Louisville",
-            img: "img/eventos/boda1.jpg"
+            nombre: "Electro-Voice ELX200", 
+            descripcion: "Professional 18-inch Powered Subwoofer. Ideal for deep bass and high-performance sound.",
+            img: "img/zlx200.jpg" // Conectado a tu archivo zlx200.jpg
         }
     ]
 };
@@ -76,3 +59,8 @@ function cargarEquipoRental() {
         `).join('');
     }
 }
+
+// Ejecutar al cargar la página
+window.onload = function() {
+    cargarEquipoRental();
+};
