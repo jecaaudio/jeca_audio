@@ -1,70 +1,80 @@
 const infoEmpresa = {
-    // SECCIÓN DE RENTA (PRODUCTOS)
+    // NÚMERO ACTUALIZADO: +1 502-554-0333
+    whatsapp: "15025540333", 
+    
     equipos: [
         { 
-            nombre: "Electro-Voice ELX200-18SP Subwoofer", 
-            descripcion: "Professional 18-inch powered subwoofer with Deluxe Padded Cover. Delivers powerful low-frequency output for high-impact sound.",
-            img: "img/productos/audio/zlx200/zlx200.jpg" 
+            id: "elx200",
+            nombre: "Electro-Voice ELX200-18SP", 
+            descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
+            fotos: [
+                "img/productos/audio/zlx200/zlx200.jpg",
+                "img/productos/audio/zlx200/zlx200 1.jpg",
+                "img/productos/audio/zlx200/zlx200 2.jpg"
+            ]
         },
         { 
-            nombre: "Electro-Voice ZLX-12BT Loudspeaker", 
-            descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. High-quality audio streaming with professional-grade performance.",
-            img: "img/productos/audio/zlx12bt/zlx12bt.jpg" 
+            id: "zlx12bt",
+            nombre: "Electro-Voice ZLX-12BT", 
+            descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. Pro-grade audio quality.",
+            fotos: [
+                "img/productos/audio/zlx12bt/zlx12bt.jpg",
+                "img/productos/audio/zlx12bt/zlx12bt 1.jpg"
+            ]
         }
     ]
 };
 
-const data = {
-    en: {
-        tagline: "PROFESSIONAL SOUND & LIGHTING",
-        experience: "Experience the Vibe",
-        djTitle: "Full DJ Services",
-        djText: "Weddings, Quinceañeras, and Private Events. We bring the party to you.",
-        btnBook: "Book Now",
-        rentalTitle: "Equipment Rental",
-        rentalText: "Rent professional speakers, subwoofers, and lights for your own event.",
-        btnRent: "Rent Equipment",
-        follow: "Follow the vibe:"
-    },
-    es: {
-        tagline: "SONIDO Y LUCES PROFESIONALES",
-        experience: "Vive la Experiencia",
-        djTitle: "Servicios de DJ Completos",
-        djText: "Bodas, Quinceañeras y Eventos Privados. Llevamos la fiesta a tu lugar.",
-        btnBook: "Reservar Ahora",
-        rentalTitle: "Renta de Equipos",
-        rentalText: "Renta bocinas profesionales, subwoofers y luces para tu propio evento.",
-        btnRent: "Ver Inventario",
-        follow: "Síguenos:"
-    }
-};
-
-function translatePage(lang) {
-    document.getElementById('tagline').innerText = data[lang].tagline;
-    document.getElementById('experience-title').innerText = data[lang].experience;
-    document.getElementById('dj-title').innerText = data[lang].djTitle;
-    document.getElementById('dj-text').innerText = data[lang].djText;
-    document.getElementById('btn-book').innerText = data[lang].btnBook;
-    document.getElementById('rental-title').innerText = data[lang].rentalTitle;
-    document.getElementById('rental-text').innerText = data[lang].rentalText;
-    document.getElementById('btn-rent').innerText = data[lang].btnRent;
-    document.getElementById('follow-text').innerText = data[lang].follow;
+// Función para el movimiento automático de fotos
+function iniciarSliders() {
+    infoEmpresa.equipos.forEach(equipo => {
+        let index = 0;
+        const imgElement = document.getElementById(`img-${equipo.id}`);
+        // Solo si hay más de una foto, empezamos a rotar
+        if (imgElement && equipo.fotos.length > 1) {
+            setInterval(() => {
+                index = (index + 1) % equipo.fotos.length;
+                imgElement.style.opacity = "0.5"; // Efecto rápido de cambio
+                setTimeout(() => {
+                    imgElement.src = equipo.fotos[index];
+                    imgElement.style.opacity = "1";
+                }, 300);
+            }, 4000); // Cambia cada 4 segundos
+        }
+    });
 }
 
 function cargarEquipoRental() {
     const grid = document.getElementById('rental-grid');
     if(grid) {
         grid.innerHTML = infoEmpresa.equipos.map(item => `
-            <div class="decision-card">
-                <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover;">
+            <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; position:relative;">
+                <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover; transition: opacity 0.4s ease;">
+                <div style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.6); padding:5px; border-radius:5px; font-size:10px; color:white;">
+                   📸 Click for Gallery
+                </div>
                 <h3>${item.nombre}</h3>
                 <p>${item.descripcion}</p>
-                <a href="https://wa.me/15025540333?text=I'm%20interested%20in%20renting%20the%20${encodeURIComponent(item.nombre)}" class="btn-outline">Inquire Price</a>
+                <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hello! I am interested in renting the ${encodeURIComponent(item.nombre)}" 
+                   class="btn-outline" 
+                   onclick="event.stopPropagation();"
+                   style="display:inline-block; margin-top:10px;">
+                   Inquire Price
+                </a>
             </div>
         `).join('');
+        iniciarSliders();
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    cargarEquipoRental();
-});
+// Función para ver todas las imágenes (Galería)
+function verGaleria(id) {
+    const equipo = infoEmpresa.equipos.find(e => e.id === id);
+    if(equipo) {
+        // Por ahora lanzamos un mensaje con la cantidad de fotos
+        // ¿Quieres que diseñe una ventana emergente (Popup) para verlas todas?
+        alert("Opening Gallery for " + equipo.nombre + "\\nTotal images: " + equipo.fotos.length);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarEquipoRental);
