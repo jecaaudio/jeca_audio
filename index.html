@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Selector de Idioma */
         .lang-switch { 
             position: absolute; 
             top: 15px; 
@@ -42,7 +41,6 @@
             font-size: 0.8rem;
         }
 
-        /* Hero Section adaptable */
         header { 
             min-height: 50vh;
             display: flex;
@@ -63,7 +61,6 @@
 
         .container { max-width: 1000px; margin: auto; padding: 30px 15px; }
 
-        /* Grid de Servicios */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -80,11 +77,30 @@
             text-align: center;
         }
 
-        /* Lista de equipo */
         .equipo-lista { text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; font-size: 0.9rem; }
         .equipo-item { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 5px 0; }
 
-        /* Botón WhatsApp responsivo */
+        /* Nueva Galería de Equipos */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+
         .cta-section { text-align: center; margin-top: 40px; }
         .btn-whatsapp { 
             background: #25d366;
@@ -97,19 +113,14 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            width: auto;
-            max-width: 100%;
         }
 
         footer { padding: 30px; background: #050505; border-top: 1px solid #222; margin-top: 50px; text-align: center; }
         .social-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
 
-        /* Ajustes específicos para Celulares */
         @media (max-width: 600px) {
             header { min-height: 40vh; }
-            .card { padding: 20px; }
             .btn-whatsapp { width: 90%; justify-content: center; }
-            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
@@ -144,6 +155,21 @@
         </div>
     </div>
 
+    <div class="card">
+        <h3 id="gallery-title">Galería de Equipos</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=60" alt="Altavoz Electro-Voice">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&w=500&q=60" alt="Consola Pioneer">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=60" alt="Luces de escenario">
+            </div>
+        </div>
+    </div>
+
     <div class="cta-section">
         <h2 id="cta-title">¿Listo para tu evento?</h2>
         <a href="https://wa.me/15025540444" class="btn-whatsapp">
@@ -156,7 +182,7 @@
         <div class="social-links">
             <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr">Facebook</a>
             <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj">Instagram</a>
-            <a href="https://www.tiktok.com/@el_jeca?is_from_webapp=1&sender_device=pc">TikTok</a>
+            <a href="https://www.tiktok.com/@el_jeca">TikTok</a>
         </div>
     </footer>
 </div>
@@ -168,6 +194,7 @@
             servTitle: "Nuestros Servicios",
             servText: "DJ y renta de equipo profesional para eventos sociales y privados en Louisville y alrededores.",
             equipoTitle: "Equipo Disponible",
+            galleryTitle: "Galería de Equipos",
             ctaTitle: "¿Listo para tu evento?",
             follow: "Síguenos en nuestras redes:"
         },
@@ -176,6 +203,7 @@
             servTitle: "Our Services",
             servText: "DJ and professional equipment rental for social and private events in Louisville and surroundings.",
             equipoTitle: "Available Equipment",
+            galleryTitle: "Equipment Gallery",
             ctaTitle: "Ready for your event?",
             follow: "Follow us on social media:"
         }
@@ -186,10 +214,14 @@
         document.getElementById('serv-title').innerText = data[lang].servTitle;
         document.getElementById('serv-text').innerText = data[lang].servText;
         document.getElementById('equipo-title').innerText = data[lang].equipoTitle;
+        document.getElementById('gallery-title').innerText = data[lang].galleryTitle;
         document.getElementById('cta-title').innerText = data[lang].ctaTitle;
         document.getElementById('follow').innerText = data[lang].follow;
     }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
