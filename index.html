@@ -5,39 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeca Audio | DJ y Renta de Equipo</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #1a1a1a; color: white; text-align: center; }
-        header { background: black; padding: 40px; border-bottom: 2px solid #f39c12; }
-        .logo { max-width: 200px; margin-bottom: 10px; }
-        .container { padding: 20px; }
-        .galeria { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px 0; }
-        .galeria img { width: 300px; height: 200px; object-fit: cover; border-radius: 8px; border: 2px solid #f39c12; }
-        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; }
-        .redes { margin-top: 30px; }
-        .redes a { color: #f39c12; text-decoration: none; margin: 0 10px; font-size: 1.2em; }
+        /* Estilos para el Modo Oscuro */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #0f0f0f; /* Fondo casi negro */
+            color: #ffffff; /* Texto blanco */
+            line-height: 1.6;
+        }
+
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px; 
+            text-align: center;
+            border-bottom: 3px solid #f39c12; /* Línea dorada/naranja */
+        }
+
+        h1 { font-size: 3em; margin: 0; color: #f39c12; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: #f39c12; }
+
+        .btn-whatsapp { 
+            background-color: #25d366; 
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        .redes { margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; }
+        .redes a { color: #f39c12; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        
+        /* Espacio para tus fotos */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .galeria img { 
+            width: 100%; 
+            border-radius: 8px; 
+            filter: grayscale(30%); 
+            transition: 0.3s;
+        }
+        .galeria img:hover { filter: grayscale(0%); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>JECA AUDIO</h1>
-    <p>Sonido Profesional para Eventos Pequeños y Medianos</p>
+    <p style="font-size: 1.2em;">Sonido Profesional para Eventos Pequeños y Medianos</p>
 </header>
 
 <div class="container">
-    <h2>Nuestros Equipos y Eventos</h2>
-    <div class="galeria">
-        <img src="https://via.placeholder.com/300x200?text=Equipo+de+Audio" alt="Equipo 1">
-        <img src="https://via.placeholder.com/300x200?text=Luces+y+DJ" alt="Equipo 2">
-        <img src="https://via.placeholder.com/300x200?text=Evento+en+Vivo" alt="Evento">
+    <h2>Nuestros Servicios</h2>
+    <div class="servicios-grid">
+        <div class="card">
+            <h3>🎧 DJ para Eventos</h3>
+            <p>Música de todos los géneros para bodas, XV años y reuniones sociales.</p>
+        </div>
+        <div class="card">
+            <h3>🔊 Renta de Equipo</h3>
+            <p>Bocinas, consolas y microfonía de alta calidad para tus eventos.</p>
+        </div>
     </div>
 
-    <h2>Contrataciones</h2>
-    <p>¿Tienes un evento en puerta? ¡Cotiza con nosotros!</p>
-    <a href="https://wa.me/TU_NUMERO_AQUI" class="btn-whatsapp">Contactar por WhatsApp</a>
+    <h2 style="margin-top: 60px;">Galería de Equipos</h2>
+    <div class="galeria">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=400&q=80" alt="Audio 1">
+        <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=400&q=80" alt="Audio 2">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=400&q=80" alt="Audio 3">
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <h2>¿Listo para tu evento?</h2>
+        <p>Escríbeme para darte una cotización personalizada.</p>
+        <a href="https://wa.me/PON_TU_NUMERO_AQUI" class="btn-whatsapp">WhatsApp: Contactar ahora</a>
+    </div>
 
     <div class="redes">
-        <p>Síguenos en nuestras redes:</p>
-        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">TikTok</a>
+        <p>Sigue el ritmo en nuestras redes:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
     </div>
 </div>
 
