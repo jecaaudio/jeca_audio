@@ -1,22 +1,41 @@
-const infoEmpresa = {
-    equipos: [
-        { nombre: "Electro-Voice ZLX-12BT", cantidad: 4 },
-        { nombre: "Electro-Voice ELX200", cantidad: 2 },
-        { nombre: "Pioneer DDJ-FLX4", cantidad: 1 },
-        { nombre: "Moving Head Lights", cantidad: 2 }
-    ]
+const data = {
+    en: {
+        tagline: "PROFESSIONAL SOUND & LIGHTING",
+        experience: "Experience the Vibe",
+        djTitle: "Full DJ Services",
+        djText: "Weddings, Quinceañeras, and Private Events. We bring the party to you.",
+        btnBook: "Book Now",
+        rentalTitle: "Equipment Rental",
+        rentalText: "Rent professional speakers, subwoofers, and lights for your own event.",
+        btnRent: "Rent Equipment",
+        follow: "Follow the vibe:"
+    },
+    es: {
+        tagline: "SONIDO Y LUCES PROFESIONALES",
+        experience: "Vive la Experiencia",
+        djTitle: "Servicios de DJ Completos",
+        djText: "Bodas, Quinceañeras y Eventos Privados. Llevamos la fiesta a tu lugar.",
+        btnBook: "Reservar Ahora",
+        rentalTitle: "Renta de Equipos",
+        rentalText: "Renta bocinas profesionales, subwoofers y luces para tu propio evento.",
+        btnRent: "Ver Equipos",
+        follow: "Síguenos:"
+    }
 };
 
-function cargarEquipo() {
-    const lista = document.getElementById('equipo-lista');
-    if(lista) {
-        lista.innerHTML = infoEmpresa.equipos.map(item => `
-            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222;">
-                <span>${item.nombre}</span>
-                <span style="color: var(--primary); font-weight: bold;">x${item.cantidad}</span>
-            </div>
-        `).join('');
-    }
+function translatePage(lang) {
+    document.getElementById('tagline').innerText = data[lang].tagline;
+    document.getElementById('experience-title').innerText = data[lang].experience;
+    document.getElementById('dj-title').innerText = data[lang].djTitle;
+    document.getElementById('dj-text').innerText = data[lang].djText;
+    document.getElementById('btn-book').innerText = data[lang].btnBook;
+    document.getElementById('rental-title').innerText = data[lang].rentalTitle;
+    document.getElementById('rental-text').innerText = data[lang].rentalText;
+    document.getElementById('btn-rent').innerText = data[lang].btnRent;
+    document.getElementById('follow-text').innerText = data[lang].follow;
 }
 
-window.onload = cargarEquipo;
+// Iniciar cargando equipos si estamos en renta.html (opcional)
+window.onload = function() {
+    console.log("Jeca Audio Loaded");
+};
