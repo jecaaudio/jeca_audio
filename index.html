@@ -3,232 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JECA AUDIO | DJ & Audio Rental</title>
-
+    <title>Jeca Audio | DJ & Audio Rental Louisville</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background-color: #0f0f0f;
-            color: white;
+        :root {
+            --primary: #f39c12;
+            --bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #ffffff;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6;
+        }
+
+        /* Selector de Idioma Flotante */
+        .lang-switch { 
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            z-index: 1000;
+            background: rgba(0,0,0,0.6);
+            padding: 5px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .lang-switch button { 
+            background: transparent; 
+            border: 1px solid var(--primary); 
+            padding: 6px 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border-radius: 6px;
+            color: var(--primary);
+            transition: 0.3s;
+        }
+        .lang-switch button:hover { background: var(--primary); color: black; }
+
+        /* Hero Section Impactante */
+        header { 
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--primary);
             text-align: center;
         }
 
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-            url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            padding: 80px 20px;
-            border-bottom: 3px solid #f39c12;
-        }
+        h1 { font-size: 4rem; margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 5px; }
+        .location { font-size: 1.2rem; color: #ccc; margin-top: 10px; }
 
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
 
-        .lang-switch button {
-            background: #f39c12;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-            color: black;
-            margin-left: 5px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        .location {
-            color: #f39c12;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        .card {
-            background: #1e1e1e;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
-            margin: 20px 0;
-        }
-
-        h2, h3 {
-            color: #f39c12;
-        }
-
-        .equipo {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 12px;
-            margin: 10px 0;
-            text-align: left;
-            border: 1px solid #333;
-        }
-
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-            padding: 18px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            font-size: 1.2em;
-            transition: 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #1ebe57;
-        }
-
-        .redes a {
-            color: #f39c12;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
-        }
-
-        footer {
-            padding: 20px;
-            font-size: 14px;
-            color: #aaa;
-            background: #000;
+        /* Grid de Servicios */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            transition: 0.4s;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--primary);
+            background: rgba(243, 156, 18, 0.05);
+        }
+
+        /* Botón de Acción Principal */
+        .cta-section { text-align: center; margin-top: 80px; }
+        .btn-whatsapp { 
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white; 
+            padding: 20px 40px; 
+            text-decoration: none; 
+            border-radius: 100px; 
+            font-weight: bold; 
+            font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
+
+        footer { padding: 40px; background: #050505; border-top: 1px solid #222; margin-top: 60px; }
+        .social-links a { color: var(--primary); text-decoration: none; margin: 0 15px; font-size: 1.1rem; }
     </style>
 </head>
-
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switch">
-    <button onclick="changeLang('es')">ESP</button>
-    <button onclick="changeLang('en')">ENG</button>
+    <button onclick="translatePage('es')">ES</button>
+    <button onclick="translatePage('en')">EN</button>
 </div>
 
 <header>
-    <h1>JECA AUDIO</h1>
-    <p id="tagline">Sonido Profesional para Eventos Pequeños y Medianos</p>
-    <div class="location">Louisville, KY</div>
+    <h1 id="title">JECA AUDIO</h1>
+    <p id="tagline" style="font-size: 1.5rem;">The Beat of Louisville</p>
+    <div class="location">📍 Louisville, Kentucky</div>
 </header>
 
 <div class="container">
-
-    <!-- Servicios -->
-    <div class="card">
-        <h2 id="services-title">Nuestros Servicios</h2>
-        <p id="services-text">
-            Ofrecemos servicios de DJ y renta de equipo de audio para todo tipo de eventos sociales y privados en Louisville y alrededores.
-        </p>
+    <div class="grid">
+        <div class="card">
+            <h3 id="serv1-title">🎧 DJ para Eventos</h3>
+            <p id="serv1-text">Especialista en bodas, XV años y eventos corporativos con música de todos los géneros.</p>
+        </div>
+        <div class="card">
+            <h3 id="serv2-title">🔊 Renta de Audio</h3>
+            <p id="serv2-text">Equipos profesionales de alta fidelidad para eventos pequeños y medianos.</p>
+        </div>
     </div>
 
-    <!-- Contacto -->
-    <div class="card">
-        <h2 id="contact-title">¿Listo para tu evento?</h2>
-        <p id="contact-text">Haz clic abajo para enviarme un mensaje directo y obtener una cotización.</p>
+    <div class="cta-section">
+        <h2 id="cta-title">¿Planeando tu próximo evento?</h2>
+        <p id="cta-text" style="margin-bottom: 30px;">Estamos listos para darte la mejor experiencia sonora.</p>
         <a href="https://wa.me/15025540444" class="btn-whatsapp" id="wa-btn">WhatsApp: +1 (502) 554-0444</a>
     </div>
 
-    <!-- Inventario -->
-    <div class="card">
-        <h2 id="inventory-title">Equipo Disponible</h2>
-
-        <h3 id="sound-title">🎶 Sonido</h3>
-        <div class="equipo">Electro-Voice ZLX-12BT — Cant: 4</div>
-        <div class="equipo">Electro-Voice ELX200-18SP — Cant: 2</div>
-        <div class="equipo">Soundcraft UI24R — Cant: 1</div>
-        <div class="equipo">Behringer X32 — Cant: 1</div>
-        <div class="equipo">Pioneer DDJ-FLX4 — Cant: 1</div>
-
-        <h3 id="mic-title">🎤 Micrófonos</h3>
-        <div class="equipo">Phenyx Pro PTAU-2</div>
-        <div class="equipo">Phenyx Pro PTM-33 In-Ear</div>
-
-        <h3 id="light-title">💡 Iluminación</h3>
-        <div class="equipo">Moving Head SPOT 150W</div>
-        <div class="equipo">Spider RGBW LED Bar</div>
-
-        <h3 id="fx-title">🌫️ Efectos</h3>
-        <div class="equipo">Máquina de Humo</div>
-        <div class="equipo">Máquina de Chispas</div>
-
-        <h3 id="struct-title">🧱 Estructura</h3>
-        <div class="equipo">Booth DJ</div>
-        <div class="equipo">Truss 8x8</div>
-    </div>
-
-    <!-- Redes -->
-    <div class="redes">
-        <p id="follow-text">Síguenos en nuestras redes:</p>
-        <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com/el_jeca_" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@el_jeca" target="_blank">TikTok</a>
-    </div>
-
+    <footer class="social-links">
+        <p id="follow">Síguenos:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+    </footer>
 </div>
 
-<footer>
-    © 2025 JECA AUDIO
-</footer>
-
 <script>
-    const content = {
+    const data = {
         es: {
-            tagline: "Sonido Profesional para Eventos Pequeños y Medianos",
-            servicesTitle: "Nuestros Servicios",
-            servicesText: "Ofrecemos servicios de DJ y renta de equipo de audio para todo tipo de eventos sociales y privados en Louisville y alrededores.",
-            contactTitle: "¿Listo para tu evento?",
-            contactText: "Haz clic abajo para enviarme un mensaje directo y obtener una cotización.",
+            tagline: "Sonido Profesional para tus Eventos",
+            serv1Title: "🎧 DJ para Eventos",
+            serv1Text: "Especialista en bodas, XV años y eventos corporativos con música de todos los géneros.",
+            serv2Title: "🔊 Renta de Audio",
+            serv2Text: "Equipos profesionales de alta fidelidad para eventos pequeños y medianos.",
+            ctaTitle: "¿Planeando tu próximo evento?",
+            ctaText: "Estamos listos para darte la mejor experiencia sonora.",
             waBtn: "WhatsApp: +1 (502) 554-0444",
-            inventoryTitle: "Equipo Disponible",
-            soundTitle: "🎶 Sonido",
-            micTitle: "🎤 Micrófonos",
-            lightTitle: "💡 Iluminación",
-            fxTitle: "🌫️ Efectos",
-            structTitle: "🧱 Estructura",
             follow: "Síguenos en nuestras redes:"
         },
         en: {
-            tagline: "Professional Sound for Small and Medium Events",
-            servicesTitle: "Our Services",
-            servicesText: "We offer DJ services and professional audio equipment rental for all types of social and private events in Louisville and surrounding areas.",
-            contactTitle: "Ready for your event?",
-            contactText: "Click below to send me a direct message and get a quote.",
-            waBtn: "WhatsApp: +1 (502) 554-0444",
-            inventoryTitle: "Available Equipment",
-            soundTitle: "🎶 Sound",
-            micTitle: "🎤 Microphones",
-            lightTitle: "💡 Lighting",
-            fxTitle: "🌫️ Effects",
-            structTitle: "🧱 Structure",
+            tagline: "Professional Sound for Your Events",
+            serv1Title: "🎧 DJ Services",
+            serv1Text: "Expertise in weddings, Quinceañeras, and corporate events with all music genres.",
+            serv2Title: "🔊 Audio Rental",
+            serv2Text: "High-fidelity professional equipment for small and medium-sized events.",
+            ctaTitle: "Planning your next event?",
+            ctaText: "We are ready to provide you with the best sound experience.",
+            waBtn: "WhatsApp Us: +1 (502) 554-0444",
             follow: "Follow us on social media:"
         }
     };
 
-    function changeLang(lang) {
-        document.getElementById('tagline').textContent = content[lang].tagline;
-        document.getElementById('services-title').textContent = content[lang].servicesTitle;
-        document.getElementById('services-text').textContent = content[lang].servicesText;
-        document.getElementById('contact-title').textContent = content[lang].contactTitle;
-        document.getElementById('contact-text').textContent = content[lang].contactText;
-        document.getElementById('wa-btn').textContent = content[lang].waBtn;
-        document.getElementById('inventory-title').textContent = content[lang].inventoryTitle;
-        document.getElementById('sound-title').textContent = content[lang].soundTitle;
-        document.getElementById('mic-title').textContent = content[lang].micTitle;
-        document.getElementById('light-title').textContent = content[lang].lightTitle;
-        document.getElementById('fx-title').textContent = content[lang].fxTitle;
-        document.getElementById('struct-title').textContent = content[lang].structTitle;
-        document.getElementById('follow-text').textContent = content[lang].follow;
+    function translatePage(lang) {
+        document.getElementById('tagline').innerText = data[lang].tagline;
+        document.getElementById('serv1-title').innerText = data[lang].serv1Title;
+        document.getElementById('serv1-text').innerText = data[lang].serv1Text;
+        document.getElementById('serv2-title').innerText = data[lang].serv2Title;
+        document.getElementById('serv2-text').innerText = data[lang].serv2Text;
+        document.getElementById('cta-title').innerText = data[lang].ctaTitle;
+        document.getElementById('cta-text').innerText = data[lang].ctaText;
+        document.getElementById('wa-btn').innerText = data[lang].waBtn;
+        document.getElementById('follow').innerText = data[lang].follow;
     }
 </script>
 
