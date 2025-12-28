@@ -9,7 +9,7 @@
         :root {
             --primary: #f39c12;
             --bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.07);
             --text: #ffffff;
         }
 
@@ -19,34 +19,32 @@
             background-color: var(--bg); 
             color: var(--text); 
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Selector de Idioma Flotante */
+        /* Selector de Idioma */
         .lang-switch { 
-            position: fixed; 
-            top: 20px; 
-            right: 20px; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
             z-index: 1000;
-            background: rgba(0,0,0,0.6);
-            padding: 5px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            display: flex;
+            gap: 8px;
         }
         .lang-switch button { 
-            background: transparent; 
+            background: rgba(0,0,0,0.5); 
             border: 1px solid var(--primary); 
-            padding: 6px 12px; 
+            padding: 5px 12px; 
             cursor: pointer; 
             font-weight: bold; 
             border-radius: 6px;
             color: var(--primary);
-            transition: 0.3s;
+            font-size: 0.8rem;
         }
-        .lang-switch button:hover { background: var(--primary); color: black; }
 
-        /* Hero Section Impactante */
+        /* Hero Section adaptable */
         header { 
-            height: 60vh;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,129 +55,138 @@
             background-position: center;
             border-bottom: 4px solid var(--primary);
             text-align: center;
+            padding: 40px 20px;
         }
 
-        h1 { font-size: 4rem; margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 5px; }
-        .location { font-size: 1.2rem; color: #ccc; margin-top: 10px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; }
+        .location { font-size: 1.1rem; color: #ccc; margin-top: 10px; font-weight: bold; }
 
-        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        .container { max-width: 1000px; margin: auto; padding: 30px 15px; }
 
         /* Grid de Servicios */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .card { 
             background: var(--card-bg); 
-            padding: 40px; 
-            border-radius: 20px; 
+            padding: 25px; 
+            border-radius: 15px; 
             border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            transition: 0.4s;
-        }
-        .card:hover { 
-            transform: translateY(-10px); 
-            border-color: var(--primary);
-            background: rgba(243, 156, 18, 0.05);
+            backdrop-filter: blur(10px);
+            text-align: center;
         }
 
-        /* Botón de Acción Principal */
-        .cta-section { text-align: center; margin-top: 80px; }
+        /* Lista de equipo */
+        .equipo-lista { text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; font-size: 0.9rem; }
+        .equipo-item { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 5px 0; }
+
+        /* Botón WhatsApp responsivo */
+        .cta-section { text-align: center; margin-top: 40px; }
         .btn-whatsapp { 
-            background: linear-gradient(45deg, #25d366, #128c7e);
+            background: #25d366;
             color: white; 
-            padding: 20px 40px; 
+            padding: 15px 25px; 
             text-decoration: none; 
-            border-radius: 100px; 
+            border-radius: 50px; 
             font-weight: bold; 
-            font-size: 1.3rem;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-            transition: 0.3s;
-            display: inline-block;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: auto;
+            max-width: 100%;
         }
-        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
 
-        footer { padding: 40px; background: #050505; border-top: 1px solid #222; margin-top: 60px; }
-        .social-links a { color: var(--primary); text-decoration: none; margin: 0 15px; font-size: 1.1rem; }
+        footer { padding: 30px; background: #050505; border-top: 1px solid #222; margin-top: 50px; text-align: center; }
+        .social-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
+
+        /* Ajustes específicos para Celulares */
+        @media (max-width: 600px) {
+            header { min-height: 40vh; }
+            .card { padding: 20px; }
+            .btn-whatsapp { width: 90%; justify-content: center; }
+            .lang-switch { top: 10px; right: 10px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="lang-switch">
-    <button onclick="translatePage('es')">ES</button>
-    <button onclick="translatePage('en')">EN</button>
+    <button onclick="translatePage('es')">ESP</button>
+    <button onclick="translatePage('en')">ENG</button>
 </div>
 
 <header>
     <h1 id="title">JECA AUDIO</h1>
-    <p id="tagline" style="font-size: 1.5rem;">The Beat of Louisville</p>
-    <div class="location">📍 Louisville, Kentucky</div>
+    <p id="tagline">Sonido Profesional para Eventos</p>
+    <div class="location">📍 Louisville, KY</div>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <h3 id="serv1-title">🎧 DJ para Eventos</h3>
-            <p id="serv1-text">Especialista en bodas, XV años y eventos corporativos con música de todos los géneros.</p>
+            <h3 id="serv-title">Nuestros Servicios</h3>
+            <p id="serv-text">DJ y renta de equipo profesional para eventos sociales y privados en Louisville y alrededores.</p>
         </div>
+
         <div class="card">
-            <h3 id="serv2-title">🔊 Renta de Audio</h3>
-            <p id="serv2-text">Equipos profesionales de alta fidelidad para eventos pequeños y medianos.</p>
+            <h3 id="equipo-title">Equipo Disponible</h3>
+            <div class="equipo-lista">
+                <div class="equipo-item"><span>Electro-Voice ZLX-12BT</span> <span>x4</span></div>
+                <div class="equipo-item"><span>Electro-Voice ELX200</span> <span>x2</span></div>
+                <div class="equipo-item"><span>Pioneer DDJ-FLX4</span> <span>x1</span></div>
+                <div class="equipo-item"><span>Luces Moving Head</span> <span>x2</span></div>
+            </div>
         </div>
     </div>
 
     <div class="cta-section">
-        <h2 id="cta-title">¿Planeando tu próximo evento?</h2>
-        <p id="cta-text" style="margin-bottom: 30px;">Estamos listos para darte la mejor experiencia sonora.</p>
-        <a href="https://wa.me/15025540444" class="btn-whatsapp" id="wa-btn">WhatsApp: +1 (502) 554-0444</a>
+        <h2 id="cta-title">¿Listo para tu evento?</h2>
+        <a href="https://wa.me/15025540444" class="btn-whatsapp">
+            <span>WhatsApp: +1 (502) 554-0444</span>
+        </a>
     </div>
 
-    <footer class="social-links">
+    <footer>
         <p id="follow">Síguenos:</p>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+        </div>
     </footer>
 </div>
 
 <script>
     const data = {
         es: {
-            tagline: "Sonido Profesional para tus Eventos",
-            serv1Title: "🎧 DJ para Eventos",
-            serv1Text: "Especialista en bodas, XV años y eventos corporativos con música de todos los géneros.",
-            serv2Title: "🔊 Renta de Audio",
-            serv2Text: "Equipos profesionales de alta fidelidad para eventos pequeños y medianos.",
-            ctaTitle: "¿Planeando tu próximo evento?",
-            ctaText: "Estamos listos para darte la mejor experiencia sonora.",
-            waBtn: "WhatsApp: +1 (502) 554-0444",
+            tagline: "Sonido Profesional para Eventos",
+            servTitle: "Nuestros Servicios",
+            servText: "DJ y renta de equipo profesional para eventos sociales y privados en Louisville y alrededores.",
+            equipoTitle: "Equipo Disponible",
+            ctaTitle: "¿Listo para tu evento?",
             follow: "Síguenos en nuestras redes:"
         },
         en: {
-            tagline: "Professional Sound for Your Events",
-            serv1Title: "🎧 DJ Services",
-            serv1Text: "Expertise in weddings, Quinceañeras, and corporate events with all music genres.",
-            serv2Title: "🔊 Audio Rental",
-            serv2Text: "High-fidelity professional equipment for small and medium-sized events.",
-            ctaTitle: "Planning your next event?",
-            ctaText: "We are ready to provide you with the best sound experience.",
-            waBtn: "WhatsApp Us: +1 (502) 554-0444",
+            tagline: "Professional Sound for Events",
+            servTitle: "Our Services",
+            servText: "DJ and professional equipment rental for social and private events in Louisville and surroundings.",
+            equipoTitle: "Available Equipment",
+            ctaTitle: "Ready for your event?",
             follow: "Follow us on social media:"
         }
     };
 
     function translatePage(lang) {
         document.getElementById('tagline').innerText = data[lang].tagline;
-        document.getElementById('serv1-title').innerText = data[lang].serv1Title;
-        document.getElementById('serv1-text').innerText = data[lang].serv1Text;
-        document.getElementById('serv2-title').innerText = data[lang].serv2Title;
-        document.getElementById('serv2-text').innerText = data[lang].serv2Text;
+        document.getElementById('serv-title').innerText = data[lang].servTitle;
+        document.getElementById('serv-text').innerText = data[lang].servText;
+        document.getElementById('equipo-title').innerText = data[lang].equipoTitle;
         document.getElementById('cta-title').innerText = data[lang].ctaTitle;
-        document.getElementById('cta-text').innerText = data[lang].ctaText;
-        document.getElementById('wa-btn').innerText = data[lang].waBtn;
         document.getElementById('follow').innerText = data[lang].follow;
     }
 </script>
