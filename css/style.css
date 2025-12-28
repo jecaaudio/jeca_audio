@@ -1,32 +1,40 @@
+:root {
+    --primary: #f39c12;
+    --primary-dark: #d35400;
+    --bg: #050505;
+    --card-bg: #121212;
+    --text: #ffffff;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    margin: 0; background-color: var(--bg); color: var(--text); 
+    line-height: 1.6; text-align: center;
+}
+
 /* Selector de Idioma Integrado */
 .lang-switch {
     position: absolute;
-    top: 30px; /* Ajustado para alinear con el header */
-    right: 40px;
+    top: 20px;
+    right: 20px;
     z-index: 1000;
     display: flex;
-    gap: 0; /* Sin espacio para que parezcan una sola pieza */
-    border: 1px solid rgba(243, 156, 18, 0.4); /* Naranja suave */
-    border-radius: 6px;
-    overflow: hidden; /* Corta las esquinas de los botones */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(243, 156, 18, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .lang-switch button {
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
     border: none;
     color: #fff;
-    padding: 6px 15px;
+    padding: 8px 15px;
     cursor: pointer;
     font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-/* Línea divisoria entre botones */
-.lang-switch button:first-child {
-    border-right: 1px solid rgba(243, 156, 18, 0.4);
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .lang-switch button:hover {
@@ -34,10 +42,46 @@
     color: #000;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 600px) {
-    .lang-switch {
-        top: 15px;
-        right: 15px;
-    }
+.lang-switch button:first-child {
+    border-right: 1px solid rgba(243, 156, 18, 0.3);
 }
+
+/* Header con Imagen */
+header { 
+    height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover; background-position: center; border-bottom: 5px solid var(--primary);
+}
+
+h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); letter-spacing: -1px; }
+.tagline { font-size: 1.1rem; letter-spacing: 4px; color: #bbb; margin-top: 10px; }
+.location { margin-top: 15px; color: var(--primary); font-weight: bold; }
+
+/* Contenedor y Tarjetas */
+.container { max-width: 1100px; margin: auto; padding: 50px 20px; }
+.section-title { font-size: 2.2rem; margin-bottom: 40px; }
+
+.decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.decision-card { 
+    background: var(--card-bg); padding: 40px 25px; border-radius: 20px; 
+    border: 1px solid #222; transition: 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.decision-card:hover { 
+    transform: translateY(-10px); border-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(243, 156, 18, 0.15);
+}
+
+.card-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+
+/* Botones */
+.btn-main { background: var(--primary); color: #000; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+.btn-outline { border: 2px solid var(--primary); color: var(--primary); padding: 10px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+
+/* Footer */
+footer { margin-top: 60px; padding-top: 30px; border-top: 1px solid #222; }
+.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+.social-links a { color: #fff; font-size: 2rem; transition: 0.3s; }
+.social-links a:hover { color: var(--primary); transform: scale(1.1); }
