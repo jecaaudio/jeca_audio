@@ -10,10 +10,10 @@ const infoEmpresa = {
             fotos: [
                 "img/productos/audio/zlx200/zlx200.jpg",
                 "img/productos/audio/zlx200/zlx200 1.jpg",
-                "img/productos/audio/zlx200/zlx200 2.jpg"
-                "img/productos/audio/zlx200/zle200 4.jpg"
-                "img/productos/audio/zlx200/zlx200 3.jpg"
-                "img/productos/audio/zlx200/zlx 2005.jpg"
+                "img/productos/audio/zlx200/zlx200 2.jpg",
+                "img/productos/audio/zlx200/zle200 4.jpg",
+                "img/productos/audio/zlx200/zlx200 3.jpg",
+                "img/productos/audio/zlx200/zlx 2005.jpg",
             ]
         },
         { 
@@ -22,11 +22,11 @@ const infoEmpresa = {
             descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. Pro-grade audio quality.",
             fotos: [
                 "img/productos/audio/zlx12bt/zlx12bt.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt 1.jpg"
-                "img/productos/audio/zlx12bt/zlx12bt2.jpg"
-                "iimg/productos/audio/zlx12bt/zlx12bt3.jpg"
-                "img/productos/audio/zlx12bt/zlx12bt4.jpg"
-                "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg"
+                "img/productos/audio/zlx12bt/zlx12bt 1.jpg",
+                "img/productos/audio/zlx12bt/zlx12bt2.jpg",
+                "img/productos/audio/zlx12bt/zlx12bt3.jpg",
+                "img/productos/audio/zlx12bt/zlx12bt4.jpg",
+                "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg",
         
             ]
         }
