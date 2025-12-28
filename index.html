@@ -96,3 +96,33 @@
         es: {
             tagline: "Sonido Profesional para Eventos Pequeños y Medianos",
             servicesTitle: "Nuestros Servicios",
+            servicesText: "Ofrecemos servicios de DJ y renta de equipo de audio para todo tipo de eventos sociales y privados en Louisville y alrededores.",
+            contactTitle: "¿Listo para tu evento?",
+            contactText: "Haz clic abajo para enviarme un mensaje directo y obtener una cotización.",
+            waBtn: "WhatsApp: +1 (502) 554-0444",
+            follow: "Síguenos en nuestras redes:"
+        },
+        en: {
+            tagline: "Professional Sound for Small and Medium Events",
+            servicesTitle: "Our Services",
+            servicesText: "We offer DJ services and professional audio equipment rental for all types of social and private events in Louisville and surrounding areas.",
+            contactTitle: "Ready for your event?",
+            contactText: "Click below to send me a direct message and get a quote.",
+            waBtn: "WhatsApp: +1 (502) 554-0444",
+            follow: "Follow us on social media:"
+        }
+    };
+
+    function changeLang(lang) {
+        document.getElementById('tagline').textContent = content[lang].tagline;
+        document.getElementById('services-title').textContent = content[lang].servicesTitle;
+        document.getElementById('services-text').textContent = content[lang].servicesText;
+        document.getElementById('contact-title').textContent = content[lang].contactTitle;
+        document.getElementById('contact-text').textContent = content[lang].contactText;
+        document.getElementById('wa-btn').textContent = content[lang].waBtn;
+        document.getElementById('follow-text').textContent = content[lang].follow;
+    }
+</script>
+
+</body>
+</html>
