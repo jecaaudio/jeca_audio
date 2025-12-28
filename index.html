@@ -18,16 +18,26 @@
             padding: 40px 20px;
         }
 
-        header img {
-            width: 180px;
-            margin-bottom: 20px;
-        }
-
         section {
             padding: 30px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
+            color: #00bfff;
+        }
+
+        .equipo {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .equipo strong {
             color: #00bfff;
         }
 
@@ -37,14 +47,6 @@
             display: block;
             margin: 10px 0;
             font-size: 18px;
-        }
-
-        a:hover {
-            color: white;
-        }
-
-        .redes {
-            margin-top: 30px;
         }
 
         footer {
@@ -59,10 +61,6 @@
 <body>
 
 <header>
-    <!-- AQUÍ VA TU LOGO -->
-    <!-- Si el logo no sale, no pasa nada, la página sigue funcionando -->
-    <img src="logo.png" alt="JECA AUDIO">
-
     <h1>JECA AUDIO</h1>
     <p>DJ & Audio Services</p>
     <p>Louisville, Kentucky</p>
@@ -71,37 +69,45 @@
 <section>
     <h2>Contacto</h2>
 
-    <!-- WhatsApp -->
     <a href="https://wa.me/15020000000" target="_blank">
-        📲 Escríbenos por WhatsApp
+        📲 WhatsApp
     </a>
 
-    <!-- Teléfono -->
     <a href="tel:+15020000000">
         📞 Llamar
     </a>
 </section>
 
-<section class="redes">
-    <h2>Síguenos</h2>
+<section>
+    <h2>Equipo Disponible / Equipment</h2>
 
-    <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank">
-        Facebook
-    </a>
+    <h3>🎶 Sonido / Sound</h3>
 
-    <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj" target="_blank">
-        Instagram
-    </a>
+    <div class="equipo">
+        <strong>Electro-Voice ZLX-12BT</strong><br>
+        Cantidad: 4<br>
+        Renta por día: $80
+    </div>
 
-    <a href="https://www.tiktok.com/@el_jeca?is_from_webapp=1&sender_device=pc" target="_blank">
-        TikTok
-    </a>
-</section>
+    <div class="equipo">
+        <strong>Electro-Voice ELX200-18SP (Subwoofer)</strong><br>
+        Cantidad: 2<br>
+        Renta por día: $120
+    </div>
 
-<footer>
-    © 2025 JECA AUDIO — Todos los derechos reservados
-</footer>
+    <div class="equipo">
+        <strong>Soundcraft UI24R – Consola Digital</strong><br>
+        Cantidad: 1<br>
+        Renta por día: $150
+    </div>
 
-</body>
-</html>
+    <div class="equipo">
+        <strong>Behringer X32 – Consola Digital</strong><br>
+        Cantidad: 1<br>
+        Renta por día: $250
+    </div>
 
+    <div class="equipo">
+        <strong>Pioneer DDJ-FLX4 – Controladora DJ</strong><br>
+        Cantidad: 1<br>
+        Renta por d
