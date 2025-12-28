@@ -1,129 +1,12 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeca Audio | DJ & Audio Rental Louisville</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #f39c12;
-            --bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.07);
-            --text: #ffffff;
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .lang-switch { 
-            position: absolute; 
-            top: 15px; 
-            right: 15px; 
-            z-index: 1000;
-            display: flex;
-            gap: 8px;
-        }
-        .lang-switch button { 
-            background: rgba(0,0,0,0.5); 
-            border: 1px solid var(--primary); 
-            padding: 5px 12px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            border-radius: 6px;
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-
-        header { 
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 4px solid var(--primary);
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; }
-        .location { font-size: 1.1rem; color: #ccc; margin-top: 10px; font-weight: bold; }
-
-        .container { max-width: 1000px; margin: auto; padding: 30px 15px; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card { 
-            background: var(--card-bg); 
-            padding: 25px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-
-        .equipo-lista { text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; font-size: 0.9rem; }
-        .equipo-item { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 5px 0; }
-
-        /* Nueva Galería de Equipos */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover img { transform: scale(1.1); }
-
-        .cta-section { text-align: center; margin-top: 40px; }
-        .btn-whatsapp { 
-            background: #25d366;
-            color: white; 
-            padding: 15px 25px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        footer { padding: 30px; background: #050505; border-top: 1px solid #222; margin-top: 50px; text-align: center; }
-        .social-links a { color: var(--primary); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
-
-        @media (max-width: 600px) {
-            header { min-height: 40vh; }
-            .btn-whatsapp { width: 90%; justify-content: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -156,70 +39,23 @@
         </div>
     </div>
 
-    <div class="card">
-        <h3 id="gallery-title">Galería de Equipos</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=60" alt="Altavoz Electro-Voice">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&w=500&q=60" alt="Consola Pioneer">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=60" alt="Luces de escenario">
-            </div>
-        </div>
-    </div>
-
     <div class="cta-section">
         <h2 id="cta-title">¿Listo para tu evento?</h2>
         <a href="https://wa.me/15025540444" class="btn-whatsapp">
-            <span>WhatsApp: +1 (502) 554-0444</span>
+            <i class="fab fa-whatsapp"></i> <span>WhatsApp: +1 (502) 554-0444</span>
         </a>
     </div>
 
     <footer>
-        <p id="follow">Síguenos:</p>
+        <p id="follow">Síguenos en nuestras redes:</p>
         <div class="social-links">
-            <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr">Facebook</a>
-            <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj">Instagram</a>
-            <a href="https://www.tiktok.com/@el_jeca">TikTok</a>
+            <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@el_jeca" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
     </footer>
 </div>
 
-<script>
-    const data = {
-        es: {
-            tagline: "Sonido Profesional para Eventos",
-            servTitle: "Nuestros Servicios",
-            servText: "DJ y renta de equipo profesional para eventos sociales y privados en Louisville y alrededores.",
-            equipoTitle: "Equipo Disponible",
-            galleryTitle: "Galería de Equipos",
-            ctaTitle: "¿Listo para tu evento?",
-            follow: "Síguenos en nuestras redes:"
-        },
-        en: {
-            tagline: "Professional Sound for Events",
-            servTitle: "Our Services",
-            servText: "DJ and professional equipment rental for social and private events in Louisville and surroundings.",
-            equipoTitle: "Available Equipment",
-            galleryTitle: "Equipment Gallery",
-            ctaTitle: "Ready for your event?",
-            follow: "Follow us on social media:"
-        }
-    };
-
-    function translatePage(lang) {
-        document.getElementById('tagline').innerText = data[lang].tagline;
-        document.getElementById('serv-title').innerText = data[lang].servTitle;
-        document.getElementById('serv-text').innerText = data[lang].servText;
-        document.getElementById('equipo-title').innerText = data[lang].equipoTitle;
-        document.getElementById('gallery-title').innerText = data[lang].galleryTitle;
-        document.getElementById('cta-title').innerText = data[lang].ctaTitle;
-        document.getElementById('follow').innerText = data[lang].follow;
-    }
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
