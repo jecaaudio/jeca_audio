@@ -1,25 +1,43 @@
-/* Añade esto a tu archivo style.css y borra lo de Google */
+/* Selector de Idioma Integrado */
 .lang-switch {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px; /* Ajustado para alinear con el header */
+    right: 40px;
     z-index: 1000;
     display: flex;
-    gap: 10px;
+    gap: 0; /* Sin espacio para que parezcan una sola pieza */
+    border: 1px solid rgba(243, 156, 18, 0.4); /* Naranja suave */
+    border-radius: 6px;
+    overflow: hidden; /* Corta las esquinas de los botones */
 }
 
 .lang-switch button {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid var(--primary);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: #fff;
+    padding: 6px 15px;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Línea divisoria entre botones */
+.lang-switch button:first-child {
+    border-right: 1px solid rgba(243, 156, 18, 0.4);
 }
 
 .lang-switch button:hover {
     background: var(--primary);
-    color: black;
+    color: #000;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    .lang-switch {
+        top: 15px;
+        right: 15px;
+    }
 }
