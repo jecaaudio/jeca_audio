@@ -1,69 +1,25 @@
-:root {
-    --primary: #f39c12;
-    --primary-dark: #d35400;
-    --bg: #050505;
-    --card-bg: #121212;
-    --text: #ffffff;
+/* Añade esto a tu archivo style.css y borra lo de Google */
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
 }
 
-body { 
-    font-family: 'Inter', sans-serif; 
-    margin: 0; background-color: var(--bg); color: var(--text); 
-    line-height: 1.6; text-align: center;
+.lang-switch button {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--primary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Header con más fuerza */
-header { 
-    height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover; background-position: center; border-bottom: 5px solid var(--primary);
+.lang-switch button:hover {
+    background: var(--primary);
+    color: black;
 }
-
-h1 { font-size: 4rem; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--primary); }
-.tagline { font-size: 1.2rem; letter-spacing: 5px; font-weight: 300; margin-top: 10px; color: #aaa; }
-
-/* Selector de Idioma */
-.lang-selector { position: absolute; top: 20px; right: 20px; z-index: 100; }
-.goog-te-gadget-simple { background: rgba(0,0,0,0.8)!important; border: 1px solid var(--primary)!important; padding: 10px!important; border-radius: 5px!important; }
-.goog-te-gadget-simple a { color: #fff!important; text-decoration: none!important; }
-
-/* Grid de Decisión */
-.container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-.section-title { font-size: 2.5rem; margin-bottom: 40px; }
-
-.decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-
-.decision-card { 
-    background: var(--card-bg); padding: 50px 30px; border-radius: 20px; 
-    border: 1px solid #222; transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.decision-card:hover { 
-    transform: translateY(-15px); border-color: var(--primary);
-    box-shadow: 0 15px 40px rgba(243, 156, 18, 0.2);
-}
-
-.card-icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
-
-/* Botones con estilo */
-.btn-main, .btn-outline { 
-    display: inline-block; padding: 15px 40px; border-radius: 50px; 
-    font-weight: bold; text-decoration: none; margin-top: 25px; transition: 0.3s;
-}
-
-.btn-main { background: var(--primary); color: #000; }
-.btn-main:hover { background: var(--primary-dark); transform: scale(1.05); }
-
-.btn-outline { border: 2px solid var(--primary); color: var(--primary); }
-.btn-outline:hover { background: var(--primary); color: #000; }
-
-/* Footer */
-footer { margin-top: 80px; padding-top: 40px; border-top: 1px solid #222; }
-.social-links { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
-.social-links a { color: #fff; font-size: 2rem; transition: 0.3s; }
-.social-links a:hover { color: var(--primary); transform: scale(1.2); }
-
-/* Limpieza de Google Translate */
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top: 0px !important; }
