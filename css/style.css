@@ -32,3 +32,22 @@ header {
 
 .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
 .lang-switch button { background: rgba(255,255,255,0.1); border: 1px solid var(--primary); color: white; padding: 5px 15px; border-radius: 5px; cursor: pointer; }
+/* --- ESTILO DE REDES SOCIALES --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Esto separa los iconos entre sí */
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #f39c12 !important; /* Color naranja de tu marca */
+    font-size: 4rem !important; /* Tamaño GRANDE */
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #ffffff !important; /* Cambia a blanco al tocarlo */
+    transform: scale(1.2); /* Crece un poquito al pasar el mouse */
+}
