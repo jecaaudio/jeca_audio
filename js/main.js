@@ -18,7 +18,7 @@ const data = {
         btnBook: "Reservar Ahora",
         rentalTitle: "Renta de Equipos",
         rentalText: "Renta bocinas profesionales, subwoofers y luces para tu propio evento.",
-        btnRent: "Ver Equipos",
+        btnRent: "Ver Inventario",
         follow: "Síguenos:"
     }
 };
@@ -34,8 +34,3 @@ function translatePage(lang) {
     document.getElementById('btn-rent').innerText = data[lang].btnRent;
     document.getElementById('follow-text').innerText = data[lang].follow;
 }
-
-// Iniciar cargando equipos si estamos en renta.html (opcional)
-window.onload = function() {
-    console.log("Jeca Audio Loaded");
-};
