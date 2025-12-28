@@ -23,6 +23,11 @@ const infoEmpresa = {
             fotos: [
                 "img/productos/audio/zlx12bt/zlx12bt.jpg",
                 "img/productos/audio/zlx12bt/zlx12bt 1.jpg"
+                "img/productos/audio/zlx12bt/zlx12bt2.jpg"
+                "iimg/productos/audio/zlx12bt/zlx12bt3.jpg"
+                "img/productos/audio/zlx12bt/zlx12bt4.jpg"
+                "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg"
+        
             ]
         }
     ]
