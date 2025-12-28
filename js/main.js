@@ -2,9 +2,9 @@ const infoEmpresa = {
     // SECCIÓN DE RENTA (PRODUCTOS)
     equipos: [
         { 
-            nombre: "Electro-Voice ELX200", 
-            descripcion: "Professional 18-inch Powered Subwoofer. Ideal for deep bass and high-performance sound.",
-            img: "img/zlx200.jpg" // Conectado a tu archivo zlx200.jpg
+            nombre: "Electro-Voice ELX200-18SP Subwoofer", 
+            descripcion: "Professional 18-inch powered subwoofer with Deluxe Padded Cover. Delivers powerful low-frequency output for high-impact sound.",
+            img: "img/productos/audio/zlx200/zlx200.jpg" 
         }
     ]
 };
@@ -54,13 +54,13 @@ function cargarEquipoRental() {
                 <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover;">
                 <h3>${item.nombre}</h3>
                 <p>${item.descripcion}</p>
-                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20${item.nombre}" class="btn-outline">Inquire Price</a>
+                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20the%20${encodeURIComponent(item.nombre)}" class="btn-outline">Inquire Price</a>
             </div>
         `).join('');
     }
 }
 
-// Ejecutar al cargar la página
-window.onload = function() {
+// Asegura que se carguen los datos al abrir la página
+document.addEventListener('DOMContentLoaded', () => {
     cargarEquipoRental();
-};
+});
