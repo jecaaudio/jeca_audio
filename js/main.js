@@ -1,61 +1,22 @@
 const infoEmpresa = {
+    // SECCIÓN DE RENTA (PRODUCTOS)
     equipos: [
         { 
             nombre: "Electro-Voice ELX200", 
-            descripcion: "Professional 18-inch Powered Subwoofer for deep, powerful bass.",
-            img: "img/zlx200" 
+            descripcion: "Professional 18-inch Powered Subwoofer.",
+            img: "img/productos/zlx200.jpg" // <--- Mira cómo queda la ruta
+        },
+        { 
+            nombre: "Moving Heads Lighting", 
+            descripcion: "Efectos de luces para pista de baile.",
+            img: "img/productos/luces.jpg" 
+        }
+    ],
+    // SECCIÓN DE EVENTOS (Para uso futuro)
+    eventos: [
+        {
+            nombre: "Boda en Louisville",
+            img: "img/eventos/boda1.jpg"
         }
     ]
 };
-
-const data = {
-    en: {
-        tagline: "PROFESSIONAL SOUND & LIGHTING",
-        experience: "Experience the Vibe",
-        djTitle: "Full DJ Services",
-        djText: "Weddings, Quinceañeras, and Private Events. We bring the party to you.",
-        btnBook: "Book Now",
-        rentalTitle: "Equipment Rental",
-        rentalText: "Rent professional speakers, subwoofers, and lights for your own event.",
-        btnRent: "Rent Equipment",
-        follow: "Follow the vibe:"
-    },
-    es: {
-        tagline: "SONIDO Y LUCES PROFESIONALES",
-        experience: "Vive la Experiencia",
-        djTitle: "Servicios de DJ Completos",
-        djText: "Bodas, Quinceañeras y Eventos Privados. Llevamos la fiesta a tu lugar.",
-        btnBook: "Reservar Ahora",
-        rentalTitle: "Renta de Equipos",
-        rentalText: "Renta bocinas profesionales, subwoofers y luces para tu propio evento.",
-        btnRent: "Ver Inventario",
-        follow: "Síguenos:"
-    }
-};
-
-function translatePage(lang) {
-    document.getElementById('tagline').innerText = data[lang].tagline;
-    document.getElementById('experience-title').innerText = data[lang].experience;
-    document.getElementById('dj-title').innerText = data[lang].djTitle;
-    document.getElementById('dj-text').innerText = data[lang].djText;
-    document.getElementById('btn-book').innerText = data[lang].btnBook;
-    document.getElementById('rental-title').innerText = data[lang].rentalTitle;
-    document.getElementById('rental-text').innerText = data[lang].rentalText;
-    document.getElementById('btn-rent').innerText = data[lang].btnRent;
-    document.getElementById('follow-text').innerText = data[lang].follow;
-}
-
-// Función para cargar los equipos en rental.html
-function cargarEquipoRental() {
-    const grid = document.getElementById('rental-grid');
-    if(grid) {
-        grid.innerHTML = infoEmpresa.equipos.map(item => `
-            <div class="decision-card">
-                <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover;">
-                <h3>${item.nombre}</h3>
-                <p>${item.descripcion}</p>
-                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20${item.nombre}" class="btn-outline">Inquire Price</a>
-            </div>
-        `).join('');
-    }
-}
