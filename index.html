@@ -1,143 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeca Audio | DJ & Audio Rental Louisville</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #f39c12;
-            --bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --text: #ffffff;
-        }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            text-align: center;
-        }
+/* BOTÓN PRINCIPAL (WhatsApp, Contacto, etc.) */
+.btn-main {
+    background: linear-gradient(135deg, #f39c12, #ffcc66);
+    color: #000;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(243,156,18,0.5);
+}
 
-        .lang-switch { 
-            position: absolute; top: 15px; right: 15px; z-index: 1000;
-        }
-        .lang-switch button { 
-            background: rgba(0,0,0,0.6); border: 1px solid var(--primary); 
-            padding: 5px 10px; cursor: pointer; color: var(--primary); 
-            border-radius: 5px; font-weight: bold; font-size: 12px;
-        }
+.btn-main:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(243,156,18,0.9);
+}
 
-        header { 
-            padding: 80px 20px; 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover; background-position: center;
-            border-bottom: 3px solid var(--primary);
-        }
+/* BOTONES DE IDIOMA */
+.lang-switch button {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        h1 { font-size: clamp(2rem, 10vw, 4rem); margin: 0; color: var(--primary); letter-spacing: 4px; }
-        .location { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
+.lang-switch button:hover {
+    background: #f39c12;
+    color: #000;
+    transform: scale(1.1);
+}
 
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+/* BOTONES DE REDES SOCIALES */
+.redes a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    color: #f39c12;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .card { 
-            background: var(--card-bg); padding: 30px; border-radius: 20px; 
-            border: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-whatsapp { 
-            background: #25d366; color: white; padding: 18px 30px; 
-            text-decoration: none; border-radius: 50px; font-weight: bold; 
-            display: inline-flex; align-items: center; gap: 10px;
-            font-size: 1.1rem; transition: 0.3s;
-        }
-        .btn-whatsapp:hover { transform: scale(1.05); }
-
-        /* Estilo de Redes Sociales */
-        footer { 
-            background: #000; padding: 50px 20px; border-top: 1px solid #222; 
-        }
-        .social-icons { 
-            display: flex; justify-content: center; gap: 30px; margin-top: 20px; 
-        }
-        .social-icons a { 
-            color: white; font-size: 2rem; transition: 0.3s; 
-        }
-        .social-icons a:hover { color: var(--primary); transform: translateY(-5px); }
-
-        @media (max-width: 600px) {
-            .social-icons { gap: 20px; }
-            .btn-whatsapp { width: 90%; justify-content: center; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="lang-switch">
-    <button onclick="changeLang('es')">ESP</button>
-    <button onclick="changeLang('en')">ENG</button>
-</div>
-
-<header>
-    <h1>JECA AUDIO</h1>
-    <p id="tagline">Sonido Profesional para Eventos</p>
-    <div class="location">📍 Louisville, KY</div>
-</header>
-
-<div class="container">
-    <div class="card">
-        <h2 id="serv-title">Nuestros Servicios</h2>
-        <p id="serv-text">DJ profesional y renta de equipo de audio para bodas, XV años y todo tipo de fiestas en Louisville.</p>
-    </div>
-
-    <div class="card" style="text-align: center;">
-        <h2 id="cta-title">¿Listo para tu evento?</h2>
-        <a href="https://wa.me/15025540444" class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp: +1 (502) 554-0444
-        </a>
-    </div>
-</div>
-
-<footer>
-    <p id="follow-text" style="font-weight: bold; margin-bottom: 20px;">SÍGUENOS EN REDES SOCIALES</p>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@el_jeca?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
-    </div>
-    <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Jeca Audio - Louisville, KY</p>
-</footer>
-
-<script>
-    const content = {
-        es: {
-            tagline: "Sonido Profesional para Eventos",
-            servTitle: "Nuestros Servicios",
-            servText: "DJ profesional y renta de equipo de audio para bodas, XV años y todo tipo de fiestas en Louisville.",
-            ctaTitle: "¿Listo para tu evento?",
-            follow: "SÍGUENOS EN REDES SOCIALES"
-        },
-        en: {
-            tagline: "Professional Sound for Your Events",
-            servTitle: "Our Services",
-            servText: "Professional DJ services and audio equipment rental for weddings, Quinceañeras, and all types of parties in Louisville.",
-            ctaTitle: "Ready for your event?",
-            follow: "FOLLOW US ON SOCIAL MEDIA"
-        }
-    };
-
-    function changeLang(lang) {
-        document.getElementById('tagline').innerText = content[lang].tagline;
-        document.getElementById('serv-title').innerText = content[lang].servTitle;
-        document.getElementById('serv-text').innerText = content[lang].servText;
-        document.getElementById('cta-title').innerText = content[lang].ctaTitle;
-        document.getElementById('follow-text').innerText = content[lang].follow;
-    }
-</script>
-
-</body>
-</html>
+.redes a:hover {
+    background: #f39c12;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(243,156,18,0.7);
+}
