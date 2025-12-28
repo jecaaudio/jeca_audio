@@ -1,24 +1,9 @@
 const infoEmpresa = {
     equipos: [
         { 
-            nombre: "Electro-Voice ZLX-12BT", 
-            descripcion: "12-inch Powered Loudspeaker with Bluetooth.",
-            img: "img/equipos/zlx12.jpg" 
-        },
-        { 
             nombre: "Electro-Voice ELX200", 
-            descripcion: "18-inch Powered Subwoofer for deep bass.",
-            img: "img/equipos/elx200.jpg" 
-        },
-        { 
-            nombre: "Pioneer DDJ-FLX4", 
-            descripcion: "Professional 2-channel DJ Controller.",
-            img: "img/equipos/ddjflx4.jpg" 
-        },
-        { 
-            nombre: "Moving Head Lights", 
-            descripcion: "DMX controlled dynamic lighting effects.",
-            img: "img/equipos/lights.jpg" 
+            descripcion: "Professional 18-inch Powered Subwoofer for deep, powerful bass.",
+            img: "img/zlx200" 
         }
     ]
 };
@@ -60,16 +45,16 @@ function translatePage(lang) {
     document.getElementById('follow-text').innerText = data[lang].follow;
 }
 
-// Función específica para la página de Rental
+// Función para cargar los equipos en rental.html
 function cargarEquipoRental() {
     const grid = document.getElementById('rental-grid');
     if(grid) {
         grid.innerHTML = infoEmpresa.equipos.map(item => `
             <div class="decision-card">
-                <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333;">
+                <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover;">
                 <h3>${item.nombre}</h3>
                 <p>${item.descripcion}</p>
-                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20${item.nombre}" class="btn-outline" style="font-size: 0.8rem;">Inquire Price</a>
+                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20${item.nombre}" class="btn-outline">Inquire Price</a>
             </div>
         `).join('');
     }
