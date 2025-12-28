@@ -10,37 +10,40 @@
 </head>
 <body>
 
-<div id="google_translate_element" class="lang-selector"></div>
+<div class="lang-switch">
+    <button onclick="translatePage('en')">ENG</button>
+    <button onclick="translatePage('es')">ESP</button>
+</div>
 
 <header>
     <div class="header-content">
         <h1>JECA AUDIO</h1>
-        <p class="tagline">PROFESSIONAL SOUND & LIGHTING</p>
+        <p id="tagline" class="tagline">PROFESSIONAL SOUND & LIGHTING</p>
         <div class="location">📍 Louisville, KY</div>
     </div>
 </header>
 
 <div class="container">
-    <h2 class="section-title">Experience the Vibe</h2>
+    <h2 id="experience-title" class="section-title">Experience the Vibe</h2>
     
     <div class="decision-grid">
         <div class="decision-card">
             <div class="card-icon"><i class="fas fa-compact-disc"></i></div>
-            <h3>Full DJ Services</h3>
-            <p>Weddings, Quinceañeras, and Private Events. We bring the party to you.</p>
-            <a href="https://wa.me/15025540444" class="btn-main">Book Now</a>
+            <h3 id="dj-title">Full DJ Services</h3>
+            <p id="dj-text">Weddings, Quinceañeras, and Private Events. We bring the party to you.</p>
+            <a href="https://wa.me/15025540444" id="btn-book" class="btn-main">Book Now</a>
         </div>
         
         <div class="decision-card">
             <div class="card-icon"><i class="fas fa-speakers"></i></div>
-            <h3>Equipment Rental</h3>
-            <p>Rent professional speakers, subwoofers, and lights for your own event.</p>
-            <a href="renta.html" class="btn-outline">Rent Equipment</a>
+            <h3 id="rental-title">Equipment Rental</h3>
+            <p id="rental-text">Rent professional speakers, subwoofers, and lights for your own event.</p>
+            <a href="renta.html" id="btn-rent" class="btn-outline">Rent Equipment</a>
         </div>
     </div>
 
     <footer>
-        <p>Follow the vibe:</p>
+        <p id="follow-text">Follow the vibe:</p>
         <div class="social-links">
             <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -49,12 +52,6 @@
     </footer>
 </div>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
