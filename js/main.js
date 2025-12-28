@@ -11,6 +11,9 @@ const infoEmpresa = {
                 "img/productos/audio/zlx200/zlx200.jpg",
                 "img/productos/audio/zlx200/zlx200 1.jpg",
                 "img/productos/audio/zlx200/zlx200 2.jpg"
+                "img/productos/audio/zlx200/zle200 4.jpg"
+                "img/productos/audio/zlx200/zlx200 3.jpg"
+                "img/productos/audio/zlx200/zlx 2005.jpg"
             ]
         },
         { 
