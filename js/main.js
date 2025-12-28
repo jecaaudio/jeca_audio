@@ -59,7 +59,7 @@ function cargarEquipoRental() {
                 <img src="${item.img}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover;">
                 <h3>${item.nombre}</h3>
                 <p>${item.descripcion}</p>
-                <a href="https://wa.me/15025540444?text=I'm%20interested%20in%20renting%20the%20${encodeURIComponent(item.nombre)}" class="btn-outline">Inquire Price</a>
+                <a href="https://wa.me/15025540333?text=I'm%20interested%20in%20renting%20the%20${encodeURIComponent(item.nombre)}" class="btn-outline">Inquire Price</a>
             </div>
         `).join('');
     }
