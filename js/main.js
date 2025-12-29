@@ -105,10 +105,15 @@ function cargarEquipoRental(filtro = 'all') {
     `).join('');
 }
 
-function filtrarEquipos(cat) {
+// Añadimos 'e' como parámetro
+function filtrarEquipos(cat, e) { 
     const botones = document.querySelectorAll('.filter-btn');
     botones.forEach(btn => btn.classList.remove('active'));
-    if (event && event.currentTarget) event.currentTarget.classList.add('active');
+    
+    // Ahora usamos 'e.currentTarget' de forma segura
+    if (e && e.currentTarget) {
+        e.currentTarget.classList.add('active');
+    }
     cargarEquipoRental(cat);
 }
 
