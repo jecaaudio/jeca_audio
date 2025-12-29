@@ -57,12 +57,10 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
 
 /* 4. CONTENEDOR PRINCIPAL (EVITA SOLAPAMIENTO) */
 .container {
+    padding-top: 75vh; /* Esto crea el espacio interno necesario sin ocultar los banners */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-top: 75vh; /* Ajuste para que el contenido empiece después de la foto */
-    padding-bottom: 50px;
 }
 
 /* 5. DISEÑO DE TARJETAS */
