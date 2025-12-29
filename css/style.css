@@ -1,4 +1,55 @@
-/* Esto centra las tarjetas y les da el espacio correcto */
+/* 1. CONFIGURACIÓN DE COLORES Y BASE */
+:root {
+    --primary: #f39c12;
+    --primary-dark: #d35400;
+    --bg: #050505;
+    --text: #ffffff;
+}
+
+html, body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 2. ENCABEZADO (HEADER) */
+header { 
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid var(--primary);
+    text-align: center;
+}
+
+h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
+.tagline { font-size: 1.1rem; letter-spacing: 4px; color: #bbb; text-transform: uppercase; }
+
+/* 3. BOTONES DE IDIOMA (ARREGLO DE UBICACIÓN) */
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 4. DISEÑO DE TARJETAS (RE-ESTABLECIDO) */
 .decision-grid {
     display: flex;
     flex-direction: column;
@@ -7,9 +58,8 @@
     padding: 40px 20px;
 }
 
-/* Restaura el fondo negro y bordes redondeados de las tarjetas */
 .decision-card {
-    background: #111; /* Fondo oscuro como en el encabezado */
+    background: #111;
     border: 1px solid #333;
     border-radius: 20px;
     padding: 40px;
@@ -20,63 +70,22 @@
 }
 
 .decision-card:hover {
-    border-color: #f39c12; /* El naranja de JECA AUDIO */
+    border-color: var(--primary);
     transform: translateY(-5px);
 }
 
-/* Arregla el botón de "Book Now" para que sea naranja sólido */
-.btn-main {
-    background: #f39c12;
-    color: #000;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-/* Arregla el botón de "Rent Equipment" para que sea delineado */
-.btn-outline {
-    border: 2px solid #f39c12;
-    color: #f39c12;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 20px;
-}
-/* Estilos para los iconos de las tarjetas */
 .card-icon i {
     font-size: 2.5rem;
-    color: #f39c12;
+    color: var(--primary);
     margin-bottom: 20px;
     display: block;
 }
 
-/* Redes Sociales en el pie de página */
-footer {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid #222;
-}
+/* 5. BOTONES Y FOOTER */
+.btn-main { background: var(--primary); color: #000; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+.btn-outline { border: 2px solid var(--primary); color: var(--primary); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    color: #f39c12;
-    font-size: 3.5rem; /* Tamaño grande para que resalten */
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #fff;
-    transform: scale(1.2);
-}
+footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align: center; }
+.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+.social-links a { color: var(--primary); font-size: 3.5rem; text-decoration: none; transition: 0.3s ease; }
+.social-links a:hover { color: #fff; transform: scale(1.1); }
