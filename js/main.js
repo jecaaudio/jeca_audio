@@ -3,36 +3,107 @@ const infoEmpresa = {
     whatsapp: "15025540333",
     
     equipos: [
-        { 
-            id: "elx200",
-            categoria: "subs", // <--- Añade esto aquí
-            nombre: "Electro-Voice ELX200-18SP", 
-            descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
-            fotos: [
-                "img/productos/audio/zlx200/zlx200.jpg",
-                "img/productos/audio/zlx200/zlx200 1.jpg",
-                "img/productos/audio/zlx200/zlx200 2.jpg",
-                "img/productos/audio/zlx200/zle200 4.jpg",
-                "img/productos/audio/zlx200/zlx200 3.jpg",
-                "img/productos/audio/zlx200/zlx 2005.jpg",
-            ]
-        },
-        { 
-            id: "zlx12bt",
-            categoria: "speakers", // <--- Añade esto aquí
-            nombre: "Electro-Voice ZLX-12BT", 
-            descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. Pro-grade audio quality.",
-            fotos: [
-                "img/productos/audio/zlx12bt/zlx12bt.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt2.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt1.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt3.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt4.jpg",
-                "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg",
-        
-            ]
-        }
-    ]
+    // --- SONIDO / SOUND ---
+    {
+        id: "zlx12bt",
+        categoria: "speakers",
+        nombre: "Electro-Voice ZLX-12BT",
+        descripcion: "Altavoz activo de 12\" con Bluetooth. Perfecto para eventos medianos y monitoreo profesional.",
+        fotos: ["img/productos/audio/ZLX12BT/1.jpg"]
+    },
+    {
+        id: "elx200",
+        categoria: "subs",
+        nombre: "Electro-Voice ELX200-18SP",
+        descripcion: "Subwoofer activo de 18\". Potencia de bajos profunda para llenar cualquier pista de baile.",
+        fotos: ["img/productos/audio/ELX200/1.jpg"]
+    },
+    {
+        id: "ui24r",
+        categoria: "speakers", // Categoría general de audio/consolas
+        nombre: "Soundcraft UI24R",
+        descripcion: "Consola digital de 24 canales con control inalámbrico y grabación multipista profesional.",
+        fotos: ["img/productos/audio/UI24R/1.jpg"]
+    },
+    {
+        id: "x32",
+        categoria: "speakers",
+        nombre: "Behringer X32",
+        descripcion: "Consola digital líder en la industria. Calidad de estudio para sonido en vivo y eventos grandes.",
+        fotos: ["img/productos/audio/X32/1.jpg"]
+    },
+    {
+        id: "flx4",
+        categoria: "speakers",
+        nombre: "Pioneer DDJ-FLX4",
+        descripcion: "Controladora DJ versátil. Ideal para sets dinámicos y compatibilidad con múltiples softwares.",
+        fotos: ["img/productos/audio/FLX4/1.jpg"]
+    },
+
+    // --- MICRÓFONOS Y MONITOREO ---
+    {
+        id: "ptau2",
+        categoria: "mics",
+        nombre: "Phenyx Pro PTAU-2 (2 mics)",
+        descripcion: "Sistema de micrófonos inalámbricos duales de alta fidelidad y largo alcance.",
+        fotos: ["img/productos/mics/PTAU2/1.jpg"]
+    },
+    {
+        id: "ptm33",
+        categoria: "mics",
+        nombre: "Phenyx Pro PTM-33 (1T/4R)",
+        descripcion: "Sistema de monitoreo personal in-ear con 4 receptores para toda la banda o equipo.",
+        fotos: ["img/productos/mics/PTM33/1.jpg"]
+    },
+
+    // --- ILUMINACIÓN / LIGHTING ---
+    {
+        id: "spot150",
+        categoria: "lighting",
+        nombre: "Moving head SPOT 150W",
+        descripcion: "Cabeza móvil tipo Spot potente para efectos visuales definidos y dinámicos.",
+        fotos: ["img/productos/lighting/SPOT150/1.jpg"]
+    },
+    {
+        id: "spider8",
+        categoria: "lighting",
+        nombre: "Barra LED Spider RGBW (8 ojos)",
+        descripcion: "Efecto spider de doble movimiento con rayos LED multicolor muy brillantes.",
+        fotos: ["img/productos/lighting/SPIDER8/1.jpg"]
+    },
+    {
+        id: "rockstrip",
+        categoria: "lighting",
+        nombre: "Rockville ROCKSTRIP 252 RGB",
+        descripcion: "Barra LED para lavado de pared o efectos de persecución rítmica.",
+        fotos: ["img/productos/lighting/ROCKSTRIP/1.jpg"]
+    },
+
+    // --- EFECTOS ESPECIALES ---
+    {
+        id: "fog1500",
+        categoria: "lighting", // Los efectos suelen ir con iluminación
+        nombre: "Máquina de humo FOG MACHINE-1500",
+        descripcion: "Máquina de humo de alta salida para resaltar los rayos de luz y láseres.",
+        fotos: ["img/productos/effects/FOG1500/1.jpg"]
+    },
+    {
+        id: "chispas700",
+        categoria: "lighting",
+        nombre: "Máquina de chispas 700W",
+        descripcion: "Efecto de chispas frías (Sparkular) seguro para interiores. Ideal para bodas y entradas.",
+        fotos: ["img/productos/effects/SPARK700/1.jpg"]
+    },
+
+    // --- ESTRUCTURA / STRUCTURE ---
+    {
+        id: "truss8x8",
+        categoria: "lighting", 
+        nombre: "Truss aluminio completo 8x8",
+        descripcion: "Estructura profesional de aluminio para colgar iluminación y sonido de forma segura.",
+        fotos: ["img/productos/structure/TRUSS8X8/1.jpg"]
+    }
+]
 };
 
 // Función para el movimiento automático de fotos
