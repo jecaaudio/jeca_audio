@@ -3,34 +3,57 @@
  *********************************/
 const translations = {
   en: {
-    rental_inventory: 'Rental Inventory',
-    filter_all: 'All',
-    filter_speakers: 'Speakers',
-    filter_subs: 'Subwoofers',
-    filter_consoles: 'Consoles',
-    filter_mics: 'Mics & Monitoring',
-    filter_lighting: 'Lighting',
-    filter_effects: 'Special Effects',
-    filter_structure: 'Structure',
+    rental_inventory: "Rental Inventory",
+    filter_all: "All",
+    filter_speakers: "Speakers",
+    filter_subs: "Subwoofers",
+    filter_consoles: "Consoles",
+    filter_mics: "Mics & Monitoring",
+    filter_lighting: "Lighting",
+    filter_effects: "Special Effects",
+    filter_structure: "Structure",
     contact_text: "Need a custom quote or don't see what you need?",
-    contact_btn: 'Contact via WhatsApp',
-    inquire_price: 'Inquire Price',
-    per_day: 'day'
+    contact_btn: "Contact via WhatsApp",
+    inquire_price: "Inquire Price",
+    per_day: "day",
+
+    // HOME (index.html)
+    tagline: "PROFESSIONAL SOUND & LIGHTING",
+    experience_title: "Experience the Vibe",
+    dj_title: "Full DJ Services",
+    dj_description: "Weddings, Quinceañeras, and Private Events.",
+    book_now: "Book Now",
+    rental_title: "Equipment Rental",
+    rental_description: "Professional audio and lights for your event.",
+    rent_btn: "Rent Equipment",
+    follow_text: "Follow the vibe:"
   },
+
   es: {
-    rental_inventory: 'Inventario de Renta',
-    filter_all: 'Todos',
-    filter_speakers: 'Altavoces',
-    filter_subs: 'Subwoofers',
-    filter_consoles: 'Consolas',
-    filter_mics: 'Micrófonos',
-    filter_lighting: 'Iluminación',
-    filter_effects: 'Efectos Especiales',
-    filter_structure: 'Estructura',
-    contact_text: '¿Necesitas una cotización personalizada o no ves lo que buscas?',
-    contact_btn: 'Contactar por WhatsApp',
-    inquire_price: 'Consultar Precio',
-    per_day: 'día'
+    rental_inventory: "Inventario de Renta",
+    filter_all: "Todos",
+    filter_speakers: "Altavoces",
+    filter_subs: "Subwoofers",
+    filter_consoles: "Consolas",
+    filter_mics: "Micrófonos",
+    filter_lighting: "Iluminación",
+    filter_effects: "Efectos Especiales",
+    filter_structure: "Estructura",
+    contact_text: "¿Necesitas una cotización personalizada o no ves lo que buscas?",
+    contact_btn: "Contactar por WhatsApp",
+    inquire_price: "Consultar Precio",
+    per_day: "día",
+
+    // HOME (index.html)
+    tagline: "SONIDO E ILUMINACIÓN PROFESIONAL",
+    experience_title: "Vive la Experiencia",
+    dj_title: "Servicio Completo de DJ",
+    dj_description: "Bodas, Quinceañeras y Eventos Privados.",
+    book_now: "Reservar",
+    rental_title: "Renta de Equipos",
+    rental_description: "Audio e iluminación profesional para tu evento.",
+    rent_btn: "Ver Equipos",
+    follow_text: "Síguenos:"
   }
 };
 
@@ -40,15 +63,19 @@ const translations = {
 function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang]?.[key]) {
-      el.innerText = translations[lang][key];
+    const value = translations?.[lang]?.[key];
+    if (value) {
+      el.innerText = value;
     }
   });
   localStorage.setItem('language', lang);
 
-  // Para que el botón dentro de cada tarjeta cambie de idioma también:
-  cargarEquipoRental(currentFilter);
+  // Si estás en la página rental, re-render
+  if (typeof cargarEquipoRental === "function") {
+    try { cargarEquipoRental(currentFilter || 'all'); } catch (e) {}
+  }
 }
+
 
 /*********************************
  * DATOS DE LA EMPRESA
@@ -403,3 +430,6 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
+window.setLanguage = setLanguage;
+window.cargarEquipoRental = cargarEquipoRental;
+window.filtrarEquipos = filtrarEquipos;
