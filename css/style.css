@@ -159,17 +159,23 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
 
 /* 1. Header en estado normal */
 #main-header {
-    position: fixed; /* Cambiado para mayor estabilidad */
+    position: fixed;
     top: 0;
     width: 100%;
+    height: 70vh;
     z-index: 1000;
     transition: all 0.4s ease;
-    background: rgba(0,0,0,0.8);
-    padding: 20px 0;
-    height: 70vh; /* Altura inicial */
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    /* Cambiamos la forma de declarar el fondo para que sea más segura */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                      url('../img/logos/Hansel paquete_PORTADA AJUSTADA (1).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Color de respaldo si la imagen falla */
 }
 
 /* 2. Header cuando el usuario baja (Clase activada por JS) */
