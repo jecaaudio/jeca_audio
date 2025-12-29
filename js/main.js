@@ -78,11 +78,24 @@ function cargarEquipoRental() {
 // Función para ver todas las imágenes (Galería)
 function verGaleria(id) {
     const equipo = infoEmpresa.equipos.find(e => e.id === id);
-    if(equipo) {
-        // Por ahora lanzamos un mensaje con la cantidad de fotos
-        // ¿Quieres que diseñe una ventana emergente (Popup) para verlas todas?
-        alert("Opening Gallery for " + equipo.nombre + "\\nTotal images: " + equipo.fotos.length);
-    }
-}
+    if (!equipo) return;
 
-document.addEventListener('DOMContentLoaded', cargarEquipoRental);
+    // Crear el contenedor de la galería si no existe
+    let modal = document.getElementById('modalGaleria');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modalGaleria';
+        modal.className = 'modal-galeria';
+        document.body.appendChild(modal);
+    }
+
+    // Llenar la galería con las fotos del producto
+    modal.innerHTML = `
+        <span class="close-galeria" onclick="document.getElementById('modalGaleria').style.display='none'">&times;</span>
+        <div class="modal-content">
+            ${equipo.fotos.map(foto => `<img src="${foto}" alt="Product image">`).join('')}
+        </div>
+    `;
+
+    modal.style.display = "block";
+}
