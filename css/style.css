@@ -67,9 +67,12 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
     border-radius: 20px;
     padding: 40px;
     width: 100%;
-    max-width: 600px;
+    max-width: 450px; /* Reducimos un poco el ancho para que quepan dos en una fila */
     text-align: center;
     transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinea los botones al final de la tarjeta */
 }
 
 .decision-card:hover {
