@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeca Audio | DJ & Rental</title>
-    
-  <link rel="stylesheet" href="./css/style.css?v=1.1">
-    
+    <link rel="stylesheet" href="./css/style.css?v=1.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,42 +12,41 @@
 </head>
 <body>
 
-<div class="lang-selector">
-    <button onclick="cambiarIdioma('en')">ENG</button>
-    <button onclick="cambiarIdioma('es')">ESP</button>
+<div class="language-switcher">
+    <button class="lang-btn" onclick="cambiarIdioma('en')">ENG</button>
+    <span class="separator">|</span>
+    <button class="lang-btn" onclick="cambiarIdioma('es')">ESP</button>
 </div>
 
-<h2 data-i18n="full_dj_services">Full DJ Services</h2>
-<p data-i18n="dj_description">Weddings, Quinceañeras, and Private Events.</p>
 <header>
     <div class="header-content">
         <h1>JECA AUDIO</h1>
-        <p id="tagline" class="tagline">PROFESSIONAL SOUND & LIGHTING</p>
+        <p id="tagline" class="tagline" data-i18n="tagline">PROFESSIONAL SOUND & LIGHTING</p>
         <div class="location">📍 Louisville, KY</div>
     </div>
 </header>
 
 <div class="container">
-    <h2 id="experience-title" class="section-title">Experience the Vibe</h2>
+    <h2 class="section-title" data-i18n="experience_title">Experience the Vibe</h2>
     
     <div class="decision-grid">
         <div class="decision-card">
             <div class="card-icon"><i class="fas fa-compact-disc"></i></div>
-            <h3 id="dj-title">Full DJ Services</h3>
-            <p id="dj-text">Weddings, Quinceañeras, and Private Events.</p>
-            <a href="https://wa.me/15025540333" id="btn-book" class="btn-main">Book Now</a>
+            <h3 data-i18n="dj_title">Full DJ Services</h3>
+            <p data-i18n="dj_description">Weddings, Quinceañeras, and Private Events.</p>
+            <a href="https://wa.me/15025540333" class="btn-main" data-i18n="book_now">Book Now</a>
         </div>
         
         <div class="decision-card">
             <div class="card-icon"><i class="fas fa-speakers"></i></div>
-            <h3 id="rental-title">Equipment Rental</h3>
-            <p id="rental-text">Professional audio and lights for your event.</p>
-            <a href="rental.html" id="btn-rent" class="btn-outline">Rent Equipment</a>
+            <h3 data-i18n="rental_title">Equipment Rental</h3>
+            <p data-i18n="rental_description">Professional audio and lights for your event.</p>
+            <a href="rental.html" class="btn-outline" data-i18n="rent_btn">Rent Equipment</a>
         </div>
     </div>
 
- <footer>
-        <p id="follow-text">Follow the vibe:</p>
+    <footer>
+        <p data-i18n="follow_text">Follow the vibe:</p>
         <div class="social-links">
             <a href="https://www.facebook.com/share/1FiiN5CyQi/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/el_jeca_?igsh=ODZzeTB4ejA1dnhj" target="_blank"><i class="fab fa-instagram"></i></a>
