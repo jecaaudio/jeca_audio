@@ -1,21 +1,43 @@
-const traducciones = {
-    en: {
-        full_dj_services: "Full DJ Services",
-        dj_description: "Weddings, Quinceañeras, and Private Events.",
-        rent_equipment: "Equipment Rental",
-        rent_description: "Professional audio and lights for your event.",
-        book_now: "Book Now",
-        rent_btn: "Rent Equipment"
+const translations = {
+    'en': {
+        'tagline': 'PROFESSIONAL SOUND & LIGHTING',
+        'experience': 'Experience the Vibe',
+        'dj-services': 'Full DJ Services',
+        'dj-desc': 'Weddings, Quinceañeras, and Private Events.',
+        'rental-title': 'Equipment Rental',
+        'rental-desc': 'Professional audio and lights for your event.',
+        'book-btn': 'Book Now',
+        'rent-btn': 'Rent Equipment'
     },
-    es: {
-        full_dj_services: "Servicios de DJ Completos",
-        dj_description: "Bodas, Quinceañeras y Eventos Privados.",
-        rent_equipment: "Renta de Equipos",
-        rent_description: "Audio y luces profesionales para tu evento.",
-        book_now: "Reservar Ahora",
-        rent_btn: "Rentar Equipo"
+    'es': {
+        'tagline': 'SONIDO E ILUMINACIÓN PROFESIONAL',
+        'experience': 'Vive la Experiencia',
+        'dj-services': 'Servicios Completos de DJ',
+        'dj-desc': 'Bodas, Quinceañeras y Eventos Privados.',
+        'rental-title': 'Renta de Equipos',
+        'rental-desc': 'Audio y luces profesionales para tu evento.',
+        'book-btn': 'Reservar Ahora',
+        'rent-btn': 'Rentar Equipo'
     }
 };
+
+function setLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.innerText = translations[lang][key];
+        }
+    });
+    // Guarda la preferencia del usuario
+    localStorage.setItem('language', lang);
+}
+
+// Carga el idioma guardado al abrir la página
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+});
 const infoEmpresa = {
     whatsapp: "15025540333",
     equipos: [
