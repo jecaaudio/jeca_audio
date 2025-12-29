@@ -15,19 +15,17 @@ html, body {
 }
 
 /* 2. ENCABEZADO (HEADER) */
-header { 
-    height: 60vh;
+header {
+    height: 70vh; /* Un poco más de altura para lucir la nueva portada */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Cambio de imagen a la portada ajustada */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
                 url('../img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png');
     background-size: cover;
     background-position: center;
-    border-bottom: 5px solid var(--primary);
-    text-align: center;
 }
 
 h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
@@ -53,26 +51,23 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
 /* 4. DISEÑO DE TARJETAS (RE-ESTABLECIDO) */
 .decision-grid {
     display: flex;
-    flex-direction: row; /* Los pone uno al lado del otro */
-    justify-content: center; /* Los centra horizontalmente */
-    align-items: stretch; /* Hace que ambas cajas tengan la misma altura */
-    gap: 30px; /* Espacio entre las cajas */
+    flex-direction: row; /* Cambiado de column a row */
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
     padding: 40px 20px;
-    flex-wrap: wrap; /* Permite que en móviles se pongan uno debajo del otro */
+    flex-wrap: wrap; /* Esto permite que en móviles se vuelvan a poner una abajo de la otra */
 }
 
 .decision-card {
     background: #111;
     border: 1px solid #333;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     width: 100%;
-    max-width: 450px; /* Reducido para que quepan dos por fila */
+    max-width: 400px; /* Reducido para que quepan ambas en la misma fila */
     text-align: center;
     transition: 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Alinea los botones al fondo de la tarjeta */
 }
 
 .decision-card:hover {
@@ -119,4 +114,15 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
     .social-links a {
         font-size: 2.5rem; /* Iconos un poco más pequeños para que quepan todos */
     }
+}
+.social-links a {
+    color: #f39c12;
+    font-size: 3rem; /* Tamaño más impactante */
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.2);
 }
