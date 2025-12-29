@@ -90,3 +90,28 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
 .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
 .social-links a { color: var(--primary); font-size: 3.5rem; text-decoration: none; transition: 0.3s ease; }
 .social-links a:hover { color: #fff; transform: scale(1.1); }
+/* AJUSTES PARA MÓVIL */
+@media (max-width: 768px) {
+    header {
+        height: 50vh; /* Un poco más bajo en móvil */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem; /* Texto más pequeño para que no se corte */
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .decision-card {
+        padding: 20px;
+        width: 90%; /* Que no toque los bordes del celular */
+    }
+
+    .social-links a {
+        font-size: 2.5rem; /* Iconos un poco más pequeños para que quepan todos */
+    }
+}
