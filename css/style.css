@@ -187,3 +187,23 @@ footer {
     background: #000;
     margin-bottom: 20px;
 }
+/* Esto bajará el inventario para que no choque con el título */
+.container {
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+/* Esto asegura que las tarjetas tengan espacio entre ellas */
+.decision-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio de 30px entre cada panel de equipo */
+    align-items: center;
+}
+
+/* Ajuste para que la tarjeta no sea tan alta y deje ver la de arriba */
+.decision-card {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
