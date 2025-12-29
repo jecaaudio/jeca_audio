@@ -42,3 +42,21 @@
         }
     };
 </script>
+<div class="language-switcher">
+   <button class="lang-btn" onclick="setLanguage('en')">ENG</button>
+    <span class="separator">|</span>
+  <button class="lang-btn" onclick="setLanguage('es')">ESP</button>
+</div>
+
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filtrarEquipos('all', event)" data-i18n="filter_all">All</button>
+    <button class="filter-btn" onclick="filtrarEquipos('speakers', event)" data-i18n="filter_speakers">Speakers</button>
+    <button class="filter-btn" onclick="filtrarEquipos('subs', event)" data-i18n="filter_subs">Subwoofers</button>
+    <button class="filter-btn" onclick="filtrarEquipos('consoles', event)" data-i18n="filter_consoles">Consoles</button>
+    <button class="filter-btn" onclick="filtrarEquipos('mics', event)" data-i18n="filter_mics">Mics & Monitoring</button>
+    </div>
+
+<div style="margin-top: 50px;">
+    <p data-i18n="contact_text">Need a custom quote or don't see what you need?</p>
+    <a href="https://wa.me/15025540333" class="btn-main" data-i18n="contact_btn">Contact via WhatsApp</a>
+</div>
