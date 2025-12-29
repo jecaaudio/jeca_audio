@@ -58,10 +58,11 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
 /* 4. CONTENEDOR PRINCIPAL (EVITA SOLAPAMIENTO) */
 /* Esto hará que los banners aparezcan justo donde termina la imagen */
 .container {
-    margin-top: 75vh; /* 70vh de la imagen + 5vh de espacio extra */
+    margin-top: 75vh; /* Esto crea el espacio necesario para que los banners aparezcan debajo de la foto */
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding-bottom: 50px;
 }
 
@@ -70,9 +71,10 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que se acomoden en móviles */
     gap: 25px;
     width: 100%;
+    max-width: 1200px;
 }
 
 .decision-card {
