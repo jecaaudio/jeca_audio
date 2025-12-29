@@ -47,3 +47,36 @@
     display: inline-block;
     margin-top: 20px;
 }
+/* Estilos para los iconos de las tarjetas */
+.card-icon i {
+    font-size: 2.5rem;
+    color: #f39c12;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Redes Sociales en el pie de página */
+footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #222;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #f39c12;
+    font-size: 3.5rem; /* Tamaño grande para que resalten */
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
