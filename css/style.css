@@ -1,88 +1,15 @@
-:root {
-    --primary: #f39c12;
-    --primary-dark: #d35400;
-    --bg: #050505;
-    --card-bg: #121212;
-    --text: #ffffff;
-}
-
-/* Estilos Generales */
-html, body {
-    background-color: var(--bg) !important;
-    color: var(--text) !important;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
-
-/* Botones de Idioma (Superior Derecha) */
-.language-switcher {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.lang-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.lang-btn:hover {
-    color: #fff;
-}
-
-.separator {
-    color: #555;
-}
-
-/* Encabezado */
-header { 
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    border-bottom: 5px solid var(--primary);
-    text-align: center;
-}
-
-h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); letter-spacing: -1px; }
-.tagline { font-size: 1.1rem; letter-spacing: 4px; color: #bbb; margin-top: 10px; text-transform: uppercase; }
-.location { margin-top: 15px; color: var(--primary); font-weight: bold; }
-
-/* Contenedor y Tarjetas */
-.container { 
-    max-width: 1100px; 
-    margin: auto; 
-    padding: 40px 20px; 
-    text-align: center; 
-}
-
-.section-title { font-size: 2.2rem; margin-bottom: 40px; }
-
+/* Esto centra las tarjetas y les da el espacio correcto */
 .decision-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
+/* Restaura el fondo negro y bordes redondeados de las tarjetas */
 .decision-card {
-    background: #111;
+    background: #111; /* Fondo oscuro como en el encabezado */
     border: 1px solid #333;
     border-radius: 20px;
     padding: 40px;
@@ -93,22 +20,30 @@ h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); lett
 }
 
 .decision-card:hover {
-    border-color: var(--primary);
+    border-color: #f39c12; /* El naranja de JECA AUDIO */
     transform: translateY(-5px);
 }
 
-.card-icon i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 20px;
-    display: block;
+/* Arregla el botón de "Book Now" para que sea naranja sólido */
+.btn-main {
+    background: #f39c12;
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-/* Botones */
-.btn-main { 
-    background: var(--primary); 
-    color: #000; 
-    padding: 15px
+/* Arregla el botón de "Rent Equipment" para que sea delineado */
+.btn-outline {
+    border: 2px solid #f39c12;
+    color: #f39c12;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
 }
-
-h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); letter
