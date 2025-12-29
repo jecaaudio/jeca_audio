@@ -1,27 +1,39 @@
 const translations = {
     'en': {
-        'tagline': 'PROFESSIONAL SOUND & LIGHTING',
-        'experience_title': 'Experience the Vibe',
-        'dj_title': 'Full DJ Services',
-        'dj_description': 'Weddings, Quinceañeras, and Private Events.',
-        'book_now': 'Book Now',
-        'rental_title': 'Equipment Rental',
-        'rental_description': 'Professional audio and lights for your event.',
-        'rent_btn': 'Rent Equipment',
-        'follow_text': 'Follow the vibe:'
+        // ... (tus textos anteriores)
+        'rental_inventory': 'Rental Inventory',
+        'filter_all': 'All',
+        'filter_speakers': 'Speakers',
+        'filter_subs': 'Subwoofers',
+        'filter_consoles': 'Consoles',
+        'filter_mics': 'Mics & Monitoring',
+        'filter_lighting': 'Lighting',
+        'filter_effects': 'Special Effects',
+        'filter_structure': 'Structure',
+        'contact_text': 'Need a custom quote or don\'t see what you need?',
+        'contact_btn': 'Contact via WhatsApp',
+        'inquire_price': 'Inquire Price'
     },
     'es': {
-        'tagline': 'SONIDO E ILUMINACIÓN PROFESIONAL',
-        'experience_title': 'Vive la Experiencia',
-        'dj_title': 'Servicios Completos de DJ',
-        'dj_description': 'Bodas, Quinceañeras y Eventos Privados.',
-        'book_now': 'Reservar Ahora',
-        'rental_title': 'Renta de Equipos',
-        'rental_description': 'Audio y luces profesionales para tu evento.',
-        'rent_btn': 'Rentar Equipo',
-        'follow_text': 'Sigue el ritmo:'
+        // ... (tus textos anteriores)
+        'rental_inventory': 'Inventario de Renta',
+        'filter_all': 'Todos',
+        'filter_speakers': 'Altavoces',
+        'filter_subs': 'Subwoofers',
+        'filter_consoles': 'Consolas',
+        'filter_mics': 'Micrófonos',
+        'filter_lighting': 'Iluminación',
+        'filter_effects': 'Efectos Especiales',
+        'filter_structure': 'Estructura',
+        'contact_text': '¿Necesitas una cotización personalizada o no ves lo que buscas?',
+        'contact_btn': 'Contactar por WhatsApp',
+        'inquire_price': 'Consultar Precio'
     }
 };
+
+// Modifica la función cargarEquipoRental para que el botón de WhatsApp también se traduzca
+// Busca donde generas el botón "Inquire Price" y cámbialo por esto:
+// <a ... data-i18n="inquire_price">${translations[localStorage.getItem('language') || 'en'].inquire_price}</a>
 
 function setLanguage(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
