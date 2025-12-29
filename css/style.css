@@ -157,14 +157,48 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
     margin-top: 50px; /* Evita que se solape con el header */
 }
 
-/* Estilo del Header fijo para el efecto de scroll */
+/* 1. Header en estado normal */
 #main-header {
-    position: sticky;
+    position: fixed; /* Cambiado para mayor estabilidad */
     top: 0;
+    width: 100%;
     z-index: 1000;
     transition: all 0.4s ease;
-    background: rgba(0,0,0,0.8); /* Fondo semi-transparente */
+    background: rgba(0,0,0,0.8);
     padding: 20px 0;
+    height: 70vh; /* Altura inicial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Header cuando el usuario baja (Clase activada por JS) */
+#main-header.scrolled {
+    height: 80px; /* Se reduce el tamaño */
+    padding: 10px 20px;
+    background: #000;
+}
+
+/* 3. Movimiento del contenido al costado izquierdo */
+#main-header.scrolled .header-content {
+    display: flex;
+    justify-content: space-between; /* Mueve el logo a la izquierda */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 4. Achicar el texto del logo */
+#main-header.scrolled h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* 5. Ocultar textos extra para limpiar la barra */
+#main-header.scrolled .tagline, 
+#main-header.scrolled .location {
+    display: none;
 }
 
 /* Cuando el usuario baja (scroll), la clase se activa sin espacio */
