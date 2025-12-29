@@ -36,7 +36,11 @@ const infoEmpresa = {
         categoria: "speakers", // Categoría general de audio/consolas
         nombre: "Soundcraft UI24R",
         descripcion: "Consola digital de 24 canales con control inalámbrico y grabación multipista profesional.",
-        fotos: ["img/productos/audio/UI24R/1.jpg"]
+        fotos: [img/productos/audio/ui24r/ui24r.jpg
+               img/productos/audio/ui24r/ui24r1.jpg
+               img/productos/audio/ui24r/ui24r2.jpg
+               img/productos/audio/ui24r/ui24r3.jpg
+               img/productos/audio/ui24r/ui24r4.jpg]
     },
     {
         id: "x32",
