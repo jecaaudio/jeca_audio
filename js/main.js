@@ -48,7 +48,12 @@ const infoEmpresa = {
             categoria: "consoles",
             nombre: "Behringer X32",
             descripcion: "Consola digital líder en la industria. Calidad de estudio para sonido en vivo y eventos grandes.",
-            fotos: ["img/productos/audio/X32/1.jpg"]
+            fotos: ["img/productos/audio/x32/x32 1.webp"
+                    "img/productos/audio/x32/x32 2.webp"
+                    "img/productos/audio/x32/x32 3.webp"
+                    "img/productos/audio/x32/x32 4.webp"
+                    "img/productos/audio/x32/x32 5.webp"
+                    "img/productos/audio/x32/x32.webp"]
         },
         {
             id: "flx4",
