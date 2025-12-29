@@ -20,9 +20,9 @@
 
 <!-- LANGUAGE SWITCHER -->
 <div class="language-switcher">
-    <button class="lang-btn" onclick="setLanguage('en')">ENG</button>
-    <span class="separator">|</span>
-    <button class="lang-btn" onclick="setLanguage('es')">ESP</button>
+  <button class="lang-btn" type="button" onclick="setLanguageSafe('en')">ENG</button>
+  <span class="separator">|</span>
+  <button class="lang-btn" type="button" onclick="setLanguageSafe('es')">ESP</button>
 </div>
 
 <!-- HEADER -->
@@ -100,6 +100,18 @@
 
 <!-- SCRIPTS -->
 <script src="js/main.js"></script>
+    <script>
+  function setLanguageSafe(lang) {
+    if (typeof setLanguage === "function") setLanguage(lang);
+    localStorage.setItem('language', lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    if (typeof setLanguage === "function") setLanguage(savedLang);
+  });
+</script>
+
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/15025540333?text=Hola!%20Quiero%20cotizar%20mi%20evento."
