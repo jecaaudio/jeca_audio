@@ -215,3 +215,47 @@ footer {
     max-width: 600px;
     margin-bottom: 20px;
 }
+/* Contenedor de Filtros */
+.filter-container {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #ffcc00; /* Color llamativo para resaltar */
+    color: black;
+    border-color: #ffcc00;
+}
+
+/* Cuadrícula de Inventario para muchos productos */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 10px;
+}
+
+.decision-card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para que todas midan lo mismo */
+}
+
