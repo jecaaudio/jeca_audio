@@ -57,10 +57,13 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
 
 /* 4. CONTENEDOR PRINCIPAL (EVITA SOLAPAMIENTO) */
 .container {
-    padding-top: 75vh; /* Esto crea el espacio interno necesario sin ocultar los banners */
+    margin-top: 75vh; /* Crea el espacio justo para que el contenido empiece después de la foto */
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
+    position: relative;
+    z-index: 5; /* Asegura que las tarjetas estén por encima de cualquier fondo */
 }
 
 /* 5. DISEÑO DE TARJETAS */
@@ -70,9 +73,10 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     justify-content: center !important;
     flex-wrap: wrap;
     gap: 25px;
-    padding: 40px 20px;
     width: 100%;
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .decision-card {
