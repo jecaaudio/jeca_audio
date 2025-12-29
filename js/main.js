@@ -16,6 +16,24 @@ const translations = {
     contact_btn: "Contact via WhatsApp",
     inquire_price: "Inquire Price",
     per_day: "day",
+    quote_cart_title: "Your Quote Cart",
+    estimated_total: "Estimated Total",
+    continue_to_form: "Continue to Event Details",
+    event_details_title: "Event Details",
+    event_date: "Event Date",
+    event_time: "Start Time",
+    event_type: "Event Type",
+    guest_count: "Estimated Guests",
+    indoor_outdoor: "Indoor or Outdoor?",
+    event_city: "City",
+    duration_hours: "Approx. Duration (hours)",
+    power_available: "Power available?",
+    notes: "Notes / Special requests",
+    send_quote_whatsapp: "Send Quote Request via WhatsApp",
+    add_to_quote: "Add to Quote",
+    close: "Close",
+    empty_cart: "Your cart is empty. Add items to request a quote.",
+
 
     // HOME (index.html)
     tagline: "PROFESSIONAL SOUND & LIGHTING",
@@ -43,6 +61,24 @@ const translations = {
     contact_btn: "Contactar por WhatsApp",
     inquire_price: "Consultar Precio",
     per_day: "día",
+    quote_cart_title: "Tu Carrito de Cotización",
+    estimated_total: "Total Estimado",
+    continue_to_form: "Continuar a Detalles del Evento",
+    event_details_title: "Detalles del Evento",
+    event_date: "Fecha del evento",
+    event_time: "Hora de inicio",
+    event_type: "Tipo de evento",
+    guest_count: "Cantidad de invitados",
+    indoor_outdoor: "¿Interior o exterior?",
+    event_city: "Ciudad",
+    duration_hours: "Duración aprox. (horas)",
+    power_available: "¿Hay electricidad disponible?",
+    notes: "Notas / solicitudes especiales",
+    send_quote_whatsapp: "Enviar solicitud por WhatsApp",
+    add_to_quote: "Añadir a cotización",
+    close: "Cerrar",
+    empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
+
 
     // HOME (index.html)
     tagline: "SONIDO E ILUMINACIÓN PROFESIONAL",
@@ -335,6 +371,150 @@ const infoEmpresa = {
 
 // Guardamos el filtro actual para re-render cuando cambie el idioma
 let currentFilter = "all";
+/*********************************
+ * QUOTE CART (carrito)
+ *********************************/
+const CART_KEY = "jeca_quote_cart";
+
+function loadCart() {
+  try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); }
+  catch { return []; }
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartUI();
+}
+
+function addToCart(equipoId) {
+  const cart = loadCart();
+  const found = cart.find(x => x.id === equipoId);
+  if (found) found.qty += 1;
+  else cart.push({ id: equipoId, qty: 1 });
+  saveCart(cart);
+  toggleCart(true);
+}
+
+function changeQty(equipoId, delta) {
+  let cart = loadCart();
+  const item = cart.find(x => x.id === equipoId);
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(x => x.id !== equipoId);
+  saveCart(cart);
+}
+
+function removeFromCart(equipoId) {
+  const cart = loadCart().filter(x => x.id !== equipoId);
+  saveCart(cart);
+}
+
+function toggleCart(open) {
+  const panel = document.querySelector(".quote-cart");
+  if (!panel) return;
+  panel.classList.toggle("open", !!open);
+}
+
+function scrollToQuoteForm(){
+  const el = document.getElementById("quote-form");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  toggleCart(false);
+}
+
+function computeCartTotal() {
+  const cart = loadCart();
+  let total = 0;
+  cart.forEach(ci => {
+    const eq = infoEmpresa.equipos.find(e => e.id === ci.id);
+    if (eq) total += (Number(eq.precioDia) || 0) * ci.qty;
+  });
+  return total;
+}
+
+function updateCartUI() {
+  const cart = loadCart();
+  const lang = localStorage.getItem("language") || "en";
+
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = String(cart.reduce((a, x) => a + x.qty, 0));
+
+  const itemsEl = document.getElementById("cart-items");
+  if (!itemsEl) return;
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = `<div style="padding:14px;opacity:.85;">${translations[lang].empty_cart}</div>`;
+  } else {
+    itemsEl.innerHTML = cart.map(ci => {
+      const eq = infoEmpresa.equipos.find(e => e.id === ci.id);
+      if (!eq) return "";
+      return `
+        <div class="cart-row">
+          <div>
+            <h4>${eq.nombre}</h4>
+            <div class="meta">${ci.qty} × ${translations[lang].per_day}</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="qty">
+              <button type="button" onclick="changeQty('${eq.id}', -1)">−</button>
+              <span>${ci.qty}</span>
+              <button type="button" onclick="changeQty('${eq.id}', 1)">+</button>
+            </div>
+            <div style="margin-top:10px;">
+              <button class="btn-outline small" type="button" onclick="removeFromCart('${eq.id}')">Remove</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const totalEl = document.getElementById("cart-total");
+  if (totalEl) totalEl.textContent = `$${computeCartTotal()}`;
+}
+
+function submitQuote(ev){
+  ev.preventDefault();
+  const lang = localStorage.getItem("language") || "en";
+  const cart = loadCart();
+
+  if (!cart.length) {
+    toggleCart(true);
+    return;
+  }
+
+  const date = document.getElementById("q-date")?.value || "";
+  const time = document.getElementById("q-time")?.value || "";
+  const type = document.getElementById("q-type")?.value || "";
+  const guests = document.getElementById("q-guests")?.value || "";
+  const io = document.getElementById("q-io")?.value || "";
+  const city = document.getElementById("q-city")?.value || "";
+  const hours = document.getElementById("q-hours")?.value || "";
+  const power = document.getElementById("q-power")?.value || "";
+  const notes = document.getElementById("q-notes")?.value || "";
+
+  const lines = cart.map(ci => {
+    const eq = infoEmpresa.equipos.find(e => e.id === ci.id);
+    return eq ? `• ${ci.qty} x ${eq.nombre}` : "";
+  }).filter(Boolean);
+
+  const total = computeCartTotal();
+
+  const message =
+    (lang === "es")
+      ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
+        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
+        `🛒 Equipos:\n${lines.join("\n")}\n\n` +
+        `📝 Notas: ${notes}`
+      : `Hi JECA AUDIO, I’d like a quote.\n\n` +
+        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
+        `🛒 Items:\n${lines.join("\n")}\n\n` +
+        `📝 Notes: ${notes}`;
+
+  const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
+  window.open(wa, "_blank", "noopener");
+}
+
 
 /*********************************
  * CARGAR EQUIPO DE RENTA
