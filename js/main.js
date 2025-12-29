@@ -54,25 +54,28 @@ function iniciarSliders() {
     });
 }
 
-function cargarEquipoRental() {
+function cargarEquipoRental(filtro = 'all') {
     const grid = document.getElementById('rental-grid');
-    if(grid) {
-        grid.innerHTML = infoEmpresa.equipos.map(item => `
+    if (grid) {
+        // Filtramos los equipos según la categoría seleccionada
+        const equiposFiltrados = filtro === 'all' 
+            ? infoEmpresa.equipos 
+            : infoEmpresa.equipos.filter(e => e.categoria === filtro);
+
+        grid.innerHTML = equiposFiltrados.map(item => `
             <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; position:relative;">
                 <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: contain; transition: opacity 0.4s ease;">
                 <div style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.6); padding:5px; border-radius:5px; font-size:10px; color:white;">
-                   📸 Click for Gallery
+                    📸 Click for Gallery
                 </div>
                 <h3>${item.nombre}</h3>
                 <p>${item.descripcion}</p>
-                <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hello! I am interested in renting the ${encodeURIComponent(item.nombre)}" 
-                   class="btn-outline" 
-                   onclick="event.stopPropagation();"
-                   style="display:inline-block; margin-top:10px;">
-                   Inquire Price
+                <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hello! I am interested in renting the ${encodeURIComponent(item.nombre)}" class="btn-outline" onclick="event.stopPropagation();" style="display:inline-block; margin-top:10px;">
+                    Inquire Price
                 </a>
             </div>
         `).join('');
+        
         iniciarSliders();
     }
 }
