@@ -12,11 +12,12 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-/* 2. ENCABEZADO (HEADER) - UNIFICADO */
+/* 2. ENCABEZADO (HEADER) */
 #main-header {
-    position: fixed; /* Mantiene el header arriba */
+    position: fixed;
     top: 0;
     width: 100%;
     height: 70vh;
@@ -26,12 +27,12 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Ruta corregida: usa %20 para los espacios en la URL */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                url('../img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                      url('../img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #000;
 }
 
 h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; transition: 0.4s; }
@@ -39,7 +40,7 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
 
 /* 3. BOTONES DE IDIOMA */
 .language-switcher {
-    position: fixed; /* Cambiado a fixed para que no desaparezca al usar el header fijo */
+    position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1100;
@@ -54,15 +55,26 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     transition: 0.3s;
 }
 
-/* 4. DISEÑO DE TARJETAS */
-.decision-grid, .main-page-grid {
+/* 4. CONTENEDOR PRINCIPAL (EVITA SOLAPAMIENTO) */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 75vh; /* Ajuste para que el contenido empiece después de la foto */
+    padding-bottom: 50px;
+}
+
+/* 5. DISEÑO DE TARJETAS */
+.main-page-grid {
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    align-items: stretch;
+    flex-wrap: wrap;
     gap: 25px;
     padding: 40px 20px;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .decision-card {
@@ -71,7 +83,7 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     border-radius: 20px;
     padding: 30px;
     flex: 1;
-    max-width: 400px;
+    max-width: 450px; 
     min-width: 300px;
     text-align: center;
     transition: 0.3s ease;
@@ -82,27 +94,11 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     transform: translateY(-5px);
 }
 
-.card-icon i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 20px;
-    display: block;
-}
-
-/* 5. BOTONES Y FOOTER */
-.btn-main { background: var(--primary); color: #000; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-.btn-outline { border: 2px solid var(--primary); color: var(--primary); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-
-footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align: center; }
-.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-.social-links a { color: var(--primary); font-size: 3rem; text-decoration: none; transition: 0.3s ease; }
-.social-links a:hover { color: #fff; transform: scale(1.2); }
-
-/* 6. EFECTO SCROLL (HEADER PEQUEÑO) */
+/* 6. EFECTO SCROLL (CLASE ACTIVADA POR JS) */
 #main-header.scrolled {
     height: 80px;
-    background: #000;
     padding: 10px 20px;
+    background: #000;
 }
 
 #main-header.scrolled .header-content {
@@ -123,158 +119,24 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
     display: none;
 }
 
-/* 7. CONTENEDOR Y AJUSTES MÓVIL */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 75vh; /* Empuja el contenido debajo del header fijo */
+/* 7. REDES SOCIALES Y FOOTER */
+footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; width: 100%; }
+.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+.social-links a { 
+    color: var(--primary); 
+    font-size: 3rem; 
+    text-decoration: none; 
+    transition: 0.3s ease; 
 }
+.social-links a:hover { color: #fff; transform: scale(1.2); }
 
+/* 8. AJUSTES PARA MÓVIL */
 @media (max-width: 768px) {
     #main-header { height: 50vh; }
     .container { margin-top: 55vh; }
     h1 { font-size: 2.2rem; }
-    .main-page-grid { flex-direction: column !important; }
-}
-
-.logo-link {
-    text-decoration: none;
-    color: inherit;
-}
-    }
-
-    .tagline {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-    }
-
-    .decision-card {
-        padding: 20px;
-        width: 90%; /* Que no toque los bordes del celular */
-    }
-
-    .social-links a {
-        font-size: 2.5rem; /* Iconos un poco más pequeños para que quepan todos */
-    }
-}
-.social-links a {
-    color: #f39c12;
-    font-size: 3rem; /* Tamaño más impactante */
-    margin: 0 15px;
-    transition: 0.3s;
-}
-
-.social-links a:hover {
-    color: #fff;
-    transform: scale(1.2);
-}
-/* --- SOLO PARA LA PÁGINA PRINCIPAL --- */
-.main-page-grid {
-    display: flex !important;
-    flex-direction: row !important; /* Los pone uno al lado del otro */
-    justify-content: center !important;
-    flex-wrap: wrap; /* En el móvil se acomodan uno abajo del otro */
-    gap: 20px;
-    padding: 40px 20px;
-}
-
-.main-page-grid .decision-card {
-    flex: 1;
-    max-width: 450px; 
-    min-width: 300px;
-}
-
-/* Ajuste para que en celulares se sigan viendo uno arriba del otro */
-@media (max-width: 768px) {
-    .main-page-grid {
-        flex-direction: column !important;
-    }
-}
-/* Centrar el contenido debajo de la imagen */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px; /* Evita que se solape con el header */
-}
-
-/* 1. Header en estado normal */
-#main-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70vh;
-    z-index: 1000;
-    transition: all 0.4s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* Cambiamos la forma de declarar el fondo para que sea más segura */
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
-                      url('../img/logos/Hansel paquete_PORTADA AJUSTADA (1).png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #000; /* Color de respaldo si la imagen falla */
-}
-
-/* 2. Header cuando el usuario baja (Clase activada por JS) */
-#main-header.scrolled {
-    height: 80px; /* Se reduce el tamaño */
-    padding: 10px 20px;
-    background: #000;
-}
-
-/* 3. Movimiento del contenido al costado izquierdo */
-#main-header.scrolled .header-content {
-    display: flex;
-    justify-content: space-between; /* Mueve el logo a la izquierda */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* 4. Achicar el texto del logo */
-#main-header.scrolled h1 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-/* 5. Ocultar textos extra para limpiar la barra */
-#main-header.scrolled .tagline, 
-#main-header.scrolled .location {
-    display: none;
-}
-
-/* Cuando el usuario baja (scroll), la clase se activa sin espacio */
-#main-header.scrolled {
-    padding: 10px 20px;
-    background: #000;
-    height: 80px; /* Asegura que reduzca su tamaño */
-}
-
-#main-header.scrolled .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#main-header.scrolled h1 {
-    font-size: 1.5rem; /* El texto se hace más pequeño */
-    margin: 0;
-}
-
-#main-header.scrolled .tagline, 
-#main-header.scrolled .location {
-    display: none; /* Limpia la vista al subir */
-}
+    .main-page-grid { flex-direction: column !important; align-items: center; }
+    .decision-card { width: 90%; }
 }
 
 .logo-link {
