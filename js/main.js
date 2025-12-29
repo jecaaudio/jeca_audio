@@ -56,41 +56,42 @@ function iniciarSliders() {
 
 function cargarEquipoRental(filtro = 'all') {
     const grid = document.getElementById('rental-grid');
-    if (grid) {
-        // Filtramos los equipos según la categoría seleccionada
-        const equiposFiltrados = filtro === 'all' 
-            ? infoEmpresa.equipos 
-            : infoEmpresa.equipos.filter(e => e.categoria === filtro);
+    if (!grid) return;
 
-      function cargarEquipoRental(filtro = 'all') {
-    const grid = document.getElementById('rental-grid');
-    if (grid) {
-        // Filtramos los equipos según la categoría seleccionada
-        const equiposFiltrados = filtro === 'all' 
-            ? infoEmpresa.equipos 
-            : infoEmpresa.equipos.filter(e => e.categoria === filtro);
+    // Filtramos los equipos según la categoría
+    const equiposFiltrados = filtro === 'all' 
+        ? infoEmpresa.equipos 
+        : infoEmpresa.equipos.filter(e => e.categoria === filtro);
 
-        grid.innerHTML = equiposFiltrados.map(item => `
-            <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; position:relative;">
-                <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: contain; transition: opacity 0.4s ease;">
-                <div style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.6); padding:5px; border-radius:5px; font-size:10px; color:white;">
-                    📸 Click for Gallery
+    grid.innerHTML = equiposFiltrados.map(item => `
+        <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; display: flex; flex-direction: column; background: #111; border: 1px solid #333; border-radius: 15px; padding: 20px;">
+            
+            <div style="width: 100%; height: 250px; background: #000; border-radius: 10px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 15px; position: relative;">
+                <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" 
+                     style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                
+                <div style="position:absolute; top:10px; right:10px; background:rgba(255,204,0,0.9); padding:4px 8px; border-radius:5px; font-size:10px; color:black; font-weight:bold;">
+                    📸 Ver Fotos
                 </div>
-                <h3>${item.nombre}</h3>
-                <p>${item.descripcion}</p>
-                <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hello! I am interested in renting the ${encodeURIComponent(item.nombre)}" class="btn-outline" onclick="event.stopPropagation();" style="display:inline-block; margin-top:10px;">
+            </div>
+
+            <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <h3 style="color: #fff; margin: 10px 0;">${item.nombre}</h3>
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">${item.descripcion}</p>
+                
+                <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hola! Me interesa rentar: ${encodeURIComponent(item.nombre)}" 
+                   class="btn-outline" 
+                   onclick="event.stopPropagation();" 
+                   style="display: block; text-align: center; padding: 10px; border: 1px solid #ffcc00; color: #ffcc00; border-radius: 25px; text-decoration: none;">
                     Inquire Price
                 </a>
             </div>
-        `).join('');
-        
-        iniciarSliders();
-    }
+        </div>
+    `).join('');
+
+    iniciarSliders();
 }
-        
-        iniciarSliders();
-    }
-}
+    
 
 // Función para ver todas las imágenes (Galería)
 function verGaleria(id) {
