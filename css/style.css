@@ -55,15 +55,17 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; tran
     transition: 0.3s;
 }
 
-/* 4. CONTENEDOR PRINCIPAL (EVITA SOLAPAMIENTO) */
-/* Esto hará que los banners aparezcan justo donde termina la imagen */
 .container {
-    margin-top: 75vh; /* Esto crea el espacio necesario para que los banners aparezcan debajo de la foto */
+    /* 70vh es la altura de tu imagen, así que empezamos el contenido justo después */
+    margin-top: 70vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-bottom: 50px;
+    padding: 40px 20px;
+    background-color: var(--bg); /* Esto asegura que el fondo sea negro y no se vea la imagen tras los banners */
+    position: relative;
+    z-index: 5;
 }
 
 /* Asegúrate de que la cuadrícula de banners tenga este estilo */
