@@ -14,29 +14,35 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
-/* 2. ENCABEZADO (HEADER) */
-header {
-    height: 70vh; /* Un poco más de altura para lucir la nueva portada */
+/* 2. ENCABEZADO (HEADER) - UNIFICADO */
+#main-header {
+    position: fixed; /* Mantiene el header arriba */
+    top: 0;
+    width: 100%;
+    height: 70vh;
+    z-index: 1000;
+    transition: all 0.4s ease;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    /* Ruta corregida: usa %20 para los espacios en la URL */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
                 url('../img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
+h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; transition: 0.4s; }
 .tagline { font-size: 1.1rem; letter-spacing: 4px; color: #bbb; text-transform: uppercase; }
 
-/* 3. BOTONES DE IDIOMA (ARREGLO DE UBICACIÓN) */
+/* 3. BOTONES DE IDIOMA */
 .language-switcher {
-    position: absolute;
+    position: fixed; /* Cambiado a fixed para que no desaparezca al usar el header fijo */
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1100;
 }
 
 .lang-btn {
@@ -48,15 +54,15 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
     transition: 0.3s;
 }
 
-/* 4. DISEÑO DE TARJETAS (RE-ESTABLECIDO) */
-.decision-grid {
-    display: flex;
-    flex-direction: row; /* Cambiado de column a row */
-    justify-content: center;
+/* 4. DISEÑO DE TARJETAS */
+.decision-grid, .main-page-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
     align-items: stretch;
     gap: 25px;
     padding: 40px 20px;
-    flex-wrap: wrap; /* Esto permite que en móviles se vuelvan a poner una abajo de la otra */
+    flex-wrap: wrap;
 }
 
 .decision-card {
@@ -64,8 +70,9 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
     border: 1px solid #333;
     border-radius: 20px;
     padding: 30px;
-    width: 100%;
-    max-width: 400px; /* Reducido para que quepan ambas en la misma fila */
+    flex: 1;
+    max-width: 400px;
+    min-width: 300px;
     text-align: center;
     transition: 0.3s ease;
 }
@@ -88,17 +95,54 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
 
 footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align: center; }
 .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-.social-links a { color: var(--primary); font-size: 3.5rem; text-decoration: none; transition: 0.3s ease; }
-.social-links a:hover { color: #fff; transform: scale(1.1); }
-/* AJUSTES PARA MÓVIL */
-@media (max-width: 768px) {
-    header {
-        height: 50vh; /* Un poco más bajo en móvil */
-        padding: 20px;
-    }
+.social-links a { color: var(--primary); font-size: 3rem; text-decoration: none; transition: 0.3s ease; }
+.social-links a:hover { color: #fff; transform: scale(1.2); }
 
-    h1 {
-        font-size: 2.2rem; /* Texto más pequeño para que no se corte */
+/* 6. EFECTO SCROLL (HEADER PEQUEÑO) */
+#main-header.scrolled {
+    height: 80px;
+    background: #000;
+    padding: 10px 20px;
+}
+
+#main-header.scrolled .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#main-header.scrolled h1 {
+    font-size: 1.5rem;
+}
+
+#main-header.scrolled .tagline, 
+#main-header.scrolled .location {
+    display: none;
+}
+
+/* 7. CONTENEDOR Y AJUSTES MÓVIL */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 75vh; /* Empuja el contenido debajo del header fijo */
+}
+
+@media (max-width: 768px) {
+    #main-header { height: 50vh; }
+    .container { margin-top: 55vh; }
+    h1 { font-size: 2.2rem; }
+    .main-page-grid { flex-direction: column !important; }
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
     }
 
     .tagline {
