@@ -14,15 +14,15 @@
   <div class="container" style="margin-top: 100px;">
     <h2 class="section-title">Rental Inventory</h2>
     
-    <div class="filter-container">
-<button class="filter-btn active" onclick="filtrarEquipos('all', event)">All</button>
-    <button class="filter-btn" onclick="filtrarEquipos('speakers')">Speakers</button>
-    <button class="filter-btn" onclick="filtrarEquipos('subs')">Subwoofers</button>
-    <button class="filter-btn" onclick="filtrarEquipos('consoles')">Consoles</button>
-    <button class="filter-btn" onclick="filtrarEquipos('mics')">Mics & Monitoring</button>
-    <button class="filter-btn" onclick="filtrarEquipos('lighting')">Lighting</button>
-    <button class="filter-btn" onclick="filtrarEquipos('effects')">Special Effects</button>
-    <button class="filter-btn" onclick="filtrarEquipos('structure')">Structure</button>
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filtrarEquipos('all', event)" data-i18n="filter_all">All</button>
+    <button class="filter-btn" onclick="filtrarEquipos('speakers', event)" data-i18n="filter_speakers">Speakers</button>
+    <button class="filter-btn" onclick="filtrarEquipos('subs', event)" data-i18n="filter_subs">Subwoofers</button>
+    <button class="filter-btn" onclick="filtrarEquipos('consoles', event)" data-i18n="filter_consoles">Consoles</button>
+    <button class="filter-btn" onclick="filtrarEquipos('mics', event)" data-i18n="filter_mics">Mics & Monitoring</button>
+    <button class="filter-btn" onclick="filtrarEquipos('lighting', event)" data-i18n="filter_lighting">Lighting</button>
+    <button class="filter-btn" onclick="filtrarEquipos('effects', event)" data-i18n="filter_effects">Special Effects</button>
+    <button class="filter-btn" onclick="filtrarEquipos('structure', event)" data-i18n="filter_structure">Structure</button>
 </div>
     <div id="rental-grid" class="inventory-grid"></div>
 </div>
