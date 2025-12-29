@@ -117,3 +117,18 @@ function verGaleria(id) {
 
     modal.style.display = "block";
 }
+// Función para filtrar los productos por categoría
+function filtrarEquipos(cat) {
+    // 1. Buscamos todos los botones y les quitamos la clase 'active'
+    const botones = document.querySelectorAll('.filter-btn');
+    botones.forEach(btn => btn.classList.remove('active'));
+
+    // 2. Le ponemos la clase 'active' al botón que tocamos
+    // Usamos event.currentTarget para estar seguros de capturar el botón
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+
+    // 3. Volvemos a cargar el inventario pero pasando la categoría elegida
+    cargarEquipoRental(cat);
+}
