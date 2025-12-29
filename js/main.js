@@ -154,18 +154,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(savedLang);
     cargarEquipoRental();
 });
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('main-header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+// Única función de inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+    
+    // Solo carga el inventario si el contenedor existe en la página actual
+    if (document.getElementById('rental-grid')) {
+        cargarEquipoRental();
     }
 });
+
+// Único evento de scroll (con validación para evitar errores en Rental)
 window.addEventListener('scroll', function() {
     const header = document.getElementById('main-header');
-    if (!header) return; // Si no existe el header (como en rental.html), no hace nada.
-    
+    if (!header) return; 
+
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
