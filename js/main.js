@@ -598,8 +598,14 @@ function filtrarEquipos(cat, e) {
 document.addEventListener('DOMContentLoaded', () => {
   const lang = localStorage.getItem('language') || 'en';
   setLanguage(lang);
-  cargarEquipoRental();
+
+  // Solo si estoy en rental.html
+  if (document.getElementById('rental-grid')) {
+    cargarEquipoRental();
+    updateCartUI();
+  }
 });
+
 
 /*********************************
  * HEADER SCROLL (si existe #main-header)
@@ -613,3 +619,10 @@ window.addEventListener('scroll', () => {
 window.setLanguage = setLanguage;
 window.cargarEquipoRental = cargarEquipoRental;
 window.filtrarEquipos = filtrarEquipos;
+window.addToCart = addToCart;
+window.changeQty = changeQty;
+window.removeFromCart = removeFromCart;
+window.toggleCart = toggleCart;
+window.scrollToQuoteForm = scrollToQuoteForm;
+window.submitQuote = submitQuote;
+window.updateCartUI = updateCartUI;
