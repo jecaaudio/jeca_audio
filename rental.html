@@ -11,17 +11,10 @@
 <body>
 
 <header style="height: 30vh; min-height: 200px;">
-    <div class="header-content">
-        <h1 id="rental-page-title">EQUIPMENT RENTAL</h1>
-        <a href="index.html" class="btn-outline" style="margin-top: 10px; padding: 8px 20px;">← Back Home</a>
-    </div>
-</header>
-
-<div class="container">
-    <h2 class="section-title" id="inventory-title">Available Inventory</h2>
+   <div class="container">
+    <h2 class="section-title">Available Inventory</h2>
     
-    <div class="decision-grid" id="rental-grid">
-        </div>
+    <div id="rental-grid" class="decision-grid"></div>
 
     <div style="margin-top: 50px;">
         <p>Need a custom quote or don't see what you need?</p>
@@ -31,12 +24,10 @@
 
 <script src="js/main.js"></script>
 <script>
-    // Ejecutar la carga de equipos al abrir la página
+    // Aseguramos que la función se llame exactamente como en main.js
     window.onload = function() {
-        if (typeof cargarEquiporental === "function") {
+        if (typeof cargarEquipoRental === "function") {
             cargarEquipoRental();
         }
     };
 </script>
-</body>
-</html>
