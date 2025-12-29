@@ -130,35 +130,52 @@ const infoEmpresa = {
 /*********************************
  * CARGAR EQUIPO DE RENTA
  *********************************/
-function cargarEquipoRental(filtro = 'all') {
+function cargarEquipoRental(filter = 'all') {
     const grid = document.getElementById('rental-grid');
     if (!grid) return;
+    grid.innerHTML = '';
 
-    const equipos = filtro === 'all'
-        ? infoEmpresa.equipos
-        : infoEmpresa.equipos.filter(e => e.categoria === filtro);
+    const productosFiltrados = filter === 'all' 
+        ? infoEmpresa.equipos 
+        : infoEmpresa.equipos.filter(e => e.categoria === filter);
 
-    const lang = localStorage.getItem('language') || 'en';
-
-    grid.innerHTML = equipos.map(item => {
-        const imagen = item.fotos?.[0] || 'img/no-image.jpg';
-        const mensaje = encodeURIComponent(`Hola! Me interesa rentar: ${item.nombre}`);
-
-        return `
-        <div class="decision-card" style="background:#111;border:1px solid #333;border-radius:15px;padding:20px;">
-            <div style="width:100%;height:250px;background:#000;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:15px;">
-                <img src="${imagen}" alt="${item.nombre}" style="max-width:100%;max-height:100%;object-fit:contain;">
+    productosFiltrados.forEach((equipo, index) => {
+        const card = document.createElement('div');
+        card.className = 'equipment-card';
+        
+        // El ID único nos servirá para identificar la imagen de esta tarjeta específica
+        const imgId = `img-${index}`;
+        
+        card.innerHTML = `
+            <div class="image-container">
+                <img src="${equipo.fotos[0]}" id="${imgId}" alt="${equipo.nombre}">
             </div>
-            <h3 style="color:#fff;margin:10px 0;">${item.nombre}</h3>
-            <p style="color:#aaa;font-size:.9rem;margin-bottom:15px;">${item.descripcion}</p>
-            <a href="https://wa.me/${infoEmpresa.whatsapp}?text=${mensaje}"
-               target="_blank"
-               style="display:block;text-align:center;padding:10px;border:1px solid #ffcc00;color:#ffcc00;border-radius:25px;text-decoration:none;font-weight:bold;">
-               ${translations[lang].inquire_price}
+            <h3>${equipo.nombre}</h3>
+            <p>${equipo.descripcion}</p>
+            <a href="https://wa.me/15025540333?text=Hola, me interesa el equipo: ${equipo.nombre}" class="btn-main" data-i18n="inquire_price">
+                ${translations[localStorage.getItem('language') || 'en'].inquire_price}
             </a>
-        </div>`;
-    }).join('');
-}
+        `;
+        grid.appendChild(card);
+
+        // LÓGICA DE AUTO-PLAY PARA LAS IMÁGENES
+        if (equipo.fotos.length > 1) {
+            let fotoActual = 0;
+            setInterval(() => {
+                fotoActual = (fotoActual + 1) % equipo.fotos.length;
+                const imagenElemento = document.getElementById(imgId);
+                if (imagenElemento) {
+                    // Añadimos una transición suave si quieres
+                    imagenElemento.style.opacity = '0';
+                    setTimeout(() => {
+                        imagenElemento.src = equipo.fotos[fotoActual];
+                        imagenElemento.style.opacity = '1';
+                    }, 300);
+                }
+            }, 3000); // Cambia la imagen cada 3 segundos
+        }
+    });
+}}
 
 /*********************************
  * FILTRAR EQUIPOS
