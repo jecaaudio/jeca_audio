@@ -195,3 +195,25 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; width: 100
     50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
+.inventory-grid {
+    display: grid;
+    /* Esto crea columnas de mínimo 280px. Se ajustan solas al lado de otras */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px; /* Espacio entre tarjetas */
+    padding: 20px 0;
+}
+
+.equipment-card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 15px; /* Reducimos el padding para que la tarjeta sea más compacta */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.equipment-card img {
+    width: 100%;
+    height: 200px; /* Altura fija para que todas las imágenes se vean iguales */
+    object-fit: contain; /* Evita que la imagen se deforme */
+    border-radius: 10px;
+}
