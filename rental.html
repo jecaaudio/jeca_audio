@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equipment Rental | Jeca Audio</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<div class="language-switcher">
+    <button class="lang-btn" onclick="setLanguage('en')">ENG</button>
+    <span class="separator">|</span>
+    <button class="lang-btn" onclick="setLanguage('es')">ESP</button>
+</div>
 
 <header style="height: 30vh; min-height: 200px;">
     <div class="container" style="margin-top: 100px;">
@@ -18,8 +23,6 @@
 </header>
 
 <main class="container">
-
-    <!-- FILTROS -->
     <div class="filter-container">
         <button class="filter-btn active" onclick="filtrarEquipos('all', event)" data-i18n="filter_all">All</button>
         <button class="filter-btn" onclick="filtrarEquipos('speakers', event)" data-i18n="filter_speakers">Speakers</button>
@@ -31,10 +34,8 @@
         <button class="filter-btn" onclick="filtrarEquipos('structure', event)" data-i18n="filter_structure">Structure</button>
     </div>
 
-    <!-- GRID -->
     <div id="rental-grid" class="inventory-grid"></div>
 
-    <!-- CONTACTO -->
     <div style="margin-top: 50px; text-align: center;">
         <p data-i18n="contact_text">
             Need a custom quote or don't see what you need?
@@ -43,7 +44,21 @@
             Contact via WhatsApp
         </a>
     </div>
-
 </main>
 
-<!-- LANGUAGE SWITCH
+<script src="js/main.js"></script>
+<script>
+    // Inicialización al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('language') || 'en';
+        if (typeof setLanguage === "function") {
+            setLanguage(savedLang);
+        }
+        if (typeof cargarEquipoRental === "function") {
+            cargarEquipoRental();
+        }
+    });
+</script>
+
+</body>
+</html>
