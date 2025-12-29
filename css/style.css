@@ -171,3 +171,19 @@ footer {
     font-weight: bold;
     cursor: pointer;
 }
+.decision-card {
+    background: #111;
+    border-radius: 15px;
+    padding: 25px; /* Esto le dará aire al contenido */
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.decision-card img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain; /* Esto evita que la bocina se vea cortada */
+    background: #000;
+    margin-bottom: 20px;
+}
