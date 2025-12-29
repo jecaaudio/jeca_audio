@@ -33,7 +33,7 @@ const infoEmpresa = {
     },
     {
         id: "ui24r",
-        categoria: "speakers", // Categoría general de audio/consolas
+        categoria: "Consoles", // Categoría general de audio/consolas
         nombre: "Soundcraft UI24R",
         descripcion: "Consola digital de 24 canales con control inalámbrico y grabación multipista profesional.",
         fotos: [img/productos/audio/ui24r/ui24r.jpg
@@ -44,14 +44,14 @@ const infoEmpresa = {
     },
     {
         id: "x32",
-        categoria: "speakers",
+        categoria: "Consoles",
         nombre: "Behringer X32",
         descripcion: "Consola digital líder en la industria. Calidad de estudio para sonido en vivo y eventos grandes.",
         fotos: ["img/productos/audio/X32/1.jpg"]
     },
     {
         id: "flx4",
-        categoria: "speakers",
+        categoria: "mixer",
         nombre: "Pioneer DDJ-FLX4",
         descripcion: "Controladora DJ versátil. Ideal para sets dinámicos y compatibilidad con múltiples softwares.",
         fotos: ["img/productos/audio/FLX4/1.jpg"]
@@ -106,7 +106,7 @@ const infoEmpresa = {
     },
     {
         id: "chispas700",
-        categoria: "lighting",
+        categoria: "effects",
         nombre: "Máquina de chispas 700W",
         descripcion: "Efecto de chispas frías (Sparkular) seguro para interiores. Ideal para bodas y entradas.",
         fotos: ["img/productos/effects/SPARK700/1.jpg"]
@@ -115,7 +115,7 @@ const infoEmpresa = {
     // --- ESTRUCTURA / STRUCTURE ---
     {
         id: "truss8x8",
-        categoria: "lighting", 
+        categoria: "structure", 
         nombre: "Truss aluminio completo 8x8",
         descripcion: "Estructura profesional de aluminio para colgar iluminación y sonido de forma segura.",
         fotos: ["img/productos/structure/TRUSS8X8/1.jpg"]
