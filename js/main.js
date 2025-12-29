@@ -62,6 +62,14 @@ function cargarEquipoRental(filtro = 'all') {
             ? infoEmpresa.equipos 
             : infoEmpresa.equipos.filter(e => e.categoria === filtro);
 
+      function cargarEquipoRental(filtro = 'all') {
+    const grid = document.getElementById('rental-grid');
+    if (grid) {
+        // Filtramos los equipos según la categoría seleccionada
+        const equiposFiltrados = filtro === 'all' 
+            ? infoEmpresa.equipos 
+            : infoEmpresa.equipos.filter(e => e.categoria === filtro);
+
         grid.innerHTML = equiposFiltrados.map(item => `
             <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; position:relative;">
                 <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: contain; transition: opacity 0.4s ease;">
@@ -75,6 +83,10 @@ function cargarEquipoRental(filtro = 'all') {
                 </a>
             </div>
         `).join('');
+        
+        iniciarSliders();
+    }
+}
         
         iniciarSliders();
     }
