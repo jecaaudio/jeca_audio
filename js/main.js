@@ -1,3 +1,21 @@
+const traducciones = {
+    en: {
+        full_dj_services: "Full DJ Services",
+        dj_description: "Weddings, Quinceañeras, and Private Events.",
+        rent_equipment: "Equipment Rental",
+        rent_description: "Professional audio and lights for your event.",
+        book_now: "Book Now",
+        rent_btn: "Rent Equipment"
+    },
+    es: {
+        full_dj_services: "Servicios de DJ Completos",
+        dj_description: "Bodas, Quinceañeras y Eventos Privados.",
+        rent_equipment: "Renta de Equipos",
+        rent_description: "Audio y luces profesionales para tu evento.",
+        book_now: "Reservar Ahora",
+        rent_btn: "Rentar Equipo"
+    }
+};
 const infoEmpresa = {
     whatsapp: "15025540333",
     equipos: [
