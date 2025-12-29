@@ -1,6 +1,6 @@
 const infoEmpresa = {
-    // NÚMERO ACTUALIZADO: +1 502-554-0333
-    whatsapp: "15025540333", 
+    // ESTE ES EL NÚMERO CORRECTO
+    whatsapp: "15025540333",
     
     equipos: [
         { 
