@@ -53,10 +53,12 @@ h1 { font-size: 3.5rem; font-weight: 900; color: var(--primary); margin: 0; }
 /* 4. DISEÑO DE TARJETAS (RE-ESTABLECIDO) */
 .decision-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Esto los pone uno al lado del otro */
+    justify-content: center; /* Los centra en la pantalla */
+    align-items: stretch; /* Hace que ambas tarjetas tengan la misma altura */
     gap: 30px;
     padding: 40px 20px;
+    flex-wrap: wrap; /* Importante: esto hace que en el celular se pongan uno abajo del otro automáticamente */
 }
 
 .decision-card {
