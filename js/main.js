@@ -57,7 +57,7 @@ function cargarEquipoRental() {
     if(grid) {
         grid.innerHTML = infoEmpresa.equipos.map(item => `
             <div class="decision-card" onclick="verGaleria('${item.id}')" style="cursor:pointer; position:relative;">
-                <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: cover; transition: opacity 0.4s ease;">
+                <img id="img-${item.id}" src="${item.fotos[0]}" alt="${item.nombre}" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #333; height: 250px; object-fit: contain; transition: opacity 0.4s ease;">
                 <div style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.6); padding:5px; border-radius:5px; font-size:10px; color:white;">
                    📸 Click for Gallery
                 </div>
