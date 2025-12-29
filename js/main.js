@@ -71,12 +71,12 @@ const infoEmpresa = {
             nombre: "Electro-Voice ELX200-18SP",
             descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
             fotos: [
-                "img/productos/audio/zlx200/zlx200.jpg",
-                "img/productos/audio/zlx200/zlx2001.jpg",
-                "img/productos/audio/zlx200/zlx2002.jpg",
-                "img/productos/audio/zlx200/zlx2003.jpg",
-                "img/productos/audio/zlx200/zlx2004.jpg",
-                "img/productos/audio/zlx200/zlx2005.jpg"
+                "img/productos/audio/elx200/elx200.jpg",
+                "img/productos/audio/elx200/elx2001.jpg",
+                "img/productos/audio/elx200/elx2002.jpg",
+                "img/productos/audio/elx200/elx2003.jpg",
+                "img/productos/audio/elx200/elx2004.jpg",
+                "img/productos/audio/elx200/elx2005.jpg"
             ]
         },
         {
