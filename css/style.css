@@ -167,10 +167,11 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
     padding: 20px 0;
 }
 
-/* Cuando el usuario baja (scroll), esta clase se activará vía JS */
+/* Cuando el usuario baja (scroll), la clase se activa sin espacio */
 #main-header.scrolled {
     padding: 10px 20px;
     background: #000;
+    height: 80px; /* Asegura que reduzca su tamaño */
 }
 
 #main-header.scrolled .header-content {
@@ -182,13 +183,14 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
 }
 
 #main-header.scrolled h1 {
-    font-size: 1.5rem; /* Se hace más pequeño */
+    font-size: 1.5rem; /* El texto se hace más pequeño */
     margin: 0;
 }
 
 #main-header.scrolled .tagline, 
 #main-header.scrolled .location {
-    display: none; /* Oculta lo extra al subir para limpiar la vista */
+    display: none; /* Limpia la vista al subir */
+}
 }
 
 .logo-link {
