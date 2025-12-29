@@ -160,7 +160,13 @@ const infoEmpresa = {
       nombre: "Phenyx Pro PTM-33 In-Ear (1T/4R)",
       descripcion: "In-ear monitoring system for clean stage sound and control.",
       precioDia: 100,
-      fotos: ["img/productos/mics/ptm33/1.jpg"] // crea esta foto o cambia ruta
+      fotos: ["img/productos/audio/ptm-33/ptm-33.jpg",
+              "img/productos/audio/ptm-33/ptm-331.jpg",
+              "img/productos/audio/ptm-33/ptm-332.jpg",
+              "img/productos/audio/ptm-33/ptm-333.jpg",
+              "img/productos/audio/ptm-33/ptm-334.jpg",
+              "img/productos/audio/ptm-33/ptm-335.jpg"
+             ]
     },
 
     // -------- LIGHTING --------
@@ -170,7 +176,14 @@ const infoEmpresa = {
       nombre: "Moving head SPOT 150W",
       descripcion: "150W moving head spot for pro lighting setups.",
       precioDia: 60,
-      fotos: ["img/productos/lighting/spot150/1.jpg"]
+      fotos: ["img/productos/lights/MovingHead150w/MovingHead150w.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w1.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w2.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w3.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w4.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w5.jpg",
+             "img/productos/lights/MovingHead150w/MovingHead150w6.jpg"
+             ]
     },
     {
       id: "spider8",
@@ -178,7 +191,17 @@ const infoEmpresa = {
       nombre: "Spider RGBW LED Bar (8-eye)",
       descripcion: "RGBW spider bar with 8-eye effect. Great dance-floor coverage.",
       precioDia: 75,
-      fotos: ["img/productos/lighting/spider/1.jpg"]
+      fotos: ["img/productos/lights/LightBarLED8/LightBarLED8.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED81.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED82.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED83.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED84.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED85.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED86.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED87.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED88.jpg",
+             "img/productos/lights/LightBarLED8/LightBarLED89.jpg"
+             ]
     },
     {
       id: "rockstrip252",
