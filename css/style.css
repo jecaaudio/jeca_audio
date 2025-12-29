@@ -148,3 +148,50 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
         flex-direction: column !important;
     }
 }
+/* Centrar el contenido debajo de la imagen */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px; /* Evita que se solape con el header */
+}
+
+/* Estilo del Header fijo para el efecto de scroll */
+#main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    background: rgba(0,0,0,0.8); /* Fondo semi-transparente */
+    padding: 20px 0;
+}
+
+/* Cuando el usuario baja (scroll), esta clase se activará vía JS */
+#main-header.scrolled {
+    padding: 10px 20px;
+    background: #000;
+}
+
+#main-header.scrolled .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#main-header.scrolled h1 {
+    font-size: 1.5rem; /* Se hace más pequeño */
+    margin: 0;
+}
+
+#main-header.scrolled .tagline, 
+#main-header.scrolled .location {
+    display: none; /* Oculta lo extra al subir para limpiar la vista */
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
