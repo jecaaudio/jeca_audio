@@ -126,3 +126,25 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; text-align
     color: #fff;
     transform: scale(1.2);
 }
+/* --- SOLO PARA LA PÁGINA PRINCIPAL --- */
+.main-page-grid {
+    display: flex !important;
+    flex-direction: row !important; /* Los pone uno al lado del otro */
+    justify-content: center !important;
+    flex-wrap: wrap; /* En el móvil se acomodan uno abajo del otro */
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.main-page-grid .decision-card {
+    flex: 1;
+    max-width: 450px; 
+    min-width: 300px;
+}
+
+/* Ajuste para que en celulares se sigan viendo uno arriba del otro */
+@media (max-width: 768px) {
+    .main-page-grid {
+        flex-direction: column !important;
+    }
+}
