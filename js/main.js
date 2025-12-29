@@ -5,6 +5,7 @@ const infoEmpresa = {
     equipos: [
         { 
             id: "elx200",
+            categoria: "subs", // <--- Añade esto aquí
             nombre: "Electro-Voice ELX200-18SP", 
             descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
             fotos: [
@@ -18,6 +19,7 @@ const infoEmpresa = {
         },
         { 
             id: "zlx12bt",
+            categoria: "speakers", // <--- Añade esto aquí
             nombre: "Electro-Voice ZLX-12BT", 
             descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. Pro-grade audio quality.",
             fotos: [
