@@ -122,7 +122,20 @@ const infoEmpresa = {
       nombre: "Pioneer DDJ-FLX4",
       descripcion: "Versatile DJ controller. Great for dynamic sets and multi-software compatibility.",
       precioDia: 90,
-      fotos: ["img/productos/audio/flx4/1.jpg"]
+      fotos: ["img/productos/audio/flx4/FLX4.jpg",
+             "img/productos/audio/flx4/FLX41.jpg",
+             "img/productos/audio/flx4/FLX42.jpg",
+             "img/productos/audio/flx4/FLX43.jpg",
+             "img/productos/audio/flx4/FLX44.jpg",
+             "img/productos/audio/flx4/FLX45.jpg",
+             "img/productos/audio/flx4/FLX46.jpg",
+             "img/productos/audio/flx4/FLX47.jpg",
+             "img/productos/audio/flx4/FLX48.jpg",
+             "img/productos/audio/flx4/FLX49.jpg",
+             "img/productos/audio/flx4/FLX410.jpg",
+             "img/productos/audio/flx4/FLX411.jpg",
+             "img/productos/audio/flx4/FLX412.jpg"
+             ]
     },
 
     // -------- MICS & MONITORING --------
@@ -132,7 +145,14 @@ const infoEmpresa = {
       nombre: "Phenyx Pro PTAU-2 (2 mics)",
       descripcion: "Dual wireless mic system with long range and clear sound.",
       precioDia: 70,
-      fotos: ["img/productos/mics/ptau2/1.jpg"]
+      fotos: ["img/productos/audio/pyu-2/ptu-2.jpg",
+             "img/productos/audio/pyu-2/ptu-21.jpg",
+             "img/productos/audio/pyu-2/ptu-22.jpg",
+             "img/productos/audio/pyu-2/ptu-23.jpg",
+             "img/productos/audio/pyu-2/ptu-24.jpg",
+             "img/productos/audio/pyu-2/ptu-25.jpg",
+             "img/productos/audio/pyu-2/ptu-26.jpg"
+             ]
     },
     {
       id: "ptm33",
