@@ -130,7 +130,7 @@ function cargarEquipoRental(filtro = 'all') {
             <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">${item.descripcion}</p>
             <a href="https://wa.me/${infoEmpresa.whatsapp}?text=Hola! Me interesa rentar: ${encodeURIComponent(item.nombre)}" 
                style="display: block; text-align: center; padding: 10px; border: 1px solid #ffcc00; color: #ffcc00; border-radius: 25px; text-decoration: none; font-weight: bold;">
-                Inquire Price
+                ${translations[localStorage.getItem('language') || 'en'].inquire_price}
             </a>
         </div>
     `).join('');
