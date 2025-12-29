@@ -1,23 +1,25 @@
 const translations = {
     'en': {
         'tagline': 'PROFESSIONAL SOUND & LIGHTING',
-        'experience': 'Experience the Vibe',
-        'dj-services': 'Full DJ Services',
-        'dj-desc': 'Weddings, Quinceañeras, and Private Events.',
-        'rental-title': 'Equipment Rental',
-        'rental-desc': 'Professional audio and lights for your event.',
-        'book-btn': 'Book Now',
-        'rent-btn': 'Rent Equipment'
+        'experience_title': 'Experience the Vibe',
+        'dj_title': 'Full DJ Services',
+        'dj_description': 'Weddings, Quinceañeras, and Private Events.',
+        'book_now': 'Book Now',
+        'rental_title': 'Equipment Rental',
+        'rental_description': 'Professional audio and lights for your event.',
+        'rent_btn': 'Rent Equipment',
+        'follow_text': 'Follow the vibe:'
     },
     'es': {
         'tagline': 'SONIDO E ILUMINACIÓN PROFESIONAL',
-        'experience': 'Vive la Experiencia',
-        'dj-services': 'Servicios Completos de DJ',
-        'dj-desc': 'Bodas, Quinceañeras y Eventos Privados.',
-        'rental-title': 'Renta de Equipos',
-        'rental-desc': 'Audio y luces profesionales para tu evento.',
-        'book-btn': 'Reservar Ahora',
-        'rent-btn': 'Rentar Equipo'
+        'experience_title': 'Vive la Experiencia',
+        'dj_title': 'Servicios Completos de DJ',
+        'dj_description': 'Bodas, Quinceañeras y Eventos Privados.',
+        'book_now': 'Reservar Ahora',
+        'rental_title': 'Renta de Equipos',
+        'rental_description': 'Audio y luces profesionales para tu evento.',
+        'rent_btn': 'Rentar Equipo',
+        'follow_text': 'Sigue el ritmo:'
     }
 };
 
@@ -25,19 +27,13 @@ function setLanguage(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             el.innerText = translations[lang][key];
         }
     });
-    // Guarda la preferencia del usuario
     localStorage.setItem('language', lang);
 }
 
-// Carga el idioma guardado al abrir la página
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('language') || 'en';
-    setLanguage(savedLang);
-});
 const infoEmpresa = {
     whatsapp: "15025540333",
     equipos: [
@@ -46,55 +42,28 @@ const infoEmpresa = {
             categoria: "speakers",
             nombre: "Electro-Voice ZLX-12BT", 
             descripcion: "12-inch 1000W Bluetooth Powered Loudspeaker. Pro-grade audio quality.",
-            fotos: [
-                "img/productos/audio/zlx12bt/zlx12bt.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt2.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt1.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt3.jpg",
-                "img/productos/audio/zlx12bt/zlx12bt4.jpg",
-                "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg"
-            ]
+            fotos: ["img/productos/audio/zlx12bt/zlx12bt.jpg"]
         },
         {
             id: "elx200",
             categoria: "subs",
             nombre: "Electro-Voice ELX200-18SP", 
             descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
-            fotos: [
-                "img/productos/audio/zlx200/zlx200.jpg",
-                "img/productos/audio/zlx200/zlx200 1.jpg",
-                "img/productos/audio/zlx200/zlx200 2.jpg",
-                "img/productos/audio/zlx200/zle200 4.jpg",
-                "img/productos/audio/zlx200/zlx200 3.jpg",
-                "img/productos/audio/zlx200/zlx 2005.jpg"
-            ]
+            fotos: ["img/productos/audio/zlx200/zlx200.jpg"]
         },
         {
             id: "ui24r",
             categoria: "consoles",
             nombre: "Soundcraft UI24R",
             descripcion: "Consola digital de 24 canales con control inalámbrico y grabación multipista profesional.",
-            fotos: [
-                "img/productos/audio/ui24r/ui24r.jpg",
-                "img/productos/audio/ui24r/ui24r1.jpg",
-                "img/productos/audio/ui24r/ui24r2.jpg",
-                "img/productos/audio/ui24r/ui24r3.jpg",
-                "img/productos/audio/ui24r/ui24r4.jpg"
-            ]
+            fotos: ["img/productos/audio/ui24r/ui24r.jpg"]
         },
         {
             id: "x32",
             categoria: "consoles",
             nombre: "Behringer X32",
             descripcion: "Consola digital líder en la industria. Calidad de estudio para sonido en vivo y eventos grandes.",
-            fotos: [
-                "img/productos/audio/x32/x32 1.webp",
-                "img/productos/audio/x32/x32 2.webp",
-                "img/productos/audio/x32/x32 3.webp",
-                "img/productos/audio/x32/x32 4.webp",
-                "img/productos/audio/x32/x32 5.webp",
-                "img/productos/audio/x32/x32.webp"
-            ]
+            fotos: ["img/productos/audio/x32/x32.webp"]
         },
         {
             id: "flx4",
@@ -143,5 +112,9 @@ function filtrarEquipos(cat) {
     cargarEquipoRental(cat);
 }
 
-// Carga inicial al abrir la página
-document.addEventListener('DOMContentLoaded', () => cargarEquipoRental());
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+    cargarEquipoRental();
+});
