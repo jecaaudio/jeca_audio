@@ -39,6 +39,104 @@
     </div>
 
     <div id="rental-grid" class="inventory-grid"></div>
+    <!-- QUOTE CART -->
+<section class="quote-cart">
+  <div class="quote-cart-header">
+    <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
+    <button class="btn-outline small" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
+  </div>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-summary">
+    <div class="cart-total">
+      <span data-i18n="estimated_total">Estimated Total</span>
+      <strong id="cart-total">$0</strong>
+    </div>
+    <button class="btn-main" type="button" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
+      Continue to Event Details
+    </button>
+  </div>
+</section>
+
+<!-- Floating open cart button -->
+<button class="cart-fab" type="button" onclick="toggleCart(true)">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span id="cart-count" class="cart-count">0</span>
+</button>
+
+<!-- EVENT DETAILS FORM -->
+<section id="quote-form" class="quote-form">
+  <h2 class="section-title" data-i18n="event_details_title">Event Details</h2>
+
+  <form onsubmit="submitQuote(event)">
+    <div class="form-grid">
+      <div class="form-group">
+        <label data-i18n="event_date">Event Date</label>
+        <input id="q-date" type="date" required>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="event_time">Start Time</label>
+        <input id="q-time" type="time" required>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="event_type">Event Type</label>
+        <select id="q-type" required>
+          <option value="Wedding">Wedding</option>
+          <option value="Quinceañera">Quinceañera</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Corporate">Corporate</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="guest_count">Estimated Guests</label>
+        <input id="q-guests" type="number" min="1" placeholder="e.g. 120" required>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="indoor_outdoor">Indoor or Outdoor?</label>
+        <select id="q-io" required>
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+          <option value="Both">Both</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="event_city">City</label>
+        <input id="q-city" type="text" placeholder="Louisville, KY" required>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="duration_hours">Approx. Duration (hours)</label>
+        <input id="q-hours" type="number" min="1" placeholder="e.g. 6" required>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="power_available">Power available?</label>
+        <select id="q-power" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Not sure">Not sure</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label data-i18n="notes">Notes / Special requests</label>
+      <textarea id="q-notes" rows="4" placeholder="Stage, playlist, special effects timing, etc."></textarea>
+    </div>
+
+    <button class="btn-main" type="submit" data-i18n="send_quote_whatsapp">
+      Send Quote Request via WhatsApp
+    </button>
+  </form>
+</section>
+
 
     <noscript>
       <p style="background:#222; padding:12px; border-radius:10px;">
