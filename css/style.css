@@ -17,37 +17,32 @@ html, body {
 }
 
 /* Botones de Idioma (Superior Derecha) */
-.lang-switch {
+.language-switcher {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 1000;
     display: flex;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(243, 156, 18, 0.3);
-    border-radius: 8px;
-    overflow: hidden;
+    align-items: center;
+    gap: 5px;
 }
 
-.lang-switch button {
-    background: transparent;
+.lang-btn {
+    background: none;
     border: none;
-    color: #fff;
-    padding: 8px 15px;
+    color: var(--primary);
     cursor: pointer;
-    font-size: 0.75rem;
     font-weight: bold;
+    font-size: 14px;
     transition: 0.3s;
 }
 
-.lang-switch button:hover {
-    background: var(--primary);
-    color: #000;
+.lang-btn:hover {
+    color: #fff;
 }
 
-.lang-switch button:first-child {
-    border-right: 1px solid rgba(243, 156, 18, 0.3);
+.separator {
+    color: #555;
 }
 
 /* Encabezado */
@@ -62,6 +57,58 @@ header {
     background-position: center;
     border-bottom: 5px solid var(--primary);
     text-align: center;
+}
+
+h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); letter-spacing: -1px; }
+.tagline { font-size: 1.1rem; letter-spacing: 4px; color: #bbb; margin-top: 10px; text-transform: uppercase; }
+.location { margin-top: 15px; color: var(--primary); font-weight: bold; }
+
+/* Contenedor y Tarjetas */
+.container { 
+    max-width: 1100px; 
+    margin: auto; 
+    padding: 40px 20px; 
+    text-align: center; 
+}
+
+.section-title { font-size: 2.2rem; margin-bottom: 40px; }
+
+.decision-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.decision-card {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.decision-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.card-icon i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Botones */
+.btn-main { 
+    background: var(--primary); 
+    color: #000; 
+    padding: 15px
 }
 
 h1 { font-size: 3.5rem; font-weight: 900; margin: 0; color: var(--primary); letter
