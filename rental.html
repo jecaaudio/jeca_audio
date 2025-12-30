@@ -11,6 +11,96 @@
   <!-- Asegúrate que exista /css/style.css -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+<!-- QUOTE CART BUTTON (floating) -->
+<button class="cart-fab" type="button" onclick="toggleCart(true)">
+  🛒 <span id="cart-count">0</span>
+</button>
+
+<!-- QUOTE CART PANEL -->
+<div class="quote-cart">
+  <div class="quote-cart-header">
+    <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
+    <button type="button" class="icon-btn" onclick="toggleCart(false)" data-i18n="close">Close</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="quote-cart-footer">
+    <div class="total-row">
+      <span data-i18n="estimated_total">Estimated Total</span>
+      <strong id="cart-total">$0</strong>
+    </div>
+    <button type="button" class="btn-main" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
+      Continue to Event Details
+    </button>
+  </div>
+</div>
+
+<!-- EVENT DETAILS FORM -->
+<section id="quote-form" class="quote-form-section">
+  <h2 data-i18n="event_details_title">Event Details</h2>
+
+  <form onsubmit="submitQuote(event)" class="quote-form">
+    <div class="form-grid">
+      <label>
+        <span data-i18n="event_date">Event Date</span>
+        <input type="date" id="q-date" required>
+      </label>
+
+      <label>
+        <span data-i18n="event_time">Start Time</span>
+        <input type="time" id="q-time" required>
+      </label>
+
+      <label>
+        <span data-i18n="event_type">Event Type</span>
+        <input type="text" id="q-type" placeholder="Wedding, Birthday..." required>
+      </label>
+
+      <label>
+        <span data-i18n="guest_count">Estimated Guests</span>
+        <input type="number" id="q-guests" min="1" required>
+      </label>
+
+      <label>
+        <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
+        <select id="q-io" required>
+          <option value="">Select...</option>
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
+      </label>
+
+      <label>
+        <span data-i18n="event_city">City</span>
+        <input type="text" id="q-city" placeholder="Louisville" required>
+      </label>
+
+      <label>
+        <span data-i18n="duration_hours">Approx. Duration (hours)</span>
+        <input type="number" id="q-hours" min="1" required>
+      </label>
+
+      <label>
+        <span data-i18n="power_available">Power available?</span>
+        <select id="q-power" required>
+          <option value="">Select...</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+    </div>
+
+    <label style="display:block; margin-top:14px;">
+      <span data-i18n="notes">Notes / Special requests</span>
+      <textarea id="q-notes" rows="4" placeholder="Anything else we should know?"></textarea>
+    </label>
+
+    <button class="btn-main" type="submit" style="margin-top:16px;" data-i18n="send_quote_whatsapp">
+      Send Quote Request via WhatsApp
+    </button>
+  </form>
+</section>
 
 <body>
 
