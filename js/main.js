@@ -112,7 +112,7 @@ function setLanguage(lang) {
     if (el.placeholder !== undefined && el.tagName === "INPUT") {
       el.placeholder = value;
     } else if (el.tagName === "TEXTAREA") {
-      el.placeholder = value; // si quieres traducir placeholder de textarea
+      el.placeholder = value;
     } else {
       el.innerText = value;
     }
@@ -120,9 +120,15 @@ function setLanguage(lang) {
 
   localStorage.setItem("language", lang);
 
+  // ✅ AÑADE ESTO:
+  document.querySelectorAll(".lang-btn[data-lang]").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
   try { updateCartUI(); } catch {}
 }
+
 
 
 /*********************************
