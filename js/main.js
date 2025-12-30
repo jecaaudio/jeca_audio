@@ -33,6 +33,7 @@ const translations = {
     add_to_quote: "Add to Quote",
     close: "Close",
     empty_cart: "Your cart is empty. Add items to request a quote.",
+    remove: "Remove",
 
 
     // HOME (index.html)
@@ -78,6 +79,8 @@ const translations = {
     add_to_quote: "Añadir a cotización",
     close: "Cerrar",
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
+    remove: "Quitar",
+
 
 
     // HOME (index.html)
@@ -551,7 +554,10 @@ function updateCartUI() {
               <button type="button" onclick="changeQty('${eq.id}', 1)">+</button>
             </div>
             <div style="margin-top:10px;">
-              <button class="btn-outline small" type="button" onclick="removeFromCart('${eq.id}')">Remove</button>
+            <button class="btn-outline small" type="button" onclick="removeFromCart('${eq.id}')">
+  ${translations[lang].remove}
+</button>
+
             </div>
           </div>
         </div>
