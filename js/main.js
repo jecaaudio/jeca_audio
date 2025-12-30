@@ -34,6 +34,8 @@ const translations = {
     close: "Close",
     empty_cart: "Your cart is empty. Add items to request a quote.",
     remove: "Remove",
+    qty: "Qty",
+
 
 
     // HOME (index.html)
@@ -80,6 +82,8 @@ const translations = {
     close: "Cerrar",
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
     remove: "Quitar",
+    qty: "Cant.",
+
 
 
 
@@ -103,17 +107,20 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     const value = translations?.[lang]?.[key];
-    if (value) {
-      el.innerText = value;
-    }
+    if (value) el.innerText = value;
   });
+
   localStorage.setItem('language', lang);
 
-  // Si estás en la página rental, re-render
   if (typeof cargarEquipoRental === "function") {
     try { cargarEquipoRental(currentFilter || 'all'); } catch (e) {}
   }
+
+  if (typeof updateCartUI === "function") {
+    try { updateCartUI(); } catch (e) {}
+  }
 }
+
 
 
 /*********************************
@@ -545,7 +552,8 @@ function updateCartUI() {
         <div class="cart-row">
           <div>
             <h4>${eq.nombre}</h4>
-            <div class="meta">${ci.qty} × ${translations[lang].per_day}</div>
+            <div class="meta">${translations[lang].qty}: ${ci.qty}</div>
+
           </div>
           <div style="text-align:right;">
             <div class="qty">
