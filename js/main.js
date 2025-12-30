@@ -602,20 +602,22 @@ function submitQuote(ev){
     return eq ? `• ${ci.qty} x ${eq.nombre}` : "";
   }).filter(Boolean);
 
-  const total = computeCartTotal();
+  const total = computeCartTotal().toFixed(2);
+
 
   const message =
   (lang === "es")
     ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
       `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
       `🛒 Equipos:\n${lines.join("\n")}\n\n` +
-      `💰 Total estimado (solo renta): $${total}\n\n` +
+      `💰 ${translations[lang].estimated_total} (rental only): $${total}\n\n` +
+
       `📝 Notas: ${notes}`
 
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
   `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
   `🛒 Items:\n${lines.join("\n")}\n\n` +
-  `💰 Estimated total (rental only): $${total}\n\n` +
+  `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
   `📝 Notes: ${notes}`;
 
 
