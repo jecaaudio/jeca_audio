@@ -1,274 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Equipment Rental | Jeca Audio</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
-  <!-- Asegúrate que exista /css/style.css -->
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JECA AUDIO - Rentals</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<!-- QUOTE CART BUTTON (floating) -->
-<button class="cart-fab" type="button" onclick="toggleCart(true)">
-  🛒 <span id="cart-count">0</span>
-</button>
-
-<!-- QUOTE CART PANEL -->
-<div class="quote-cart">
-  <div class="quote-cart-header">
-    <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
-    <button type="button" class="icon-btn" onclick="toggleCart(false)" data-i18n="close">Close</button>
-  </div>
-
-  <div id="cart-items"></div>
-
-  <div class="quote-cart-footer">
-    <div class="total-row">
-      <span data-i18n="estimated_total">Estimated Total</span>
-      <strong id="cart-total">$0</strong>
-    </div>
-    <button type="button" class="btn-main" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
-      Continue to Event Details
-    </button>
-  </div>
-</div>
-
-<!-- EVENT DETAILS FORM -->
-<section id="quote-form" class="quote-form-section">
-  <h2 data-i18n="event_details_title">Event Details</h2>
-
-  <form onsubmit="submitQuote(event)" class="quote-form">
-    <div class="form-grid">
-      <label>
-        <span data-i18n="event_date">Event Date</span>
-        <input type="date" id="q-date" required>
-      </label>
-
-      <label>
-        <span data-i18n="event_time">Start Time</span>
-        <input type="time" id="q-time" required>
-      </label>
-
-      <label>
-        <span data-i18n="event_type">Event Type</span>
-        <input type="text" id="q-type" placeholder="Wedding, Birthday..." required>
-      </label>
-
-      <label>
-        <span data-i18n="guest_count">Estimated Guests</span>
-        <input type="number" id="q-guests" min="1" required>
-      </label>
-
-      <label>
-        <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
-        <select id="q-io" required>
-          <option value="">Select...</option>
-          <option value="Indoor">Indoor</option>
-          <option value="Outdoor">Outdoor</option>
-        </select>
-      </label>
-
-      <label>
-        <span data-i18n="event_city">City</span>
-        <input type="text" id="q-city" placeholder="Louisville" required>
-      </label>
-
-      <label>
-        <span data-i18n="duration_hours">Approx. Duration (hours)</span>
-        <input type="number" id="q-hours" min="1" required>
-      </label>
-
-      <label>
-        <span data-i18n="power_available">Power available?</span>
-        <select id="q-power" required>
-          <option value="">Select...</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </label>
-    </div>
-
-    <label style="display:block; margin-top:14px;">
-      <span data-i18n="notes">Notes / Special requests</span>
-      <textarea id="q-notes" rows="4" placeholder="Anything else we should know?"></textarea>
-    </label>
-
-    <button class="btn-main" type="submit" style="margin-top:16px;" data-i18n="send_quote_whatsapp">
-      Send Quote Request via WhatsApp
-    </button>
-  </form>
-</section>
-
 <body>
 
-  <div class="language-switcher">
-    <button class="lang-btn" type="button" onclick="setLanguageSafe('en')">ENG</button>
-    <span class="separator">|</span>
-    <button class="lang-btn" type="button" onclick="setLanguageSafe('es')">ESP</button>
-  </div>
-
-  <header style="height: 30vh; min-height: 200px;">
-    <div class="container" style="margin-top: 100px;">
-      <h2 class="section-title" data-i18n="rental_inventory">Rental Inventory</h2>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="header-content">
+      <a class="logo-link" href="index.html">
+        <h1>JECA AUDIO</h1>
+      </a>
+      <div class="tagline" data-i18n="tagline">PROFESSIONAL SOUND & LIGHTING</div>
     </div>
   </header>
 
+  <!-- LANGUAGE SWITCHER -->
+  <div class="language-switcher">
+    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+  </div>
+
+  <!-- MAIN CONTENT -->
   <main class="container">
-    <div class="filter-container">
-      <button class="filter-btn active" type="button" onclick="filtrarEquiposSafe('all', event)" data-i18n="filter_all">All</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('speakers', event)" data-i18n="filter_speakers">Speakers</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('subs', event)" data-i18n="filter_subs">Subwoofers</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('consoles', event)" data-i18n="filter_consoles">Consoles</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('mics', event)" data-i18n="filter_mics">Mics & Monitoring</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('lighting', event)" data-i18n="filter_lighting">Lighting</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('effects', event)" data-i18n="filter_effects">Special Effects</button>
-      <button class="filter-btn" type="button" onclick="filtrarEquiposSafe('structure', event)" data-i18n="filter_structure">Structure</button>
+
+    <h2 data-i18n="rental_inventory">Rental Inventory</h2>
+
+    <!-- FILTERS -->
+    <div class="filters">
+      <button class="filter-btn active" data-i18n="filter_all" onclick="filtrarEquipos('all', event)">All</button>
+      <button class="filter-btn" data-i18n="filter_speakers" onclick="filtrarEquipos('speakers', event)">Speakers</button>
+      <button class="filter-btn" data-i18n="filter_subs" onclick="filtrarEquipos('subs', event)">Subwoofers</button>
+      <button class="filter-btn" data-i18n="filter_consoles" onclick="filtrarEquipos('consoles', event)">Consoles</button>
+      <button class="filter-btn" data-i18n="filter_mics" onclick="filtrarEquipos('mics', event)">Mics</button>
+      <button class="filter-btn" data-i18n="filter_lighting" onclick="filtrarEquipos('lighting', event)">Lighting</button>
+      <button class="filter-btn" data-i18n="filter_effects" onclick="filtrarEquipos('effects', event)">Effects</button>
+      <button class="filter-btn" data-i18n="filter_structure" onclick="filtrarEquipos('structure', event)">Structure</button>
     </div>
 
+    <!-- INVENTORY GRID -->
     <div id="rental-grid" class="inventory-grid"></div>
-    <!-- QUOTE CART -->
-<section class="quote-cart">
-  <div class="quote-cart-header">
-    <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
-    <button class="btn-outline small" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
-  </div>
 
-  <div id="cart-items" class="cart-items"></div>
+    <!-- QUOTE FORM -->
+    <section id="quote-form" class="quote-form-section">
+      <h2 data-i18n="event_details_title">Event Details</h2>
 
-  <div class="cart-summary">
-    <div class="cart-total">
-      <span data-i18n="estimated_total">Estimated Total</span>
-      <strong id="cart-total">$0</strong>
-    </div>
-    <button class="btn-main" type="button" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
-      Continue to Event Details
-    </button>
-  </div>
-</section>
+      <form class="quote-form" onsubmit="submitQuote(event)">
+        <div class="form-grid">
+          <label class="form-group">
+            <span data-i18n="event_date">Event Date</span>
+            <input id="q-date" type="date" required />
+          </label>
 
-<!-- Floating open cart button -->
-<button class="cart-fab" type="button" onclick="toggleCart(true)">
-  <i class="fa-solid fa-cart-shopping"></i>
-  <span id="cart-count" class="cart-count">0</span>
-</button>
+          <label class="form-group">
+            <span data-i18n="event_time">Start Time</span>
+            <input id="q-time" type="time" />
+          </label>
 
-<!-- EVENT DETAILS FORM -->
-<section id="quote-form" class="quote-form">
-  <h2 class="section-title" data-i18n="event_details_title">Event Details</h2>
+          <label class="form-group">
+            <span data-i18n="event_type">Event Type</span>
+            <input id="q-type" type="text" placeholder="Wedding / Quince / Birthday..." />
+          </label>
 
-  <form onsubmit="submitQuote(event)">
-    <div class="form-grid">
-      <div class="form-group">
-        <label data-i18n="event_date">Event Date</label>
-        <input id="q-date" type="date" required>
-      </div>
+          <label class="form-group">
+            <span data-i18n="guest_count">Estimated Guests</span>
+            <input id="q-guests" type="number" min="0" />
+          </label>
 
-      <div class="form-group">
-        <label data-i18n="event_time">Start Time</label>
-        <input id="q-time" type="time" required>
-      </div>
+          <label class="form-group">
+            <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
+            <select id="q-io">
+              <option value="">—</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
+              <option value="Both">Both</option>
+            </select>
+          </label>
 
-      <div class="form-group">
-        <label data-i18n="event_type">Event Type</label>
-        <select id="q-type" required>
-          <option value="Wedding">Wedding</option>
-          <option value="Quinceañera">Quinceañera</option>
-          <option value="Birthday">Birthday</option>
-          <option value="Corporate">Corporate</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
+          <label class="form-group">
+            <span data-i18n="event_city">City</span>
+            <input id="q-city" type="text" placeholder="Louisville..." />
+          </label>
 
-      <div class="form-group">
-        <label data-i18n="guest_count">Estimated Guests</label>
-        <input id="q-guests" type="number" min="1" placeholder="e.g. 120" required>
-      </div>
+          <label class="form-group">
+            <span data-i18n="duration_hours">Approx. Duration (hours)</span>
+            <input id="q-hours" type="number" min="0" step="0.5" />
+          </label>
 
-      <div class="form-group">
-        <label data-i18n="indoor_outdoor">Indoor or Outdoor?</label>
-        <select id="q-io" required>
-          <option value="Indoor">Indoor</option>
-          <option value="Outdoor">Outdoor</option>
-          <option value="Both">Both</option>
-        </select>
-      </div>
+          <label class="form-group">
+            <span data-i18n="power_available">Power available?</span>
+            <select id="q-power">
+              <option value="">—</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </label>
+        </div>
 
-      <div class="form-group">
-        <label data-i18n="event_city">City</label>
-        <input id="q-city" type="text" placeholder="Louisville, KY" required>
-      </div>
+        <label class="form-group" style="margin-top:14px;">
+          <span data-i18n="notes">Notes / Special requests</span>
+          <textarea id="q-notes" rows="4"></textarea>
+        </label>
 
-      <div class="form-group">
-        <label data-i18n="duration_hours">Approx. Duration (hours)</label>
-        <input id="q-hours" type="number" min="1" placeholder="e.g. 6" required>
-      </div>
+        <button class="btn-main" type="submit" data-i18n="send_quote_whatsapp">
+          Send Quote Request via WhatsApp
+        </button>
+      </form>
+    </section>
 
-      <div class="form-group">
-        <label data-i18n="power_available">Power available?</label>
-        <select id="q-power" required>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="Not sure">Not sure</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label data-i18n="notes">Notes / Special requests</label>
-      <textarea id="q-notes" rows="4" placeholder="Stage, playlist, special effects timing, etc."></textarea>
-    </div>
-
-    <button class="btn-main" type="submit" data-i18n="send_quote_whatsapp">
-      Send Quote Request via WhatsApp
-    </button>
-  </form>
-</section>
-
-
-    <noscript>
-      <p style="background:#222; padding:12px; border-radius:10px;">
-        This page needs JavaScript enabled to show the inventory.
-      </p>
-    </noscript>
-
-    <div style="margin-top: 50px; text-align: center;">
-      <p data-i18n="contact_text">Need a custom quote or don't see what you need?</p>
-      <a href="https://wa.me/15025540333" class="btn-main" data-i18n="contact_btn">Contact via WhatsApp</a>
-    </div>
   </main>
 
-  <!-- Asegúrate que exista /js/main.js -->
-  <script src="js/main.js"></script>
+  <!-- CART FAB -->
+  <button class="cart-fab" type="button" onclick="toggleCart(true)" aria-label="Open cart">
+    🛒 <span id="cart-count" class="cart-count">0</span>
+  </button>
 
-  <script>
-    // Wrappers "seguros" para que no se rompa si falta alguna función
-    function setLanguageSafe(lang) {
-      if (typeof setLanguage === "function") setLanguage(lang);
-      localStorage.setItem('language', lang);
-    }
-    function filtrarEquiposSafe(category, ev) {
-      if (typeof filtrarEquipos === "function") filtrarEquipos(category, ev);
-    }
+  <!-- CART PANEL -->
+  <aside class="quote-cart">
+    <div class="quote-cart-header">
+      <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
+      <button class="icon-btn" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
+    </div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('language') || 'en';
+    <div id="cart-items"></div>
 
-      if (typeof setLanguage === "function") setLanguage(savedLang);
-      if (typeof cargarEquipoRental === "function") cargarEquipoRental();
-      else {
-        // Si no existe, te deja una pista visual
-        const grid = document.getElementById('rental-grid');
-        grid.innerHTML = `
-          <div style="padding:14px; background:#222; border-radius:12px;">
-            Inventory not loading. Check: <b>js/main.js</b> path and that <b>cargarEquipoRental()</b> exists.
-          </div>
-        `;
-      }
-    });
-  </script>
+    <div class="quote-cart-footer">
+      <div class="total-row">
+        <strong data-i18n="estimated_total">Estimated Total</strong>
+        <strong id="cart-total">$0.00</strong>
+      </div>
 
+      <button class="btn-main" type="button" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
+        Continue to Event Details
+      </button>
+    </div>
+  </aside>
+
+  <!-- WHATSAPP FLOAT (opcional) -->
+  <a class="whatsapp-float" href="https://wa.me/15025540333" target="_blank" rel="noopener">✆</a>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
+
