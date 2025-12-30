@@ -322,7 +322,16 @@ const infoEmpresa = {
       nombre: "Mini Beam 90W LED (pack)",
       descripcion: "Compact beam fixtures for sharp effects.",
       precioDia: 85,
-      fotos: ["img/productos/lighting/minibeam90/1.jpg"]
+      fotos: ["img/productos/lights/MovingHead90w/90WLEDMovingHead.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead1.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead2.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead3.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead4.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead5.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead6.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead7.jpg",
+             "img/productos/lights/MovingHead90w/90WLEDMovingHead8.jpg"
+             ]
     },
     {
       id: "rotatingbeam",
@@ -330,7 +339,14 @@ const infoEmpresa = {
       nombre: "Rotating Beam RGBW Moving Head",
       descripcion: "Rotating beam effect for dynamic shows.",
       precioDia: 95,
-      fotos: ["img/productos/lighting/rotatingbeam/1.jpg"]
+      fotos: ["img/productos/lights/MovingHead16LEDs/MovingHead16LEDs.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs1.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs2.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs3.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs4.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs5.jpg",
+             "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs6.jpg"
+             ]
     },
 
     // -------- EFFECTS --------
