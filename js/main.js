@@ -123,9 +123,9 @@ function setLanguage(lang) {
   localStorage.setItem("language", lang);
 
   // ✅ marcar botón activo (ENG / ESP)
-  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
+  document.querySelectorAll(".lang-btn[data-lang]").forEach(btn => {
+  btn.classList.toggle("active", btn.dataset.lang === lang);
+});
 
   // ✅ refrescar páginas/partes que dependen del idioma (si existen)
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
@@ -480,6 +480,7 @@ window.addEventListener("scroll", () => {
  * GLOBALS
  *********************************/
 window.setLanguage = setLanguage;
+window.setLanguageSafe = setLanguageSafe;
 window.cargarEquipoRental = cargarEquipoRental;
 window.filtrarEquipos = filtrarEquipos;
 window.addToCart = addToCart;
@@ -490,3 +491,4 @@ window.scrollToQuoteForm = scrollToQuoteForm;
 window.submitQuote = submitQuote;
 window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
+
