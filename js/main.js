@@ -356,7 +356,13 @@ const infoEmpresa = {
       nombre: "FOG MACHINE -1500",
       descripcion: "1500W fog machine for atmosphere and lighting enhancement.",
       precioDia: 60,
-      fotos: ["img/productos/effects/fog1500/1.jpg"]
+      fotos: ["img/productos/especialeffects/fog/humo.jpg",
+             "img/productos/especialeffects/fog/humo1.jpg",
+             "img/productos/especialeffects/fog/humo2.jpg",
+             "img/productos/especialeffects/fog/humo3.jpg",
+             "img/productos/especialeffects/fog/humo4.jpg",
+             "img/productos/especialeffects/fog/humo5.jpg"
+             ]
     },
     {
       id: "lowfog",
@@ -364,7 +370,13 @@ const infoEmpresa = {
       nombre: "Low Fog Machine (cloud effect)",
       descripcion: "Low fog effect for weddings and special moments.",
       precioDia: 100,
-      fotos: ["img/productos/effects/lowfog/1.jpg"]
+      fotos: ["img/productos/especialeffects/groundfogger/humobajo.webp",
+             "img/productos/especialeffects/groundfogger/humobajo1.webp",
+             "img/productos/especialeffects/groundfogger/humobajo2.webp",
+             "img/productos/especialeffects/groundfogger/humobajo3.webp",
+             "img/productos/especialeffects/groundfogger/humobajo4.webp",
+             "img/productos/especialeffects/groundfogger/humobajo5.webp"
+             ]
     },
     {
       id: "spark700",
@@ -372,7 +384,17 @@ const infoEmpresa = {
       nombre: "Spark Machine 700W",
       descripcion: "Cold spark machine for entrances and highlights.",
       precioDia: 120,
-      fotos: ["img/productos/effects/spark700/1.jpg"]
+      fotos: ["img/productos/especialeffects/coldspark/chispas.webp",
+             "img/productos/especialeffects/coldspark/chispas1.webp",
+             "img/productos/especialeffects/coldspark/chispas2.webp",
+             "img/productos/especialeffects/coldspark/chispas3.webp",
+             "img/productos/especialeffects/coldspark/chispas4.webp",
+             "img/productos/especialeffects/coldspark/chispas5.webp",
+             "img/productos/especialeffects/coldspark/chispas6.webp",
+             "img/productos/especialeffects/coldspark/chispas7.webp",
+             "img/productos/especialeffects/coldspark/chispas8.webp",
+             "img/productos/especialeffects/coldspark/chispas9.webp"
+             ]
     },
     {
       id: "confetti4",
@@ -380,7 +402,14 @@ const infoEmpresa = {
       nombre: "Electric Confetti Machine (4 heads)",
       descripcion: "4-head electric confetti launcher for big moments.",
       precioDia: 150,
-      fotos: ["img/productos/effects/confetti4/1.jpg"]
+      fotos: ["img/productos/especialeffects/confetticannon/confetticannon.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon1.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon2.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon3.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon4.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon5.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon6.jpg",
+             "img/productos/especialeffects/confetticannon/confetticannon7.jpg",]
     },
     {
       id: "aircannon",
@@ -388,7 +417,12 @@ const infoEmpresa = {
       nombre: "Air Confetti Cannon",
       descripcion: "Air-powered confetti cannon for quick pops.",
       precioDia: 100,
-      fotos: ["img/productos/effects/aircannon/1.jpg"]
+      fotos: ["img/productos/especialeffects/aircannon/canonaire.jpg",
+             "img/productos/especialeffects/aircannon/canonaire1.jpg",
+             "img/productos/especialeffects/aircannon/canonaire2.jpg",
+             "img/productos/especialeffects/aircannon/canonaire3.jpg",
+             "img/productos/especialeffects/aircannon/canonaire4.jpg"
+             ]
     },
 
     // -------- STRUCTURE --------
@@ -398,7 +432,15 @@ const infoEmpresa = {
       nombre: "Portable DJ Booth",
       descripcion: "Portable DJ booth for clean setups.",
       precioDia: 80,
-      fotos: ["img/productos/structure/booth/1.jpg"]
+      fotos: ["img/productos/structure/djbooth/djbooth.jpg",
+             "img/productos/structure/djbooth/djbooth1.jpg",
+             "img/productos/structure/djbooth/djbooth2.jpg",
+             "img/productos/structure/djbooth/djbooth3.jpg",
+             "img/productos/structure/djbooth/djbooth4.jpg",
+             "img/productos/structure/djbooth/djbooth5.jpg",
+             "img/productos/structure/djbooth/djbooth6.jpg",
+             "img/productos/structure/djbooth/djbooth7.jpg"
+             ]
     },
     {
       id: "truss8x8",
@@ -406,7 +448,13 @@ const infoEmpresa = {
       nombre: "Aluminum Truss 8x8 (module)",
       descripcion: "8x8 aluminum truss module for lighting rigs.",
       precioDia: 150,
-      fotos: ["img/productos/structure/truss8x8/1.jpg"]
+      fotos: ["img/productos/structure/truss8x8/truss8x8.jpg",
+             "img/productos/structure/truss8x8/truss8x81.jpg",
+             "img/productos/structure/truss8x8/truss8x82.jpg",
+             "img/productos/structure/truss8x8/truss8x83.jpg",
+             "img/productos/structure/truss8x8/truss8x84.jpg",
+             "img/productos/structure/truss8x8/truss8x85.jpg"
+             ]
     }
   ]
 };
