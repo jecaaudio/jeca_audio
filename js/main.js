@@ -770,7 +770,6 @@ if (equipo.fotos.length > 1) {
   galleryIntervals.push(intervalId);
 }
 
-
 /*********************************
  * FILTERS
  *********************************/
