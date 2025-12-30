@@ -119,11 +119,23 @@
     🛒 <span id="cart-count" class="cart-count">0</span>
   </button>
 
+  <!-- OVERLAY (click fuera cierra) -->
+  <div class="cart-overlay" onclick="toggleCart(false)"></div>
+
   <!-- CART PANEL -->
   <aside class="quote-cart">
     <div class="quote-cart-header">
       <h3 data-i18n="quote_cart_title">Your Quote Cart</h3>
       <button class="icon-btn" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
+    </div>
+
+    <!-- Rental days selector -->
+    <div class="cart-days">
+      <label>
+        <span data-i18n="rental_days">Rental Days</span>
+        <input id="rental-days" type="number" min="1" step="1" value="1" />
+      </label>
+      <div class="cart-days-hint" data-i18n="per_day_note">Prices are per day.</div>
     </div>
 
     <div id="cart-items"></div>
@@ -134,9 +146,14 @@
         <strong id="cart-total">$0.00</strong>
       </div>
 
-      <button class="btn-main" type="button" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
-        Continue to Event Details
-      </button>
+      <div class="cart-actions">
+        <button class="btn-outline small" type="button" onclick="clearCart()" data-i18n="clear_cart">
+          Clear cart
+        </button>
+        <button class="btn-main" type="button" onclick="scrollToQuoteForm()" data-i18n="continue_to_form">
+          Continue to Event Details
+        </button>
+      </div>
     </div>
   </aside>
 
@@ -146,4 +163,3 @@
   <script src="js/app.js"></script>
 </body>
 </html>
-
