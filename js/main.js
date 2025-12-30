@@ -629,29 +629,20 @@ function cargarEquipoRental(filter = 'all') {
 
     const imgId = `img-${equipo.id}-${index}`;
 
-    const msg =
-      lang === "es"
-        ? `Hola, me interesa cotizar: ${equipo.nombre} ($${equipo.precioDia}/día).`
-        : `Hi, I want a quote for: ${equipo.nombre} ($${equipo.precioDia}/day).`;
+card.innerHTML = `
+  <div class="image-container">
+    <img src="${equipo.fotos[0]}" id="${imgId}" alt="${equipo.nombre}">
+  </div>
 
-    const waLink = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(msg)}`;
+  <h3>${equipo.nombre}</h3>
+  <p>${equipo.descripcion}</p>
 
-    card.innerHTML = `
-      <div class="image-container">
-        <img src="${equipo.fotos[0]}" id="${imgId}" alt="${equipo.nombre}">
-      </div>
+  <a href="javascript:void(0)" class="btn-main" data-i18n="add_to_quote"
+     onclick="addToCart('${equipo.id}')">
+    ${translations[lang].add_to_quote}
+  </a>
+`;
 
-      <h3>${equipo.nombre}</h3>
-      <p>${equipo.descripcion}</p>
-
-      <p style="margin: 8px 0 14px 0; opacity:.9;">
-        <strong>${lang === "es" ? "Renta" : "Price"}:</strong> $${equipo.precioDia}/${lang === "es" ? "día" : "day"}
-      </p>
-
-      <a href="${waLink}" class="btn-main" data-i18n="inquire_price" target="_blank" rel="noopener">
-        ${translations[lang].inquire_price}
-      </a>
-    `;
 
     grid.appendChild(card);
 
