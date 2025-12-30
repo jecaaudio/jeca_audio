@@ -396,12 +396,7 @@ footer { margin-top: 60px; padding: 30px; border-top: 1px solid #222; width: 100
   max-width: 900px;
   margin: 50px auto 0 auto;
   text-align:left;
-}
-.quote-form{
-  background:#111;
-  border:1px solid #222;
-  border-radius: 16px;
-  padding: 18px;
+
 }
 .form-grid{
   display:grid;
