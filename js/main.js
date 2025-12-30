@@ -38,6 +38,8 @@ const translations = {
     remove: "Remove",
     qty: "Qty",
     tagline: "PROFESSIONAL SOUND & LIGHTING",
+    am: "AM",
+    pm: "PM",
   },
 
   es: {
@@ -76,6 +78,9 @@ const translations = {
     remove: "Quitar",
     qty: "Cant.",
     tagline: "SONIDO E ILUMINACIÓN PROFESIONAL",
+    am: "a. m.",
+    pm: "p. m.",
+
   }
 };
 
@@ -636,7 +641,10 @@ function submitQuote(ev) {
   }
 
   const date = document.getElementById("q-date")?.value || "";
-  const time = document.getElementById("q-time")?.value || "";
+  const timeRaw = document.getElementById("q-time")?.value || "";
+const ampm = document.getElementById("q-ampm")?.value || "";
+const time = (timeRaw && ampm) ? `${timeRaw} ${ampm}` : timeRaw;
+
   const type = document.getElementById("q-type")?.value || "";
   const guests = document.getElementById("q-guests")?.value || "";
   const io = document.getElementById("q-io")?.value || "";
