@@ -523,3 +523,23 @@ footer{
   align-items:stretch;
   gap:30px;
 }
+/* ✅ FIX: asegura que el contenedor tenga espacio */
+.decision-grid.main-page-grid{
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ✅ FIX: que cada card NO sea 100% si hay espacio */
+.decision-grid.main-page-grid .decision-card{
+  width: auto;             /* pisa el width:100% */
+  flex: 1 1 520px;
+  max-width: 520px;
+}
+
+/* ✅ mobile */
+@media (max-width: 900px){
+  .decision-grid.main-page-grid .decision-card{
+    width: 92vw;            /* como lo tenías */
+    max-width: 92vw;
+  }
+}
