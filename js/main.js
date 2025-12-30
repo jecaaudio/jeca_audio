@@ -135,7 +135,7 @@ const infoEmpresa = {
         "img/productos/audio/zlx12bt/zlx12bt2.jpg",
         "img/productos/audio/zlx12bt/zlx12bt3.jpg",
         "img/productos/audio/zlx12bt/zlx12bt4.jpg",
-        "img/productos/audio/zlx12bt/zlx12btzlx12bt5.jpg"
+        "img/productos/audio/zlx12bt/zlx12bt5.jpg"
       ]
     },
     {
@@ -291,15 +291,15 @@ const infoEmpresa = {
       nombre: "LED Bar 10x RGBW (250W)",
       descripcion: "High-power RGBW LED bar for strong color wash.",
       precioDia: 90,
-      fotos: ["img/productos/lights/Light BarLED10/Light BarLED10.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED101.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED102.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED103.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED104.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED105.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED106.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED107.jpg",
-             "img/productos/lights/Light BarLED10/Light BarLED108.jpg"
+      fotos: ["img/productos/lights/LightBarLED10/LightBarLED10.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED101.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED102.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED103.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED104.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED105.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED106.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED107.jpg",
+             "img/productos/lights/LightBarLED10/LightBarLED108.jpg"
              ]
     },
     {
