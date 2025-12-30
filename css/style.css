@@ -375,6 +375,19 @@ h1{
   background:#0b0b0b;
   color:#fff;
 }
+/* Time input row (Start Time + AM/PM) */
+.time-row{
+  display:flex;
+  gap:10px;
+}
+
+.time-row input{
+  flex:1;
+}
+
+.time-row select{
+  width:110px;
+}
 
 @media (max-width:768px){
   #main-header{ height:50vh; }
