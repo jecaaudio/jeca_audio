@@ -305,7 +305,16 @@ const infoEmpresa = {
       nombre: "HOLDLAMP 19x15W RGBW Moving Head",
       descripcion: "Powerful RGBW moving head for wide beam and color mixing.",
       precioDia: 100,
-      fotos: ["img/productos/lighting/holdlamp19x15/1.jpg"]
+      fotos: ["img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead1.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead2.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead3.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead4.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead5.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead6.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead7.jpg",
+             "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead8.jpg"
+             ]
     },
     {
       id: "minibeam90",
