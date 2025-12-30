@@ -14,7 +14,7 @@ const translations = {
     filter_structure: "Structure",
 
     quote_cart_title: "Your Quote Cart",
-    estimated_total: "Estimated Total",
+    estimated_total: "Estimated Total", 
     rental_only: "(rental only)",
     rental_days: "Rental Days",
     per_day_note: "Prices are per day.",
@@ -91,14 +91,23 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
     const value = translations?.[lang]?.[key];
-    if (value) el.innerText = value;
+    if (!value) return;
+
+    if (el.placeholder !== undefined && el.tagName === "INPUT") {
+      el.placeholder = value;
+    } else if (el.tagName === "TEXTAREA") {
+      el.placeholder = value; // si quieres traducir placeholder de textarea
+    } else {
+      el.innerText = value;
+    }
   });
 
   localStorage.setItem("language", lang);
 
-  try { cargarEquipoRental(currentFilter || "all"); } catch (e) {}
-  try { updateCartUI(); } catch (e) {}
+  try { cargarEquipoRental(currentFilter || "all"); } catch {}
+  try { updateCartUI(); } catch {}
 }
+
 
 /*********************************
  * DATOS EMPRESA
