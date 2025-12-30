@@ -764,20 +764,17 @@ function scrollToQuoteForm() {
  * INIT
  *********************************/
 document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("language") || "en";
-  setLanguage(lang);
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Busca "language" en el almacenamiento del navegador, si no existe usa inglés
+    // 1. Cargar idioma guardado
     const lang = localStorage.getItem("language") || "en"; 
-    setLanguage(lang); // Esta función debe existir arriba en tu archivo
+    setLanguage(lang); 
     
+    // 2. Si estamos en la página de renta, inicializar inventario y carrito
     if (document.getElementById("rental-grid")) {
         cargarEquipoRental();
         updateCartUI();
         attachDaysListener();
     }
-});
+}); // <--- Aquí se cierra correctamente el evento
 
 /*********************************
  * HEADER SCROLL
