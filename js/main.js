@@ -388,7 +388,9 @@ function cargarEquipoRental(filter = "all") {
   grid.innerHTML = "";
 
   const productosFiltrados =
-    filter === "all" ? infoEmpresa.equipos : infoEmpresa.equipos.filter((e) => e.categoria === filter);
+    filter === "all"
+      ? infoEmpresa.equipos
+      : infoEmpresa.equipos.filter((e) => e.categoria === filter);
 
   const lang = localStorage.getItem("language") || "en";
 
@@ -429,12 +431,10 @@ function cargarEquipoRental(filter = "all") {
         }
       }, 3000);
 
-      // ✅ Guardar UNA sola vez
       galleryIntervals.push(intervalId);
     }
   });
 }
-
 /*********************************
  * FILTERS
  *********************************/
