@@ -575,8 +575,11 @@ function updateCartUI() {
     }).join("");
   }
 
-  const totalEl = document.getElementById("cart-total");
-  if (totalEl) totalEl.textContent = `$${computeCartTotal()}`;
+ const totalEl = document.getElementById("cart-total");
+if (totalEl) {
+  totalEl.textContent = `$${computeCartTotal().toFixed(2)}`;
+}
+
 }
 
 function submitQuote(ev){
@@ -612,8 +615,7 @@ function submitQuote(ev){
     ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
       `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
       `🛒 Equipos:\n${lines.join("\n")}\n\n` +
-      `💰 ${translations[lang].estimated_total} (rental only): $${total}\n\n` +
-
+      `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
       `📝 Notas: ${notes}`
 
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
