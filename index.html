@@ -99,14 +99,15 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script src="main.js"></script>
+<script src="main.js?v=1.1"></script>
+
 <script>
   function setLanguageSafe(lang) {
     if (typeof setLanguage === "function") setLanguage(lang);
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("language") || "en";
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
     setLanguageSafe(savedLang);
   });
 </script>
