@@ -515,3 +515,11 @@ footer{
   .decision-card{ width: 92vw; }
 }
 
+/* 🔒 FIX DEFINITIVO: Home cards side by side */
+.decision-grid.main-page-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+  gap:30px;
+}
