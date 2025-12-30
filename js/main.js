@@ -48,6 +48,14 @@ const translations = {
     rental_description: "Professional audio and lights for your event.",
     rent_btn: "Rent Equipment",
     follow_text: "Follow the vibe:",
+     experience_title: "Experience the Vibe",
+    dj_title: "Full DJ Services",
+    dj_description: "Weddings, Quinceañeras, and Private Events.",
+    book_now: "Book Now",
+    rental_title: "Equipment Rental",
+    rental_description: "Professional audio and lights for your event.",
+    rent_btn: "Rent Equipment",
+    follow_text: "Follow the vibe:",
   },
 
   es: {
@@ -96,6 +104,14 @@ const translations = {
     rental_description: "Audio e iluminación profesional para tu evento.",
     rent_btn: "Rentar Equipo",
     follow_text: "Sígueme en redes:",
+    experience_title: "Vive la Experiencia",
+    dj_title: "Servicio Completo de DJ",
+    dj_description: "Bodas, Quinceañeras y Eventos Privados.",
+    book_now: "Reservar Ahora",
+    rental_title: "Renta de Equipo",
+    rental_description: "Audio e iluminación profesional para tu evento.",
+    rent_btn: "Rentar Equipo",
+    follow_text: "Síguenos:",
 
   }
 };
