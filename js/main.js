@@ -272,7 +272,15 @@ const infoEmpresa = {
       nombre: "Rockville ROCKSTRIP 252 RGB",
       descripcion: "RGB LED bar for wash and ambient lighting.",
       precioDia: 40,
-      fotos: ["img/productos/lighting/rockstrip252/1.jpg"]
+      fotos: ["img/productos/lights/ROCKSTRIP252/ROCKSTRIP252.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2521.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2522.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2523.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2524.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2525.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2526.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2527.jpg",
+             ]
     },
     {
       id: "bar250w",
