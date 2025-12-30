@@ -279,7 +279,7 @@ const infoEmpresa = {
              "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2524.jpg",
              "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2525.jpg",
              "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2526.jpg",
-             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2527.jpg",
+             "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2527.jpg"
              ]
     },
     {
@@ -288,7 +288,16 @@ const infoEmpresa = {
       nombre: "LED Bar 10x RGBW (250W)",
       descripcion: "High-power RGBW LED bar for strong color wash.",
       precioDia: 90,
-      fotos: ["img/productos/lighting/bar250w/1.jpg"]
+      fotos: ["img/productos/lights/Light BarLED10/Light BarLED10.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED101.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED102.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED103.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED104.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED105.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED106.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED107.jpg",
+             "img/productos/lights/Light BarLED10/Light BarLED108.jpg"
+             ]
     },
     {
       id: "holdlamp19x15",
