@@ -460,7 +460,9 @@ const infoEmpresa = {
 };
 
 
-let currentFilter = "all";
+// Variables de control global
+let currentFilter = "all"; 
+let galleryIntervals = []; // Array para rastrear y limpiar los timers de las fotos
 
 /*********************************
  * CART STORAGE
@@ -676,13 +678,17 @@ function submitQuote(ev) {
 /*********************************
  * INVENTORY RENDER
  *********************************/
-function cargarEquipoRental(filter = "all") {
-  currentFilter = filter;
+ffunction cargarEquipoRental(filter = "all") {
+    currentFilter = filter;
+    const grid = document.getElementById("rental-grid");
+    if (!grid) return;
 
-  const grid = document.getElementById("rental-grid");
-  if (!grid) return;
-
-  grid.innerHTML = "";
+    // LIMPIEZA: Detener todos los intervalos de cambio de fotos anteriores
+    galleryIntervals.forEach(id => clearInterval(id));
+    galleryIntervals = []; 
+    
+    grid.innerHTML = "";
+    // ... resto del código que ya tienes ...
 
   const productosFiltrados = filter === "all"
     ? infoEmpresa.equipos
@@ -712,9 +718,9 @@ function cargarEquipoRental(filter = "all") {
     grid.appendChild(card);
 
     if (equipo.fotos.length > 1) {
-      let fotoActual = 0;
-      setInterval(() => {
-        fotoActual = (fotoActual + 1) % equipo.fotos.length;
+            let fotoActual = 0;
+            const intervalId = setInterval(() => { // Guardamos el ID aquí
+                fotoActual = (fotoActual + 1) % equipo.fotos.length;
         const imagenElemento = document.getElementById(imgId);
         if (imagenElemento) {
           imagenElemento.style.opacity = "0";
