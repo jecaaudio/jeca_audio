@@ -56,9 +56,16 @@
           </label>
 
           <label class="form-group">
-            <span data-i18n="event_time">Start Time</span>
-            <input id="q-time" type="time" />
-          </label>
+  <span data-i18n="event_time">Start Time</span>
+
+  <div class="time-row">
+    <input id="q-time" type="text" placeholder="7:30" />
+    <select id="q-ampm">
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
+    </select>
+  </div>
+</label>
 
           <label class="form-group">
             <span data-i18n="event_type">Event Type</span>
