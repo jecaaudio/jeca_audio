@@ -110,7 +110,6 @@ function setLanguage(lang) {
     const value = translations?.[lang]?.[key];
     if (!value) return;
 
-    // Solo traduce placeholder si existe
     if (el.tagName === "INPUT" && "placeholder" in el) {
       el.placeholder = value;
     } else if (el.tagName === "TEXTAREA" && "placeholder" in el) {
@@ -120,15 +119,19 @@ function setLanguage(lang) {
     }
   });
 
+  // ✅ guardar idioma
   localStorage.setItem("language", lang);
 
-  try {
-    cargarEquipoRental(currentFilter || "all");
-  } catch {}
-  try {
-    updateCartUI();
-  } catch {}
+  // ✅ marcar botón activo (ENG / ESP)
+  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // ✅ refrescar páginas/partes que dependen del idioma (si existen)
+  try { cargarEquipoRental(currentFilter || "all"); } catch {}
+  try { updateCartUI(); } catch {}
 }
+
 
 /*********************************
  * DATOS EMPRESA
