@@ -474,7 +474,6 @@ footer{
   color: #fff;
 }
 
-}
 /* === HOME CARDS (como en tu foto) === */
 .main-page-grid{
   display:flex;
@@ -492,12 +491,17 @@ footer{
   border: 1px solid rgba(255,255,255,.10);
   border-radius: 18px;
   padding: 34px;
-  width: min(520px, 92vw);
+  /* FIX */
+  flex: 1 1 520px;
+  max-width: 520px;
+  width: 100%;
+
   min-height: 240px;
   text-align: center;
   box-shadow: 0 18px 50px rgba(0,0,0,.45);
   transition: transform .25s ease, border-color .25s ease;
 }
+
 
 .decision-card:hover{
   transform: translateY(-4px);
