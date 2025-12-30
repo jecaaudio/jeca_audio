@@ -99,18 +99,17 @@
 </footer>
 
 <!-- SCRIPTS -->
+<script src="main.js"></script>
 <script>
   function setLanguageSafe(lang) {
     if (typeof setLanguage === "function") setLanguage(lang);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('language') || 'en';
-    if (typeof setLanguage === "function") setLanguage(savedLang);
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("language") || "en";
+    setLanguageSafe(savedLang);
   });
 </script>
-
-
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/15025540333?text=Hola!%20Quiero%20cotizar%20mi%20evento."
