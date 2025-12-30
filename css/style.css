@@ -65,22 +65,7 @@ h1{
 #main-header.scrolled h1{ font-size:1.5rem; }
 #main-header.scrolled .tagline{ display:none; }
 
-/* LANGUAGE */
-.language-switcher{
-  position:fixed;
-  top:20px;
-  right:20px;
-  z-index:1100;
-}
-.lang-btn{
-  background:none;
-  border:none;
-  color:var(--primary);
-  font-weight:800;
-  cursor:pointer;
-  transition:.3s;
-  margin-left:10px;
-}
+
 
 /* PAGE */
 .container{
@@ -529,3 +514,4 @@ footer{
 @media (max-width: 900px){
   .decision-card{ width: 92vw; }
 }
+
