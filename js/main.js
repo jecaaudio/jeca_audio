@@ -35,6 +35,7 @@ const translations = {
     empty_cart: "Your cart is empty. Add items to request a quote.",
     remove: "Remove",
     qty: "Qty",
+    rental_only: "(rental only)",
 
 
 
@@ -83,6 +84,7 @@ const translations = {
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
     remove: "Quitar",
     qty: "Cant.",
+    rental_only: "(solo renta)",
 
 
 
