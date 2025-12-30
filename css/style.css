@@ -446,22 +446,82 @@ h1{
   letter-spacing: .5px;
 }
 
-/* ===== Social icons big + yellow like before ===== */
+/* === SOCIAL ICONS (como antes) === */
+footer{
+  margin-top: 60px;
+  padding: 30px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  width: 100%;
+  text-align: center;
+}
+
 .social-links{
-  display: flex;
-  justify-content: center;
-  gap: 28px;
+  display:flex;
+  justify-content:center;
+  gap: 26px;
   margin-top: 16px;
 }
 
 .social-links a{
   color: var(--primary);
-  font-size: 3rem;
-  text-decoration: none;
-  transition: transform .25s ease, color .25s ease;
+  font-size: 44px;
+  text-decoration:none;
+  transition: transform .2s ease, color .2s ease;
 }
 
 .social-links a:hover{
   transform: scale(1.12);
   color: #fff;
+}
+
+}
+/* === HOME CARDS (como en tu foto) === */
+.main-page-grid{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 18px;
+}
+
+.decision-card{
+  background: rgba(20,20,20,.65);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 34px;
+  width: min(520px, 92vw);
+  min-height: 240px;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.decision-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(243,156,18,.65);
+}
+
+.card-icon{
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 14px auto;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(243,156,18,.18);
+  border: 1px solid rgba(243,156,18,.35);
+}
+
+.card-icon i{
+  font-size: 22px;
+  color: var(--primary);
+}
+
+/* mobile */
+@media (max-width: 900px){
+  .decision-card{ width: 92vw; }
 }
