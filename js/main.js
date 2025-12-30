@@ -131,6 +131,9 @@ function setLanguage(lang) {
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
   try { updateCartUI(); } catch {}
 }
+function setLanguageSafe(lang) {
+  if (typeof setLanguage === "function") setLanguage(lang);
+}
 
 
 /*********************************
@@ -388,9 +391,9 @@ function cargarEquipoRental(filter = "all") {
   grid.innerHTML = "";
 
   const productosFiltrados =
-    filter === "all"
-      ? infoEmpresa.equipos
-      : infoEmpresa.equipos.filter((e) => e.categoria === filter);
+  filter === "all"
+    ? (infoEmpresa.equipos || [])
+    : (infoEmpresa.equipos || []).filter((e) => e.categoria === filter);
 
   const lang = localStorage.getItem("language") || "en";
 
