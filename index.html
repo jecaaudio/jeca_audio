@@ -106,8 +106,8 @@
     if (typeof setLanguage === "function") setLanguage(lang);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('language') || 'en';
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("language") || "en";
     setLanguageSafe(savedLang);
   });
 </script>
@@ -119,6 +119,6 @@
    aria-label="WhatsApp">
    <i class="fab fa-whatsapp"></i>
 </a>
-<script src="./js/main.js?v=1.1"></script>
+<script src="./js/main.js" defer></script>
 </body>
 </html>
