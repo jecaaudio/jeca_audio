@@ -686,7 +686,7 @@ const time = (timeRaw && ampm) ? `${timeRaw} ${ampm}` : timeRaw;
 /*********************************
  * INVENTORY RENDER
  *********************************/
-ffunction cargarEquipoRental(filter = "all") {
+function cargarEquipoRental(filter = "all") {
     currentFilter = filter;
     const grid = document.getElementById("rental-grid");
     if (!grid) return;
@@ -767,11 +767,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("language") || "en";
   setLanguage(lang);
 
-  if (document.getElementById("rental-grid")) {
-    cargarEquipoRental();
-    updateCartUI();
-    attachDaysListener();
-  }
+  document.addEventListener("DOMContentLoaded", () => {
+    // Busca "language" en el almacenamiento del navegador, si no existe usa inglés
+    const lang = localStorage.getItem("language") || "en"; 
+    setLanguage(lang); // Esta función debe existir arriba en tu archivo
+    
+    if (document.getElementById("rental-grid")) {
+        cargarEquipoRental();
+        updateCartUI();
+        attachDaysListener();
+    }
 });
 
 /*********************************
