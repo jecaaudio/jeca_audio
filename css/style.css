@@ -531,50 +531,23 @@ footer{
 @media (max-width: 900px){
   .decision-card{ width: 92vw; }
 }
-
-/* 🔒 FIX DEFINITIVO: Home cards side by side */
+/* HOME: mismas tarjetas siempre, con scroll si no caben */
 .decision-grid.main-page-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:stretch;
-  gap:30px;
-}
-
-/* ✅ FIX: que cada card NO sea 100% si hay espacio */
-.decision-grid.main-page-grid .decision-card{
-  width: auto;             /* pisa el width:100% */
-  flex: 1 1 520px;
-  max-width: 520px;
-}
-
-/* ✅ mobile */
-@media (max-width: 900px){
-  .decision-grid.main-page-grid .decision-card{
-    width: 92vw;            /* como lo tenías */
-    max-width: 92vw;
-  }
-}
-/* 🔒 FIX HOME: tarjetas lado a lado */
-.decision-grid.main-page-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:stretch;
-  gap:30px;
-  width: auto;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
   max-width: 1200px;
+  margin-top: 18px;
+
+  flex-wrap: nowrap;      /* no baja */
+  overflow-x: auto;       /* scroll si no caben */
+  -webkit-overflow-scrolling: touch;
 }
 
 .decision-grid.main-page-grid .decision-card{
-  flex: 1 1 520px;
+  flex: 0 0 520px;        /* mismo tamaño */
   max-width: 520px;
-  width: auto;
+  width: 520px;
 }
 
-@media (max-width: 900px){
-  .decision-grid.main-page-grid .decision-card{
-    width: 92vw;
-    max-width: 92vw;
-  }
-}
