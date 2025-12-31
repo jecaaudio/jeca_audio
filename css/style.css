@@ -55,6 +55,28 @@ h1{
   color:#bbb;
   text-transform:uppercase;
 }
+.location{
+  margin-top: 14px;
+  text-align:center;
+  font-weight:700;
+  opacity:.9;
+}
+@media (max-width:768px){
+  .tagline{
+    font-size: .95rem;
+    letter-spacing: 2px;
+  }
+  .location{
+    margin-top: 8px;
+    font-size: 14px;
+  }
+}
+@media (max-width:480px){
+  .tagline{
+    font-size: .9rem;
+    letter-spacing: 1.5px;
+  }
+}
 
 /* HEADER SCROLL */
 #main-header.scrolled{
@@ -527,20 +549,31 @@ footer{
   color: var(--primary);
 }
 
-/* 🔒 FIX DEFINITIVO: Home cards side by side */
+/* ===== HOME GRID (definitivo) ===== */
 .decision-grid.main-page-grid{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   align-items:stretch;
   gap:30px;
+  width:100%;
+  max-width:1200px;
+  margin-top:18px;
 }
 
-/* ✅ FIX: que cada card NO sea 100% si hay espacio */
 .decision-grid.main-page-grid .decision-card{
-  width: auto;             /* pisa el width:100% */
   flex: 1 1 520px;
   max-width: 520px;
+  width: auto;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .decision-grid.main-page-grid .decision-card{
+    flex: 1 1 100%;
+    max-width: 520px;
+    width: 100%;
+  }
 }
 
 /* ✅ MOBILE FIX: header + layout */
