@@ -642,6 +642,20 @@ function attachDaysListener() {
   });
 }
 
+function setupCartSteps() {
+  const eventSection = document.getElementById("cart-event");
+  const nextBtn = document.getElementById("cart-next-step");
+  const nextWrapper = nextBtn?.closest(".cart-actions-top");
+  if (!eventSection || !nextBtn || !nextWrapper) return;
+
+  eventSection.classList.add("is-hidden");
+  nextBtn.addEventListener("click", () => {
+    eventSection.classList.remove("is-hidden");
+    eventSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    nextWrapper.classList.add("is-hidden");
+  });
+}
+
 /*********************************
  * PRODUCT MODAL
  *********************************/
@@ -857,6 +871,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarEquipoRental();
     updateCartUI();
     attachDaysListener();
+    setupCartSteps();
 
     const modal = document.getElementById("product-modal");
     const closeBtn = document.getElementById("product-modal-close");
@@ -895,4 +910,5 @@ window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
 window.openProductModal = openProductModal;
 window.closeProductModal = closeProductModal;
+
 
