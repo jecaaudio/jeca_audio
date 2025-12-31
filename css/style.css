@@ -569,8 +569,56 @@ footer{
   min-width: 320px;             /* límite para no romperse */
   width: auto;
 }
-/* ✅ MOBILE FIX: centrar textos y redes */
-@media (max-width: 900px){
+/* ✅ MOBILE FIX: header + layout */
+@media (max-width: 768px){
+
+  /* Header más compacto y centrado */
+  #main-header{
+    height: 60vh;
+    padding-top: 40px;
+  }
+
+  .header-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+  }
+
+  .location{
+    margin-top:6px;
+    font-size:14px;
+    opacity:.85;
+  }
+
+  /* Container empieza justo después del header */
+  .container{
+    margin-top:60vh;
+    text-align:center;
+  }
+
+  /* Cards centradas */
+  .decision-card{
+    width:100%;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* Footer + redes */
+  footer{ text-align:center; }
+  .social-links{ justify-content:center; }
+
+  /* Switch de idioma un poco más pequeño */
+  .language-switcher{
+    top:14px;
+    right:14px;
+    transform: scale(.9);
+  }
+}
+
+
 
   /* textos generales del home */
   .container,
