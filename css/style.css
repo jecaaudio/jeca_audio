@@ -55,17 +55,13 @@ h1{
   color:#bbb;
   text-transform:uppercase;
 }
-.location{
-  margin-top: 14px;
-  text-align: center;
-  font-weight: 700;
-  opacity: .9;
-}
 
+/* HEADER SCROLL */
 #main-header.scrolled{
-  background-image: none;
+  height:80px;
+  padding:10px 20px;
+  background:#000;
 }
-
 #main-header.scrolled h1{ font-size:1.5rem; }
 #main-header.scrolled .tagline{ display:none; }
 
@@ -531,44 +527,22 @@ footer{
   color: var(--primary);
 }
 
-@media (max-width: 900px){
-  .decision-grid.main-page-grid{
-    width: 100%;
-  }
-
-  .decision-grid.main-page-grid .decision-card{
-    width: 100%;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: unset;
-  }
-
-  footer, .social-links{
-    text-align: center;
-    justify-content: center;
-  }
-}
-
-
-/* HOME CARDS: lado a lado, se hacen más pequeñas sin scroll */
+/* 🔒 FIX DEFINITIVO: Home cards side by side */
 .decision-grid.main-page-grid{
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 30px;
-  flex-wrap: wrap;              /* si no caben, bajan */
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 18px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+  gap:30px;
 }
 
+/* ✅ FIX: que cada card NO sea 100% si hay espacio */
 .decision-grid.main-page-grid .decision-card{
-  flex: 1 1 420px;              /* se pueden encoger */
-  max-width: 520px;             /* tamaño máximo */
-  min-width: 320px;             /* límite para no romperse */
-  width: auto;
+  width: auto;             /* pisa el width:100% */
+  flex: 1 1 520px;
+  max-width: 520px;
 }
+
 /* ✅ MOBILE FIX: header + layout */
 @media (max-width: 768px){
 
@@ -618,29 +592,26 @@ footer{
   }
 }
 
+/* 🔒 FIX HOME: tarjetas lado a lado */
+.decision-grid.main-page-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+  gap:30px;
+  width: auto;
+  max-width: 1200px;
+}
 
+.decision-grid.main-page-grid .decision-card{
+  flex: 1 1 520px;
+  max-width: 520px;
+  width: auto;
+}
 
-  /* textos generales del home */
-  .container,
-  .container h2,
-  .container h3,
-  .container p{
-    text-align: center;
+@media (max-width: 900px){
+  .decision-grid.main-page-grid .decision-card{
+    width: 92vw;
+    max-width: 92vw;
   }
-
-  /* tarjetas del home */
-  .decision-card{
-    align-items: center;
-  }
-
-  /* footer */
-  footer{
-    text-align: center;
-  }
-
-  /* redes sociales */
-  .social-links{
-    justify-content: center;
-  }
-
 }
