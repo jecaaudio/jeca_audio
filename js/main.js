@@ -6,7 +6,6 @@ const translations = {
     rental_inventory: "Rental Inventory",
     filter_all: "All",
     filter_speakers: "Speakers",
-    filter_subs: "Subwoofers",
     filter_consoles: "Consoles",
     filter_mics: "Mics & Monitoring",
     filter_lighting: "Lighting",
@@ -14,11 +13,10 @@ const translations = {
     filter_structure: "Structure",
 
     quote_cart_title: "Your Quote Cart",
-    estimated_total: "Estimated Total",
-    rental_only: "(rental only)",
-    rental_days: "Rental Days",
-    per_day_note: "Prices are per day.",
     clear_cart: "Clear cart",
+    rental_days: "Rental Days",
+    rental_days_note: "Select the number of rental days.",
+    product_specs_title: "Specifications",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -55,7 +53,6 @@ const translations = {
     rental_inventory: "Inventario de Renta",
     filter_all: "Todos",
     filter_speakers: "Altavoces",
-    filter_subs: "Subwoofers",
     filter_consoles: "Consolas",
     filter_mics: "Micrófonos",
     filter_lighting: "Iluminación",
@@ -63,11 +60,10 @@ const translations = {
     filter_structure: "Estructura",
 
     quote_cart_title: "Tu Carrito de Cotización",
-    estimated_total: "Total Estimado",
-    rental_only: "(solo renta)",
-    rental_days: "Días de renta",
-    per_day_note: "Los precios son por día.",
     clear_cart: "Vaciar carrito",
+    rental_days: "Días de renta",
+    rental_days_note: "Selecciona la cantidad de días de renta.",
+    product_specs_title: "Especificaciones",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
@@ -160,7 +156,7 @@ const infoEmpresa = {
     },
     {
       id: "elx200",
-      categoria: "subs",
+      categoria: "speakers",
       nombre: "Electro-Voice ELX200-18SP",
       descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
       precioDia: 120,
@@ -510,7 +506,6 @@ let galleryIntervals = [];
  *********************************/
 const CART_KEY = "jeca_quote_cart";
 const DAYS_KEY = "jeca_rental_days";
-
 function loadCart() {
   try {
     return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
@@ -548,7 +543,6 @@ function addToCart(equipoId) {
   else cart.push({ id: equipoId, qty: 1 });
 
   saveCart(cart);
-  toggleCart(true);
 }
 
 function changeQty(equipoId, delta) {
@@ -582,26 +576,6 @@ function toggleCart(open) {
 
   panel.classList.toggle("open", !!open);
   overlay.classList.toggle("open", !!open);
-}
-
-/*********************************
- * TOTALS (por día)
- *********************************/
-function computeCartSubtotal() {
-  const cart = loadCart();
-  let total = 0;
-
-  cart.forEach((ci) => {
-    const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
-    if (eq) total += (Number(eq.precioDia) || 0) * ci.qty;
-  });
-
-  return total;
-}
-
-function computeCartTotalWithDays() {
-  const days = loadDays();
-  return computeCartSubtotal() * days;
 }
 
 /*********************************
@@ -654,8 +628,6 @@ function updateCartUI() {
       .join("");
   }
 
-  const totalEl = document.getElementById("cart-total");
-  if (totalEl) totalEl.textContent = `$${computeCartTotalWithDays().toFixed(2)}`;
 }
 
 /*********************************
@@ -671,10 +643,69 @@ function attachDaysListener() {
 }
 
 /*********************************
+ * PRODUCT MODAL
+ *********************************/
+function openProductModal(equipo) {
+  const modal = document.getElementById("product-modal");
+  if (!modal || !equipo) return;
+
+  const titleEl = document.getElementById("product-modal-title");
+  const descEl = document.getElementById("product-modal-description");
+  const imageEl = document.getElementById("product-modal-image");
+  const thumbsEl = document.getElementById("product-modal-thumbs");
+  const specsEl = document.getElementById("product-modal-specs");
+
+  if (titleEl) titleEl.textContent = equipo.nombre;
+  if (descEl) descEl.textContent = equipo.descripcion || "";
+
+  const fotos = Array.isArray(equipo.fotos) ? equipo.fotos : [];
+  if (imageEl) {
+    imageEl.src = fotos[0] || "";
+    imageEl.alt = equipo.nombre || "";
+  }
+
+  if (thumbsEl) {
+    thumbsEl.innerHTML = fotos
+      .map(
+        (foto, index) =>
+          `<img class="product-thumb ${index === 0 ? "active" : ""}" src="${foto}" alt="${equipo.nombre || ""}" data-index="${index}">`
+      )
+      .join("");
+    thumbsEl.querySelectorAll(".product-thumb").forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const idx = Number(thumb.dataset.index || 0);
+        if (imageEl) imageEl.src = fotos[idx] || "";
+        thumbsEl.querySelectorAll(".product-thumb").forEach((el) => el.classList.remove("active"));
+        thumb.classList.add("active");
+      });
+    });
+  }
+
+  if (specsEl) {
+    const specs = Array.isArray(equipo.especificaciones) ? equipo.especificaciones : [];
+    if (specs.length) {
+      specsEl.innerHTML = `<ul>${specs.map((s) => `<li>${s}</li>`).join("")}</ul>`;
+    } else {
+      specsEl.innerHTML = `<p>${equipo.categoria ? `Category: ${equipo.categoria}` : "Specs available upon request."}</p>`;
+    }
+  }
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeProductModal() {
+  const modal = document.getElementById("product-modal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+/*********************************
  * WHATSAPP
  *********************************/
 function submitQuote(ev) {
-  ev.preventDefault();
+  ev?.preventDefault();
 
   const lang = localStorage.getItem("language") || "en";
   const cart = loadCart();
@@ -684,22 +715,24 @@ function submitQuote(ev) {
     return;
   }
 
-  const date = document.getElementById("q-date")?.value || "";
-  const timeRaw = document.getElementById("q-time")?.value || "";
-  const ampm = document.getElementById("q-ampm")?.value || "";
+  const getValue = (cartId) => {
+    const cartValue = document.getElementById(cartId)?.value || "";
+    return cartValue;
+  };
+
+  const date = getValue("cart-date");
+  const timeRaw = getValue("cart-time");
+  const ampm = getValue("cart-ampm");
   const time = timeRaw && ampm ? `${timeRaw} ${ampm}` : timeRaw;
 
-  const type = document.getElementById("q-type")?.value || "";
-  const guests = document.getElementById("q-guests")?.value || "";
-  const io = document.getElementById("q-io")?.value || "";
-  const city = document.getElementById("q-city")?.value || "";
-  const hours = document.getElementById("q-hours")?.value || "";
-  const power = document.getElementById("q-power")?.value || "";
-  const notes = document.getElementById("q-notes")?.value || "";
-
+  const type = getValue("cart-type");
+  const guests = getValue("cart-guests");
+  const io = getValue("cart-io");
+  const city = getValue("cart-city");
+  const hours = getValue("cart-hours");
+  const power = getValue("cart-power");
+  const notes = getValue("cart-notes");
   const days = loadDays();
-  const subtotal = computeCartSubtotal().toFixed(2);
-  const total = computeCartTotalWithDays().toFixed(2);
 
   const lines = cart
     .map((ci) => {
@@ -713,16 +746,12 @@ function submitQuote(ev) {
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
         `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
         `🛒 Equipos:\n${lines.join("\n")}\n\n` +
-        `📆 Días de renta: ${days}\n` +
-        `💵 Subtotal (por día): $${subtotal}\n` +
-        `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
+        `📆 Días de renta: ${days}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
         `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
         `🛒 Items:\n${lines.join("\n")}\n\n` +
-        `📆 Rental days: ${days}\n` +
-        `💵 Subtotal (per day): $${subtotal}\n` +
-        `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
+        `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;
 
   const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -765,12 +794,21 @@ function cargarEquipoRental(filter = "all") {
       <h3>${equipo.nombre}</h3>
       <p>${equipo.descripcion}</p>
 
-      <button class="btn-main" type="button" onclick="addToCart('${equipo.id}')">
+      <button class="btn-main add-to-cart-btn" type="button">
         ${translations[lang].add_to_quote}
       </button>
     `;
 
     grid.appendChild(card);
+    card.addEventListener("click", () => openProductModal(equipo));
+
+    const addBtn = card.querySelector(".add-to-cart-btn");
+    if (addBtn) {
+      addBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        addToCart(equipo.id);
+      });
+    }
 
     if (equipo.fotos.length > 1) {
       let fotoActual = 0;
@@ -805,9 +843,7 @@ function filtrarEquipos(cat, e) {
  * SCROLL TO FORM
  *********************************/
 function scrollToQuoteForm() {
-  const el = document.getElementById("quote-form");
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  toggleCart(false);
+  toggleCart(true);
 }
 
 /*********************************
@@ -821,6 +857,15 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarEquipoRental();
     updateCartUI();
     attachDaysListener();
+
+    const modal = document.getElementById("product-modal");
+    const closeBtn = document.getElementById("product-modal-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeProductModal);
+    if (modal) {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeProductModal();
+      });
+    }
   }
 });
 
@@ -848,4 +893,5 @@ window.scrollToQuoteForm = scrollToQuoteForm;
 window.submitQuote = submitQuote;
 window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
-
+window.openProductModal = openProductModal;
+window.closeProductModal = closeProductModal;
