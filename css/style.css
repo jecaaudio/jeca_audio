@@ -415,15 +415,6 @@ h1{
   width:110px;
 }
 
-@media (max-width:768px){
-  #main-header{ height:50vh; }
-  .container{ margin-top:55vh; }
-  h1{ font-size:2.2rem; }
-  .quote-cart{ width:92vw; right:-100vw; }
-  .form-grid{ grid-template-columns:1fr; }
-  .cart-actions{ flex-direction:column; }
-}
-
 .logo-link{ text-decoration:none; color:inherit; }
 /* ===== Language switcher (old pill style) ===== */
 /* === LANGUAGE SWITCHER (pill como antes) === */
