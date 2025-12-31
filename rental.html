@@ -36,7 +36,6 @@
     <div class="filters">
       <button class="filter-btn active" data-i18n="filter_all" onclick="filtrarEquipos('all', event)">All</button>
       <button class="filter-btn" data-i18n="filter_speakers" onclick="filtrarEquipos('speakers', event)">Speakers</button>
-      <button class="filter-btn" data-i18n="filter_subs" onclick="filtrarEquipos('subs', event)">Subwoofers</button>
       <button class="filter-btn" data-i18n="filter_consoles" onclick="filtrarEquipos('consoles', event)">Consoles</button>
       <button class="filter-btn" data-i18n="filter_mics" onclick="filtrarEquipos('mics', event)">Mics</button>
       <button class="filter-btn" data-i18n="filter_lighting" onclick="filtrarEquipos('lighting', event)">Lighting</button>
@@ -162,6 +161,30 @@
       </div>
     </div>
   </aside>
+
+  <!-- PRODUCT MODAL -->
+  <div class="product-modal" id="product-modal" aria-hidden="true">
+    <div class="product-modal-content" role="dialog" aria-modal="true">
+      <div class="product-modal-header">
+        <div>
+          <h3 id="product-modal-title">Product Details</h3>
+          <p id="product-modal-description"></p>
+        </div>
+        <button class="product-modal-close" type="button" id="product-modal-close" data-i18n="close">Close</button>
+      </div>
+
+      <div class="product-modal-body">
+        <div>
+          <img id="product-modal-image" class="product-main-image" src="" alt="">
+          <div id="product-modal-thumbs" class="product-thumbs"></div>
+        </div>
+        <div>
+          <h4 data-i18n="product_specs_title">Specifications</h4>
+          <div id="product-modal-specs" class="product-specs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="./js/main.js" defer></script>
 
