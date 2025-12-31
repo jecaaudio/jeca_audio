@@ -482,10 +482,10 @@ footer{
   border-radius: 18px;
   padding: 34px;
   /* FIX */
-  flex: 1 1 520px;
+  flex: 0 1 520px;
   max-width: 520px;
-  width: 100%;
-
+  width: auto;
+  
   min-height: 240px;
   text-align: center;
   box-shadow: 0 18px 50px rgba(0,0,0,.45);
@@ -540,6 +540,29 @@ footer{
 @media (max-width: 900px){
   .decision-grid.main-page-grid .decision-card{
     width: 92vw;            /* como lo tenías */
+    max-width: 92vw;
+  }
+}
+/* 🔒 FIX HOME: tarjetas lado a lado */
+.decision-grid.main-page-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+  gap:30px;
+  width: auto;
+  max-width: 1200px;
+}
+
+.decision-grid.main-page-grid .decision-card{
+  flex: 1 1 520px;
+  max-width: 520px;
+  width: auto;
+}
+
+@media (max-width: 900px){
+  .decision-grid.main-page-grid .decision-card{
+    width: 92vw;
     max-width: 92vw;
   }
 }
