@@ -554,5 +554,32 @@ footer{
   min-width: 320px;             /* límite para no romperse */
   width: auto;
 }
+/* ✅ MOBILE FIX: centrar textos y redes */
+@media (max-width: 900px){
+
+  /* textos generales del home */
+  .container,
+  .container h2,
+  .container h3,
+  .container p{
+    text-align: center;
+  }
+
+  /* tarjetas del home */
+  .decision-card{
+    align-items: center;
+  }
+
+  /* footer */
+  footer{
+    text-align: center;
+  }
+
+  /* redes sociales */
+  .social-links{
+    justify-content: center;
+  }
+
+}
 
 
