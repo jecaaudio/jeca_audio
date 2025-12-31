@@ -406,6 +406,9 @@ h1{
   flex:1;
   margin-top:0;
 }
+.cart-actions-top{
+  margin-bottom:12px;
+}
 
 /* CART EVENT DETAILS */
 .cart-event{
@@ -417,6 +420,12 @@ h1{
   text-align:left;
   width:100%;
   box-sizing:border-box;
+}
+.cart-event.is-hidden{
+  display:none;
+}
+.cart-actions-top.is-hidden{
+  display:none;
 }
 .cart-event h4{
   margin:0 0 10px 0;
@@ -654,15 +663,22 @@ footer{
   margin-top: 16px;
 }
 
-social-links a{
-  color: var(--primary);
-  font-size: 44px;
+.social-links a{
+  color: inherit;
   text-decoration:none;
   transition: transform .2s ease, color .2s ease;
 }
 
-social-links a:hover{
+.social-links i{
+  font-size: 44px;
+  color: var(--primary);
+}
+
+.social-links a:hover{
   transform: scale(1.12);
+  color: #fff;
+}
+.social-links a:hover i{
   color: #fff;
 }
 
@@ -782,4 +798,3 @@ social-links a:hover{
     transform: scale(.9);
   }
 }
-
