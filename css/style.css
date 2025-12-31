@@ -406,6 +406,9 @@ h1{
   flex:1;
   margin-top:0;
 }
+.cart-actions-top{
+  margin-bottom:12px;
+}
 
 /* CART EVENT DETAILS */
 .cart-event{
@@ -417,6 +420,12 @@ h1{
   text-align:left;
   width:100%;
   box-sizing:border-box;
+}
+.cart-event.is-hidden{
+  display:none;
+}
+.cart-actions-top.is-hidden{
+  display:none;
 }
 .cart-event h4{
   margin:0 0 10px 0;

@@ -75,7 +75,13 @@
     <div id="cart-items"></div>
 
     <div class="quote-cart-footer">
-      <div class="cart-event">
+      <div class="cart-actions cart-actions-top">
+        <button class="btn-main" type="button" id="cart-next-step" data-i18n="continue_to_form">
+          Continue to Event Details
+        </button>
+      </div>
+
+      <div class="cart-event" id="cart-event">
         <h4 data-i18n="event_details_title">Event Details</h4>
         <div class="cart-event-grid">
           <label>
@@ -137,7 +143,7 @@
           Clear cart
         </button>
         <button class="btn-main" type="button" onclick="submitQuote(event)" data-i18n="send_quote_whatsapp">
-          Continue to Event Details
+          Send Quote Request via WhatsApp
         </button>
       </div>
     </div>
