@@ -527,10 +527,15 @@ footer{
   color: var(--primary);
 }
 
-/* mobile */
+/* mobile: home cards en una sola columna */
 @media (max-width: 900px){
-  .decision-card{ width: 92vw; }
+  .decision-grid.main-page-grid .decision-card{
+    width: 92vw;
+    max-width: 92vw;
+    min-width: unset;
+  }
 }
+
 /* HOME CARDS: lado a lado, se hacen más pequeñas sin scroll */
 .decision-grid.main-page-grid{
   display: flex;
