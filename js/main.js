@@ -820,18 +820,24 @@ function submitQuote(ev) {
     return;
   }
 
-  const date = document.getElementById("q-date")?.value || "";
-  const timeRaw = document.getElementById("q-time")?.value || "";
-  const ampm = document.getElementById("q-ampm")?.value || "";
+  const getValue = (cartId, formId) => {
+    const cartValue = document.getElementById(cartId)?.value || "";
+    if (cartValue) return cartValue;
+    return document.getElementById(formId)?.value || "";
+  };
+
+  const date = getValue("cart-date", "q-date");
+  const timeRaw = getValue("cart-time", "q-time");
+  const ampm = getValue("cart-ampm", "q-ampm");
   const time = timeRaw && ampm ? `${timeRaw} ${ampm}` : timeRaw;
 
-  const type = document.getElementById("q-type")?.value || "";
-  const guests = document.getElementById("q-guests")?.value || "";
-  const io = document.getElementById("q-io")?.value || "";
-  const city = document.getElementById("q-city")?.value || "";
-  const hours = document.getElementById("q-hours")?.value || "";
-  const power = document.getElementById("q-power")?.value || "";
-  const notes = document.getElementById("q-notes")?.value || "";
+  const type = getValue("cart-type", "q-type");
+  const guests = getValue("cart-guests", "q-guests");
+  const io = getValue("cart-io", "q-io");
+  const city = getValue("cart-city", "q-city");
+  const hours = getValue("cart-hours", "q-hours");
+  const power = getValue("cart-power", "q-power");
+  const notes = getValue("cart-notes", "q-notes");
   const days = loadDays();
 
   const lines = cart
