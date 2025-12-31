@@ -531,23 +531,23 @@ footer{
 @media (max-width: 900px){
   .decision-card{ width: 92vw; }
 }
-/* HOME: mismas tarjetas siempre, con scroll si no caben */
+/* HOME CARDS: lado a lado, se hacen más pequeñas sin scroll */
 .decision-grid.main-page-grid{
   display: flex;
-  gap: 30px;
   justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;              /* si no caben, bajan */
   width: 100%;
   max-width: 1200px;
   margin-top: 18px;
-
-  flex-wrap: nowrap;      /* no baja */
-  overflow-x: auto;       /* scroll si no caben */
-  -webkit-overflow-scrolling: touch;
 }
 
 .decision-grid.main-page-grid .decision-card{
-  flex: 0 0 520px;        /* mismo tamaño */
-  max-width: 520px;
-  width: 520px;
+  flex: 1 1 420px;              /* se pueden encoger */
+  max-width: 520px;             /* tamaño máximo */
+  min-width: 320px;             /* límite para no romperse */
+  width: auto;
 }
+
 
