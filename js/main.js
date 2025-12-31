@@ -14,11 +14,9 @@ const translations = {
     filter_structure: "Structure",
 
     quote_cart_title: "Your Quote Cart",
-    estimated_total: "Estimated Total",
-    rental_only: "(rental only)",
-    rental_days: "Rental Days",
-    per_day_note: "Prices are per day.",
     clear_cart: "Clear cart",
+    rental_days: "Rental Days",
+    rental_days_note: "Select the number of rental days.",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -63,11 +61,9 @@ const translations = {
     filter_structure: "Estructura",
 
     quote_cart_title: "Tu Carrito de Cotización",
-    estimated_total: "Total Estimado",
-    rental_only: "(solo renta)",
-    rental_days: "Días de renta",
-    per_day_note: "Los precios son por día.",
     clear_cart: "Vaciar carrito",
+    rental_days: "Días de renta",
+    rental_days_note: "Selecciona la cantidad de días de renta.",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
@@ -510,7 +506,6 @@ let galleryIntervals = [];
  *********************************/
 const CART_KEY = "jeca_quote_cart";
 const DAYS_KEY = "jeca_rental_days";
-
 function loadCart() {
   try {
     return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
@@ -548,7 +543,6 @@ function addToCart(equipoId) {
   else cart.push({ id: equipoId, qty: 1 });
 
   saveCart(cart);
-  toggleCart(true);
 }
 
 function changeQty(equipoId, delta) {
@@ -582,26 +576,6 @@ function toggleCart(open) {
 
   panel.classList.toggle("open", !!open);
   overlay.classList.toggle("open", !!open);
-}
-
-/*********************************
- * TOTALS (por día)
- *********************************/
-function computeCartSubtotal() {
-  const cart = loadCart();
-  let total = 0;
-
-  cart.forEach((ci) => {
-    const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
-    if (eq) total += (Number(eq.precioDia) || 0) * ci.qty;
-  });
-
-  return total;
-}
-
-function computeCartTotalWithDays() {
-  const days = loadDays();
-  return computeCartSubtotal() * days;
 }
 
 /*********************************
@@ -654,8 +628,6 @@ function updateCartUI() {
       .join("");
   }
 
-  const totalEl = document.getElementById("cart-total");
-  if (totalEl) totalEl.textContent = `$${computeCartTotalWithDays().toFixed(2)}`;
 }
 
 /*********************************
@@ -696,10 +668,7 @@ function submitQuote(ev) {
   const hours = document.getElementById("q-hours")?.value || "";
   const power = document.getElementById("q-power")?.value || "";
   const notes = document.getElementById("q-notes")?.value || "";
-
   const days = loadDays();
-  const subtotal = computeCartSubtotal().toFixed(2);
-  const total = computeCartTotalWithDays().toFixed(2);
 
   const lines = cart
     .map((ci) => {
@@ -713,16 +682,12 @@ function submitQuote(ev) {
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
         `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
         `🛒 Equipos:\n${lines.join("\n")}\n\n` +
-        `📆 Días de renta: ${days}\n` +
-        `💵 Subtotal (por día): $${subtotal}\n` +
-        `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
+        `📆 Días de renta: ${days}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
         `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
         `🛒 Items:\n${lines.join("\n")}\n\n` +
-        `📆 Rental days: ${days}\n` +
-        `💵 Subtotal (per day): $${subtotal}\n` +
-        `💰 ${translations[lang].estimated_total} ${translations[lang].rental_only}: $${total}\n\n` +
+        `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;
 
   const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -848,4 +813,3 @@ window.scrollToQuoteForm = scrollToQuoteForm;
 window.submitQuote = submitQuote;
 window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
-
