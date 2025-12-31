@@ -168,7 +168,7 @@ h1{
 .inventory-grid{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:32px;
+  gap:40px;
   padding:20px 0;
   width:100%;
   max-width:1200px;
@@ -193,7 +193,7 @@ h1{
 
 .image-container{
   width:100%;
-  height:200px;
+  height:160px;
   overflow:hidden;
   border-radius:10px;
   background:#111;
@@ -405,6 +405,54 @@ h1{
 .cart-actions .btn-main{
   flex:1;
   margin-top:0;
+}
+
+/* CART EVENT DETAILS */
+.cart-event{
+  border:1px solid #222;
+  border-radius:14px;
+  padding:12px;
+  background:#0f0f0f;
+  margin-top:12px;
+  text-align:left;
+}
+.cart-event h4{
+  margin:0 0 10px 0;
+  font-size:14px;
+}
+.cart-event-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:10px;
+}
+.cart-event label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:12px;
+  opacity:.9;
+}
+.cart-event input,
+.cart-event select,
+.cart-event textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
+}
+.cart-event .time-row{
+  display:flex;
+  gap:8px;
+}
+.cart-event textarea{
+  resize:vertical;
+}
+@media (max-width: 768px){
+  .cart-event-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 /* PRODUCT MODAL */
