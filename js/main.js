@@ -6,7 +6,6 @@ const translations = {
     rental_inventory: "Rental Inventory",
     filter_all: "All",
     filter_speakers: "Speakers",
-    filter_subs: "Subwoofers",
     filter_consoles: "Consoles",
     filter_mics: "Mics & Monitoring",
     filter_lighting: "Lighting",
@@ -17,6 +16,7 @@ const translations = {
     clear_cart: "Clear cart",
     rental_days: "Rental Days",
     rental_days_note: "Select the number of rental days.",
+    product_specs_title: "Specifications",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -53,7 +53,6 @@ const translations = {
     rental_inventory: "Inventario de Renta",
     filter_all: "Todos",
     filter_speakers: "Altavoces",
-    filter_subs: "Subwoofers",
     filter_consoles: "Consolas",
     filter_mics: "Micrófonos",
     filter_lighting: "Iluminación",
@@ -64,6 +63,7 @@ const translations = {
     clear_cart: "Vaciar carrito",
     rental_days: "Días de renta",
     rental_days_note: "Selecciona la cantidad de días de renta.",
+    product_specs_title: "Especificaciones",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
@@ -152,11 +152,16 @@ const infoEmpresa = {
         "img/productos/audio/zlx12bt/zlx12bt3.jpg",
         "img/productos/audio/zlx12bt/zlx12bt4.jpg",
         "img/productos/audio/zlx12bt/zlx12bt5.jpg"
+      ],
+      especificaciones: [
+        "12-inch woofer, 1000W peak",
+        "Bluetooth streaming",
+        "Compact, portable enclosure"
       ]
     },
     {
       id: "elx200",
-      categoria: "subs",
+      categoria: "speakers",
       nombre: "Electro-Voice ELX200-18SP",
       descripcion: "Professional 18-inch powered subwoofer. High-impact sound for any event.",
       precioDia: 120,
@@ -167,6 +172,11 @@ const infoEmpresa = {
         "img/productos/audio/elx200/elx2003.jpg",
         "img/productos/audio/elx200/elx2004.jpg",
         "img/productos/audio/elx200/elx2005.jpg"
+      ],
+      especificaciones: [
+        "18-inch powered subwoofer",
+        "Deep low-end response",
+        "Ideal for large events"
       ]
     },
     {
@@ -181,6 +191,11 @@ const infoEmpresa = {
         "img/productos/audio/ui24r/ui24r2.jpg",
         "img/productos/audio/ui24r/ui24r3.jpg",
         "img/productos/audio/ui24r/ui24r4.jpg"
+      ],
+      especificaciones: [
+        "24-channel digital mixer",
+        "Wi‑Fi control from any device",
+        "Built-in multitrack recording"
       ]
     },
     {
@@ -196,6 +211,11 @@ const infoEmpresa = {
         "img/productos/audio/x32/x323.webp",
         "img/productos/audio/x32/x324.webp",
         "img/productos/audio/x32/x325.webp"
+      ],
+      especificaciones: [
+        "40-input, 25-bus digital mixer",
+        "32 programmable preamps",
+        "Live and studio ready"
       ]
     },
     {
@@ -218,6 +238,11 @@ const infoEmpresa = {
         "img/productos/audio/flx4/FLX410.jpg",
         "img/productos/audio/flx4/FLX411.jpg",
         "img/productos/audio/flx4/FLX412.jpg"
+      ],
+      especificaciones: [
+        "2-channel DJ controller",
+        "USB powered",
+        "Works with Rekordbox / Serato"
       ]
     },
 
@@ -236,6 +261,11 @@ const infoEmpresa = {
         "img/productos/audio/pyu-2/ptu-24.jpg",
         "img/productos/audio/pyu-2/ptu-25.jpg",
         "img/productos/audio/pyu-2/ptu-26.jpg"
+      ],
+      especificaciones: [
+        "Dual wireless handheld mics",
+        "Long-range reception",
+        "Clear vocal sound"
       ]
     },
     {
@@ -251,6 +281,11 @@ const infoEmpresa = {
         "img/productos/audio/ptm-33/ptm-333.jpg",
         "img/productos/audio/ptm-33/ptm-334.jpg",
         "img/productos/audio/ptm-33/ptm-335.jpg"
+      ],
+      especificaciones: [
+        "In-ear monitoring system",
+        "Up to 4 receivers",
+        "Stable RF signal"
       ]
     },
 
@@ -269,6 +304,11 @@ const infoEmpresa = {
         "img/productos/lights/MovingHead150w/MovingHead150w4.jpg",
         "img/productos/lights/MovingHead150w/MovingHead150w5.jpg",
         "img/productos/lights/MovingHead150w/MovingHead150w6.jpg"
+      ],
+      especificaciones: [
+        "150W moving head",
+        "Fast pan/tilt",
+        "Sharp gobo projection"
       ]
     },
     {
@@ -288,6 +328,11 @@ const infoEmpresa = {
         "img/productos/lights/LightBarLED8/LightBarLED87.jpg",
         "img/productos/lights/LightBarLED8/LightBarLED88.jpg",
         "img/productos/lights/LightBarLED8/LightBarLED89.jpg"
+      ],
+      especificaciones: [
+        "8-eye RGBW LED",
+        "Wide coverage",
+        "Great for dance floors"
       ]
     },
     {
@@ -305,6 +350,11 @@ const infoEmpresa = {
         "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2525.jpg",
         "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2526.jpg",
         "img/productos/lights/ROCKSTRIP252/ROCKSTRIP2527.jpg"
+      ],
+      especificaciones: [
+        "RGB LED bar",
+        "Wash lighting",
+        "Compact size"
       ]
     },
     {
@@ -323,6 +373,11 @@ const infoEmpresa = {
         "img/productos/lights/LightBarLED10/LightBarLED106.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED107.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED108.jpg"
+      ],
+      especificaciones: [
+        "10x RGBW LEDs",
+        "Bright wash output",
+        "Wide beam angle"
       ]
     },
     {
@@ -341,6 +396,11 @@ const infoEmpresa = {
         "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead6.jpg",
         "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead7.jpg",
         "img/productos/lights/SHEHDSMovingHead/SHEHDSMovingHead8.jpg"
+      ],
+      especificaciones: [
+        "19x15W LEDs",
+        "RGBW color mixing",
+        "Fast pan/tilt"
       ]
     },
     {
@@ -359,6 +419,11 @@ const infoEmpresa = {
         "img/productos/lights/MovingHead90w/90WLEDMovingHead6.jpg",
         "img/productos/lights/MovingHead90w/90WLEDMovingHead7.jpg",
         "img/productos/lights/MovingHead90w/90WLEDMovingHead8.jpg"
+      ],
+      especificaciones: [
+        "90W beam fixtures",
+        "Sharp beam effects",
+        "Compact housing"
       ]
     },
     {
@@ -375,6 +440,11 @@ const infoEmpresa = {
         "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs4.jpg",
         "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs5.jpg",
         "img/productos/lights/MovingHead16LEDs/MovingHead16LEDs6.jpg"
+      ],
+      especificaciones: [
+        "RGBW moving head",
+        "Rotating beam effect",
+        "Dynamic show looks"
       ]
     },
 
@@ -392,6 +462,11 @@ const infoEmpresa = {
         "img/productos/especialeffects/fog/humo3.jpg",
         "img/productos/especialeffects/fog/humo4.jpg",
         "img/productos/especialeffects/fog/humo5.jpg"
+      ],
+      especificaciones: [
+        "1500W fog output",
+        "Quick warm-up",
+        "Remote control included"
       ]
     },
     {
@@ -407,6 +482,11 @@ const infoEmpresa = {
         "img/productos/especialeffects/groundfogger/humobajo3.webp",
         "img/productos/especialeffects/groundfogger/humobajo4.webp",
         "img/productos/especialeffects/groundfogger/humobajo5.webp"
+      ],
+      especificaciones: [
+        "Low-lying fog",
+        "Great for entrances",
+        "Indoor-friendly effect"
       ]
     },
     {
@@ -426,6 +506,11 @@ const infoEmpresa = {
         "img/productos/especialeffects/coldspark/chispas7.webp",
         "img/productos/especialeffects/coldspark/chispas8.webp",
         "img/productos/especialeffects/coldspark/chispas9.webp"
+      ],
+      especificaciones: [
+        "Cold spark effect",
+        "Safe for indoors",
+        "Adjustable height"
       ]
     },
     {
@@ -443,6 +528,11 @@ const infoEmpresa = {
         "img/productos/especialeffects/confetticannon/confetticannon5.jpg",
         "img/productos/especialeffects/confetticannon/confetticannon6.jpg",
         "img/productos/especialeffects/confetticannon/confetticannon7.jpg"
+      ],
+      especificaciones: [
+        "4 cannon heads",
+        "Electric launch",
+        "Great for finales"
       ]
     },
     {
@@ -457,6 +547,11 @@ const infoEmpresa = {
         "img/productos/especialeffects/aircannon/canonaire2.jpg",
         "img/productos/especialeffects/aircannon/canonaire3.jpg",
         "img/productos/especialeffects/aircannon/canonaire4.jpg"
+      ],
+      especificaciones: [
+        "Air-powered launch",
+        "Quick pop effect",
+        "Great for moments"
       ]
     },
 
@@ -476,6 +571,11 @@ const infoEmpresa = {
         "img/productos/structure/djbooth/djbooth5.jpg",
         "img/productos/structure/djbooth/djbooth6.jpg",
         "img/productos/structure/djbooth/djbooth7.jpg"
+      ],
+      especificaciones: [
+        "Portable folding booth",
+        "Clean professional look",
+        "Easy transport"
       ]
     },
     {
@@ -491,6 +591,11 @@ const infoEmpresa = {
         "img/productos/structure/truss8x8/truss8x83.jpg",
         "img/productos/structure/truss8x8/truss8x84.jpg",
         "img/productos/structure/truss8x8/truss8x85.jpg"
+      ],
+      especificaciones: [
+        "8x8 module",
+        "Aluminum truss",
+        "Great for lighting rigs"
       ]
     }
   ]
@@ -643,6 +748,65 @@ function attachDaysListener() {
 }
 
 /*********************************
+ * PRODUCT MODAL
+ *********************************/
+function openProductModal(equipo) {
+  const modal = document.getElementById("product-modal");
+  if (!modal || !equipo) return;
+
+  const titleEl = document.getElementById("product-modal-title");
+  const descEl = document.getElementById("product-modal-description");
+  const imageEl = document.getElementById("product-modal-image");
+  const thumbsEl = document.getElementById("product-modal-thumbs");
+  const specsEl = document.getElementById("product-modal-specs");
+
+  if (titleEl) titleEl.textContent = equipo.nombre;
+  if (descEl) descEl.textContent = equipo.descripcion || "";
+
+  const fotos = Array.isArray(equipo.fotos) ? equipo.fotos : [];
+  if (imageEl) {
+    imageEl.src = fotos[0] || "";
+    imageEl.alt = equipo.nombre || "";
+  }
+
+  if (thumbsEl) {
+    thumbsEl.innerHTML = fotos
+      .map(
+        (foto, index) =>
+          `<img class="product-thumb ${index === 0 ? "active" : ""}" src="${foto}" alt="${equipo.nombre || ""}" data-index="${index}">`
+      )
+      .join("");
+    thumbsEl.querySelectorAll(".product-thumb").forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const idx = Number(thumb.dataset.index || 0);
+        if (imageEl) imageEl.src = fotos[idx] || "";
+        thumbsEl.querySelectorAll(".product-thumb").forEach((el) => el.classList.remove("active"));
+        thumb.classList.add("active");
+      });
+    });
+  }
+
+  if (specsEl) {
+    const specs = Array.isArray(equipo.especificaciones) ? equipo.especificaciones : [];
+    if (specs.length) {
+      specsEl.innerHTML = `<ul>${specs.map((s) => `<li>${s}</li>`).join("")}</ul>`;
+    } else {
+      specsEl.innerHTML = `<p>${equipo.categoria ? `Category: ${equipo.categoria}` : "Specs available upon request."}</p>`;
+    }
+  }
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeProductModal() {
+  const modal = document.getElementById("product-modal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+/*********************************
  * WHATSAPP
  *********************************/
 function submitQuote(ev) {
@@ -730,12 +894,21 @@ function cargarEquipoRental(filter = "all") {
       <h3>${equipo.nombre}</h3>
       <p>${equipo.descripcion}</p>
 
-      <button class="btn-main" type="button" onclick="addToCart('${equipo.id}')">
+      <button class="btn-main add-to-cart-btn" type="button">
         ${translations[lang].add_to_quote}
       </button>
     `;
 
     grid.appendChild(card);
+    card.addEventListener("click", () => openProductModal(equipo));
+
+    const addBtn = card.querySelector(".add-to-cart-btn");
+    if (addBtn) {
+      addBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        addToCart(equipo.id);
+      });
+    }
 
     if (equipo.fotos.length > 1) {
       let fotoActual = 0;
@@ -786,6 +959,15 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarEquipoRental();
     updateCartUI();
     attachDaysListener();
+
+    const modal = document.getElementById("product-modal");
+    const closeBtn = document.getElementById("product-modal-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeProductModal);
+    if (modal) {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeProductModal();
+      });
+    }
   }
 });
 
@@ -813,3 +995,5 @@ window.scrollToQuoteForm = scrollToQuoteForm;
 window.submitQuote = submitQuote;
 window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
+window.openProductModal = openProductModal;
+window.closeProductModal = closeProductModal;
