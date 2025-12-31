@@ -55,6 +55,12 @@ h1{
   color:#bbb;
   text-transform:uppercase;
 }
+.location{
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 700;
+  opacity: .9;
+}
 
 /* HEADER SCROLL */
 #main-header.scrolled{
@@ -527,14 +533,25 @@ footer{
   color: var(--primary);
 }
 
-/* mobile: home cards en una sola columna */
 @media (max-width: 900px){
+  .decision-grid.main-page-grid{
+    width: 100%;
+  }
+
   .decision-grid.main-page-grid .decision-card{
-    width: 92vw;
-    max-width: 92vw;
+    width: 100%;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
     min-width: unset;
   }
+
+  footer, .social-links{
+    text-align: center;
+    justify-content: center;
+  }
 }
+
 
 /* HOME CARDS: lado a lado, se hacen más pequeñas sin scroll */
 .decision-grid.main-page-grid{
