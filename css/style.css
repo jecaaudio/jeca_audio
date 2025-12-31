@@ -62,12 +62,10 @@ h1{
   opacity: .9;
 }
 
-/* HEADER SCROLL */
 #main-header.scrolled{
-  height:80px;
-  padding:10px 20px;
-  background:#000;
+  background-image: none;
 }
+
 #main-header.scrolled h1{ font-size:1.5rem; }
 #main-header.scrolled .tagline{ display:none; }
 
