@@ -415,6 +415,8 @@ h1{
   background:#0f0f0f;
   margin-top:12px;
   text-align:left;
+  width:100%;
+  box-sizing:border-box;
 }
 .cart-event h4{
   margin:0 0 10px 0;
@@ -441,10 +443,12 @@ h1{
   border:1px solid #333;
   background:#111;
   color:#fff;
+  box-sizing:border-box;
 }
 .cart-event .time-row{
   display:flex;
   gap:8px;
+  width:100%;
 }
 .cart-event textarea{
   resize:vertical;
@@ -650,14 +654,14 @@ footer{
   margin-top: 16px;
 }
 
-.social-links a{
+social-links a{
   color: var(--primary);
   font-size: 44px;
   text-decoration:none;
   transition: transform .2s ease, color .2s ease;
 }
 
-.social-links a:hover{
+social-links a:hover{
   transform: scale(1.12);
   color: #fff;
 }
@@ -778,3 +782,4 @@ footer{
     transform: scale(.9);
   }
 }
+
