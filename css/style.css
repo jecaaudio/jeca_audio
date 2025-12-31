@@ -492,16 +492,6 @@ footer{
 }
 
 /* === HOME CARDS (como en tu foto) === */
-.main-page-grid{
-  display:flex;
-  justify-content:center;
-  align-items:stretch;
-  gap: 30px;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 18px;
-}
 
 .decision-card{
   background: rgba(20,20,20,.65);
@@ -615,29 +605,5 @@ footer{
     top:14px;
     right:14px;
     transform: scale(.9);
-  }
-}
-
-/* 🔒 FIX HOME: tarjetas lado a lado */
-.decision-grid.main-page-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:stretch;
-  gap:30px;
-  width: auto;
-  max-width: 1200px;
-}
-
-.decision-grid.main-page-grid .decision-card{
-  flex: 1 1 520px;
-  max-width: 520px;
-  width: auto;
-}
-
-@media (max-width: 900px){
-  .decision-grid.main-page-grid .decision-card{
-    width: 92vw;
-    max-width: 92vw;
   }
 }
