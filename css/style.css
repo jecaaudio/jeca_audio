@@ -33,6 +33,9 @@ html,body{
   background-position:center;
   background-repeat:no-repeat;
   background-color:#000;
+
+  /* ✨ OPTIMIZACIÓN */
+  will-change: height, padding;
 }
 
 .header-content{
@@ -61,20 +64,52 @@ h1{
   font-weight:700;
   opacity:.9;
 }
-@media (max-width:768px){
-  .tagline{
-    font-size: .95rem;
-    letter-spacing: 2px;
+@media (max-width: 768px){
+
+  #main-header{
+    height: 60vh;
+    padding-top: 40px;
   }
+
+  .header-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+  }
+
+  h1{ font-size:2.2rem; }
+
   .location{
-    margin-top: 8px;
-    font-size: 14px;
+    margin-top:6px;
+    font-size:14px;
+    opacity:.85;
   }
-}
-@media (max-width:480px){
-  .tagline{
-    font-size: .9rem;
-    letter-spacing: 1.5px;
+
+  .container{
+    margin-top:60vh;
+    text-align:center;
+  }
+
+  .decision-card{
+    width:100%;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .quote-cart{ width:92vw; right:-100vw; }
+  .form-grid{ grid-template-columns:1fr; }
+  .cart-actions{ flex-direction:column; }
+
+  footer{ text-align:center; }
+  .social-links{ justify-content:center; }
+
+  .language-switcher{
+    top:14px;
+    right:14px;
+    transform: scale(.9);
   }
 }
 
