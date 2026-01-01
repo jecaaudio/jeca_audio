@@ -155,6 +155,38 @@ h1{
   position:relative;
   z-index:5;
 }
+/* ===============================
+   FIX DEFINITIVO DE OVERFLOW MÓVIL
+   =============================== */
+
+/* Ningún contenedor puede salirse del ancho */
+.container,
+.inventory-grid,
+.decision-grid,
+.decision-grid.main-page-grid{
+  max-width: 100%;
+}
+
+/* Ninguna card puede empujar el layout */
+.decision-card,
+.equipment-card{
+  max-width: 100%;
+}
+
+/* MUY IMPORTANTE: evita overflow en hijos de flex/grid */
+.inventory-grid > *,
+.decision-grid > *,
+.decision-grid.main-page-grid > *{
+  min-width: 0;
+}
+
+/* Textos largos no rompen el centrado */
+h1,
+.tagline,
+.location{
+  max-width: 100%;
+  word-break: break-word;
+}
 
 .filters{
   display:flex;
