@@ -179,6 +179,23 @@ h1{
 @media (max-width:900px){ .inventory-grid{ grid-template-columns:repeat(2,1fr);} }
 @media (max-width:600px){ .inventory-grid{ grid-template-columns:1fr;} }
 
+@media (max-width: 768px){
+  .inventory-grid{
+    justify-items:center;
+  }
+
+  .equipment-card{
+    width:100%;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .filters{
+    justify-content:center;
+  }
+}
+
 .equipment-card{
   background:#1a1a1a;
   border-radius:15px;
