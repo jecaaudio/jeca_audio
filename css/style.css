@@ -14,14 +14,6 @@ html,body{
   overflow-x:hidden;
 }
 
-*, *::before, *::after{
-  box-sizing:border-box;
-}
-
-img, video, canvas, svg{
-  max-width:100%;
-}
-
 /* HEADER */
 #main-header{
   position:fixed;
@@ -201,38 +193,6 @@ h1{
 
   .filters{
     justify-content:center;
-  }
-
-  .cart-row{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-  }
-
-  .cart-row > div{
-    width:100%;
-  }
-
-  .qty{
-    justify-content:center;
-  }
-
-  .cart-days{
-    text-align:center;
-  }
-
-  .cart-days label{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .cart-actions{
-    align-items:center;
-  }
-
-  .cart-actions .btn-main,
-  .cart-actions .btn-outline{
-    width:100%;
   }
 }
 
@@ -607,19 +567,6 @@ h1{
     grid-template-columns:repeat(5, minmax(0,1fr));
   }
 }
-@media (max-width: 768px){
-  .product-modal-header,
-  .booking-modal-header{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-  }
-
-  .product-modal-close,
-  .booking-modal-close{
-    align-self:center;
-  }
-}
 
 /* BOOKING MODAL */
 .booking-modal{
@@ -940,4 +887,3 @@ footer{
     transform: scale(.9);
   }
 }
-
