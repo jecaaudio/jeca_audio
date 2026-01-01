@@ -452,6 +452,12 @@ h1{
 .cart-actions-top{
   margin-bottom:12px;
 }
+.cart-actions-submit{
+  margin-top:12px;
+}
+.cart-actions-submit.is-hidden{
+  display:none;
+}
 
 /* CART EVENT DETAILS */
 .cart-event{
@@ -473,6 +479,37 @@ h1{
 .cart-event h4{
   margin:0 0 10px 0;
   font-size:14px;
+}
+.cart-summary{
+  border:1px dashed #2a2a2a;
+  border-radius:12px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  font-size:12px;
+  background:#0c0c0c;
+}
+.cart-summary.is-hidden{
+  display:none;
+}
+.cart-summary h5{
+  margin:0 0 8px 0;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  opacity:.8;
+}
+.cart-summary ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.cart-summary li{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 .cart-event-grid{
   display:grid;
