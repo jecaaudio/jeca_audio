@@ -281,7 +281,7 @@ h1,
 .image-container{
   width:100%;
   height:160px;
-  overflow:hidden;
+  overflow-y:auto;
   border-radius:10px;
   background:#111;
 }
@@ -385,13 +385,15 @@ h1,
   top:0;
   right:0;
   width:min(420px, 100vw);
-  height:100vh;
+  height:100dvh;
+  max-height:100dvh;
   background:#0c0c0c;
   border-left:1px solid #222;
   z-index:10002;
   padding:18px;
+  padding-bottom:calc(18px + env(safe-area-inset-bottom));
   box-sizing:border-box;
-  overflow-y:auto;
+  overflow:hidden;
   transform: translateX(100%);
   transition: transform .25s ease;
   display:flex;
@@ -478,6 +480,7 @@ h1,
 
 .quote-cart-footer{
   padding-top:12px;
+  margin-top:auto;
 }
 .total-row{
   display:flex;
