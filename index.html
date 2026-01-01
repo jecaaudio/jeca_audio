@@ -51,9 +51,9 @@
         </div>
         <h3 data-i18n="dj_title">Full DJ Services</h3>
         <p data-i18n="dj_description">Weddings, Quinceañeras, and Private Events.</p>
-        <a href="https://wa.me/15025540333" class="btn-main" data-i18n="book_now" target="_blank" rel="noopener">
+        <button class="btn-main" type="button" id="book-now-btn" data-i18n="book_now">
           Book Now
-        </a>
+        </button>
       </div>
 
       <div class="decision-card">
@@ -69,6 +69,75 @@
 
     </div>
   </main>
+
+  <!-- BOOKING MODAL -->
+  <div class="booking-modal" id="booking-modal" aria-hidden="true">
+    <div class="booking-modal-content" role="dialog" aria-modal="true">
+      <div class="booking-modal-header">
+        <h3 data-i18n="booking_title">Event Details</h3>
+        <button class="booking-modal-close" type="button" id="booking-modal-close" data-i18n="close">Close</button>
+      </div>
+      <form class="booking-form" id="booking-form">
+        <div class="booking-grid">
+          <label>
+            <span data-i18n="event_date">Event Date</span>
+            <input id="booking-date" type="date" required />
+          </label>
+          <label>
+            <span data-i18n="event_time">Start Time</span>
+            <div class="time-row">
+              <input id="booking-time" type="text" placeholder="7:30" />
+              <select id="booking-ampm">
+                <option value="AM" data-i18n="am">AM</option>
+                <option value="PM" data-i18n="pm">PM</option>
+              </select>
+            </div>
+          </label>
+          <label>
+            <span data-i18n="event_type">Event Type</span>
+            <input id="booking-type" type="text" placeholder="Wedding / Quince / Birthday..." />
+          </label>
+          <label>
+            <span data-i18n="guest_count">Estimated Guests</span>
+            <input id="booking-guests" type="number" min="0" />
+          </label>
+          <label>
+            <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
+            <select id="booking-io">
+              <option value="">—</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
+              <option value="Both">Both</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="event_city">City</span>
+            <input id="booking-city" type="text" placeholder="Louisville..." />
+          </label>
+          <label>
+            <span data-i18n="duration_hours">Approx. Duration (hours)</span>
+            <input id="booking-hours" type="number" min="0" step="0.5" />
+          </label>
+          <label>
+            <span data-i18n="power_available">Power available?</span>
+            <select id="booking-power">
+              <option value="">—</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </label>
+          <label class="booking-notes">
+            <span data-i18n="notes">Notes / Special requests</span>
+            <textarea id="booking-notes" rows="3"></textarea>
+          </label>
+        </div>
+        <button class="btn-main booking-submit" type="submit" data-i18n="send_quote_whatsapp">
+          Send Quote Request via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
