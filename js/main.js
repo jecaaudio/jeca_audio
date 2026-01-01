@@ -17,6 +17,7 @@ const translations = {
     rental_days: "Rental Days",
     rental_days_note: "Select the number of rental days.",
     product_specs_title: "Specifications",
+    booking_title: "Event Details",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -64,6 +65,7 @@ const translations = {
     rental_days: "Días de renta",
     rental_days_note: "Selecciona la cantidad de días de renta.",
     product_specs_title: "Especificaciones",
+    booking_title: "Detalles del Evento",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
@@ -716,6 +718,53 @@ function closeProductModal() {
 }
 
 /*********************************
+ * BOOKING MODAL
+ *********************************/
+function openBookingModal() {
+  const modal = document.getElementById("booking-modal");
+  if (!modal) return;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeBookingModal() {
+  const modal = document.getElementById("booking-modal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+function submitBookingQuote(ev) {
+  ev?.preventDefault();
+
+  const lang = localStorage.getItem("language") || "en";
+  const date = document.getElementById("booking-date")?.value || "";
+  const timeRaw = document.getElementById("booking-time")?.value || "";
+  const ampm = document.getElementById("booking-ampm")?.value || "";
+  const time = timeRaw && ampm ? `${timeRaw} ${ampm}` : timeRaw;
+
+  const type = document.getElementById("booking-type")?.value || "";
+  const guests = document.getElementById("booking-guests")?.value || "";
+  const io = document.getElementById("booking-io")?.value || "";
+  const city = document.getElementById("booking-city")?.value || "";
+  const hours = document.getElementById("booking-hours")?.value || "";
+  const power = document.getElementById("booking-power")?.value || "";
+  const notes = document.getElementById("booking-notes")?.value || "";
+
+  const message =
+    lang === "es"
+      ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
+        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
+        `📝 Notas: ${notes}`
+      : `Hi JECA AUDIO, I’d like a quote.\n\n` +
+        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
+        `📝 Notes: ${notes}`;
+
+  const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
+  window.open(wa, "_blank", "noopener");
+}
+
+/*********************************
  * WHATSAPP
  *********************************/
 function submitQuote(ev) {
@@ -882,6 +931,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
+  const bookingModal = document.getElementById("booking-modal");
+  const bookingClose = document.getElementById("booking-modal-close");
+  const bookingBtn = document.getElementById("book-now-btn");
+  const bookingForm = document.getElementById("booking-form");
+
+  if (bookingBtn) bookingBtn.addEventListener("click", openBookingModal);
+  if (bookingClose) bookingClose.addEventListener("click", closeBookingModal);
+  if (bookingModal) {
+    bookingModal.addEventListener("click", (event) => {
+      if (event.target === bookingModal) closeBookingModal();
+    });
+  }
+  if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
 });
 
 /*********************************
@@ -910,5 +973,6 @@ window.updateCartUI = updateCartUI;
 window.clearCart = clearCart;
 window.openProductModal = openProductModal;
 window.closeProductModal = closeProductModal;
-
-
+window.openBookingModal = openBookingModal;
+window.closeBookingModal = closeBookingModal;
+window.submitBookingQuote = submitBookingQuote;
