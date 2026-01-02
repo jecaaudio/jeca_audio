@@ -102,13 +102,13 @@
         <div class="cart-event-grid">
           <label>
             <span data-i18n="event_date">Event Date</span>
-            <input id="cart-date" type="date" />
+            <input id="cart-date" type="date" required />
           </label>
           <label>
             <span data-i18n="event_time">Start Time</span>
             <div class="time-row">
-              <input id="cart-time" type="text" placeholder="7:30" />
-              <select id="cart-ampm">
+              <input id="cart-time" type="text" placeholder="7:30" required />
+              <select id="cart-ampm" required>
                 <option value="AM" data-i18n="am">AM</option>
                 <option value="PM" data-i18n="pm">PM</option>
               </select>
@@ -116,15 +116,15 @@
           </label>
           <label>
             <span data-i18n="event_type">Event Type</span>
-            <input id="cart-type" type="text" placeholder="Wedding / Quince / Birthday..." />
+            <input id="cart-type" type="text" placeholder="Wedding / Quince / Birthday..." required />
           </label>
           <label>
             <span data-i18n="guest_count">Estimated Guests</span>
-            <input id="cart-guests" type="number" min="0" />
+            <input id="cart-guests" type="number" min="0" required />
           </label>
           <label>
             <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
-            <select id="cart-io">
+            <select id="cart-io" required>
               <option value="">—</option>
               <option value="Indoor">Indoor</option>
               <option value="Outdoor">Outdoor</option>
@@ -133,19 +133,27 @@
           </label>
           <label>
             <span data-i18n="event_city">City</span>
-            <input id="cart-city" type="text" placeholder="Louisville..." />
+            <input id="cart-city" type="text" placeholder="Louisville..." required />
           </label>
           <label>
             <span data-i18n="event_venue">Venue / Area</span>
-            <input id="cart-venue" type="text" placeholder="Venue or neighborhood" />
+            <input id="cart-venue" type="text" placeholder="Venue or neighborhood" required />
+          </label>
+          <label>
+            <span data-i18n="pickup_delivery">Pickup or delivery?</span>
+            <select id="cart-delivery" required>
+              <option value="">—</option>
+              <option value="Pickup" data-i18n="pickup">Pickup</option>
+              <option value="Delivery" data-i18n="delivery">Delivery</option>
+            </select>
           </label>
           <label>
             <span data-i18n="duration_hours">Approx. Duration (hours)</span>
-            <input id="cart-hours" type="number" min="0" step="0.5" />
+            <input id="cart-hours" type="number" min="0" step="0.5" required />
           </label>
           <label>
             <span data-i18n="power_available">Power available?</span>
-            <select id="cart-power">
+            <select id="cart-power" required>
               <option value="">—</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -154,7 +162,7 @@
           </label>
           <label>
             <span data-i18n="event_access">Stairs / elevator?</span>
-            <select id="cart-access">
+            <select id="cart-access" required>
               <option value="">—</option>
               <option value="Stairs" data-i18n="access_stairs">Stairs</option>
               <option value="Elevator" data-i18n="access_elevator">Elevator</option>
@@ -164,7 +172,7 @@
           </label>
           <label>
             <span data-i18n="notes">Notes / Special requests</span>
-            <textarea id="cart-notes" rows="3"></textarea>
+            <textarea id="cart-notes" rows="3" required></textarea>
           </label>
         </div>
         <div class="cart-actions cart-actions-submit is-hidden" id="cart-actions-submit">
