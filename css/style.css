@@ -1097,24 +1097,22 @@ footer{
 }
 .reels-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-  gap:10px;
+  grid-template-columns:1fr;
+  gap:16px;
 }
-.reel-card{
+.reel-embed{
   background:#121212;
   border:1px solid #262626;
-  border-radius:12px;
-  padding:12px 14px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  text-align:center;
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  border-radius:16px;
+  padding:12px;
 }
-.reel-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(243,156,18,0.6);
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
+.reel-embed iframe{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  aspect-ratio:9 / 16;
+  background:#000;
+  display:block;
 }
 .package-grid{
   display:grid;
