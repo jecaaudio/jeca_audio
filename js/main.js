@@ -63,20 +63,70 @@ const translations = {
     review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
     video_cta: "Watch event video highlights",
     packages_title: "DJ Packages",
-    package_basic_price: "From $650",
-    package_basic_hours: "4 hours DJ",
-    package_basic_mic: "1 wireless mic",
-    package_basic_lights: "Dance floor lighting",
-    package_standard_price: "From $900",
-    package_standard_hours: "5 hours DJ",
-    package_standard_mic: "2 wireless mics",
-    package_standard_lights: "Uplighting + dance lights",
-    package_standard_booth: "DJ booth",
-    package_premium_price: "From $1200",
-    package_premium_hours: "6 hours DJ",
-    package_premium_mic: "2 wireless mics + MC",
-    package_premium_lights: "Uplighting + moving heads",
-    package_premium_fx: "Fog / special effects",
+    package_includes_label: "Includes",
+    package1_title: "DJ Essential",
+    package1_description: "Entry-level DJ package for small private events.",
+    package1_include_1: "Professional DJ service",
+    package1_include_2: "DJ Controller (DDJ-FLX4)",
+    package1_include_3: "2 Full-range speakers",
+    package1_include_4: "Wireless microphones (2)",
+    package1_include_5: "Portable DJ booth",
+    package1_include_6: "Basic LED ambient lighting",
+    package1_capacity: "Recommended Capacity: 30–60 guests",
+    package2_title: "DJ Party",
+    package2_description: "Enhanced sound and lighting for energetic celebrations.",
+    package2_include_1: "Professional DJ service",
+    package2_include_2: "DJ Controller (DDJ-FLX4)",
+    package2_include_3: "2 Full-range speakers",
+    package2_include_4: "1 Subwoofer",
+    package2_include_5: "Wireless microphones",
+    package2_include_6: "DJ booth",
+    package2_include_7: "Dynamic lighting effects (beams + LED bars)",
+    package2_include_8: "Fog machine",
+    package2_capacity: "Recommended Capacity: 60–120 guests",
+    package3_title: "DJ Pro Event",
+    package3_description: "Professional-level package for formal and medium-sized events.",
+    package3_include_1: "Professional DJ service",
+    package3_include_2: "DJ Controller + Digital Mixing Console",
+    package3_include_3: "2 Full-range speakers",
+    package3_include_4: "2 Subwoofers",
+    package3_include_5: "Wireless microphones",
+    package3_include_6: "DJ booth",
+    package3_include_7: "Professional lighting (moving heads & beams)",
+    package3_include_8: "Fog machine",
+    package3_capacity: "Recommended Capacity: 120–200 guests",
+    package4_title: "DJ Wedding / XV",
+    package4_description: "Elegant production designed for weddings and quinceañeras.",
+    package4_include_1: "Professional DJ service",
+    package4_include_2: "DJ Controller + Digital Mixing Console",
+    package4_include_3: "2 Full-range speakers",
+    package4_include_4: "2 Subwoofers",
+    package4_include_5: "Wireless microphones",
+    package4_include_6: "Elegant DJ booth",
+    package4_include_7: "Lighting truss system",
+    package4_include_8: "Premium lighting (RGBW moving heads)",
+    package4_include_9: "Low-lying fog machine (cloud effect)",
+    package4_capacity: "Recommended Capacity: 150–250 guests",
+    package5_title: "DJ Show Impact",
+    package5_description: "High-impact production for large events and stage-style setups.",
+    package5_include_1: "Professional DJ service",
+    package5_include_2: "Advanced digital mixing console",
+    package5_include_3: "DJ Controller",
+    package5_include_4: "2 Full-range speakers",
+    package5_include_5: "2 Subwoofers",
+    package5_include_6: "Wireless microphones",
+    package5_include_7: "DJ booth",
+    package5_include_8: "Full truss structure",
+    package5_include_9: "Advanced lighting system (spots, rotating beams, mini beams)",
+    package5_include_10: "Fog machine",
+    package5_include_11: "Cold spark machines",
+    package5_capacity: "Recommended Capacity: 200–400 guests",
+    addons_title: "FX Experience (Add-On)",
+    addons_card_title: "FX Experience (Add-On)",
+    addons_option_1: "Cold spark machines",
+    addons_option_2: "Low-lying fog",
+    addons_option_3: "Electric confetti launcher",
+    addons_option_4: "Air-powered confetti cannons",
     package_btn: "Book this package",
     about_title: "About Jeca Audio",
     about_text:
@@ -173,20 +223,70 @@ const translations = {
     review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
     video_cta: "Ver videos de eventos",
     packages_title: "Paquetes de DJ",
-    package_basic_price: "Desde $650",
-    package_basic_hours: "4 horas de DJ",
-    package_basic_mic: "1 micrófono inalámbrico",
-    package_basic_lights: "Luces para pista",
-    package_standard_price: "Desde $900",
-    package_standard_hours: "5 horas de DJ",
-    package_standard_mic: "2 micrófonos inalámbricos",
-    package_standard_lights: "Uplighting + luces de pista",
-    package_standard_booth: "Cabina de DJ",
-    package_premium_price: "Desde $1200",
-    package_premium_hours: "6 horas de DJ",
-    package_premium_mic: "2 micrófonos + MC",
-    package_premium_lights: "Uplighting + moving heads",
-    package_premium_fx: "Humo / efectos especiales",
+    package_includes_label: "Incluye",
+    package1_title: "DJ Esencial",
+    package1_description: "Paquete básico de DJ para eventos privados pequeños.",
+    package1_include_1: "Servicio profesional de DJ",
+    package1_include_2: "Controladora DJ (DDJ-FLX4)",
+    package1_include_3: "2 altavoces principales",
+    package1_include_4: "Micrófonos inalámbricos (2)",
+    package1_include_5: "Booth DJ portátil",
+    package1_include_6: "Iluminación LED básica (ambiente)",
+    package1_capacity: "Capacidad recomendada: 30–60 invitados",
+    package2_title: "DJ Fiesta",
+    package2_description: "Más potencia de sonido e iluminación para celebraciones con energía.",
+    package2_include_1: "Servicio profesional de DJ",
+    package2_include_2: "Controladora DJ (DDJ-FLX4)",
+    package2_include_3: "2 altavoces principales",
+    package2_include_4: "1 subwoofer",
+    package2_include_5: "Micrófonos inalámbricos",
+    package2_include_6: "Booth DJ",
+    package2_include_7: "Iluminación dinámica (beams + barras LED)",
+    package2_include_8: "Máquina de humo",
+    package2_capacity: "Capacidad recomendada: 60–120 invitados",
+    package3_title: "DJ Pro Evento",
+    package3_description: "Paquete profesional para eventos formales y medianos.",
+    package3_include_1: "Servicio profesional de DJ",
+    package3_include_2: "Controladora DJ + consola digital",
+    package3_include_3: "2 altavoces principales",
+    package3_include_4: "2 subwoofers",
+    package3_include_5: "Micrófonos inalámbricos",
+    package3_include_6: "Booth DJ",
+    package3_include_7: "Iluminación profesional (moving heads + beams)",
+    package3_include_8: "Máquina de humo",
+    package3_capacity: "Capacidad recomendada: 120–200 invitados",
+    package4_title: "DJ Boda / XV",
+    package4_description: "Producción elegante diseñada para bodas y quinceañeros.",
+    package4_include_1: "Servicio profesional de DJ",
+    package4_include_2: "Controladora DJ + consola digital",
+    package4_include_3: "2 altavoces principales",
+    package4_include_4: "2 subwoofers",
+    package4_include_5: "Micrófonos inalámbricos",
+    package4_include_6: "Booth DJ elegante",
+    package4_include_7: "Estructura truss de iluminación",
+    package4_include_8: "Iluminación premium (moving heads RGBW)",
+    package4_include_9: "Máquina de humo bajo (efecto nube)",
+    package4_capacity: "Capacidad recomendada: 150–250 invitados",
+    package5_title: "DJ Impacto Show",
+    package5_description: "Producción de alto impacto para eventos grandes y montajes tipo escenario.",
+    package5_include_1: "Servicio profesional de DJ",
+    package5_include_2: "Consola digital avanzada",
+    package5_include_3: "Controladora DJ",
+    package5_include_4: "2 altavoces principales",
+    package5_include_5: "2 subwoofers",
+    package5_include_6: "Micrófonos inalámbricos",
+    package5_include_7: "Booth DJ",
+    package5_include_8: "Estructura truss completa",
+    package5_include_9: "Iluminación avanzada (spots, rotating beams, mini beams)",
+    package5_include_10: "Máquina de humo",
+    package5_include_11: "Máquinas de chispas frías",
+    package5_capacity: "Capacidad recomendada: 200–400 invitados",
+    addons_title: "Experiencia FX (Adicional)",
+    addons_card_title: "Experiencia FX (Adicional)",
+    addons_option_1: "Chispas frías",
+    addons_option_2: "Humo bajo",
+    addons_option_3: "Lanzador eléctrico de confeti",
+    addons_option_4: "Cañones de aire con confeti",
     package_btn: "Reservar este paquete",
     about_title: "Sobre Jeca Audio",
     about_text:
@@ -284,7 +384,10 @@ function updatePackageButtons(lang) {
   };
 
   buttons.forEach((btn) => {
-    const pkg = btn.dataset.package || "DJ";
+    const pkg =
+      (lang === "es" ? btn.dataset.packageEs : btn.dataset.packageEn) ||
+      btn.dataset.package ||
+      "DJ";
     const message = messages[lang] ? messages[lang](pkg) : messages.en(pkg);
     btn.dataset.packageMessage = message;
   });
@@ -481,7 +584,7 @@ const infoEmpresa = {
         "img/productos/lights/LightBarLED10/LightBarLED105.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED106.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED107.jpg",
-        "img/productos/lights/LightBarLED10/LightBarLED108.jpg"
+        "img/productos/lights/LightBarLED10/LightBarLED108.gif"
       ]
     },
     {
@@ -659,6 +762,43 @@ const infoEmpresa = {
 // Variables de control global
 let currentFilter = "all";
 let galleryIntervals = [];
+let homeGalleryIntervals = [];
+
+function getAllEquipmentPhotos() {
+  const photos = (infoEmpresa.equipos || []).flatMap((equipo) =>
+    Array.isArray(equipo.fotos) ? equipo.fotos : []
+  );
+  return Array.from(new Set(photos));
+}
+
+function setupHomeGallery() {
+  const galleryImages = document.querySelectorAll(".gallery-grid img[data-gallery-slot]");
+  if (!galleryImages.length) return;
+
+  homeGalleryIntervals.forEach((id) => clearInterval(id));
+  homeGalleryIntervals = [];
+
+  const photos = getAllEquipmentPhotos();
+  if (!photos.length) return;
+
+  galleryImages.forEach((img, slotIndex) => {
+    let currentIndex = (slotIndex * 2) % photos.length;
+    img.src = photos[currentIndex];
+
+    if (photos.length <= 1) return;
+
+    const intervalId = setInterval(() => {
+      currentIndex = (currentIndex + 1) % photos.length;
+      img.style.opacity = "0";
+      setTimeout(() => {
+        img.src = photos[currentIndex];
+        img.style.opacity = "1";
+      }, 250);
+    }, 3000);
+
+    homeGalleryIntervals.push(intervalId);
+  });
+}
 
 /*********************************
  * CART STORAGE
@@ -907,6 +1047,44 @@ function closeProductModal() {
   if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+/*********************************
+ * VIDEO MODAL
+ *********************************/
+function openVideoModal(videoId) {
+  const modal = document.getElementById("video-modal");
+  const frame = document.getElementById("video-modal-iframe");
+  if (!modal || !frame || !videoId) return;
+  frame.src = `https://www.tiktok.com/embed/v2/${videoId}?autoplay=1`;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById("video-modal");
+  const frame = document.getElementById("video-modal-iframe");
+  if (!modal || !frame) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  frame.src = "";
+}
+
+function setupTikTokCards() {
+  const cards = document.querySelectorAll(".tiktok-card[data-tiktok-id]");
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    const videoId = card.dataset.tiktokId;
+    const overlay = card.querySelector(".video-overlay");
+    const handler = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openVideoModal(videoId);
+    };
+    if (overlay) overlay.addEventListener("click", handler);
+    card.addEventListener("click", handler);
+  });
 }
 
 /*********************************
@@ -1182,6 +1360,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
+
+  setupHomeGallery();
+  setupTikTokCards();
+
+  const videoModal = document.getElementById("video-modal");
+  const videoClose = document.getElementById("video-modal-close");
+  if (videoClose) videoClose.addEventListener("click", closeVideoModal);
+  if (videoModal) {
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) closeVideoModal();
+    });
+  }
 });
 
 /*********************************
