@@ -910,6 +910,9 @@ footer{
   
   min-height: 240px;
   text-align: center;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
   box-shadow: 0 18px 50px rgba(0,0,0,.45);
   transition: transform .25s ease, border-color .25s ease;
 }
@@ -924,6 +927,13 @@ footer{
   display:flex;
   flex-direction:column;
   gap:6px;
+}
+
+.decision-card .btn-main,
+.decision-card .btn-outline{
+  width:100%;
+  margin-top:auto;
+  text-align:center;
 }
 .service-bullets li::before{
   content:"•";
