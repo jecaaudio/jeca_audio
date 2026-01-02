@@ -1084,38 +1084,6 @@ footer{
   font-weight:700;
   border:1px dashed #333;
 }
-.reels-section{
-  margin-top:20px;
-  width:100%;
-}
-.reels-title{
-  margin:0 0 12px 0;
-  font-size:1rem;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  color:#f6f1e7;
-}
-.reels-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-  gap:10px;
-}
-.reel-card{
-  background:#121212;
-  border:1px solid #262626;
-  border-radius:12px;
-  padding:12px 14px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  text-align:center;
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-.reel-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(243,156,18,0.6);
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
-}
 .package-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
