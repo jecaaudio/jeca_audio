@@ -142,6 +142,9 @@ const translations = {
     contact_phone_label: "Phone",
     contact_email_label: "Email",
     event_venue: "Venue / Area",
+    pickup_delivery: "Pickup or delivery?",
+    pickup: "Pickup",
+    delivery: "Delivery",
     event_access: "Stairs / elevator?",
     access_stairs: "Stairs",
     access_elevator: "Elevator",
@@ -303,6 +306,9 @@ const translations = {
     contact_phone_label: "Teléfono",
     contact_email_label: "Correo",
     event_venue: "Lugar / Zona",
+    pickup_delivery: "¿Recogida o entrega?",
+    pickup: "Recogida",
+    delivery: "Entrega",
     event_access: "¿Escaleras / elevador?",
     access_stairs: "Escaleras",
     access_elevator: "Elevador",
@@ -1175,11 +1181,45 @@ function submitQuote(ev) {
   const io = getValue("cart-io");
   const city = getValue("cart-city");
   const venue = getValue("cart-venue");
+  const delivery = getValue("cart-delivery");
   const hours = getValue("cart-hours");
   const power = getValue("cart-power");
   const access = getValue("cart-access");
   const notes = getValue("cart-notes");
   const days = loadDays();
+
+  const requiredFields = [
+    { key: "event_date", value: date, id: "cart-date" },
+    { key: "event_time", value: timeRaw, id: "cart-time" },
+    { key: "event_type", value: type, id: "cart-type" },
+    { key: "guest_count", value: guests, id: "cart-guests" },
+    { key: "indoor_outdoor", value: io, id: "cart-io" },
+    { key: "event_city", value: city, id: "cart-city" },
+    { key: "event_venue", value: venue, id: "cart-venue" },
+    { key: "pickup_delivery", value: delivery, id: "cart-delivery" },
+    { key: "duration_hours", value: hours, id: "cart-hours" },
+    { key: "power_available", value: power, id: "cart-power" },
+    { key: "event_access", value: access, id: "cart-access" },
+    { key: "notes", value: notes, id: "cart-notes" },
+  ];
+
+  const missing = requiredFields.filter((field) => !field.value.trim());
+  if (missing.length) {
+    const firstMissing = document.getElementById(missing[0].id);
+    if (firstMissing) {
+      firstMissing.focus();
+      firstMissing.reportValidity?.();
+    }
+    const missingText = missing
+      .map((field) => `• ${translations[lang][field.key] || field.key}`)
+      .join("\n");
+    window.alert(`${translations[lang].missing_fields_title}\n${missingText}`);
+    return;
+  }
+
+  const deliveryLabel = delivery
+    ? translations[lang][delivery.toLowerCase()] || delivery
+    : delivery;
 
   const lines = cart
     .map((ci) => {
@@ -1192,11 +1232,13 @@ function submitQuote(ev) {
     lang === "es"
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
         `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
+        `🚚 Recogida/Entrega: ${deliveryLabel}\n\n` +
         `🛒 Equipos:\n${lines.join("\n")}\n\n` +
         `📆 Días de renta: ${days}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
         `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
+        `🚚 Pickup/Delivery: ${deliveryLabel}\n\n` +
         `🛒 Items:\n${lines.join("\n")}\n\n` +
         `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;
