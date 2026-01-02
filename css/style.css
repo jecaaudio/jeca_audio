@@ -1084,6 +1084,20 @@ footer{
   font-weight:700;
   border:1px dashed #333;
 }
+.video-playlist-section{
+  margin-top:32px;
+}
+.video-playlist-wrapper{
+  display:flex;
+  justify-content:center;
+}
+.party-video-player{
+  width:100%;
+  border-radius:16px;
+  background:#000;
+  min-height:320px;
+  max-width:960px;
+}
 .package-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
