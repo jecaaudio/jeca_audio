@@ -63,16 +63,13 @@ const translations = {
     review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
     video_cta: "Watch event video highlights",
     packages_title: "DJ Packages",
-    package_basic_price: "From $650",
     package_basic_hours: "4 hours DJ",
     package_basic_mic: "1 wireless mic",
     package_basic_lights: "Dance floor lighting",
-    package_standard_price: "From $900",
     package_standard_hours: "5 hours DJ",
     package_standard_mic: "2 wireless mics",
     package_standard_lights: "Uplighting + dance lights",
     package_standard_booth: "DJ booth",
-    package_premium_price: "From $1200",
     package_premium_hours: "6 hours DJ",
     package_premium_mic: "2 wireless mics + MC",
     package_premium_lights: "Uplighting + moving heads",
@@ -80,13 +77,17 @@ const translations = {
     package_btn: "Book this package",
     about_title: "About Jeca Audio",
     about_text:
-      "Jeca Audio provides DJ services and pro sound & lighting rentals in Louisville, KY. We bring bilingual MC services, a curated music experience, and reliable gear so your event feels effortless.",
+      "Jeca Audio, provides DJ services and PRO sound & lighting rentals, in Louisville, KY. We bring bilingual MC services, music experience, and reliable gear to your event so it feels effortless, with the best Quality.",
     about_area_title: "Service area",
     about_area_text: "Louisville, KY + surrounding areas.",
     about_response_title: "Fast response",
     about_response_text: "Message us on WhatsApp and get a quick quote.",
     about_years_title: "Experience",
     about_years_text: "Over {years} years of events, weddings, and private parties.",
+    booking_package: "DJ Package",
+    contact_title: "Contact",
+    contact_phone_label: "Phone",
+    contact_email_label: "Email",
     event_venue: "Venue / Area",
     event_access: "Stairs / elevator?",
     access_stairs: "Stairs",
@@ -170,16 +171,13 @@ const translations = {
     review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
     video_cta: "Ver videos de eventos",
     packages_title: "Paquetes de DJ",
-    package_basic_price: "Desde $650",
     package_basic_hours: "4 horas de DJ",
     package_basic_mic: "1 micrófono inalámbrico",
     package_basic_lights: "Luces para pista",
-    package_standard_price: "Desde $900",
     package_standard_hours: "5 horas de DJ",
     package_standard_mic: "2 micrófonos inalámbricos",
     package_standard_lights: "Uplighting + luces de pista",
     package_standard_booth: "Cabina de DJ",
-    package_premium_price: "Desde $1200",
     package_premium_hours: "6 horas de DJ",
     package_premium_mic: "2 micrófonos + MC",
     package_premium_lights: "Uplighting + moving heads",
@@ -194,6 +192,10 @@ const translations = {
     about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
     about_years_title: "Experiencia",
     about_years_text: "Más de {years} años en eventos, bodas y fiestas privadas.",
+    booking_package: "Paquete de DJ",
+    contact_title: "Contacto",
+    contact_phone_label: "Teléfono",
+    contact_email_label: "Correo",
     event_venue: "Lugar / Zona",
     event_access: "¿Escaleras / elevador?",
     access_stairs: "Escaleras",
@@ -262,26 +264,9 @@ function setLanguage(lang) {
   // ✅ refrescar páginas/partes que dependen del idioma (si existen)
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
   try { updateCartUI(); } catch {}
-  try { updatePackageLinks(lang); } catch {}
 }
 function setLanguageSafe(lang) {
   if (typeof setLanguage === "function") setLanguage(lang);
-}
-
-function updatePackageLinks(lang) {
-  const buttons = document.querySelectorAll(".package-btn[data-package]");
-  if (!buttons.length) return;
-
-  const messages = {
-    en: (pkg) => `Hi JECA AUDIO, I'm interested in the ${pkg} DJ package. Please share availability and details.`,
-    es: (pkg) => `Hola JECA AUDIO, me interesa el paquete ${pkg} de DJ. ¿Me pueden compartir disponibilidad y detalles?`,
-  };
-
-  buttons.forEach((btn) => {
-    const pkg = btn.dataset.package || "DJ";
-    const message = messages[lang] ? messages[lang](pkg) : messages.en(pkg);
-    btn.href = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
-  });
 }
 
 
@@ -913,6 +898,23 @@ function openBookingModal() {
   modal.setAttribute("aria-hidden", "false");
 }
 
+function resetBookingPackage() {
+  const packageInput = document.getElementById("booking-package");
+  if (packageInput) packageInput.value = "";
+}
+
+function selectPackage(pkg) {
+  const packageInput = document.getElementById("booking-package");
+  const notesInput = document.getElementById("booking-notes");
+  if (packageInput && pkg) {
+    packageInput.value = pkg;
+  }
+  if (notesInput && pkg && !notesInput.value.trim()) {
+    notesInput.value = `Package: ${pkg}`;
+  }
+  openBookingModal();
+}
+
 function closeBookingModal() {
   const modal = document.getElementById("booking-modal");
   if (!modal) return;
@@ -938,13 +940,19 @@ function submitBookingQuote(ev) {
   const power = document.getElementById("booking-power")?.value || "";
   const access = document.getElementById("booking-access")?.value || "";
   const notes = document.getElementById("booking-notes")?.value || "";
+  const pkg = document.getElementById("booking-package")?.value || "";
 
   const requiredFields = [
     { key: "event_date", value: date },
     { key: "event_time", value: timeRaw },
     { key: "event_type", value: type },
+    { key: "guest_count", value: guests },
+    { key: "indoor_outdoor", value: io },
     { key: "event_city", value: city },
     { key: "event_venue", value: venue },
+    { key: "duration_hours", value: hours },
+    { key: "power_available", value: power },
+    { key: "event_access", value: access },
   ];
 
   const missing = requiredFields.filter((field) => !field.value.trim());
@@ -958,8 +966,8 @@ function submitBookingQuote(ev) {
 
   const summary =
     lang === "es"
-      ? `Fecha: ${date}\nHora: ${time}\nTipo: ${type}\nCiudad: ${city}\nLugar/Zona: ${venue}\nAcceso: ${access || "—"}`
-      : `Date: ${date}\nTime: ${time}\nType: ${type}\nCity: ${city}\nVenue/Area: ${venue}\nAccess: ${access || "—"}`;
+      ? `Paquete: ${pkg || "—"}\nFecha: ${date}\nHora: ${time}\nTipo: ${type}\nCiudad: ${city}\nLugar/Zona: ${venue}\nAcceso: ${access || "—"}`
+      : `Package: ${pkg || "—"}\nDate: ${date}\nTime: ${time}\nType: ${type}\nCity: ${city}\nVenue/Area: ${venue}\nAccess: ${access || "—"}`;
 
   const confirmSend = window.confirm(`${translations[lang].confirm_booking_title}\n\n${summary}`);
   if (!confirmSend) return;
@@ -967,10 +975,10 @@ function submitBookingQuote(ev) {
   const message =
     lang === "es"
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
-        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
+        `🎧 Paquete: ${pkg || "—"}\n📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
-        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
+        `🎧 Package: ${pkg || "—"}\n📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
         `📝 Notes: ${notes}`;
 
   const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -1152,8 +1160,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingClose = document.getElementById("booking-modal-close");
   const bookingBtn = document.getElementById("book-now-btn");
   const bookingForm = document.getElementById("booking-form");
+  const packageButtons = document.querySelectorAll(".package-btn[data-package]");
 
-  if (bookingBtn) bookingBtn.addEventListener("click", openBookingModal);
+  if (bookingBtn) {
+    bookingBtn.addEventListener("click", () => {
+      resetBookingPackage();
+      openBookingModal();
+    });
+  }
   if (bookingClose) bookingClose.addEventListener("click", closeBookingModal);
   if (bookingModal) {
     bookingModal.addEventListener("click", (event) => {
@@ -1161,6 +1175,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
+  packageButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const pkg = btn.dataset.package || "";
+      selectPackage(pkg);
+    });
+  });
 });
 
 /*********************************

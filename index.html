@@ -132,35 +132,32 @@
       <div class="package-grid">
         <article class="package-card">
           <h3>Basic</h3>
-          <p class="package-price" data-i18n="package_basic_price">From $650</p>
           <ul>
             <li data-i18n="package_basic_hours">4 hours DJ</li>
             <li data-i18n="package_basic_mic">1 wireless mic</li>
             <li data-i18n="package_basic_lights">Dance floor lighting</li>
           </ul>
-          <a class="btn-main package-btn" href="#" data-package="Basic" data-i18n="package_btn">Book this package</a>
+          <button class="btn-main package-btn" type="button" data-package="Basic" data-i18n="package_btn">Book this package</button>
         </article>
         <article class="package-card featured">
           <h3>Standard</h3>
-          <p class="package-price" data-i18n="package_standard_price">From $900</p>
           <ul>
             <li data-i18n="package_standard_hours">5 hours DJ</li>
             <li data-i18n="package_standard_mic">2 wireless mics</li>
             <li data-i18n="package_standard_lights">Uplighting + dance lights</li>
             <li data-i18n="package_standard_booth">DJ booth</li>
           </ul>
-          <a class="btn-main package-btn" href="#" data-package="Standard" data-i18n="package_btn">Book this package</a>
+          <button class="btn-main package-btn" type="button" data-package="Standard" data-i18n="package_btn">Book this package</button>
         </article>
         <article class="package-card">
           <h3>Premium</h3>
-          <p class="package-price" data-i18n="package_premium_price">From $1200</p>
           <ul>
             <li data-i18n="package_premium_hours">6 hours DJ</li>
             <li data-i18n="package_premium_mic">2 wireless mics + MC</li>
             <li data-i18n="package_premium_lights">Uplighting + moving heads</li>
             <li data-i18n="package_premium_fx">Fog / special effects</li>
           </ul>
-          <a class="btn-main package-btn" href="#" data-package="Premium" data-i18n="package_btn">Book this package</a>
+          <button class="btn-main package-btn" type="button" data-package="Premium" data-i18n="package_btn">Book this package</button>
         </article>
       </div>
     </section>
@@ -168,7 +165,7 @@
     <section class="about-section">
       <h2 class="section-title" data-i18n="about_title">About Jeca Audio</h2>
       <p data-i18n="about_text">
-        Jeca Audio provides DJ services and pro sound & lighting rentals in Louisville, KY. We bring bilingual MC services, a curated music experience, and reliable gear so your event feels effortless.
+        Jeca Audio, provides DJ services and PRO sound & lighting rentals, in Louisville, KY. We bring bilingual MC services, music experience, and reliable gear to your event so it feels effortless, with the best Quality.
       </p>
       <div class="about-grid">
         <div>
@@ -182,6 +179,20 @@
         <div>
           <h4 data-i18n="about_years_title">Experience</h4>
           <p data-i18n="about_years_text">Over 5 years of events, weddings, and private parties.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+      <div class="about-grid">
+        <div>
+          <h4 data-i18n="contact_phone_label">Phone</h4>
+          <p><a href="tel:+15025540333">+1 (502) 554-0333</a></p>
+        </div>
+        <div>
+          <h4 data-i18n="contact_email_label">Email</h4>
+          <p><a href="mailto:eljecatv@gmail.com">eljecatv@gmail.com</a></p>
         </div>
       </div>
     </section>
@@ -203,8 +214,8 @@
           <label>
             <span data-i18n="event_time">Start Time</span>
             <div class="time-row">
-              <input id="booking-time" type="text" placeholder="7:30" />
-              <select id="booking-ampm">
+              <input id="booking-time" type="text" placeholder="7:30" required />
+              <select id="booking-ampm" required>
                 <option value="AM" data-i18n="am">AM</option>
                 <option value="PM" data-i18n="pm">PM</option>
               </select>
@@ -212,15 +223,19 @@
           </label>
           <label>
             <span data-i18n="event_type">Event Type</span>
-            <input id="booking-type" type="text" placeholder="Wedding / Quince / Birthday..." />
+            <input id="booking-type" type="text" placeholder="Wedding / Quince / Birthday..." required />
+          </label>
+          <label>
+            <span data-i18n="booking_package">DJ Package</span>
+            <input id="booking-package" type="text" readonly />
           </label>
           <label>
             <span data-i18n="guest_count">Estimated Guests</span>
-            <input id="booking-guests" type="number" min="0" />
+            <input id="booking-guests" type="number" min="0" required />
           </label>
           <label>
             <span data-i18n="indoor_outdoor">Indoor or Outdoor?</span>
-            <select id="booking-io">
+            <select id="booking-io" required>
               <option value="">—</option>
               <option value="Indoor">Indoor</option>
               <option value="Outdoor">Outdoor</option>
@@ -229,19 +244,19 @@
           </label>
           <label>
             <span data-i18n="event_city">City</span>
-            <input id="booking-city" type="text" placeholder="Louisville..." />
+            <input id="booking-city" type="text" placeholder="Louisville..." required />
           </label>
           <label>
             <span data-i18n="event_venue">Venue / Area</span>
-            <input id="booking-venue" type="text" placeholder="Venue or neighborhood" />
+            <input id="booking-venue" type="text" placeholder="Venue or neighborhood" required />
           </label>
           <label>
             <span data-i18n="duration_hours">Approx. Duration (hours)</span>
-            <input id="booking-hours" type="number" min="0" step="0.5" />
+            <input id="booking-hours" type="number" min="0" step="0.5" required />
           </label>
           <label>
             <span data-i18n="power_available">Power available?</span>
-            <select id="booking-power">
+            <select id="booking-power" required>
               <option value="">—</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -250,7 +265,7 @@
           </label>
           <label>
             <span data-i18n="event_access">Stairs / elevator?</span>
-            <select id="booking-access">
+            <select id="booking-access" required>
               <option value="">—</option>
               <option value="Stairs" data-i18n="access_stairs">Stairs</option>
               <option value="Elevator" data-i18n="access_elevator">Elevator</option>
