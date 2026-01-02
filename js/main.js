@@ -63,6 +63,11 @@ const translations = {
     review_two_text: "“Professional setup, bilingual MC, and the dance floor stayed full.”",
     review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
     video_cta: "Watch event video highlights",
+    party_videos_title: "Party videos",
+    party_videos_subtitle: "See quick highlights from recent events.",
+    party_videos_loading: "Loading videos…",
+    party_videos_empty: "No videos available yet.",
+    party_videos_now_playing: "Now playing video {current} of {total}.",
     packages_title: "DJ Packages",
     package_includes_label: "Includes",
     package1_title: "DJ Essential",
@@ -231,6 +236,11 @@ const translations = {
     review_two_text: "“Montaje profesional, MC bilingüe y pista llena.”",
     review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
     video_cta: "Ver videos de eventos",
+    party_videos_title: "Videos de la fiesta",
+    party_videos_subtitle: "Mira highlights rápidos de eventos recientes.",
+    party_videos_loading: "Cargando videos…",
+    party_videos_empty: "Aún no hay videos disponibles.",
+    party_videos_now_playing: "Reproduciendo video {current} de {total}.",
     packages_title: "Paquetes de DJ",
     package_includes_label: "Incluye",
     package1_title: "DJ Esencial",
@@ -816,6 +826,87 @@ function setupHomeGallery() {
   });
 }
 
+async function fetchPartyVideos(directory) {
+  try {
+    const response = await fetch(directory, { method: "GET" });
+    if (!response.ok) return [];
+    const contentType = response.headers.get("content-type") || "";
+    const text = await response.text();
+    if (!contentType.includes("text/html") || !text) return [];
+
+    const doc = new DOMParser().parseFromString(text, "text/html");
+    const links = Array.from(doc.querySelectorAll("a"))
+      .map((anchor) => anchor.getAttribute("href"))
+      .filter(Boolean);
+
+    const extensions = [".mp4", ".webm", ".ogg", ".ogv", ".m4v", ".mov"];
+    return links
+      .map((href) => href.split("?")[0])
+      .filter((href) => !href.startsWith("../"))
+      .filter((href) => extensions.some((ext) => href.toLowerCase().endsWith(ext)))
+      .map((href) => new URL(href, directory).toString())
+      .sort();
+  } catch (error) {
+    return [];
+  }
+}
+
+function formatPartyVideoStatus(key, current = 0, total = 0) {
+  const lang = localStorage.getItem("language") || "en";
+  let message = translations?.[lang]?.[key] || "";
+  if (current && total) {
+    message = message.replace("{current}", String(current)).replace("{total}", String(total));
+  }
+  return message;
+}
+
+async function setupPartyVideos() {
+  const container = document.querySelector(".party-videos");
+  if (!container) return;
+
+  const directory = container.dataset.videoDirectory || "";
+  const fallbackFiles = (container.dataset.videoFiles || "")
+    .split(",")
+    .map((file) => file.trim())
+    .filter(Boolean)
+    .map((file) => `${directory}${file}`);
+
+  const player = container.querySelector("#party-video-player");
+  const status = container.querySelector(".party-video-status");
+  if (!player || !status || !directory) return;
+
+  status.innerText = formatPartyVideoStatus("party_videos_loading");
+  const fetchedVideos = await fetchPartyVideos(directory);
+  const videos = fetchedVideos.length ? fetchedVideos : fallbackFiles;
+
+  if (!videos.length) {
+    status.innerText = formatPartyVideoStatus("party_videos_empty");
+    return;
+  }
+
+  let currentIndex = 0;
+
+  const loadVideo = (index) => {
+    currentIndex = index;
+    player.src = videos[currentIndex];
+    player.load();
+    status.innerText = formatPartyVideoStatus("party_videos_now_playing", currentIndex + 1, videos.length);
+    player.play().catch(() => {});
+  };
+
+  player.addEventListener("ended", () => {
+    const nextIndex = (currentIndex + 1) % videos.length;
+    loadVideo(nextIndex);
+  });
+
+  player.addEventListener("error", () => {
+    const nextIndex = (currentIndex + 1) % videos.length;
+    loadVideo(nextIndex);
+  });
+
+  loadVideo(0);
+}
+
 /*********************************
  * CART STORAGE
  *********************************/
@@ -1391,6 +1482,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
 
   setupHomeGallery();
+  setupPartyVideos();
 });
 
 /*********************************

@@ -130,30 +130,14 @@
           <span data-i18n="video_cta">Watch event video highlights</span>
         </a>
       </div>
-      <div class="reels-section">
-        <h3 class="reels-title">Instagram Reels</h3>
-        <div class="reels-grid">
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DRNW0E_AboF/embed" title="Instagram Reel 1" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DSoK-2nDQXa/embed" title="Instagram Reel 2" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DSO7yUDjWiA/embed" title="Instagram Reel 3" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DRPqmpCDiuE/embed" title="Instagram Reel 4" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DRPnhiXjiT9/embed" title="Instagram Reel 5" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DLgTwVKM2l7/embed" title="Instagram Reel 6" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <div class="reel-embed">
-            <iframe src="https://www.instagram.com/reel/DMjO2TpM_QS/embed" title="Instagram Reel 7" loading="lazy" allowfullscreen></iframe>
-          </div>
+      <div class="party-videos" data-video-directory="img/video/party/">
+        <div class="party-videos-header">
+          <h3 class="party-videos-title" data-i18n="party_videos_title">Party videos</h3>
+          <p class="party-videos-subtitle" data-i18n="party_videos_subtitle">See quick highlights from recent events.</p>
+        </div>
+        <div class="party-videos-player">
+          <video id="party-video-player" controls muted playsinline preload="metadata"></video>
+          <div class="party-video-status" data-i18n="party_videos_loading">Loading videos…</div>
         </div>
       </div>
     </section>
