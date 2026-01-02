@@ -113,7 +113,6 @@ h1{
 }
 
   .form-grid{ grid-template-columns:1fr; }
-  .cart-actions{ flex-direction:column; }
 
   footer{ text-align:center; }
   .social-links{ justify-content:center; }
