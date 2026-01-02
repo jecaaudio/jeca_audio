@@ -36,6 +36,7 @@ const translations = {
     empty_cart: "Your cart is empty. Add items to request a quote.",
     remove: "Remove",
     qty: "Qty",
+    selected_items: "Selected items",
     tagline: "PROFESSIONAL SOUND & LIGHTING",
     am: "AM",
     pm: "PM",
@@ -43,11 +44,69 @@ const translations = {
     experience_title: "Experience the Vibe",
     dj_title: "Full DJ Services",
     dj_description: "Weddings, Quinceañeras, and Private Events.",
+    dj_bullet_mc: "MC / Announcements (EN/ES)",
+    dj_bullet_playlist: "Customized playlist",
+    dj_bullet_setup: "Setup + breakdown included",
+    dj_bullet_backup: "Backup equipment",
     book_now: "Book Now",
     rental_title: "Equipment Rental",
     rental_description: "Professional audio and lights for your event.",
     rent_btn: "Rent Equipment",
     follow_text: "Follow the vibe:",
+    trust_title: "Trusted by clients across Louisville",
+    trust_subtitle: "DJ in Louisville KY • Sound & lighting rentals Louisville",
+    trust_events: "Events completed",
+    trust_reviews: "Average rating",
+    trust_response: "Fast WhatsApp response",
+    review_one_text: "“Incredible sound and lighting. Our wedding felt like a concert!”",
+    review_two_text: "“Professional setup, bilingual MC, and the dance floor stayed full.”",
+    review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
+    video_cta: "Watch event video highlights",
+    packages_title: "DJ Packages",
+    package_basic_price: "From $650",
+    package_basic_hours: "4 hours DJ",
+    package_basic_mic: "1 wireless mic",
+    package_basic_lights: "Dance floor lighting",
+    package_standard_price: "From $900",
+    package_standard_hours: "5 hours DJ",
+    package_standard_mic: "2 wireless mics",
+    package_standard_lights: "Uplighting + dance lights",
+    package_standard_booth: "DJ booth",
+    package_premium_price: "From $1200",
+    package_premium_hours: "6 hours DJ",
+    package_premium_mic: "2 wireless mics + MC",
+    package_premium_lights: "Uplighting + moving heads",
+    package_premium_fx: "Fog / special effects",
+    package_btn: "Book this package",
+    about_title: "About Jeca Audio",
+    about_text:
+      "Jeca Audio provides DJ services and pro sound & lighting rentals in Louisville, KY. We bring bilingual MC services, a curated music experience, and reliable gear so your event feels effortless.",
+    about_area_title: "Service area",
+    about_area_text: "Louisville, KY + surrounding areas.",
+    about_response_title: "Fast response",
+    about_response_text: "Message us on WhatsApp and get a quick quote.",
+    about_years_title: "Experience",
+    about_years_text: "Over 8 years of events, weddings, and private parties.",
+    event_venue: "Venue / Area",
+    event_access: "Stairs / elevator?",
+    access_stairs: "Stairs",
+    access_elevator: "Elevator",
+    access_ground: "Ground level",
+    access_not_sure: "Not sure",
+    rental_policies_title: "Rental policies",
+    rental_policy_deposit: "Security deposit required.",
+    rental_policy_id: "Valid ID required at pickup.",
+    rental_policy_delivery: "Pickup or delivery available.",
+    rental_policy_late: "Late return fees may apply.",
+    rental_availability: "Availability confirmed after request.",
+    product_includes_title: "Includes",
+    product_requirements_title: "Requirements",
+    includes_default_cables: "Cables and power cords (as needed).",
+    includes_default_setup: "Basic setup guidance at pickup.",
+    requirements_power: "Standard power outlet required.",
+    requirements_space: "Recommended clear setup space.",
+    missing_fields_title: "Please complete the required fields:",
+    confirm_booking_title: "Confirm your details before WhatsApp?",
   },
 
   es: {
@@ -84,6 +143,7 @@ const translations = {
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
     remove: "Quitar",
     qty: "Cant.",
+    selected_items: "Equipos seleccionados",
     tagline: "SONIDO E ILUMINACIÓN PROFESIONAL",
     am: "a. m.",
     pm: "p. m.",
@@ -91,11 +151,69 @@ const translations = {
     experience_title: "Vive la Experiencia",
     dj_title: "Servicio Completo de DJ",
     dj_description: "Bodas, Quinceañeras y Eventos Privados.",
+    dj_bullet_mc: "MC / Anuncios (EN/ES)",
+    dj_bullet_playlist: "Lista musical personalizada",
+    dj_bullet_setup: "Montaje + desmontaje incluido",
+    dj_bullet_backup: "Equipo de respaldo",
     book_now: "Reservar Ahora",
     rental_title: "Renta de Equipo",
     rental_description: "Audio e iluminación profesional para tu evento.",
     rent_btn: "Rentar Equipo",
     follow_text: "Síguenos:",
+    trust_title: "Con la confianza de clientes en Louisville",
+    trust_subtitle: "DJ en Louisville KY • Renta de sonido e iluminación en Louisville",
+    trust_events: "Eventos realizados",
+    trust_reviews: "Calificación promedio",
+    trust_response: "Respuesta rápida por WhatsApp",
+    review_one_text: "“Sonido e iluminación increíbles. ¡Nuestra boda fue un concierto!”",
+    review_two_text: "“Montaje profesional, MC bilingüe y pista llena.”",
+    review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
+    video_cta: "Ver videos de eventos",
+    packages_title: "Paquetes de DJ",
+    package_basic_price: "Desde $650",
+    package_basic_hours: "4 horas de DJ",
+    package_basic_mic: "1 micrófono inalámbrico",
+    package_basic_lights: "Luces para pista",
+    package_standard_price: "Desde $900",
+    package_standard_hours: "5 horas de DJ",
+    package_standard_mic: "2 micrófonos inalámbricos",
+    package_standard_lights: "Uplighting + luces de pista",
+    package_standard_booth: "Cabina de DJ",
+    package_premium_price: "Desde $1200",
+    package_premium_hours: "6 horas de DJ",
+    package_premium_mic: "2 micrófonos + MC",
+    package_premium_lights: "Uplighting + moving heads",
+    package_premium_fx: "Humo / efectos especiales",
+    package_btn: "Reservar este paquete",
+    about_title: "Sobre Jeca Audio",
+    about_text:
+      "Jeca Audio ofrece DJ y renta de sonido e iluminación en Louisville, KY. Somos bilingües, creamos la música ideal y llevamos equipo confiable para que tu evento sea perfecto.",
+    about_area_title: "Zona de servicio",
+    about_area_text: "Louisville, KY y alrededores.",
+    about_response_title: "Respuesta rápida",
+    about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
+    about_years_title: "Experiencia",
+    about_years_text: "Más de 8 años en eventos, bodas y fiestas privadas.",
+    event_venue: "Lugar / Zona",
+    event_access: "¿Escaleras / elevador?",
+    access_stairs: "Escaleras",
+    access_elevator: "Elevador",
+    access_ground: "Planta baja",
+    access_not_sure: "No estoy seguro",
+    rental_policies_title: "Políticas de renta",
+    rental_policy_deposit: "Se requiere depósito de seguridad.",
+    rental_policy_id: "ID válido requerido al recoger.",
+    rental_policy_delivery: "Pickup o entrega disponible.",
+    rental_policy_late: "Se puede cobrar por entrega tardía.",
+    rental_availability: "Disponibilidad confirmada después de la solicitud.",
+    product_includes_title: "Incluye",
+    product_requirements_title: "Requisitos",
+    includes_default_cables: "Cables y alimentación (según aplique).",
+    includes_default_setup: "Guía básica de instalación al recoger.",
+    requirements_power: "Se requiere toma de corriente estándar.",
+    requirements_space: "Se recomienda espacio libre de montaje.",
+    missing_fields_title: "Por favor completa los campos requeridos:",
+    confirm_booking_title: "¿Confirmar detalles antes de WhatsApp?",
   },
 };
 
@@ -128,9 +246,26 @@ function setLanguage(lang) {
   // ✅ refrescar páginas/partes que dependen del idioma (si existen)
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
   try { updateCartUI(); } catch {}
+  try { updatePackageLinks(lang); } catch {}
 }
 function setLanguageSafe(lang) {
   if (typeof setLanguage === "function") setLanguage(lang);
+}
+
+function updatePackageLinks(lang) {
+  const buttons = document.querySelectorAll(".package-btn[data-package]");
+  if (!buttons.length) return;
+
+  const messages = {
+    en: (pkg) => `Hi JECA AUDIO, I'm interested in the ${pkg} DJ package. Please share availability and details.`,
+    es: (pkg) => `Hola JECA AUDIO, me interesa el paquete ${pkg} de DJ. ¿Me pueden compartir disponibilidad y detalles?`,
+  };
+
+  buttons.forEach((btn) => {
+    const pkg = btn.dataset.package || "DJ";
+    const message = messages[lang] ? messages[lang](pkg) : messages.en(pkg);
+    btn.href = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
+  });
 }
 
 
@@ -594,10 +729,16 @@ function updateCartUI() {
   if (daysInput) daysInput.value = String(loadDays());
 
   const itemsEl = document.getElementById("cart-items");
+  const summaryEl = document.getElementById("cart-summary");
+  const summaryListEl = document.getElementById("cart-summary-list");
+  const submitActions = document.getElementById("cart-actions-submit");
   if (!itemsEl) return;
 
   if (cart.length === 0) {
     itemsEl.innerHTML = `<div style="padding:14px;opacity:.85;">${translations[lang].empty_cart}</div>`;
+    if (summaryEl) summaryEl.classList.add("is-hidden");
+    if (summaryListEl) summaryListEl.innerHTML = "";
+    if (submitActions) submitActions.classList.add("is-hidden");
   } else {
     itemsEl.innerHTML = cart
       .map((ci) => {
@@ -628,6 +769,16 @@ function updateCartUI() {
       `;
       })
       .join("");
+    if (summaryEl) summaryEl.classList.remove("is-hidden");
+    if (summaryListEl) {
+      summaryListEl.innerHTML = cart
+        .map((ci) => {
+          const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
+          if (!eq) return "";
+          return `<li><span>${eq.nombre}</span><span>${translations[lang].qty}: ${ci.qty}</span></li>`;
+        })
+        .join("");
+    }
   }
 
 }
@@ -648,13 +799,15 @@ function setupCartSteps() {
   const eventSection = document.getElementById("cart-event");
   const nextBtn = document.getElementById("cart-next-step");
   const nextWrapper = nextBtn?.closest(".cart-actions-top");
-  if (!eventSection || !nextBtn || !nextWrapper) return;
+  const submitActions = document.getElementById("cart-actions-submit");
+  if (!eventSection || !nextBtn || !nextWrapper || !submitActions) return;
 
   eventSection.classList.add("is-hidden");
   nextBtn.addEventListener("click", () => {
     eventSection.classList.remove("is-hidden");
     eventSection.scrollIntoView({ behavior: "smooth", block: "start" });
     nextWrapper.classList.add("is-hidden");
+    submitActions.classList.remove("is-hidden");
   });
 }
 
@@ -670,6 +823,8 @@ function openProductModal(equipo) {
   const imageEl = document.getElementById("product-modal-image");
   const thumbsEl = document.getElementById("product-modal-thumbs");
   const specsEl = document.getElementById("product-modal-specs");
+  const includesEl = document.getElementById("product-modal-includes");
+  const requirementsEl = document.getElementById("product-modal-requirements");
 
   if (titleEl) titleEl.textContent = equipo.nombre;
   if (descEl) descEl.textContent = equipo.descripcion || "";
@@ -697,6 +852,7 @@ function openProductModal(equipo) {
     });
   }
 
+  const lang = localStorage.getItem("language") || "en";
   if (specsEl) {
     const specs = Array.isArray(equipo.especificaciones) ? equipo.especificaciones : [];
     if (specs.length) {
@@ -704,6 +860,20 @@ function openProductModal(equipo) {
     } else {
       specsEl.innerHTML = `<p>${equipo.categoria ? `Category: ${equipo.categoria}` : "Specs available upon request."}</p>`;
     }
+  }
+
+  if (includesEl) {
+    const includes = Array.isArray(equipo.incluye)
+      ? equipo.incluye
+      : [translations[lang].includes_default_cables, translations[lang].includes_default_setup];
+    includesEl.innerHTML = `<ul>${includes.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+  }
+
+  if (requirementsEl) {
+    const requirements = Array.isArray(equipo.requisitos)
+      ? equipo.requisitos
+      : [translations[lang].requirements_power, translations[lang].requirements_space];
+    requirementsEl.innerHTML = `<ul>${requirements.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
   modal.classList.add("open");
@@ -747,17 +917,44 @@ function submitBookingQuote(ev) {
   const guests = document.getElementById("booking-guests")?.value || "";
   const io = document.getElementById("booking-io")?.value || "";
   const city = document.getElementById("booking-city")?.value || "";
+  const venue = document.getElementById("booking-venue")?.value || "";
   const hours = document.getElementById("booking-hours")?.value || "";
   const power = document.getElementById("booking-power")?.value || "";
+  const access = document.getElementById("booking-access")?.value || "";
   const notes = document.getElementById("booking-notes")?.value || "";
+
+  const requiredFields = [
+    { key: "event_date", value: date },
+    { key: "event_time", value: timeRaw },
+    { key: "event_type", value: type },
+    { key: "event_city", value: city },
+    { key: "event_venue", value: venue },
+  ];
+
+  const missing = requiredFields.filter((field) => !field.value.trim());
+  if (missing.length) {
+    const missingText = missing
+      .map((field) => `• ${translations[lang][field.key] || field.key}`)
+      .join("\n");
+    window.alert(`${translations[lang].missing_fields_title}\n${missingText}`);
+    return;
+  }
+
+  const summary =
+    lang === "es"
+      ? `Fecha: ${date}\nHora: ${time}\nTipo: ${type}\nCiudad: ${city}\nLugar/Zona: ${venue}\nAcceso: ${access || "—"}`
+      : `Date: ${date}\nTime: ${time}\nType: ${type}\nCity: ${city}\nVenue/Area: ${venue}\nAccess: ${access || "—"}`;
+
+  const confirmSend = window.confirm(`${translations[lang].confirm_booking_title}\n\n${summary}`);
+  if (!confirmSend) return;
 
   const message =
     lang === "es"
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
-        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
+        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
-        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
+        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
         `📝 Notes: ${notes}`;
 
   const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -792,8 +989,10 @@ function submitQuote(ev) {
   const guests = getValue("cart-guests");
   const io = getValue("cart-io");
   const city = getValue("cart-city");
+  const venue = getValue("cart-venue");
   const hours = getValue("cart-hours");
   const power = getValue("cart-power");
+  const access = getValue("cart-access");
   const notes = getValue("cart-notes");
   const days = loadDays();
 
@@ -807,12 +1006,12 @@ function submitQuote(ev) {
   const message =
     lang === "es"
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
-        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n\n` +
+        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
         `🛒 Equipos:\n${lines.join("\n")}\n\n` +
         `📆 Días de renta: ${days}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
-        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n\n` +
+        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
         `🛒 Items:\n${lines.join("\n")}\n\n` +
         `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;
@@ -855,11 +1054,12 @@ function cargarEquipoRental(filter = "all") {
       </div>
 
       <h3>${equipo.nombre}</h3>
-      <p>${equipo.descripcion}</p>
 
-      <button class="btn-main add-to-cart-btn" type="button">
-        ${translations[lang].add_to_quote}
-      </button>
+      <div class="equipment-card-actions">
+        <button class="btn-main add-to-cart-btn" type="button">
+          ${translations[lang].add_to_quote}
+        </button>
+      </div>
     `;
 
     grid.appendChild(card);
