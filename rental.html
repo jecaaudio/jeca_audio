@@ -63,6 +63,17 @@
       <button class="icon-btn" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
     </div>
 
+    <div class="cart-policies">
+      <h4 data-i18n="rental_policies_title">Rental policies</h4>
+      <ul>
+        <li data-i18n="rental_policy_deposit">Security deposit required.</li>
+        <li data-i18n="rental_policy_id">Valid ID required at pickup.</li>
+        <li data-i18n="rental_policy_delivery">Pickup or delivery available.</li>
+        <li data-i18n="rental_policy_late">Late return fees may apply.</li>
+      </ul>
+      <p class="cart-availability" data-i18n="rental_availability">Availability confirmed after request.</p>
+    </div>
+
     <!-- Rental days selector -->
     <div class="cart-days">
       <label>
@@ -83,6 +94,10 @@
 
       <div class="cart-event" id="cart-event">
         <h4 data-i18n="event_details_title">Event Details</h4>
+        <div class="cart-summary" id="cart-summary">
+          <h5 data-i18n="selected_items">Selected items</h5>
+          <ul id="cart-summary-list"></ul>
+        </div>
         <div class="cart-event-grid">
           <label>
             <span data-i18n="event_date">Event Date</span>
@@ -120,6 +135,10 @@
             <input id="cart-city" type="text" placeholder="Louisville..." />
           </label>
           <label>
+            <span data-i18n="event_venue">Venue / Area</span>
+            <input id="cart-venue" type="text" placeholder="Venue or neighborhood" />
+          </label>
+          <label>
             <span data-i18n="duration_hours">Approx. Duration (hours)</span>
             <input id="cart-hours" type="number" min="0" step="0.5" />
           </label>
@@ -133,17 +152,29 @@
             </select>
           </label>
           <label>
+            <span data-i18n="event_access">Stairs / elevator?</span>
+            <select id="cart-access">
+              <option value="">—</option>
+              <option value="Stairs" data-i18n="access_stairs">Stairs</option>
+              <option value="Elevator" data-i18n="access_elevator">Elevator</option>
+              <option value="Ground level" data-i18n="access_ground">Ground level</option>
+              <option value="Not sure" data-i18n="access_not_sure">Not sure</option>
+            </select>
+          </label>
+          <label>
             <span data-i18n="notes">Notes / Special requests</span>
             <textarea id="cart-notes" rows="3"></textarea>
           </label>
+        </div>
+        <div class="cart-actions cart-actions-submit is-hidden" id="cart-actions-submit">
+          <button class="btn-main" type="button" onclick="submitQuote(event)" data-i18n="send_quote_whatsapp">
+            Send Quote Request via WhatsApp
+          </button>
         </div>
       </div>
       <div class="cart-actions">
         <button class="btn-outline small" type="button" onclick="clearCart()" data-i18n="clear_cart">
           Clear cart
-        </button>
-        <button class="btn-main" type="button" onclick="submitQuote(event)" data-i18n="send_quote_whatsapp">
-          Send Quote Request via WhatsApp
         </button>
       </div>
     </div>
@@ -168,15 +199,14 @@
         <div>
           <h4 data-i18n="product_specs_title">Specifications</h4>
           <div id="product-modal-specs" class="product-specs"></div>
+          <h4 data-i18n="product_includes_title">Includes</h4>
+          <div id="product-modal-includes" class="product-specs"></div>
+          <h4 data-i18n="product_requirements_title">Requirements</h4>
+          <div id="product-modal-requirements" class="product-specs"></div>
         </div>
       </div>
     </div>
   </div>
-
-  <script src="./js/main.js" defer></script>
-
-</body>
-</html>
 
   <script src="./js/main.js" defer></script>
 
