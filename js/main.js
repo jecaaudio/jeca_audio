@@ -18,6 +18,7 @@ const translations = {
     rental_days_note: "Select the number of rental days.",
     product_specs_title: "Specifications",
     booking_title: "Event Details",
+    booking_addons_title: "FX Experience (Add-On)",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -178,6 +179,7 @@ const translations = {
     rental_days_note: "Selecciona la cantidad de días de renta.",
     product_specs_title: "Especificaciones",
     booking_title: "Detalles del Evento",
+    booking_addons_title: "Experiencia FX (Adicional)",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
@@ -1088,6 +1090,15 @@ function submitBookingQuote(ev) {
   const power = document.getElementById("booking-power")?.value || "";
   const access = document.getElementById("booking-access")?.value || "";
   const notes = document.getElementById("booking-notes")?.value || "";
+  const addonValues = Array.from(
+    document.querySelectorAll(".booking-addon-options input[type=\"checkbox\"]:checked")
+  ).map((input) => input.value);
+  const addonLabels = addonValues.map((key) => translations[lang]?.[key] || key);
+  const addonsLine = addonLabels.length
+    ? lang === "es"
+      ? `Adicionales: ${addonLabels.join(", ")}`
+      : `Add-ons: ${addonLabels.join(", ")}`
+    : "";
 
   const requiredFields = [
     { key: "event_date", value: date },
@@ -1114,8 +1125,8 @@ function submitBookingQuote(ev) {
 
   const summary =
     lang === "es"
-      ? `Fecha: ${date}\nHora: ${time}\nTipo: ${type}\nCiudad: ${city}\nLugar/Zona: ${venue}\nAcceso: ${access || "—"}${packageLine ? `\n${packageLine}` : ""}`
-      : `Date: ${date}\nTime: ${time}\nType: ${type}\nCity: ${city}\nVenue/Area: ${venue}\nAccess: ${access || "—"}${packageLine ? `\n${packageLine}` : ""}`;
+      ? `Fecha: ${date}\nHora: ${time}\nTipo: ${type}\nCiudad: ${city}\nLugar/Zona: ${venue}\nAcceso: ${access || "—"}${packageLine ? `\n${packageLine}` : ""}${addonsLine ? `\n${addonsLine}` : ""}`
+      : `Date: ${date}\nTime: ${time}\nType: ${type}\nCity: ${city}\nVenue/Area: ${venue}\nAccess: ${access || "—"}${packageLine ? `\n${packageLine}` : ""}${addonsLine ? `\n${addonsLine}` : ""}`;
 
   const confirmSend = window.confirm(`${translations[lang].confirm_booking_title}\n\n${summary}`);
   if (!confirmSend) return;
