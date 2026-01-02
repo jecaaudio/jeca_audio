@@ -211,18 +211,16 @@ h1,
 /* INVENTORY GRID */
 .inventory-grid{
   display:grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
   gap:40px;
   padding:20px 0;
   width:100%;
   max-width:1200px;
   justify-items:center;
+  justify-content:center;
 }
-@media (max-width:1600px){ .inventory-grid{ grid-template-columns:repeat(5,1fr);} }
-@media (max-width:1400px){ .inventory-grid{ grid-template-columns:repeat(4,1fr);} }
-@media (max-width:1200px){ .inventory-grid{ grid-template-columns:repeat(3,1fr);} }
-@media (max-width:900px){ .inventory-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px;} }
-@media (max-width:720px){ .inventory-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;} }
+@media (max-width:900px){ .inventory-grid{ grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:24px;} }
+@media (max-width:720px){ .inventory-grid{ gap:16px;} }
 @media (max-width:520px){ .inventory-grid{ grid-template-columns:1fr; gap:14px;} }
 
 @media (max-width: 768px){
@@ -910,6 +908,9 @@ footer{
   
   min-height: 240px;
   text-align: center;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
   box-shadow: 0 18px 50px rgba(0,0,0,.45);
   transition: transform .25s ease, border-color .25s ease;
 }
@@ -924,6 +925,24 @@ footer{
   display:flex;
   flex-direction:column;
   gap:6px;
+}
+
+.decision-card .btn-main,
+.decision-card .btn-outline{
+  width:100%;
+  margin-top:auto;
+  text-align:center;
+}
+
+.decision-card .btn-outline{
+  background:var(--primary);
+  color:#000;
+  border:none;
+}
+
+.decision-card .btn-outline:hover{
+  background:var(--primary-dark);
+  color:#fff;
 }
 .service-bullets li::before{
   content:"•";
