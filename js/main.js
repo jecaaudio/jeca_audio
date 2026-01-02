@@ -86,7 +86,7 @@ const translations = {
     about_response_title: "Fast response",
     about_response_text: "Message us on WhatsApp and get a quick quote.",
     about_years_title: "Experience",
-    about_years_text: "Over {years} years of events, weddings, and private parties.",
+    about_years_text: "Over 8 years of events, weddings, and private parties.",
     event_venue: "Venue / Area",
     event_access: "Stairs / elevator?",
     access_stairs: "Stairs",
@@ -193,7 +193,7 @@ const translations = {
     about_response_title: "Respuesta rápida",
     about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
     about_years_title: "Experiencia",
-    about_years_text: "Más de {years} años en eventos, bodas y fiestas privadas.",
+    about_years_text: "Más de 8 años en eventos, bodas y fiestas privadas.",
     event_venue: "Lugar / Zona",
     event_access: "¿Escaleras / elevador?",
     access_stairs: "Escaleras",
@@ -258,9 +258,11 @@ const experienceStartYear = new Date().getFullYear() - experienceBaseYears;
 
 function updateExperienceYears(lang) {
   const years = Math.max(1, new Date().getFullYear() - experienceStartYear);
-  const template = translations?.[lang]?.about_years_text || "";
-  const text = template.replace("{years}", years);
   document.querySelectorAll("[data-i18n='about_years_text']").forEach((el) => {
+    const template = translations?.[lang]?.about_years_text || el.textContent || "";
+    const text = template
+      .replace("{years}", years)
+      .replace(/\d+/, String(years));
     el.textContent = text;
   });
 }
