@@ -113,7 +113,6 @@ h1{
 }
 
   .form-grid{ grid-template-columns:1fr; }
-  .cart-actions{ flex-direction:column; }
 
   footer{ text-align:center; }
   .social-links{ justify-content:center; }
@@ -211,19 +210,17 @@ h1,
 /* INVENTORY GRID */
 .inventory-grid{
   display:grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(180px, 220px));
   gap:40px;
   padding:20px 0;
   width:100%;
   max-width:1200px;
   justify-items:center;
+  justify-content:center;
 }
-@media (max-width:1600px){ .inventory-grid{ grid-template-columns:repeat(5,1fr);} }
-@media (max-width:1400px){ .inventory-grid{ grid-template-columns:repeat(4,1fr);} }
-@media (max-width:1200px){ .inventory-grid{ grid-template-columns:repeat(3,1fr);} }
-@media (max-width:900px){ .inventory-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px;} }
-@media (max-width:720px){ .inventory-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;} }
-@media (max-width:520px){ .inventory-grid{ grid-template-columns:1fr; gap:14px;} }
+@media (max-width:900px){ .inventory-grid{ gap:24px;} }
+@media (max-width:720px){ .inventory-grid{ gap:16px;} }
+@media (max-width:520px){ .inventory-grid{ gap:14px;} }
 
 @media (max-width: 768px){
   .inventory-grid{
