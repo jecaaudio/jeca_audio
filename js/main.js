@@ -584,7 +584,7 @@ const infoEmpresa = {
         "img/productos/lights/LightBarLED10/LightBarLED105.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED106.jpg",
         "img/productos/lights/LightBarLED10/LightBarLED107.jpg",
-        "img/productos/lights/LightBarLED10/LightBarLED108.jpg"
+        "img/productos/lights/LightBarLED10/LightBarLED108.gif"
       ]
     },
     {
@@ -1048,6 +1048,7 @@ function closeProductModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
 }
+
 
 /*********************************
  * BOOKING MODAL
