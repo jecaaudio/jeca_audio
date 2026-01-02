@@ -875,11 +875,12 @@ function cargarEquipoRental(filter = "all") {
       </div>
 
       <h3>${equipo.nombre}</h3>
-      <p>${equipo.descripcion}</p>
 
-      <button class="btn-main add-to-cart-btn" type="button">
-        ${translations[lang].add_to_quote}
-      </button>
+      <div class="equipment-card-actions">
+        <button class="btn-main add-to-cart-btn" type="button">
+          ${translations[lang].add_to_quote}
+        </button>
+      </div>
     `;
 
     grid.appendChild(card);
