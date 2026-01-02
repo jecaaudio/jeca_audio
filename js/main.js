@@ -63,6 +63,9 @@ const translations = {
     review_two_text: "“Professional setup, bilingual MC, and the dance floor stayed full.”",
     review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
     video_cta: "Watch event video highlights",
+    party_videos_title: "Party Videos",
+    party_videos_subtitle: "Enjoy highlights from recent celebrations.",
+    party_videos_playlist: "Playlist",
     packages_title: "DJ Packages",
     package_includes_label: "Includes",
     package1_title: "DJ Essential",
@@ -231,6 +234,9 @@ const translations = {
     review_two_text: "“Montaje profesional, MC bilingüe y pista llena.”",
     review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
     video_cta: "Ver videos de eventos",
+    party_videos_title: "Videos de Fiesta",
+    party_videos_subtitle: "Disfruta momentos de celebraciones recientes.",
+    party_videos_playlist: "Lista de reproducción",
     packages_title: "Paquetes de DJ",
     package_includes_label: "Incluye",
     package1_title: "DJ Esencial",
@@ -817,6 +823,96 @@ function setupHomeGallery() {
 }
 
 /*********************************
+ * PARTY VIDEO PLAYLIST
+ *********************************/
+const partyVideoFallback = [
+  "Download.mp4",
+  "Download (1).mp4",
+  "Download (5).mp4",
+  "Download (6).mp4",
+  "Download (7).mp4"
+];
+
+function formatVideoTitle(filename) {
+  const name = filename.replace(/\.[^/.]+$/, "");
+  return name.replace(/[-_]+/g, " ").trim();
+}
+
+async function initPartyVideoPlaylist() {
+  const playlistEl = document.getElementById("party-video-playlist");
+  const player = document.getElementById("party-video-player");
+  if (!playlistEl || !player) return;
+
+  const playlistSrc = playlistEl.dataset.playlistSrc;
+  let files = [];
+
+  if (playlistSrc) {
+    try {
+      const response = await fetch(playlistSrc, { cache: "no-store" });
+      if (response.ok) {
+        const data = await response.json();
+        if (Array.isArray(data)) files = data;
+      }
+    } catch {
+      files = [];
+    }
+  }
+
+  if (!files.length) files = partyVideoFallback;
+
+  const basePath = playlistSrc ? playlistSrc.replace(/[^/]*$/, "") : "img/video/party/";
+  const items = files
+    .map((entry) =>
+      typeof entry === "string"
+        ? { file: entry, title: formatVideoTitle(entry) }
+        : { file: entry.file, title: entry.title || formatVideoTitle(entry.file || "") }
+    )
+    .filter((item) => item.file);
+
+  if (!items.length) return;
+
+  let currentIndex = 0;
+
+  const playIndex = (index, shouldPlay = true) => {
+    currentIndex = index;
+    const src = encodeURI(`${basePath}${items[index].file}`);
+    player.src = src;
+    updateActive();
+    if (shouldPlay) {
+      const playPromise = player.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    }
+  };
+
+  const updateActive = () => {
+    playlistEl.querySelectorAll(".video-playlist-item").forEach((btn, idx) => {
+      btn.classList.toggle("active", idx === currentIndex);
+    });
+  };
+
+  playlistEl.innerHTML = "";
+  items.forEach((item, index) => {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "video-playlist-item";
+    button.textContent = item.title;
+    button.addEventListener("click", () => playIndex(index));
+    li.appendChild(button);
+    playlistEl.appendChild(li);
+  });
+
+  player.addEventListener("ended", () => {
+    const nextIndex = (currentIndex + 1) % items.length;
+    playIndex(nextIndex);
+  });
+
+  playIndex(0, false);
+}
+
+/*********************************
  * CART STORAGE
  *********************************/
 const CART_KEY = "jeca_quote_cart";
@@ -1391,6 +1487,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
 
   setupHomeGallery();
+  initPartyVideoPlaylist();
 });
 
 /*********************************
