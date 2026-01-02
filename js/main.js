@@ -839,11 +839,10 @@ function formatVideoTitle(filename) {
 }
 
 async function initPartyVideoPlaylist() {
-  const playlistEl = document.getElementById("party-video-playlist");
   const player = document.getElementById("party-video-player");
-  if (!playlistEl || !player) return;
+  if (!player) return;
 
-  const playlistSrc = playlistEl.dataset.playlistSrc;
+  const playlistSrc = player.dataset.playlistSrc;
   let files = [];
 
   if (playlistSrc) {
@@ -877,7 +876,6 @@ async function initPartyVideoPlaylist() {
     currentIndex = index;
     const src = encodeURI(`${basePath}${items[index].file}`);
     player.src = src;
-    updateActive();
     if (shouldPlay) {
       const playPromise = player.play();
       if (playPromise && typeof playPromise.catch === "function") {
@@ -886,30 +884,15 @@ async function initPartyVideoPlaylist() {
     }
   };
 
-  const updateActive = () => {
-    playlistEl.querySelectorAll(".video-playlist-item").forEach((btn, idx) => {
-      btn.classList.toggle("active", idx === currentIndex);
-    });
-  };
-
-  playlistEl.innerHTML = "";
-  items.forEach((item, index) => {
-    const li = document.createElement("li");
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "video-playlist-item";
-    button.textContent = item.title;
-    button.addEventListener("click", () => playIndex(index));
-    li.appendChild(button);
-    playlistEl.appendChild(li);
-  });
+  player.muted = true;
+  player.autoplay = true;
 
   player.addEventListener("ended", () => {
     const nextIndex = (currentIndex + 1) % items.length;
     playIndex(nextIndex);
   });
 
-  playIndex(0, false);
+  playIndex(0, true);
 }
 
 /*********************************
