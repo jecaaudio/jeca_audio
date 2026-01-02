@@ -1084,36 +1084,6 @@ footer{
   font-weight:700;
   border:1px dashed #333;
 }
-.reels-section{
-  margin-top:20px;
-  width:100%;
-}
-.reels-title{
-  margin:0 0 12px 0;
-  font-size:1rem;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  color:#f6f1e7;
-}
-.reels-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-.reel-embed{
-  background:#121212;
-  border:1px solid #262626;
-  border-radius:16px;
-  padding:12px;
-}
-.reel-embed iframe{
-  width:100%;
-  border:0;
-  border-radius:12px;
-  aspect-ratio:9 / 16;
-  background:#000;
-  display:block;
-}
 .package-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
