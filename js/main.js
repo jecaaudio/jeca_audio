@@ -80,7 +80,7 @@ const translations = {
     package_btn: "Book this package",
     about_title: "About Jeca Audio",
     about_text:
-      "Jeca Audio provides DJ services and pro sound & lighting rentals in Louisville, KY. We bring bilingual MC services, a curated music experience, and reliable gear so your event feels effortless.",
+      "Jeca Audio, provides DJ services and PRO sound & lighting rentals, in Louisville, KY. We bring bilingual MC services, music experience, and reliable gear to your event so it feels effortless, with the best Quality.",
     about_area_title: "Service area",
     about_area_text: "Louisville, KY + surrounding areas.",
     about_response_title: "Fast response",
