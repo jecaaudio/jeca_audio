@@ -86,7 +86,7 @@ const translations = {
     about_response_title: "Fast response",
     about_response_text: "Message us on WhatsApp and get a quick quote.",
     about_years_title: "Experience",
-    about_years_text: "Over 8 years of events, weddings, and private parties.",
+    about_years_text: "Over {years} years of events, weddings, and private parties.",
     event_venue: "Venue / Area",
     event_access: "Stairs / elevator?",
     access_stairs: "Stairs",
@@ -193,7 +193,7 @@ const translations = {
     about_response_title: "Respuesta rápida",
     about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
     about_years_title: "Experiencia",
-    about_years_text: "Más de 8 años en eventos, bodas y fiestas privadas.",
+    about_years_text: "Más de {years} años en eventos, bodas y fiestas privadas.",
     event_venue: "Lugar / Zona",
     event_access: "¿Escaleras / elevador?",
     access_stairs: "Escaleras",
@@ -218,13 +218,29 @@ const translations = {
 };
 
 /*********************************
+ * EXPERIENCE YEARS
+ *********************************/
+const EXPERIENCE_START_YEAR = 2020;
+
+function getExperienceYears() {
+  const currentYear = new Date().getFullYear();
+  return Math.max(1, currentYear - EXPERIENCE_START_YEAR);
+}
+
+/*********************************
  * CAMBIO DE IDIOMA
  *********************************/
 function setLanguage(lang) {
+  const experienceYears = getExperienceYears();
+
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
-    const value = translations?.[lang]?.[key];
+    let value = translations?.[lang]?.[key];
     if (!value) return;
+
+    if (key === "about_years_text") {
+      value = value.replace("{years}", experienceYears);
+    }
 
     if (el.tagName === "INPUT" && "placeholder" in el) {
       el.placeholder = value;
