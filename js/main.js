@@ -762,6 +762,43 @@ const infoEmpresa = {
 // Variables de control global
 let currentFilter = "all";
 let galleryIntervals = [];
+let homeGalleryIntervals = [];
+
+function getAllEquipmentPhotos() {
+  const photos = (infoEmpresa.equipos || []).flatMap((equipo) =>
+    Array.isArray(equipo.fotos) ? equipo.fotos : []
+  );
+  return Array.from(new Set(photos));
+}
+
+function setupHomeGallery() {
+  const galleryImages = document.querySelectorAll(".gallery-grid img[data-gallery-slot]");
+  if (!galleryImages.length) return;
+
+  homeGalleryIntervals.forEach((id) => clearInterval(id));
+  homeGalleryIntervals = [];
+
+  const photos = getAllEquipmentPhotos();
+  if (!photos.length) return;
+
+  galleryImages.forEach((img, slotIndex) => {
+    let currentIndex = (slotIndex * 2) % photos.length;
+    img.src = photos[currentIndex];
+
+    if (photos.length <= 1) return;
+
+    const intervalId = setInterval(() => {
+      currentIndex = (currentIndex + 1) % photos.length;
+      img.style.opacity = "0";
+      setTimeout(() => {
+        img.src = photos[currentIndex];
+        img.style.opacity = "1";
+      }, 250);
+    }, 3000);
+
+    homeGalleryIntervals.push(intervalId);
+  });
+}
 
 /*********************************
  * CART STORAGE
@@ -1285,6 +1322,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
+
+  setupHomeGallery();
 });
 
 /*********************************
