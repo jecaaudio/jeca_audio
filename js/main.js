@@ -36,6 +36,7 @@ const translations = {
     empty_cart: "Your cart is empty. Add items to request a quote.",
     remove: "Remove",
     qty: "Qty",
+    selected_items: "Selected items",
     tagline: "PROFESSIONAL SOUND & LIGHTING",
     am: "AM",
     pm: "PM",
@@ -84,6 +85,7 @@ const translations = {
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
     remove: "Quitar",
     qty: "Cant.",
+    selected_items: "Equipos seleccionados",
     tagline: "SONIDO E ILUMINACIÓN PROFESIONAL",
     am: "a. m.",
     pm: "p. m.",
@@ -594,10 +596,16 @@ function updateCartUI() {
   if (daysInput) daysInput.value = String(loadDays());
 
   const itemsEl = document.getElementById("cart-items");
+  const summaryEl = document.getElementById("cart-summary");
+  const summaryListEl = document.getElementById("cart-summary-list");
+  const submitActions = document.getElementById("cart-actions-submit");
   if (!itemsEl) return;
 
   if (cart.length === 0) {
     itemsEl.innerHTML = `<div style="padding:14px;opacity:.85;">${translations[lang].empty_cart}</div>`;
+    if (summaryEl) summaryEl.classList.add("is-hidden");
+    if (summaryListEl) summaryListEl.innerHTML = "";
+    if (submitActions) submitActions.classList.add("is-hidden");
   } else {
     itemsEl.innerHTML = cart
       .map((ci) => {
@@ -628,6 +636,16 @@ function updateCartUI() {
       `;
       })
       .join("");
+    if (summaryEl) summaryEl.classList.remove("is-hidden");
+    if (summaryListEl) {
+      summaryListEl.innerHTML = cart
+        .map((ci) => {
+          const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
+          if (!eq) return "";
+          return `<li><span>${eq.nombre}</span><span>${translations[lang].qty}: ${ci.qty}</span></li>`;
+        })
+        .join("");
+    }
   }
 
 }
@@ -648,13 +666,15 @@ function setupCartSteps() {
   const eventSection = document.getElementById("cart-event");
   const nextBtn = document.getElementById("cart-next-step");
   const nextWrapper = nextBtn?.closest(".cart-actions-top");
-  if (!eventSection || !nextBtn || !nextWrapper) return;
+  const submitActions = document.getElementById("cart-actions-submit");
+  if (!eventSection || !nextBtn || !nextWrapper || !submitActions) return;
 
   eventSection.classList.add("is-hidden");
   nextBtn.addEventListener("click", () => {
     eventSection.classList.remove("is-hidden");
     eventSection.scrollIntoView({ behavior: "smooth", block: "start" });
     nextWrapper.classList.add("is-hidden");
+    submitActions.classList.remove("is-hidden");
   });
 }
 
@@ -855,11 +875,12 @@ function cargarEquipoRental(filter = "all") {
       </div>
 
       <h3>${equipo.nombre}</h3>
-      <p>${equipo.descripcion}</p>
 
-      <button class="btn-main add-to-cart-btn" type="button">
-        ${translations[lang].add_to_quote}
-      </button>
+      <div class="equipment-card-actions">
+        <button class="btn-main add-to-cart-btn" type="button">
+          ${translations[lang].add_to_quote}
+        </button>
+      </div>
     `;
 
     grid.appendChild(card);

@@ -83,6 +83,10 @@
 
       <div class="cart-event" id="cart-event">
         <h4 data-i18n="event_details_title">Event Details</h4>
+        <div class="cart-summary" id="cart-summary">
+          <h5 data-i18n="selected_items">Selected items</h5>
+          <ul id="cart-summary-list"></ul>
+        </div>
         <div class="cart-event-grid">
           <label>
             <span data-i18n="event_date">Event Date</span>
@@ -137,13 +141,15 @@
             <textarea id="cart-notes" rows="3"></textarea>
           </label>
         </div>
+        <div class="cart-actions cart-actions-submit is-hidden" id="cart-actions-submit">
+          <button class="btn-main" type="button" onclick="submitQuote(event)" data-i18n="send_quote_whatsapp">
+            Send Quote Request via WhatsApp
+          </button>
+        </div>
       </div>
       <div class="cart-actions">
         <button class="btn-outline small" type="button" onclick="clearCart()" data-i18n="clear_cart">
           Clear cart
-        </button>
-        <button class="btn-main" type="button" onclick="submitQuote(event)" data-i18n="send_quote_whatsapp">
-          Send Quote Request via WhatsApp
         </button>
       </div>
     </div>
@@ -172,11 +178,6 @@
       </div>
     </div>
   </div>
-
-  <script src="./js/main.js" defer></script>
-
-</body>
-</html>
 
   <script src="./js/main.js" defer></script>
 
