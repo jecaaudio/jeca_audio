@@ -1049,43 +1049,6 @@ function closeProductModal() {
   modal.setAttribute("aria-hidden", "true");
 }
 
-/*********************************
- * VIDEO MODAL
- *********************************/
-function openVideoModal(videoId) {
-  const modal = document.getElementById("video-modal");
-  const frame = document.getElementById("video-modal-iframe");
-  if (!modal || !frame || !videoId) return;
-  frame.src = `https://www.tiktok.com/embed/v2/${videoId}?autoplay=1`;
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-function closeVideoModal() {
-  const modal = document.getElementById("video-modal");
-  const frame = document.getElementById("video-modal-iframe");
-  if (!modal || !frame) return;
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-  frame.src = "";
-}
-
-function setupTikTokCards() {
-  const cards = document.querySelectorAll(".tiktok-card[data-tiktok-id]");
-  if (!cards.length) return;
-
-  cards.forEach((card) => {
-    const videoId = card.dataset.tiktokId;
-    const overlay = card.querySelector(".video-overlay");
-    const handler = (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      openVideoModal(videoId);
-    };
-    if (overlay) overlay.addEventListener("click", handler);
-    card.addEventListener("click", handler);
-  });
-}
 
 /*********************************
  * BOOKING MODAL
@@ -1362,16 +1325,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bookingForm) bookingForm.addEventListener("submit", submitBookingQuote);
 
   setupHomeGallery();
-  setupTikTokCards();
-
-  const videoModal = document.getElementById("video-modal");
-  const videoClose = document.getElementById("video-modal-close");
-  if (videoClose) videoClose.addEventListener("click", closeVideoModal);
-  if (videoModal) {
-    videoModal.addEventListener("click", (event) => {
-      if (event.target === videoModal) closeVideoModal();
-    });
-  }
 });
 
 /*********************************
