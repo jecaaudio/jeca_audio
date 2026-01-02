@@ -162,7 +162,11 @@ const translations = {
     includes_default_setup: "Basic setup guidance at pickup.",
     requirements_power: "Standard power outlet required.",
     requirements_space: "Recommended clear setup space.",
-    missing_fields_title: "Please complete the required fields:",
+    missing_fields_title: "Please complete all required fields:",
+    required_notice: "All fields are required to send your request.",
+    operator_needed: "Do you need an operator?",
+    operator_yes: "Yes",
+    operator_no: "No",
     confirm_booking_title: "Confirm your details before WhatsApp?",
   },
 
@@ -326,7 +330,11 @@ const translations = {
     includes_default_setup: "Guía básica de instalación al recoger.",
     requirements_power: "Se requiere toma de corriente estándar.",
     requirements_space: "Se recomienda espacio libre de montaje.",
-    missing_fields_title: "Por favor completa los campos requeridos:",
+    missing_fields_title: "Por favor completa todos los campos obligatorios:",
+    required_notice: "Todos los campos son obligatorios para enviar tu solicitud.",
+    operator_needed: "¿Necesitas operador?",
+    operator_yes: "Sí",
+    operator_no: "No",
     confirm_booking_title: "¿Confirmar detalles antes de WhatsApp?",
   },
 };
@@ -1184,6 +1192,7 @@ function submitQuote(ev) {
   const delivery = getValue("cart-delivery");
   const hours = getValue("cart-hours");
   const power = getValue("cart-power");
+  const operator = getValue("cart-operator");
   const access = getValue("cart-access");
   const notes = getValue("cart-notes");
   const days = loadDays();
@@ -1199,6 +1208,7 @@ function submitQuote(ev) {
     { key: "pickup_delivery", value: delivery, id: "cart-delivery" },
     { key: "duration_hours", value: hours, id: "cart-hours" },
     { key: "power_available", value: power, id: "cart-power" },
+    { key: "operator_needed", value: operator, id: "cart-operator" },
     { key: "event_access", value: access, id: "cart-access" },
     { key: "notes", value: notes, id: "cart-notes" },
   ];
@@ -1220,6 +1230,9 @@ function submitQuote(ev) {
   const deliveryLabel = delivery
     ? translations[lang][delivery.toLowerCase()] || delivery
     : delivery;
+  const operatorLabel = operator
+    ? translations[lang][`operator_${operator.toLowerCase()}`] || operator
+    : operator;
 
   const lines = cart
     .map((ci) => {
@@ -1232,13 +1245,13 @@ function submitQuote(ev) {
     lang === "es"
       ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
         `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
-        `🚚 Recogida/Entrega: ${deliveryLabel}\n\n` +
+        `🚚 Recogida/Entrega: ${deliveryLabel}\n👷 Operador requerido: ${operatorLabel}\n\n` +
         `🛒 Equipos:\n${lines.join("\n")}\n\n` +
         `📆 Días de renta: ${days}\n\n` +
         `📝 Notas: ${notes}`
       : `Hi JECA AUDIO, I’d like a quote.\n\n` +
         `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
-        `🚚 Pickup/Delivery: ${deliveryLabel}\n\n` +
+        `🚚 Pickup/Delivery: ${deliveryLabel}\n👷 Operator needed: ${operatorLabel}\n\n` +
         `🛒 Items:\n${lines.join("\n")}\n\n` +
         `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;

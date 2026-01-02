@@ -98,6 +98,7 @@
 
       <div class="cart-event" id="cart-event">
         <h4 data-i18n="event_details_title">Event Details</h4>
+        <p class="required-note" data-i18n="required_notice">All fields are required to send your request.</p>
         <div class="cart-summary" id="cart-summary">
           <h5 data-i18n="selected_items">Selected items</h5>
           <ul id="cart-summary-list"></ul>
@@ -161,6 +162,14 @@
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not sure">Not sure</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="operator_needed">Do you need an operator?</span>
+            <select id="cart-operator" required>
+              <option value="">—</option>
+              <option value="Yes" data-i18n="operator_yes">Yes</option>
+              <option value="No" data-i18n="operator_no">No</option>
             </select>
           </label>
           <label>
