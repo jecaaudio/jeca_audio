@@ -1383,11 +1383,15 @@ document.addEventListener("DOMContentLoaded", () => {
 /*********************************
  * HEADER SCROLL
  *********************************/
-window.addEventListener("scroll", () => {
-  const header = document.getElementById("main-header");
-  if (!header) return;
-  header.classList.toggle("scrolled", window.scrollY > 50);
-});
+window.addEventListener(
+  "scroll",
+  () => {
+    const header = document.getElementById("main-header");
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 50);
+  },
+  { passive: true }
+);
 
 /*********************************
  * GLOBALS
