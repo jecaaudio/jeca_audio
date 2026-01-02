@@ -982,6 +982,9 @@ footer{
 .about-section{
   margin-top:36px;
 }
+.contact-section{
+  margin-top:36px;
+}
 .trust-header{
   text-align:center;
   margin-bottom:18px;
@@ -1102,6 +1105,16 @@ footer{
 }
 .about-grid h4{
   margin:0 0 6px 0;
+}
+
+.contact-section a{
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-section a:hover{
+  color: #fff;
 }
 
 /* ===== MOBILE ===== */
