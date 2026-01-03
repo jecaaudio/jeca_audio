@@ -1153,11 +1153,6 @@ footer{
   grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
   gap:18px;
 }
-@media (min-width: 769px){
-  .package-grid{
-    grid-template-columns:1fr;
-  }
-}
 .package-card{
   background:#111;
   border:1px solid #222;
