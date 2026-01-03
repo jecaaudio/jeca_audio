@@ -1092,9 +1092,12 @@ footer{
   grid-template-columns:minmax(0,2fr) minmax(0,1fr);
   gap:20px;
   align-items:start;
+  justify-items:center;
 }
 .party-video-player{
   width:100%;
+  max-width:960px;
+  margin:0 auto;
   border-radius:16px;
   background:#000;
   min-height:320px;
