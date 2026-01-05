@@ -803,6 +803,7 @@ const infoEmpresa = {
 let currentFilter = "all";
 let galleryIntervals = [];
 let homeGalleryIntervals = [];
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function getAllEquipmentPhotos() {
   const photos = (infoEmpresa.equipos || []).flatMap((equipo) =>
@@ -824,8 +825,10 @@ function setupHomeGallery() {
   galleryImages.forEach((img, slotIndex) => {
     let currentIndex = (slotIndex * 2) % photos.length;
     img.src = photos[currentIndex];
+    img.loading = "lazy";
+    img.decoding = "async";
 
-    if (photos.length <= 1) return;
+    if (photos.length <= 1 || prefersReducedMotion) return;
 
     const intervalId = setInterval(() => {
       currentIndex = (currentIndex + 1) % photos.length;
@@ -1371,6 +1374,7 @@ function cargarEquipoRental(filter = "all") {
   galleryIntervals = [];
 
   grid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
   const productosFiltrados =
   filter === "all"
@@ -1399,8 +1403,14 @@ function cargarEquipoRental(filter = "all") {
       </div>
     `;
 
-    grid.appendChild(card);
+    fragment.appendChild(card);
     card.addEventListener("click", () => openProductModal(equipo));
+
+    const equipmentImage = card.querySelector("img");
+    if (equipmentImage) {
+      equipmentImage.loading = "lazy";
+      equipmentImage.decoding = "async";
+    }
 
     const addBtn = card.querySelector(".add-to-cart-btn");
     if (addBtn) {
@@ -1410,7 +1420,7 @@ function cargarEquipoRental(filter = "all") {
       });
     }
 
-    if (equipo.fotos.length > 1) {
+    if (equipo.fotos.length > 1 && !prefersReducedMotion) {
       let fotoActual = 0;
 
       const intervalId = setInterval(() => {
@@ -1429,6 +1439,8 @@ function cargarEquipoRental(filter = "all") {
       galleryIntervals.push(intervalId);
     }
   });
+
+  grid.appendChild(fragment);
 }
 /*********************************
  * FILTERS
