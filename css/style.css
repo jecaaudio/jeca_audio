@@ -1133,21 +1133,19 @@ footer{
   margin-top:32px;
 }
 .video-playlist-wrapper{
-  display:grid;
-  grid-template-columns:minmax(0,2fr) minmax(0,1fr);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
   gap:20px;
-  align-items:start;
-  justify-items:center;
 }
 .party-video-player{
-  width:100%;
-  max-width:960px;
+  width:min(100%, 960px);
   margin:0 auto;
   border-radius:16px;
   background:#000;
   min-height:320px;
   aspect-ratio:16/9;
-  height:100%;
+  height:auto;
   object-fit:cover;
 }
 .video-playlist-panel{
