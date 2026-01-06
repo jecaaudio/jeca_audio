@@ -35,6 +35,10 @@
   <main class="container">
 
     <h2 data-i18n="rental_inventory">Rental Inventory</h2>
+    <div id="promo-banner" class="promo-banner is-hidden" role="status" aria-live="polite">
+      <span id="promo-message">Oferta por 24 horas termina en</span>
+      <span id="promo-countdown">00:00:00</span>
+    </div>
 
     <!-- FILTERS -->
     <div class="filters">
@@ -229,6 +233,12 @@
     </div>
   </div>
 
+  <div id="storage-consent" class="storage-consent">
+    <span>Usamos almacenamiento local para mejorar la experiencia y aplicar ofertas por tiempo limitado.</span>
+    <button type="button">OK</button>
+  </div>
+
+  <script src="./js/promo.js"></script>
   <script src="./js/main.js" defer></script>
 
 </body>
