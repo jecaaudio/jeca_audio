@@ -1270,6 +1270,13 @@ footer{
   .package-grid{
     grid-template-columns:repeat(2, minmax(0, 1fr));
   }
+
+  .addon-grid .package-card:last-child:nth-child(odd){
+    grid-column:1 / -1;
+    justify-self:center;
+    width:100%;
+    max-width:260px;
+  }
 }
 
 .package-card{
