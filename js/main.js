@@ -11,6 +11,7 @@ const translations = {
     filter_lighting: "Lighting",
     filter_effects: "Special Effects",
     filter_structure: "Structure",
+    rental_category_podcast: "Podcast / Streaming",
 
     quote_cart_title: "Your Quote Cart",
     clear_cart: "Clear cart",
@@ -180,6 +181,23 @@ const translations = {
     operator_yes: "Yes",
     operator_no: "No",
     confirm_booking_title: "Confirm your details before WhatsApp?",
+    podcast_title: "Podcast & Streaming Production",
+    podcast_subtitle: "Broadcast-ready audio for podcasts, interviews, and live streams.",
+    podcast_offer_title: "What we offer",
+    podcast_offer_1: "Multi-mic recording and clean voice capture",
+    podcast_offer_2: "Setup support for in-studio or on-location sessions",
+    podcast_offer_3: "Streaming-ready audio routing and monitoring",
+    podcast_equipment_title: "Core equipment",
+    podcast_additional_title: "Additional gear available",
+    podcast_additional_text:
+      "Digital mixers, wireless mics, speakers, lighting, stands, cables, recording & backup.",
+    podcast_cta: "Request a Quote",
+    item_podmic_name: "RØDE PodMic (x2)",
+    item_podmic_desc: "Dynamic broadcast microphones. Ideal for podcasting and interviews.",
+    item_nw700_name: "Neewer NW-700 (x2)",
+    item_nw700_desc: "Condenser microphones for detailed vocal capture.",
+    item_umc1820_name: "Behringer U-Phoria UMC1820",
+    item_umc1820_desc: "Multi-channel audio interface for streaming and recording.",
   },
 
   es: {
@@ -191,6 +209,7 @@ const translations = {
     filter_lighting: "Iluminación",
     filter_effects: "Efectos Especiales",
     filter_structure: "Estructura",
+    rental_category_podcast: "Podcast / Streaming",
 
     quote_cart_title: "Tu Carrito de Cotización",
     clear_cart: "Vaciar carrito",
@@ -360,6 +379,23 @@ const translations = {
     operator_yes: "Sí",
     operator_no: "No",
     confirm_booking_title: "¿Confirmar detalles antes de WhatsApp?",
+    podcast_title: "Producción de Podcast & Streaming",
+    podcast_subtitle: "Audio listo para podcast, entrevistas y transmisiones en vivo.",
+    podcast_offer_title: "Lo que ofrecemos",
+    podcast_offer_1: "Grabación multi-mic y captura vocal limpia",
+    podcast_offer_2: "Soporte de montaje en estudio o locación",
+    podcast_offer_3: "Ruteo y monitoreo listos para streaming",
+    podcast_equipment_title: "Equipo principal",
+    podcast_additional_title: "Equipo adicional disponible",
+    podcast_additional_text:
+      "Consolas digitales, micrófonos inalámbricos, bocinas, iluminación, stands, cables, grabación y backup.",
+    podcast_cta: "Pedir cotización",
+    item_podmic_name: "RØDE PodMic (x2)",
+    item_podmic_desc: "Micrófonos dinámicos de broadcast. Ideal para podcast y entrevistas.",
+    item_nw700_name: "Neewer NW-700 (x2)",
+    item_nw700_desc: "Micrófonos condensadores para voces detalladas.",
+    item_umc1820_name: "Behringer U-Phoria UMC1820",
+    item_umc1820_desc: "Interfaz de audio multicanal para streaming y grabación.",
   },
 };
 
@@ -409,6 +445,7 @@ function setLanguage(lang) {
   try { cargarEquipoRental(currentFilter || "all"); } catch {}
   try { updateCartUI(); } catch {}
   try { updatePackageButtons(lang); } catch {}
+  try { renderPodcastEquipment(); } catch {}
 }
 function setLanguageSafe(lang) {
   if (typeof setLanguage === "function") setLanguage(lang);
@@ -554,6 +591,48 @@ const infoEmpresa = {
         "img/productos/audio/ptm-33/ptm-334.jpg",
         "img/productos/audio/ptm-33/ptm-335.jpg"
       ]
+    },
+    {
+      id: "podmic",
+      categoria: "podcast",
+      nombre: "RØDE PodMic (x2)",
+      descripcion: "Dynamic broadcast microphones. Ideal for podcasting and interviews.",
+      nameKey: "item_podmic_name",
+      descKey: "item_podmic_desc",
+      categoryKey: "rental_category_podcast",
+      qty: 2,
+      cardDetails: true,
+      excludeFromGallery: true,
+      precioDia: 45,
+      fotos: ["img/logos/balanco solo,logo.png"]
+    },
+    {
+      id: "nw700",
+      categoria: "podcast",
+      nombre: "Neewer NW-700 (x2)",
+      descripcion: "Condenser microphones for detailed vocal capture.",
+      nameKey: "item_nw700_name",
+      descKey: "item_nw700_desc",
+      categoryKey: "rental_category_podcast",
+      qty: 2,
+      cardDetails: true,
+      excludeFromGallery: true,
+      precioDia: 35,
+      fotos: ["img/logos/balanco solo,logo.png"]
+    },
+    {
+      id: "umc1820",
+      categoria: "podcast",
+      nombre: "Behringer U-Phoria UMC1820",
+      descripcion: "Multi-channel audio interface for streaming and recording.",
+      nameKey: "item_umc1820_name",
+      descKey: "item_umc1820_desc",
+      categoryKey: "rental_category_podcast",
+      qty: 1,
+      cardDetails: true,
+      excludeFromGallery: true,
+      precioDia: 60,
+      fotos: ["img/logos/balanco solo,logo.png"]
     },
 
     // -------- LIGHTING --------
@@ -798,6 +877,34 @@ const infoEmpresa = {
   ]
 };
 
+function getEquipmentName(equipo, lang) {
+  if (!equipo) return "";
+  if (equipo.nameKey && translations?.[lang]?.[equipo.nameKey]) {
+    return translations[lang][equipo.nameKey];
+  }
+  if (lang === "es" && equipo.name_es) return equipo.name_es;
+  if (lang === "en" && equipo.name_en) return equipo.name_en;
+  return equipo.nombre || "";
+}
+
+function getEquipmentDescription(equipo, lang) {
+  if (!equipo) return "";
+  if (equipo.descKey && translations?.[lang]?.[equipo.descKey]) {
+    return translations[lang][equipo.descKey];
+  }
+  if (lang === "es" && equipo.desc_es) return equipo.desc_es;
+  if (lang === "en" && equipo.desc_en) return equipo.desc_en;
+  return equipo.descripcion || "";
+}
+
+function getEquipmentCategoryLabel(equipo, lang) {
+  if (!equipo) return "";
+  if (equipo.categoryKey && translations?.[lang]?.[equipo.categoryKey]) {
+    return translations[lang][equipo.categoryKey];
+  }
+  return equipo.categoria || "";
+}
+
 
 // Variables de control global
 let currentFilter = "all";
@@ -806,9 +913,10 @@ let homeGalleryIntervals = [];
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function getAllEquipmentPhotos() {
-  const photos = (infoEmpresa.equipos || []).flatMap((equipo) =>
-    Array.isArray(equipo.fotos) ? equipo.fotos : []
-  );
+  const photos = (infoEmpresa.equipos || []).flatMap((equipo) => {
+    if (equipo.excludeFromGallery) return [];
+    return Array.isArray(equipo.fotos) ? equipo.fotos : [];
+  });
   return Array.from(new Set(photos));
 }
 
@@ -1026,7 +1134,7 @@ function updateCartUI() {
         return `
         <div class="cart-row">
           <div>
-            <h4>${eq.nombre}</h4>
+            <h4>${getEquipmentName(eq, lang)}</h4>
             <div class="meta">${translations[lang].qty}: ${ci.qty}</div>
           </div>
 
@@ -1053,7 +1161,7 @@ function updateCartUI() {
         .map((ci) => {
           const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
           if (!eq) return "";
-          return `<li><span>${eq.nombre}</span><span>${translations[lang].qty}: ${ci.qty}</span></li>`;
+          return `<li><span>${getEquipmentName(eq, lang)}</span><span>${translations[lang].qty}: ${ci.qty}</span></li>`;
         })
         .join("");
     }
@@ -1096,6 +1204,7 @@ function openProductModal(equipo) {
   const modal = document.getElementById("product-modal");
   if (!modal || !equipo) return;
 
+  const lang = localStorage.getItem("language") || "en";
   const titleEl = document.getElementById("product-modal-title");
   const descEl = document.getElementById("product-modal-description");
   const imageEl = document.getElementById("product-modal-image");
@@ -1104,20 +1213,24 @@ function openProductModal(equipo) {
   const includesEl = document.getElementById("product-modal-includes");
   const requirementsEl = document.getElementById("product-modal-requirements");
 
-  if (titleEl) titleEl.textContent = equipo.nombre;
-  if (descEl) descEl.textContent = equipo.descripcion || "";
+  const equipmentName = getEquipmentName(equipo, lang);
+  const equipmentDescription = getEquipmentDescription(equipo, lang);
+  const categoryLabel = getEquipmentCategoryLabel(equipo, lang);
+
+  if (titleEl) titleEl.textContent = equipmentName;
+  if (descEl) descEl.textContent = equipmentDescription || "";
 
   const fotos = Array.isArray(equipo.fotos) ? equipo.fotos : [];
   if (imageEl) {
     imageEl.src = fotos[0] || "";
-    imageEl.alt = equipo.nombre || "";
+    imageEl.alt = equipmentName || "";
   }
 
   if (thumbsEl) {
     thumbsEl.innerHTML = fotos
       .map(
         (foto, index) =>
-          `<img class="product-thumb ${index === 0 ? "active" : ""}" src="${foto}" alt="${equipo.nombre || ""}" data-index="${index}">`
+          `<img class="product-thumb ${index === 0 ? "active" : ""}" src="${foto}" alt="${equipmentName || ""}" data-index="${index}">`
       )
       .join("");
     thumbsEl.querySelectorAll(".product-thumb").forEach((thumb) => {
@@ -1130,13 +1243,17 @@ function openProductModal(equipo) {
     });
   }
 
-  const lang = localStorage.getItem("language") || "en";
   if (specsEl) {
     const specs = Array.isArray(equipo.especificaciones) ? equipo.especificaciones : [];
     if (specs.length) {
       specsEl.innerHTML = `<ul>${specs.map((s) => `<li>${s}</li>`).join("")}</ul>`;
     } else {
-      specsEl.innerHTML = `<p>${equipo.categoria ? `Category: ${equipo.categoria}` : "Specs available upon request."}</p>`;
+      const qtyLabel = equipo.qty ? `${translations[lang].qty}: ${equipo.qty}` : "";
+      const categoryText = categoryLabel
+        ? `${lang === "es" ? "Categoría" : "Category"}: ${categoryLabel}`
+        : "Specs available upon request.";
+      const combined = [categoryText, qtyLabel].filter(Boolean).join(" • ");
+      specsEl.innerHTML = `<p>${combined || "Specs available upon request."}</p>`;
     }
   }
 
@@ -1336,9 +1453,9 @@ function submitQuote(ev) {
 
   const lines = cart
     .map((ci) => {
-      const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
-      return eq ? `• ${ci.qty} x ${eq.nombre}` : "";
-    })
+        const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
+        return eq ? `• ${ci.qty} x ${getEquipmentName(eq, lang)}` : "";
+      })
     .filter(Boolean);
 
   const message =
@@ -1363,6 +1480,49 @@ function submitQuote(ev) {
 /*********************************
  * INVENTORY RENDER
  *********************************/
+function renderPodcastEquipment() {
+  const grid = document.getElementById("podcast-equipment-grid");
+  if (!grid) return;
+
+  const lang = localStorage.getItem("language") || "en";
+  const podcastIds = ["podmic", "nw700", "umc1820"];
+  const equipos = podcastIds
+    .map((id) => infoEmpresa.equipos.find((equipo) => equipo.id === id))
+    .filter(Boolean);
+
+  grid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+
+  equipos.forEach((equipo, index) => {
+    const card = document.createElement("article");
+    card.className = "equipment-card equipment-card--compact";
+
+    const imgId = `podcast-img-${equipo.id}-${index}`;
+    const name = getEquipmentName(equipo, lang);
+    const description = getEquipmentDescription(equipo, lang);
+    const qtyLabel = equipo.qty ? `${translations[lang].qty}: ${equipo.qty}` : "";
+
+    card.innerHTML = `
+      <div class="image-container">
+        <img src="${equipo.fotos[0]}" id="${imgId}" alt="${name}">
+      </div>
+      <h3>${name}</h3>
+      <p class="equipment-meta">${description}</p>
+      <p class="equipment-meta equipment-meta-secondary">${qtyLabel}</p>
+    `;
+
+    const equipmentImage = card.querySelector("img");
+    if (equipmentImage) {
+      equipmentImage.loading = "lazy";
+      equipmentImage.decoding = "async";
+    }
+
+    fragment.appendChild(card);
+  });
+
+  grid.appendChild(fragment);
+}
+
 function cargarEquipoRental(filter = "all") {
   currentFilter = filter;
 
@@ -1387,14 +1547,27 @@ function cargarEquipoRental(filter = "all") {
     const card = document.createElement("div");
     card.className = "equipment-card";
 
+    const equipmentName = getEquipmentName(equipo, lang);
+    const equipmentDescription = getEquipmentDescription(equipo, lang);
+    const categoryLabel = getEquipmentCategoryLabel(equipo, lang);
+    const qtyLabel = equipo.qty ? `${translations[lang].qty}: ${equipo.qty}` : "";
+    const detailsLine = [categoryLabel, qtyLabel].filter(Boolean).join(" · ");
+    const detailsHtml = equipo.cardDetails
+      ? `
+        <p class="equipment-meta">${equipmentDescription}</p>
+        <p class="equipment-meta equipment-meta-secondary">${detailsLine}</p>
+      `
+      : "";
+
     const imgId = `img-${equipo.id}-${index}`;
 
     card.innerHTML = `
       <div class="image-container">
-        <img src="${equipo.fotos[0]}" id="${imgId}" alt="${equipo.nombre}">
+        <img src="${equipo.fotos[0]}" id="${imgId}" alt="${equipmentName}">
       </div>
 
-      <h3>${equipo.nombre}</h3>
+      <h3>${equipmentName}</h3>
+      ${detailsHtml}
 
       <div class="equipment-card-actions">
         <button class="btn-main add-to-cart-btn" type="button">
