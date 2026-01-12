@@ -276,6 +276,19 @@ h1,
   height:100%;
 }
 .equipment-card:hover{ transform: translateY(-4px); }
+.equipment-card--compact{
+  padding:12px;
+}
+.equipment-meta{
+  margin:8px 0 0 0;
+  font-size:0.8rem;
+  color:#cfcfcf;
+}
+.equipment-meta-secondary{
+  margin-top:6px;
+  font-size:0.75rem;
+  opacity:0.75;
+}
 .equipment-card-actions{
   margin-top:auto;
   display:flex;
@@ -1232,6 +1245,27 @@ footer{
 }
 .package-btn{
   margin-top:auto;
+}
+.podcast-section .package-card{
+  text-align:left;
+}
+.podcast-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  margin-top:18px;
+}
+.equipment-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.podcast-additional{
+  margin-top:16px;
+}
+.podcast-additional h4{
+  margin:0 0 6px 0;
 }
 .about-section p{
   max-width:900px;
