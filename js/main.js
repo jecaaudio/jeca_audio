@@ -1662,7 +1662,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (bookingBtn) bookingBtn.addEventListener("click", () => openBookingModal());
   packageButtons.forEach((btn) => {
-    btn.addEventListener("click", () => openBookingModal(btn.dataset.package));
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      openBookingModal(btn.dataset.package);
+    });
   });
   if (bookingClose) bookingClose.addEventListener("click", closeBookingModal);
   if (bookingModal) {
