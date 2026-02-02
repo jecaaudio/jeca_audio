@@ -20,6 +20,10 @@ const translations = {
     product_specs_title: "Specifications",
     booking_title: "Event Details",
     booking_addons_title: "FX Experience (Add-On)",
+    addons_option_1: "Cold spark machines",
+    addons_option_2: "Low-lying fog",
+    addons_option_3: "Electric confetti launcher",
+    addons_option_4: "Air-powered confetti cannons",
 
     continue_to_form: "Continue to Event Details",
     event_details_title: "Event Details",
@@ -218,6 +222,10 @@ const translations = {
     product_specs_title: "Especificaciones",
     booking_title: "Detalles del Evento",
     booking_addons_title: "Experiencia FX (Adicional)",
+    addons_option_1: "Máquinas de chispas frías",
+    addons_option_2: "Humo bajo",
+    addons_option_3: "Lanzador de confeti eléctrico",
+    addons_option_4: "Cañones de confeti de aire",
 
     continue_to_form: "Continuar a Detalles del Evento",
     event_details_title: "Detalles del Evento",
