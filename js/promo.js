@@ -26,6 +26,20 @@ const formatDuration = (ms) => {
   return `${hours}:${minutes}:${seconds}`;
 };
 
+const getActiveLanguage = () => localStorage.getItem("language") || "en";
+
+const getPromoCopy = (lang, key) => {
+  const copy = {
+    en: {
+      promo_price_old: "Was: {price}",
+    },
+    es: {
+      promo_price_old: "Antes: {price}",
+    },
+  };
+  return copy?.[lang]?.[key] || copy.en[key];
+};
+
 const getDeviceType = () => {
   const ua = navigator.userAgent.toLowerCase();
   const width = window.innerWidth;
@@ -138,7 +152,9 @@ const renderPricing = (state) => {
 
     const priceOld = document.createElement("span");
     priceOld.className = "price-old";
-    priceOld.textContent = `Antes: ${normalPrice}`;
+    const lang = getActiveLanguage();
+    const priceOldLabel = getPromoCopy(lang, "promo_price_old");
+    priceOld.textContent = priceOldLabel.replace("{price}", normalPrice);
 
     priceContainer.appendChild(priceNow);
     priceContainer.appendChild(priceOld);

@@ -71,6 +71,9 @@ const translations = {
     party_videos_title: "Party Videos",
     party_videos_subtitle: "Enjoy highlights from recent celebrations.",
     party_videos_playlist: "Playlist",
+    promo_message: "24-hour offer ends in",
+    promo_badge: "OFFER 24H",
+    promo_price_old: "Was: {price}",
     packages_title: "DJ Packages",
     package_includes_label: "Includes",
     price_regular_label: "Regular",
@@ -273,6 +276,9 @@ const translations = {
     party_videos_title: "Videos de Fiesta",
     party_videos_subtitle: "Disfruta momentos de celebraciones recientes.",
     party_videos_playlist: "Lista de reproducción",
+    promo_message: "Oferta por 24 horas termina en",
+    promo_badge: "OFERTA 24H",
+    promo_price_old: "Antes: {price}",
     packages_title: "Paquetes de DJ",
     package_includes_label: "Incluye",
     price_regular_label: "Regular",
@@ -454,6 +460,7 @@ function setLanguage(lang) {
   try { updateCartUI(); } catch {}
   try { updatePackageButtons(lang); } catch {}
   try { renderPodcastEquipment(); } catch {}
+  try { if (typeof renderPricing === "function" && typeof currentState !== "undefined") renderPricing(currentState); } catch {}
 }
 function setLanguageSafe(lang) {
   if (typeof setLanguage === "function") setLanguage(lang);
