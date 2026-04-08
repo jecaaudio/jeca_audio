@@ -1307,14 +1307,28 @@ function openBookingModal(packageName) {
   selectedPackage = packageName || null;
   const modal = document.getElementById("booking-modal");
   if (!modal) return;
-  modal.classList.add("open");
+
+  modal.classList.add("open", "active");
   modal.setAttribute("aria-hidden", "false");
+
+  const notesField = document.getElementById("booking-notes");
+  if (!notesField) return;
+
+  const packagePrefix = `Package: ${selectedPackage}`;
+  const existingNotes = notesField.value || "";
+  const cleanedNotes = existingNotes.replace(/Package:\s.*(?:\n)?/g, "").trim();
+
+  if (selectedPackage) {
+    notesField.value = cleanedNotes ? `${packagePrefix}\n${cleanedNotes}` : packagePrefix;
+  } else {
+    notesField.value = cleanedNotes;
+  }
 }
 
 function closeBookingModal() {
   const modal = document.getElementById("booking-modal");
   if (!modal) return;
-  modal.classList.remove("open");
+  modal.classList.remove("open", "active");
   modal.setAttribute("aria-hidden", "true");
 }
 
@@ -1673,15 +1687,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingClose = document.getElementById("booking-modal-close");
   const bookingBtn = document.getElementById("book-now-btn");
   const bookingForm = document.getElementById("booking-form");
-  const packageButtons = document.querySelectorAll(".package-btn[data-package]");
-
   if (bookingBtn) bookingBtn.addEventListener("click", () => openBookingModal());
-  packageButtons.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      openBookingModal(btn.dataset.package);
-    });
-  });
   if (bookingClose) bookingClose.addEventListener("click", closeBookingModal);
   if (bookingModal) {
     bookingModal.addEventListener("click", (event) => {
