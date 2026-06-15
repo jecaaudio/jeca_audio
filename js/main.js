@@ -158,6 +158,13 @@ const translations = {
     about_response_text: "Message us on WhatsApp and get a quick quote.",
     about_years_title: "Experience",
     about_years_text: "Over {years} years of events, weddings, and private parties.",
+    improvement_title: "Recommended Next Upgrades",
+    improvement_speed_title: "Speed & Core Web Vitals",
+    improvement_speed_text: "Convert the largest photos to WebP/AVIF and add mobile-sized versions to reduce load time.",
+    improvement_conversion_title: "More Bookings",
+    improvement_conversion_text: "Add a short quote form above the packages so mobile visitors can request pricing faster.",
+    improvement_seo_title: "Local SEO",
+    improvement_seo_text: "Publish city and event pages for Louisville weddings, quinceañeras, and corporate events.",
     contact_title: "Contact",
     contact_phone_label: "Phone",
     contact_email_label: "Email",
@@ -363,6 +370,13 @@ const translations = {
     about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
     about_years_title: "Experiencia",
     about_years_text: "Más de {years} años en eventos, bodas y fiestas privadas.",
+    improvement_title: "Próximas mejoras recomendadas",
+    improvement_speed_title: "Velocidad y Core Web Vitals",
+    improvement_speed_text: "Convertir las fotos más pesadas a WebP/AVIF y crear versiones móviles para bajar el tiempo de carga.",
+    improvement_conversion_title: "Más reservaciones",
+    improvement_conversion_text: "Agregar un formulario corto arriba de los paquetes para que visitantes móviles pidan precio más rápido.",
+    improvement_seo_title: "SEO local",
+    improvement_seo_text: "Publicar páginas por ciudad y evento para bodas, quinceañeras y eventos corporativos en Louisville.",
     contact_title: "Contacto",
     contact_phone_label: "Teléfono",
     contact_email_label: "Correo",
@@ -1029,14 +1043,14 @@ async function initPartyVideoPlaylist() {
   };
 
   player.muted = true;
-  player.autoplay = true;
+  player.autoplay = false;
 
   player.addEventListener("ended", () => {
     const nextIndex = (currentIndex + 1) % items.length;
     playIndex(nextIndex);
   });
 
-  playIndex(0, true);
+  playIndex(0, !window.matchMedia("(max-width: 768px)").matches);
 }
 
 /*********************************
