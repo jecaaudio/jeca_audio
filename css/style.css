@@ -297,7 +297,42 @@ h1,
 .equipment-card-actions{
   margin-top:auto;
   display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.card-qty{
+  display:flex;
+  gap:8px;
+  align-items:center;
   justify-content:center;
+}
+.qty-btn{
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+}
+.card-qty-input{
+  width:44px;
+  height:28px;
+  text-align:center;
+  border-radius:8px;
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
+}
+
+.product-modal-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:12px;
+  flex-wrap:wrap;
 }
 
 .image-container{

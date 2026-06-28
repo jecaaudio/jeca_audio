@@ -968,6 +968,7 @@ function getEquipmentCategoryLabel(equipo, lang) {
 let currentFilter = "all";
 let galleryIntervals = [];
 let homeGalleryIntervals = [];
+let currentModalProduct = null;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function getAllEquipmentPhotos() {
@@ -1116,12 +1117,13 @@ function saveDays(days) {
 /*********************************
  * CART ACTIONS
  *********************************/
-function addToCart(equipoId) {
+function addToCart(equipoId, qty = 1) {
+  const addQty = Math.max(1, Math.floor(Number(qty) || 1));
   const cart = loadCart();
   const found = cart.find((x) => x.id === equipoId);
 
-  if (found) found.qty += 1;
-  else cart.push({ id: equipoId, qty: 1 });
+  if (found) found.qty += addQty;
+  else cart.push({ id: equipoId, qty: addQty });
 
   saveCart(cart);
 }
@@ -1264,6 +1266,10 @@ function setupCartSteps() {
 function openProductModal(equipo) {
   const modal = document.getElementById("product-modal");
   if (!modal || !equipo) return;
+
+  currentModalProduct = equipo;
+  const modalQtyInput = document.getElementById("product-modal-qty-input");
+  if (modalQtyInput) modalQtyInput.value = "1";
 
   const lang = localStorage.getItem("language") || "en";
   const titleEl = document.getElementById("product-modal-title");
@@ -1645,6 +1651,11 @@ function cargarEquipoRental(filter = "all") {
       ${detailsHtml}
 
       <div class="equipment-card-actions">
+        <div class="card-qty">
+          <button type="button" class="qty-btn card-qty-minus">−</button>
+          <input type="number" class="card-qty-input" value="1" min="1" inputmode="numeric">
+          <button type="button" class="qty-btn card-qty-plus">+</button>
+        </div>
         <button class="btn-main add-to-cart-btn" type="button">
           ${translations[lang].add_to_quote}
         </button>
@@ -1660,11 +1671,38 @@ function cargarEquipoRental(filter = "all") {
       equipmentImage.decoding = "async";
     }
 
+    const qtyInput = card.querySelector(".card-qty-input");
+    const clampQtyInput = () => {
+      const n = Math.max(1, Math.floor(Number(qtyInput.value) || 1));
+      qtyInput.value = String(n);
+      return n;
+    };
+
+    const qtyWrap = card.querySelector(".card-qty");
+    if (qtyWrap) qtyWrap.addEventListener("click", (event) => event.stopPropagation());
+
+    const qtyMinusBtn = card.querySelector(".card-qty-minus");
+    if (qtyMinusBtn) {
+      qtyMinusBtn.addEventListener("click", () => {
+        qtyInput.value = String(Math.max(1, clampQtyInput() - 1));
+      });
+    }
+
+    const qtyPlusBtn = card.querySelector(".card-qty-plus");
+    if (qtyPlusBtn) {
+      qtyPlusBtn.addEventListener("click", () => {
+        qtyInput.value = String(clampQtyInput() + 1);
+      });
+    }
+
+    if (qtyInput) qtyInput.addEventListener("change", clampQtyInput);
+
     const addBtn = card.querySelector(".add-to-cart-btn");
     if (addBtn) {
       addBtn.addEventListener("click", (event) => {
         event.stopPropagation();
-        addToCart(equipo.id);
+        addToCart(equipo.id, qtyInput ? clampQtyInput() : 1);
+        if (qtyInput) qtyInput.value = "1";
       });
     }
 
@@ -1727,6 +1765,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (modal) {
       modal.addEventListener("click", (event) => {
         if (event.target === modal) closeProductModal();
+      });
+    }
+
+    const modalQtyInput = document.getElementById("product-modal-qty-input");
+    const clampModalQty = () => {
+      const n = Math.max(1, Math.floor(Number(modalQtyInput.value) || 1));
+      modalQtyInput.value = String(n);
+      return n;
+    };
+    const modalQtyMinus = document.getElementById("product-modal-qty-minus");
+    const modalQtyPlus = document.getElementById("product-modal-qty-plus");
+    const modalAddBtn = document.getElementById("product-modal-add-btn");
+    if (modalQtyMinus && modalQtyInput) {
+      modalQtyMinus.addEventListener("click", () => {
+        modalQtyInput.value = String(Math.max(1, clampModalQty() - 1));
+      });
+    }
+    if (modalQtyPlus && modalQtyInput) {
+      modalQtyPlus.addEventListener("click", () => {
+        modalQtyInput.value = String(clampModalQty() + 1);
+      });
+    }
+    if (modalQtyInput) modalQtyInput.addEventListener("change", clampModalQty);
+    if (modalAddBtn) {
+      modalAddBtn.addEventListener("click", () => {
+        if (!currentModalProduct) return;
+        addToCart(currentModalProduct.id, modalQtyInput ? clampModalQty() : 1);
+        closeProductModal();
       });
     }
   }
