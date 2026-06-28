@@ -105,8 +105,8 @@
       <button class="icon-btn" type="button" onclick="toggleCart(false)" data-i18n="close">Close</button>
     </div>
 
-    <div class="cart-policies">
-      <h4 data-i18n="rental_policies_title">Rental policies</h4>
+    <details class="cart-policies">
+      <summary data-i18n="rental_policies_title">Rental policies</summary>
       <ul>
         <li data-i18n="rental_policy_deposit">Security deposit required.</li>
         <li data-i18n="rental_policy_id">Valid ID required at pickup.</li>
@@ -114,7 +114,7 @@
         <li data-i18n="rental_policy_late">Late return fees may apply.</li>
       </ul>
       <p class="cart-availability" data-i18n="rental_availability">Availability confirmed after request.</p>
-    </div>
+    </details>
 
     <!-- Rental days selector -->
     <div class="cart-days">
@@ -246,6 +246,14 @@
         <div>
           <h3 id="product-modal-title">Product Details</h3>
           <p id="product-modal-description"></p>
+          <div class="product-modal-actions">
+            <div class="card-qty">
+              <button type="button" class="qty-btn" id="product-modal-qty-minus">−</button>
+              <input type="number" id="product-modal-qty-input" class="card-qty-input" value="1" min="1" inputmode="numeric">
+              <button type="button" class="qty-btn" id="product-modal-qty-plus">+</button>
+            </div>
+            <button class="btn-main" type="button" id="product-modal-add-btn" data-i18n="add_to_quote">Add to Quote</button>
+          </div>
         </div>
         <button class="product-modal-close" type="button" id="product-modal-close" data-i18n="close">Close</button>
       </div>
