@@ -528,6 +528,15 @@ h1,
   padding:12px 0;
   border-bottom:1px solid #1f1f1f;
 }
+.cart-row-thumb{
+  width:56px;
+  height:56px;
+  border-radius:8px;
+  object-fit:cover;
+  flex-shrink:0;
+  background:#1a1a1a;
+}
+.cart-row-info{ flex:1; min-width:0; }
 .cart-row h4{ margin:0; font-size:14px; }
 .cart-row .meta{ opacity:.75; font-size:12px; margin-top:4px; }
 

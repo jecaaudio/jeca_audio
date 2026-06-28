@@ -1189,9 +1189,12 @@ function updateCartUI() {
         const eq = infoEmpresa.equipos.find((e) => e.id === ci.id);
         if (!eq) return "";
 
+        const thumb = Array.isArray(eq.fotos) && eq.fotos[0] ? eq.fotos[0] : "";
+
         return `
         <div class="cart-row">
-          <div>
+          ${thumb ? `<img class="cart-row-thumb" src="${thumb}" alt="${getEquipmentName(eq, lang)}" loading="lazy" decoding="async">` : ""}
+          <div class="cart-row-info">
             <h4>${getEquipmentName(eq, lang)}</h4>
             <div class="meta">${translations[lang].qty}: ${ci.qty}</div>
           </div>
