@@ -625,7 +625,10 @@ const infoEmpresa = {
       cardDetails: true,
       excludeFromGallery: true,
       precioDia: 45,
-      fotos: ["img/logos/balanco solo,logo.png"]
+      fotos: [
+        "img/productos/podcast/podmic/podmic.jpg",
+        "img/productos/podcast/podmic/podmic1.jpg"
+      ]
     },
     {
       id: "nw700",
@@ -639,7 +642,11 @@ const infoEmpresa = {
       cardDetails: true,
       excludeFromGallery: true,
       precioDia: 35,
-      fotos: ["img/logos/balanco solo,logo.png"]
+      fotos: [
+        "img/productos/podcast/nw700/nw700.jpg",
+        "img/productos/podcast/nw700/nw7001.jpg",
+        "img/productos/podcast/nw700/nw7002.jpg"
+      ]
     },
     {
       id: "umc1820",
@@ -653,7 +660,10 @@ const infoEmpresa = {
       cardDetails: true,
       excludeFromGallery: true,
       precioDia: 60,
-      fotos: ["img/logos/balanco solo,logo.png"]
+      fotos: [
+        "img/productos/podcast/umc1820/umc1820.jpg",
+        "img/productos/podcast/umc1820/umc18201.jpg"
+      ]
     },
 
     // -------- LIGHTING --------
