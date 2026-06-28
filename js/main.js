@@ -1631,8 +1631,7 @@ function cargarEquipoRental(filter = "all") {
     const equipmentName = getEquipmentName(equipo, lang);
     const equipmentDescription = getEquipmentDescription(equipo, lang);
     const categoryLabel = getEquipmentCategoryLabel(equipo, lang);
-    const qtyLabel = equipo.qty ? `${translations[lang].qty}: ${equipo.qty}` : "";
-    const detailsLine = [categoryLabel, qtyLabel].filter(Boolean).join(" · ");
+    const detailsLine = categoryLabel;
     const detailsHtml = equipo.cardDetails
       ? `
         <p class="equipment-meta">${equipmentDescription}</p>

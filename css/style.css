@@ -508,6 +508,18 @@ h1,
   margin-bottom:12px;
   text-align:left;
 }
+.cart-policies summary{
+  cursor:pointer;
+  font-weight:700;
+  list-style:none;
+}
+.cart-policies summary::-webkit-details-marker{ display:none; }
+.cart-policies summary::after{
+  content:"▾";
+  float:right;
+  transition:transform .2s ease;
+}
+.cart-policies[open] summary::after{ transform:rotate(180deg); }
 .cart-policies ul{
   margin:8px 0 0 18px;
   padding:0;
