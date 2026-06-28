@@ -908,6 +908,19 @@ const infoEmpresa = {
   ]
 };
 
+async function loadProductsData() {
+  try {
+    const res = await fetch("data/products.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data && Array.isArray(data.products) && data.products.length) {
+      infoEmpresa.equipos = data.products;
+    }
+  } catch {
+    // Sin conexión al archivo de datos: se mantiene el catálogo por defecto.
+  }
+}
+
 function getEquipmentName(equipo, lang) {
   if (!equipo) return "";
   if (equipo.nameKey && translations?.[lang]?.[equipo.nameKey]) {
@@ -928,10 +941,24 @@ function getEquipmentDescription(equipo, lang) {
   return equipo.descripcion || "";
 }
 
+const CATEGORY_LABEL_KEYS = {
+  speakers: "filter_speakers",
+  consoles: "filter_consoles",
+  mics: "filter_mics",
+  podcast: "rental_category_podcast",
+  lighting: "filter_lighting",
+  effects: "filter_effects",
+  structure: "filter_structure",
+};
+
 function getEquipmentCategoryLabel(equipo, lang) {
   if (!equipo) return "";
   if (equipo.categoryKey && translations?.[lang]?.[equipo.categoryKey]) {
     return translations[lang][equipo.categoryKey];
+  }
+  const fallbackKey = CATEGORY_LABEL_KEYS[equipo.categoria];
+  if (fallbackKey && translations?.[lang]?.[fallbackKey]) {
+    return translations[lang][fallbackKey];
   }
   return equipo.categoria || "";
 }
@@ -1679,7 +1706,9 @@ function scrollToQuoteForm() {
 /*********************************
  * INIT
  *********************************/
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProductsData();
+
   const lang = localStorage.getItem("language") || "en";
   setLanguage(lang);
 

@@ -1,0 +1,58 @@
+# ============================================================
+# CONFIGURACIÓN DE INICIO DE SESIÓN (backend)
+# ------------------------------------------------------------
+# Estas líneas se generan en tu cuenta de decapbridge.com
+# (paso "Copy the generated config"). Reemplaza este bloque
+# completo por el que te dé el panel de DecapBridge, NO lo
+# escribas a mano para evitar errores.
+# ============================================================
+backend:
+  name: github
+  repo: jecaaudio/jeca_audio
+  branch: main
+  base_url: https://api.decapbridge.com
+  auth_endpoint: auth
+
+publish_mode: simple
+media_folder: "img/productos"
+public_folder: "/img/productos"
+
+collections:
+  - name: "products"
+    label: "Productos"
+    label_singular: "Producto"
+    description: "Catálogo de equipos en renta. Cada producto que edites aquí se actualiza automáticamente en la página."
+    files:
+      - name: "catalog"
+        label: "Catálogo de Productos"
+        file: "data/products.json"
+        fields:
+          - label: "Productos"
+            name: "products"
+            widget: list
+            summary: "{{name_es}} ({{categoria}})"
+            fields:
+              - { label: "ID interno (sin espacios, no cambiar si ya existe)", name: "id", widget: string }
+              - label: "Categoría"
+                name: "categoria"
+                widget: select
+                options:
+                  - { label: "Bocinas / Sonido", value: "speakers" }
+                  - { label: "Consolas / Mezcladoras", value: "consoles" }
+                  - { label: "Micrófonos", value: "mics" }
+                  - { label: "Podcast / Streaming", value: "podcast" }
+                  - { label: "Iluminación", value: "lighting" }
+                  - { label: "Efectos Especiales", value: "effects" }
+                  - { label: "Estructura", value: "structure" }
+              - { label: "Nombre (Inglés)", name: "name_en", widget: string }
+              - { label: "Nombre (Español)", name: "name_es", widget: string }
+              - { label: "Descripción (Inglés)", name: "desc_en", widget: text }
+              - { label: "Descripción (Español)", name: "desc_es", widget: text }
+              - { label: "Precio por día (USD)", name: "precioDia", widget: number, value_type: int }
+              - { label: "Cantidad disponible (opcional)", name: "qty", widget: number, value_type: int, required: false }
+              - { label: "Mostrar detalles en tarjeta (opcional)", name: "cardDetails", widget: boolean, required: false, default: false }
+              - { label: "Excluir de la galería de inicio (opcional)", name: "excludeFromGallery", widget: boolean, required: false, default: false }
+              - label: "Fotos del producto"
+                name: "fotos"
+                widget: list
+                field: { label: "Ruta o URL de la imagen", name: "foto", widget: string }
