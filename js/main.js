@@ -36,7 +36,7 @@ const translations = {
     duration_hours: "Approx. Duration (hours)",
     power_available: "Power available?",
     notes: "Notes / Special requests",
-    send_quote_whatsapp: "Send Quote Request via WhatsApp",
+    send_quote_email: "Send Quote Request via Email",
     add_to_quote: "Add to Quote",
     close: "Close",
     empty_cart: "Your cart is empty. Add items to request a quote.",
@@ -63,7 +63,7 @@ const translations = {
     trust_subtitle: "DJ in Louisville KY • Sound & lighting rentals Louisville",
     trust_events: "Events completed",
     trust_reviews: "Average rating",
-    trust_response: "Fast WhatsApp response",
+    trust_response: "Fast email response",
     review_one_text: "“Incredible sound and lighting. Our wedding felt like a concert!”",
     review_two_text: "“Professional setup, bilingual MC, and the dance floor stayed full.”",
     review_three_text: "“Quick response and top-quality gear. Highly recommend!”",
@@ -158,7 +158,7 @@ const translations = {
     about_area_title: "Service area",
     about_area_text: "Louisville, KY + surrounding areas.",
     about_response_title: "Fast response",
-    about_response_text: "Message us on WhatsApp and get a quick quote.",
+    about_response_text: "Email us and get a quick quote.",
     about_years_title: "Experience",
     about_years_text: "Over {years} years of events, weddings, and private parties.",
     contact_title: "Contact",
@@ -190,7 +190,7 @@ const translations = {
     operator_needed: "Do you need an operator?",
     operator_yes: "Yes",
     operator_no: "No",
-    confirm_booking_title: "Confirm your details before WhatsApp?",
+    confirm_booking_title: "Confirm your details before email?",
     podcast_title: "Podcast & Streaming Production",
     podcast_subtitle: "Broadcast-ready audio for podcasts, interviews, and live streams.",
     podcast_offer_title: "What we offer",
@@ -244,7 +244,7 @@ const translations = {
     duration_hours: "Duración aprox. (horas)",
     power_available: "¿Hay electricidad disponible?",
     notes: "Notas / solicitudes especiales",
-    send_quote_whatsapp: "Enviar solicitud por WhatsApp",
+    send_quote_email: "Enviar solicitud por correo",
     add_to_quote: "Añadir a cotización",
     close: "Cerrar",
     empty_cart: "Tu carrito está vacío. Agrega equipos para pedir una cotización.",
@@ -271,7 +271,7 @@ const translations = {
     trust_subtitle: "DJ en Louisville KY • Renta de sonido e iluminación en Louisville",
     trust_events: "Eventos realizados",
     trust_reviews: "Calificación promedio",
-    trust_response: "Respuesta rápida por WhatsApp",
+    trust_response: "Respuesta rápida por correo",
     review_one_text: "“Sonido e iluminación increíbles. ¡Nuestra boda fue un concierto!”",
     review_two_text: "“Montaje profesional, MC bilingüe y pista llena.”",
     review_three_text: "“Respuesta rápida y equipo de primera. ¡Recomendado!”",
@@ -366,7 +366,7 @@ const translations = {
     about_area_title: "Zona de servicio",
     about_area_text: "Louisville, KY y alrededores.",
     about_response_title: "Respuesta rápida",
-    about_response_text: "Escríbenos por WhatsApp y recibe tu cotización.",
+    about_response_text: "Escríbenos por correo y recibe tu cotización.",
     about_years_title: "Experiencia",
     about_years_text: "Más de {years} años en eventos, bodas y fiestas privadas.",
     contact_title: "Contacto",
@@ -398,7 +398,7 @@ const translations = {
     operator_needed: "¿Necesitas operador?",
     operator_yes: "Sí",
     operator_no: "No",
-    confirm_booking_title: "¿Confirmar detalles antes de WhatsApp?",
+    confirm_booking_title: "¿Confirmar detalles antes del correo?",
     podcast_title: "Producción de Podcast & Streaming",
     podcast_subtitle: "Audio listo para podcast, entrevistas y transmisiones en vivo.",
     podcast_offer_title: "Lo que ofrecemos",
@@ -496,7 +496,7 @@ function updatePackageButtons(lang) {
  * DATOS EMPRESA
  *********************************/
 const infoEmpresa = {
-  whatsapp: "15025540333",
+  contactEmail: "eljecatv@gmail.com",
   equipos: [
     // -------- SOUND --------
     {
@@ -1454,12 +1454,13 @@ function submitBookingQuote(ev) {
         `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
         `📝 Notes: ${notes}`;
 
-  const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
-  window.open(wa, "_blank", "noopener");
+  const subject = lang === "es" ? "Solicitud de cotización" : "Event quote request";
+  const mailto = `mailto:${infoEmpresa.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  window.location.href = mailto;
 }
 
 /*********************************
- * WHATSAPP
+ * EMAIL
  *********************************/
 function submitQuote(ev) {
   ev?.preventDefault();
@@ -1554,8 +1555,9 @@ function submitQuote(ev) {
         `📆 Rental days: ${days}\n\n` +
         `📝 Notes: ${notes}`;
 
-  const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
-  window.open(wa, "_blank", "noopener");
+  const subject = lang === "es" ? "Solicitud de cotización de renta" : "Rental quote request";
+  const mailto = `mailto:${infoEmpresa.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  window.location.href = mailto;
 }
 
 /*********************************
