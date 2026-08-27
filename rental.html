@@ -9,16 +9,18 @@
   <meta property="og:description" content="Rent pro audio and lighting gear in Louisville KY. Speakers, subwoofers, wireless mics, DJ lighting and more. Easy WhatsApp quote.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jecaaudio.com/rental.html">
-  <meta property="og:image" content="https://jecaaudio.com/img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png">
+  <meta property="og:image" content="https://jecaaudio.com/img/logos/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="canonical" href="https://jecaaudio.com/rental.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Audio & Lighting Rentals Louisville KY | Jeca Audio">
   <meta name="twitter:description" content="Rent pro audio and lighting gear in Louisville KY. Speakers, subwoofers, wireless mics, DJ lighting and more.">
-  <meta name="twitter:image" content="https://jecaaudio.com/img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png">
+  <meta name="twitter:image" content="https://jecaaudio.com/img/logos/og-cover.jpg">
   <meta name="theme-color" content="#050505">
   <meta name="color-scheme" content="dark">
-  <link rel="preload" as="image" href="img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png" fetchpriority="high">
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preload" as="image" href="img/logos/hero-1920.webp" imagesrcset="img/logos/hero-800.webp 800w, img/logos/hero-1200.webp 1200w, img/logos/hero-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
+  <link rel="stylesheet" href="./css/style.css?v=1.2" />
   <link rel="icon" href="img/logos/balanco solo,logo.png">
 
   <!-- ICONS -->
@@ -61,13 +63,40 @@
         <h1>JECA AUDIO</h1>
       </a>
       <div class="tagline" data-i18n="tagline">PROFESSIONAL SOUND & LIGHTING</div>
+
+      <p class="hero-headline" data-i18n="rental_hero_headline">
+        Rent pro audio &amp; lighting in Louisville, KY
+      </p>
+      <p class="hero-sub" data-i18n="rental_hero_sub">
+        Speakers, subwoofers, wireless mics, lighting and special effects. Pickup or delivery, by the day.
+      </p>
+
+      <ul class="hero-badges">
+        <li data-i18n="rental_badge_1">Pickup or delivery</li>
+        <li data-i18n="rental_badge_2">Tested before every rental</li>
+        <li data-i18n="rental_badge_3">Same-day answers</li>
+      </ul>
+
+      <div class="hero-cta-row">
+        <button class="btn-main" type="button" data-cta="rental-hero-browse" onclick="scrollToInventory()" data-i18n="rental_hero_cta">Browse the catalog</button>
+        <a
+          class="btn-outline"
+          data-cta="rental-hero-whatsapp"
+          href="https://wa.me/15025540333?text=Hi%20Jeca%20Audio!%20I%27d%20like%20to%20rent%20equipment."
+          target="_blank"
+          rel="noopener"
+          data-i18n="rental_hero_ask"
+        >Ask on WhatsApp</a>
+      </div>
+
+      <div class="location">📍 Louisville, KY + 60 mi</div>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
   <main class="container" id="main-content">
 
-    <h2 data-i18n="rental_inventory">Rental Inventory</h2>
+    <h2 id="inventory" data-i18n="rental_inventory">Rental Inventory</h2>
     <div id="promo-banner" class="promo-banner is-hidden" role="status" aria-live="polite">
       <span id="promo-message" data-i18n="promo_message">Oferta por 24 horas termina en</span>
       <span id="promo-countdown">00:00:00</span>
@@ -298,6 +327,24 @@
 
   <script src="./js/promo.js" defer></script>
   <script src="./js/main.js" defer></script>
+
+  <!-- BARRA FIJA DE CONTACTO (MÓVIL) -->
+  <nav class="mobile-cta-bar" aria-label="Quick contact">
+    <a
+      class="mcta-wa"
+      data-cta="rental-mobilebar-whatsapp"
+      href="https://wa.me/15025540333?text=Hi%20Jeca%20Audio!%20I%27d%20like%20to%20rent%20equipment."
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      <span data-i18n="mcta_whatsapp">WhatsApp</span>
+    </a>
+    <a class="mcta-call" data-cta="rental-mobilebar-call" href="tel:+15025540333">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <span data-i18n="mcta_call">Call</span>
+    </a>
+  </nav>
 
 </body>
 </html>

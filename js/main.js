@@ -208,6 +208,114 @@ const translations = {
     item_nw700_desc: "Condenser microphones for detailed vocal capture.",
     item_umc1820_name: "Behringer U-Phoria UMC1820",
     item_umc1820_desc: "Multi-channel audio interface for streaming and recording.",
+
+    // ✅ HERO DE VENTAS
+    hero_headline: "Bilingual DJ, pro sound & lighting in Louisville, KY",
+    hero_sub:
+      "Weddings, quinceañeras and private parties where the dance floor never empties. Tell us your date and get a free quote today.",
+    hero_badge_1: "★ 4.9 · 150+ events",
+    hero_badge_2: "Bilingual MC (EN/ES)",
+    hero_badge_3: "Setup & breakdown included",
+    hero_badge_4: "Backup gear on site",
+    hero_cta_whatsapp: "Free quote on WhatsApp",
+    hero_cta_packages: "See prices",
+    hero_reassure: "Free quote · No obligation · We usually reply the same day",
+
+    // ✅ SERVICIOS (enlaces internos)
+    services_title: "What are we celebrating?",
+    service_wedding_title: "Weddings →",
+    service_wedding_text:
+      "Ceremony and reception sound, bilingual MC, uplighting and a dance floor that stays full.",
+    service_quince_title: "Quinceañeras →",
+    service_quince_text:
+      "Vals, surprise dance, moving lights, fog and cold sparks — the whole night on cue.",
+    service_corporate_title: "Corporate events →",
+    service_corporate_text:
+      "PA and microphones for speeches, background music, and a party set when the program ends.",
+
+    // ✅ CÓMO FUNCIONA
+    steps_title: "Booking takes 3 steps",
+    step1_title: "Send your date",
+    step1_text:
+      "Message us on WhatsApp with your date, city and type of event. It takes less than a minute.",
+    step2_title: "Get your quote",
+    step2_text:
+      "We confirm availability and send you a clear price with everything included — no surprises.",
+    step3_title: "We handle the rest",
+    step3_text:
+      "We arrive early, set up, run the show as your bilingual MC, and break down when it's over.",
+
+    // ✅ POR QUÉ NOSOTROS
+    why_title: "Why clients choose Jeca Audio",
+    why1_title: "Truly bilingual",
+    why1_text: "MC and announcements in English and Spanish, so every guest feels included.",
+    why2_title: "Backup equipment",
+    why2_text: "We bring spare speakers, mics and cables. Your music never stops.",
+    why3_title: "Clear pricing",
+    why3_text: "Packages published up front. Setup and breakdown are always included.",
+    why4_title: "We come to you",
+    why4_text:
+      "Louisville and up to 60 miles around: Jeffersonville, New Albany, Shelbyville and more.",
+
+    packages_subtitle:
+      "All packages include a bilingual MC, setup, breakdown and backup gear. Prices start at the amounts below.",
+
+    // ✅ FAQ
+    faq_title: "Frequently asked questions",
+    faq1_q: "How much does a DJ cost in Louisville?",
+    faq1_a:
+      "Our DJ packages start at $499 and go up depending on guest count, hours and lighting. Every package includes a bilingual MC, setup and breakdown. Send us your date and we'll give you an exact price with no obligation.",
+    faq2_q: "How far in advance should I book?",
+    faq2_a:
+      "Popular dates — Saturdays, holidays and the spring wedding season — fill up months ahead. If your date is close, message us anyway: we often have openings and can confirm the same day.",
+    faq3_q: "Do you MC in Spanish and English?",
+    faq3_a:
+      "Yes. All announcements, introductions and crowd interaction can be done in both languages, which is why we're a favorite for bilingual weddings and quinceañeras.",
+    faq4_q: "What areas do you serve?",
+    faq4_a:
+      "Louisville, KY and up to roughly 60 miles around, including Jeffersonville and New Albany IN, Shepherdsville, Shelbyville, Bardstown and Elizabethtown. Travel beyond that is possible — just ask.",
+    faq5_q: "Can I choose the music?",
+    faq5_a:
+      "Absolutely. We build a custom playlist with your must-play and do-not-play lists, and we read the room live so the dance floor stays full.",
+    faq6_q: "Do you rent equipment without a DJ?",
+    faq6_a:
+      "Yes. You can rent speakers, microphones, lighting, truss and special effects on their own, with pickup or delivery. Browse the rental catalog and build your quote online.",
+    faq7_q: "How long does setup take?",
+    faq7_a:
+      "We normally arrive 1.5 to 3 hours before the event depending on the package, so everything is tested and ready before your first guest walks in. Setup and breakdown are included in the price.",
+    faq8_q: "How do I reserve my date?",
+    faq8_a:
+      "Message us on WhatsApp, we confirm availability and send the quote. Your date is held once you confirm and leave a deposit; the balance is due on the day of the event.",
+
+    // ✅ CTA FINAL / CONTACTO
+    final_cta_title: "Is your date still available?",
+    final_cta_text: "Send it to us now and find out in minutes. Free quote, no commitment.",
+    final_cta_whatsapp: "Check my date on WhatsApp",
+    final_cta_call: "Call +1 (502) 554-0333",
+    contact_whatsapp_label: "WhatsApp",
+    contact_hours_label: "Hours",
+    contact_hours_text: "Every day, 9:00 AM – 10:00 PM",
+
+    // ✅ BARRA MÓVIL
+    mcta_whatsapp: "WhatsApp",
+    mcta_call: "Call",
+    mcta_quote: "Free quote",
+
+    // ✅ FORMULARIO
+    booking_essentials: "The essentials — takes 30 seconds",
+    booking_more_details: "+ Add more details (optional — helps us quote faster)",
+    booking_trust: "Free and with no obligation. We usually reply the same day.",
+    booking_package_selected: "Selected package: {package}",
+
+    // ✅ HERO DE RENTA
+    rental_hero_headline: "Rent pro audio & lighting in Louisville, KY",
+    rental_hero_sub:
+      "Speakers, subwoofers, wireless mics, lighting and special effects. Pickup or delivery, by the day.",
+    rental_badge_1: "Pickup or delivery",
+    rental_badge_2: "Tested before every rental",
+    rental_badge_3: "Same-day answers",
+    rental_hero_cta: "Browse the catalog",
+    rental_hero_ask: "Ask on WhatsApp",
   },
 
   es: {
@@ -416,6 +524,114 @@ const translations = {
     item_nw700_desc: "Micrófonos condensadores para voces detalladas.",
     item_umc1820_name: "Behringer U-Phoria UMC1820",
     item_umc1820_desc: "Interfaz de audio multicanal para streaming y grabación.",
+
+    // ✅ HERO DE VENTAS
+    hero_headline: "DJ bilingüe, sonido y luces profesionales en Louisville, KY",
+    hero_sub:
+      "Bodas, quinceañeras y fiestas privadas donde la pista nunca se vacía. Mándanos tu fecha y recibe tu cotización gratis hoy mismo.",
+    hero_badge_1: "★ 4.9 · 150+ eventos",
+    hero_badge_2: "Animación bilingüe (ES/EN)",
+    hero_badge_3: "Montaje y desmontaje incluidos",
+    hero_badge_4: "Equipo de respaldo en sitio",
+    hero_cta_whatsapp: "Cotiza gratis por WhatsApp",
+    hero_cta_packages: "Ver precios",
+    hero_reassure: "Cotización gratis · Sin compromiso · Normalmente respondemos el mismo día",
+
+    // ✅ SERVICIOS (enlaces internos)
+    services_title: "¿Qué vamos a celebrar?",
+    service_wedding_title: "Bodas →",
+    service_wedding_text:
+      "Sonido para ceremonia y recepción, animación bilingüe, iluminación y una pista que no se vacía.",
+    service_quince_title: "Quinceañeras →",
+    service_quince_text:
+      "Vals, baile sorpresa, luces robóticas, humo y chispas frías: toda la noche en su tiempo.",
+    service_corporate_title: "Eventos corporativos →",
+    service_corporate_text:
+      "Sonido y micrófonos para discursos, música de fondo y fiesta cuando termina el programa.",
+
+    // ✅ CÓMO FUNCIONA
+    steps_title: "Reservar toma 3 pasos",
+    step1_title: "Mándanos tu fecha",
+    step1_text:
+      "Escríbenos por WhatsApp con tu fecha, ciudad y tipo de evento. Te toma menos de un minuto.",
+    step2_title: "Recibe tu cotización",
+    step2_text:
+      "Confirmamos disponibilidad y te enviamos un precio claro con todo incluido, sin sorpresas.",
+    step3_title: "Nosotros hacemos el resto",
+    step3_text:
+      "Llegamos temprano, montamos, animamos tu evento en dos idiomas y desmontamos al terminar.",
+
+    // ✅ POR QUÉ NOSOTROS
+    why_title: "Por qué nos eligen",
+    why1_title: "Realmente bilingües",
+    why1_text: "Animación y anuncios en español e inglés, para que ningún invitado se quede fuera.",
+    why2_title: "Equipo de respaldo",
+    why2_text: "Llevamos bocinas, micrófonos y cables extra. Tu música nunca se detiene.",
+    why3_title: "Precios claros",
+    why3_text: "Paquetes publicados desde el inicio. El montaje y desmontaje siempre van incluidos.",
+    why4_title: "Vamos hasta ti",
+    why4_text:
+      "Louisville y hasta 60 millas alrededor: Jeffersonville, New Albany, Shelbyville y más.",
+
+    packages_subtitle:
+      "Todos los paquetes incluyen animación bilingüe, montaje, desmontaje y equipo de respaldo. Los precios parten desde los montos indicados.",
+
+    // ✅ PREGUNTAS FRECUENTES
+    faq_title: "Preguntas frecuentes",
+    faq1_q: "¿Cuánto cuesta un DJ en Louisville?",
+    faq1_a:
+      "Nuestros paquetes de DJ empiezan en $499 y suben según la cantidad de invitados, las horas y la iluminación. Todos incluyen animación bilingüe, montaje y desmontaje. Mándanos tu fecha y te damos el precio exacto sin compromiso.",
+    faq2_q: "¿Con cuánta anticipación debo reservar?",
+    faq2_a:
+      "Las fechas más buscadas —sábados, días festivos y temporada de bodas en primavera— se llenan con meses de anticipación. Si tu fecha está cerca, escríbenos igual: muchas veces tenemos espacio y confirmamos el mismo día.",
+    faq3_q: "¿Animan en español y en inglés?",
+    faq3_a:
+      "Sí. Todos los anuncios, presentaciones e interacción con el público pueden ser en ambos idiomas, por eso somos favoritos en bodas y quinceañeras bilingües.",
+    faq4_q: "¿Qué zonas cubren?",
+    faq4_a:
+      "Louisville, KY y hasta unas 60 millas alrededor, incluyendo Jeffersonville y New Albany IN, Shepherdsville, Shelbyville, Bardstown y Elizabethtown. Podemos viajar más lejos, solo pregúntanos.",
+    faq5_q: "¿Puedo elegir la música?",
+    faq5_a:
+      "Claro que sí. Armamos una lista personalizada con las canciones que sí quieres y las que no, y leemos el ambiente en vivo para mantener la pista llena.",
+    faq6_q: "¿Rentan equipo sin DJ?",
+    faq6_a:
+      "Sí. Puedes rentar bocinas, micrófonos, iluminación, truss y efectos especiales por separado, con recolección o entrega. Explora el catálogo de renta y arma tu cotización en línea.",
+    faq7_q: "¿Cuánto tarda el montaje?",
+    faq7_a:
+      "Normalmente llegamos de 1.5 a 3 horas antes según el paquete, para que todo quede probado antes de que llegue tu primer invitado. El montaje y desmontaje están incluidos en el precio.",
+    faq8_q: "¿Cómo aparto mi fecha?",
+    faq8_a:
+      "Escríbenos por WhatsApp, confirmamos disponibilidad y te enviamos la cotización. Tu fecha queda apartada cuando confirmas y dejas un anticipo; el resto se liquida el día del evento.",
+
+    // ✅ CTA FINAL / CONTACTO
+    final_cta_title: "¿Tu fecha sigue disponible?",
+    final_cta_text: "Mándanosla ahora y entérate en minutos. Cotización gratis, sin compromiso.",
+    final_cta_whatsapp: "Consultar mi fecha por WhatsApp",
+    final_cta_call: "Llamar al +1 (502) 554-0333",
+    contact_whatsapp_label: "WhatsApp",
+    contact_hours_label: "Horario",
+    contact_hours_text: "Todos los días, 9:00 AM – 10:00 PM",
+
+    // ✅ BARRA MÓVIL
+    mcta_whatsapp: "WhatsApp",
+    mcta_call: "Llamar",
+    mcta_quote: "Cotizar",
+
+    // ✅ FORMULARIO
+    booking_essentials: "Lo esencial — te toma 30 segundos",
+    booking_more_details: "+ Agregar más detalles (opcional, nos ayuda a cotizar más rápido)",
+    booking_trust: "Gratis y sin compromiso. Normalmente respondemos el mismo día.",
+    booking_package_selected: "Paquete seleccionado: {package}",
+
+    // ✅ HERO DE RENTA
+    rental_hero_headline: "Renta audio e iluminación profesional en Louisville, KY",
+    rental_hero_sub:
+      "Bocinas, subwoofers, micrófonos inalámbricos, iluminación y efectos especiales. Recolección o entrega, por día.",
+    rental_badge_1: "Recolección o entrega",
+    rental_badge_2: "Probado antes de cada renta",
+    rental_badge_3: "Respuesta el mismo día",
+    rental_hero_cta: "Ver el catálogo",
+    rental_hero_ask: "Preguntar por WhatsApp",
   },
 };
 
@@ -466,6 +682,7 @@ function setLanguage(lang) {
   try { updateCartUI(); } catch {}
   try { updatePackageButtons(lang); } catch {}
   try { renderPodcastEquipment(); } catch {}
+  try { renderSelectedPackageLine(); } catch {}
   try { if (typeof renderPricing === "function" && typeof currentState !== "undefined") renderPricing(currentState); } catch {}
 }
 function setLanguageSafe(lang) {
@@ -1355,6 +1572,23 @@ function closeProductModal() {
  *********************************/
 let selectedPackage = null;
 
+function renderSelectedPackageLine() {
+  const line = document.getElementById("booking-package-line");
+  if (!line) return;
+
+  if (!selectedPackage) {
+    line.hidden = true;
+    line.textContent = "";
+    return;
+  }
+
+  const lang = localStorage.getItem("language") || "en";
+  const template =
+    translations?.[lang]?.booking_package_selected || "Selected package: {package}";
+  line.textContent = template.replace("{package}", selectedPackage);
+  line.hidden = false;
+}
+
 function openBookingModal(packageName) {
   selectedPackage = packageName || null;
   const modal = document.getElementById("booking-modal");
@@ -1362,6 +1596,9 @@ function openBookingModal(packageName) {
 
   modal.classList.add("open", "active");
   modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  renderSelectedPackageLine();
 
   const notesField = document.getElementById("booking-notes");
   if (!notesField) return;
@@ -1382,6 +1619,7 @@ function closeBookingModal() {
   if (!modal) return;
   modal.classList.remove("open", "active");
   modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
 }
 
 function submitBookingQuote(ev) {
@@ -1412,12 +1650,11 @@ function submitBookingQuote(ev) {
       : `Add-ons: ${addonLabels.join(", ")}`
     : "";
 
+  // Solo lo indispensable: menos campos obligatorios = más clientes que terminan la solicitud.
   const requiredFields = [
     { key: "event_date", value: date },
-    { key: "event_time", value: timeRaw },
     { key: "event_type", value: type },
     { key: "event_city", value: city },
-    { key: "event_venue", value: venue },
   ];
 
   const missing = requiredFields.filter((field) => !field.value.trim());
@@ -1443,16 +1680,63 @@ function submitBookingQuote(ev) {
   const confirmSend = window.confirm(`${translations[lang].confirm_booking_title}\n\n${summary}`);
   if (!confirmSend) return;
 
-  const message =
+  // Solo incluimos las líneas con datos: el mensaje llega limpio y fácil de leer.
+  const labels =
     lang === "es"
-      ? `Hola JECA AUDIO, quiero una cotización.\n\n` +
-        `${selectedPackage ? `🎧 Paquete: ${selectedPackage}\n` : ""}` +
-        `📅 Fecha: ${date}\n⏰ Hora: ${time}\n🎉 Tipo: ${type}\n👥 Invitados: ${guests}\n🏠 Interior/Exterior: ${io}\n📍 Ciudad: ${city}\n📌 Lugar/Zona: ${venue}\n⏳ Duración: ${hours} horas\n🔌 Electricidad: ${power}\n🏢 Acceso: ${access}\n\n` +
-        `📝 Notas: ${notes}`
-      : `Hi JECA AUDIO, I’d like a quote.\n\n` +
-        `${selectedPackage ? `🎧 Package: ${selectedPackage}\n` : ""}` +
-        `📅 Date: ${date}\n⏰ Time: ${time}\n🎉 Type: ${type}\n👥 Guests: ${guests}\n🏠 Indoor/Outdoor: ${io}\n📍 City: ${city}\n📌 Venue/Area: ${venue}\n⏳ Duration: ${hours} hours\n🔌 Power: ${power}\n🏢 Access: ${access}\n\n` +
-        `📝 Notes: ${notes}`;
+      ? {
+          intro: "Hola JECA AUDIO, quiero una cotización.",
+          pkg: "🎧 Paquete",
+          date: "📅 Fecha",
+          time: "⏰ Hora",
+          type: "🎉 Tipo",
+          guests: "👥 Invitados",
+          io: "🏠 Interior/Exterior",
+          city: "📍 Ciudad",
+          venue: "📌 Lugar/Zona",
+          hours: "⏳ Duración (horas)",
+          power: "🔌 Electricidad",
+          access: "🏢 Acceso",
+          addons: "✨ Adicionales",
+          notes: "📝 Notas",
+        }
+      : {
+          intro: "Hi JECA AUDIO, I’d like a quote.",
+          pkg: "🎧 Package",
+          date: "📅 Date",
+          time: "⏰ Time",
+          type: "🎉 Type",
+          guests: "👥 Guests",
+          io: "🏠 Indoor/Outdoor",
+          city: "📍 City",
+          venue: "📌 Venue/Area",
+          hours: "⏳ Duration (hours)",
+          power: "🔌 Power",
+          access: "🏢 Access",
+          addons: "✨ Add-ons",
+          notes: "📝 Notes",
+        };
+
+  const lines = [
+    [labels.pkg, selectedPackage],
+    [labels.date, date],
+    [labels.time, time],
+    [labels.type, type],
+    [labels.guests, guests],
+    [labels.io, io],
+    [labels.city, city],
+    [labels.venue, venue],
+    [labels.hours, hours],
+    [labels.power, power],
+    [labels.access, access],
+    [labels.addons, addonLabels.join(", ")],
+    [labels.notes, notes],
+  ]
+    .filter(([, value]) => String(value || "").trim())
+    .map(([label, value]) => `${label}: ${String(value).trim()}`);
+
+  const message = `${labels.intro}\n\n${lines.join("\n")}`;
+
+  trackLead("quote_form_submit", selectedPackage || "no_package");
 
   const wa = `https://wa.me/${infoEmpresa.whatsapp}?text=${encodeURIComponent(message)}`;
   window.open(wa, "_blank", "noopener");
@@ -1811,7 +2095,62 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setupHomeGallery();
   initPartyVideoPlaylist();
+  setupLeadTracking();
 });
+
+/*********************************
+ * MEDICIÓN DE CONTACTOS (LEADS)
+ * Cada clic de contacto se envía a Google Analytics para
+ * saber qué botón está trayendo trabajo de verdad.
+ *********************************/
+function trackLead(action, label) {
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "generate_lead", {
+        event_category: "contact",
+        event_label: label || action,
+        method: action,
+      });
+    }
+  } catch {}
+}
+
+function setupLeadTracking() {
+  document.querySelectorAll("[data-cta]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const name = el.dataset.cta || "";
+      const method = name.includes("call")
+        ? "phone_call"
+        : name.includes("whatsapp")
+        ? "whatsapp"
+        : "quote_form_open";
+      trackLead(method, name);
+    });
+  });
+}
+
+/*********************************
+ * NAVEGACIÓN A PAQUETES
+ *********************************/
+function scrollToSection(id, fallbackUrl) {
+  const target = document.getElementById(id);
+  if (!target) {
+    if (fallbackUrl) window.location.href = fallbackUrl;
+    return;
+  }
+  target.scrollIntoView({
+    behavior: prefersReducedMotion ? "auto" : "smooth",
+    block: "start",
+  });
+}
+
+function scrollToPackages() {
+  scrollToSection("packages", "index.html#packages");
+}
+
+function scrollToInventory() {
+  scrollToSection("inventory", "rental.html#inventory");
+}
 
 /*********************************
  * HEADER SCROLL
@@ -1846,3 +2185,6 @@ window.closeProductModal = closeProductModal;
 window.openBookingModal = openBookingModal;
 window.closeBookingModal = closeBookingModal;
 window.submitBookingQuote = submitBookingQuote;
+window.scrollToPackages = scrollToPackages;
+window.scrollToInventory = scrollToInventory;
+window.trackLead = trackLead;

@@ -1879,3 +1879,483 @@ h1{
 .footer-seo-links a:hover{
   color:var(--primary);
 }
+
+/* =========================================================
+   HERO DE VENTAS / CONVERSIÓN  (v2)
+   ========================================================= */
+#main-header{
+  height:80vh;
+  background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+    image-set(
+      url('../img/logos/hero-1920.webp') type('image/webp'),
+      url('../img/logos/hero-1920.jpg') type('image/jpeg')
+    );
+}
+.container{ margin-top:80vh; }
+
+.header-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+.hero-headline{
+  font-size:clamp(1.35rem, 3.4vw, 2.1rem);
+  font-weight:900;
+  line-height:1.2;
+  margin:0;
+  max-width:820px;
+  color:#fff;
+  text-shadow:0 2px 18px rgba(0,0,0,.6);
+}
+.hero-sub{
+  margin:0;
+  font-size:clamp(.95rem, 1.8vw, 1.1rem);
+  color:#dcdcdc;
+  max-width:660px;
+  line-height:1.5;
+}
+
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.hero-badges li{
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(243,156,18,.45);
+  background:rgba(0,0,0,.45);
+  color:#f5d7a5;
+  white-space:nowrap;
+}
+
+.hero-cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  max-width:520px;
+}
+.hero-cta-row .btn-main,
+.hero-cta-row .btn-outline{
+  margin-top:0;
+  padding:14px 22px;
+  font-size:1rem;
+  flex:1 1 200px;
+  text-align:center;
+}
+.btn-whatsapp{
+  background:#25D366;
+  color:#04240f;
+}
+.btn-whatsapp:hover{
+  background:#1eb457;
+  color:#fff;
+}
+.hero-reassure{
+  margin:0;
+  font-size:.82rem;
+  color:#bdbdbd;
+}
+
+#main-header.scrolled .hero-headline,
+#main-header.scrolled .hero-sub,
+#main-header.scrolled .hero-badges,
+#main-header.scrolled .hero-cta-row,
+#main-header.scrolled .hero-reassure,
+#main-header.scrolled .location{
+  display:none;
+}
+
+@media (max-width: 768px){
+  #main-header{
+    height:88vh;
+    padding-top:56px;
+  }
+  .container{ margin-top:88vh; }
+  #main-header .tagline{ display:none; }
+  .hero-cta-row{ flex-direction:column; }
+  .hero-cta-row .btn-main,
+  .hero-cta-row .btn-outline{ width:100%; flex:1 1 auto; }
+  .hero-badges li{ font-size:.72rem; padding:5px 10px; }
+}
+
+/* =========================================================
+   BARRA FIJA DE CONTACTO (MÓVIL)
+   ========================================================= */
+.mobile-cta-bar{
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1200;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  gap:8px;
+  background:rgba(8,8,8,.96);
+  border-top:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.mobile-cta-bar a,
+.mobile-cta-bar button{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:9px 4px;
+  border-radius:12px;
+  border:none;
+  font-size:.72rem;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+  line-height:1;
+}
+.mobile-cta-bar i{ font-size:1.05rem; }
+.mcta-wa{ background:#25D366; color:#04240f; }
+.mcta-call{ background:#1c1c1c; color:#fff; border:1px solid rgba(255,255,255,.18) !important; }
+.mcta-quote{ background:var(--primary); color:#0a0a0a; }
+
+@media (max-width: 768px){
+  .mobile-cta-bar{ display:flex; }
+  body{ padding-bottom:74px; }
+  .whatsapp-fab{ display:none !important; }
+  .cart-fab{ bottom:84px; }
+}
+
+/* =========================================================
+   CÓMO FUNCIONA
+   ========================================================= */
+.steps-section{
+  width:100%;
+  margin-top:60px;
+}
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:18px;
+}
+.step-card{
+  position:relative;
+  background:#111;
+  border:1px solid #222;
+  border-radius:16px;
+  padding:26px 18px 20px;
+  text-align:left;
+}
+.step-num{
+  position:absolute;
+  top:-14px;
+  left:18px;
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--primary);
+  color:#0a0a0a;
+  font-weight:900;
+}
+.step-card h4{
+  margin:6px 0 8px;
+  font-size:1.05rem;
+}
+.step-card p{
+  margin:0;
+  font-size:.92rem;
+  color:#c4c4c4;
+  line-height:1.5;
+}
+
+/* =========================================================
+   POR QUÉ ELEGIRNOS
+   ========================================================= */
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:14px;
+}
+.why-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  text-align:left;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:16px;
+}
+.why-card i{
+  color:var(--primary);
+  font-size:1.2rem;
+  margin-top:3px;
+}
+.why-card h4{ margin:0 0 4px; font-size:.98rem; }
+.why-card p{ margin:0; font-size:.86rem; color:#bdbdbd; line-height:1.45; }
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq-section{ width:100%; margin-top:60px; }
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width:860px;
+  margin:0 auto;
+  text-align:left;
+}
+.faq-item{
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
+  padding:0;
+  overflow:hidden;
+}
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:16px 46px 16px 18px;
+  font-weight:800;
+  font-size:.98rem;
+  position:relative;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--primary);
+  font-size:1.3rem;
+  font-weight:900;
+  line-height:1;
+}
+.faq-item[open] summary::after{ content:"–"; }
+.faq-item p{
+  margin:0;
+  padding:0 18px 16px;
+  color:#c2c2c2;
+  font-size:.92rem;
+  line-height:1.6;
+}
+
+/* =========================================================
+   CIERRE / CTA FINAL
+   ========================================================= */
+.final-cta{
+  width:100%;
+  margin-top:60px;
+  padding:34px 22px;
+  border-radius:22px;
+  border:1px solid rgba(243,156,18,.4);
+  background:linear-gradient(135deg, rgba(243,156,18,.16), rgba(10,10,10,.95));
+}
+.final-cta h2{ margin:0 0 10px; font-size:clamp(1.4rem,3vw,2rem); font-weight:900; }
+.final-cta p{ margin:0 0 18px; color:#d3d3d3; }
+.final-cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+.final-cta-row .btn-main,
+.final-cta-row .btn-outline{ margin-top:0; padding:14px 24px; }
+
+/* =========================================================
+   FORMULARIO: ESENCIALES + DETALLES OPCIONALES
+   ========================================================= */
+.booking-optional{
+  margin-top:6px;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:12px;
+}
+.booking-optional > summary{
+  list-style:none;
+  cursor:pointer;
+  color:var(--primary);
+  font-weight:800;
+  font-size:.92rem;
+  padding:6px 0;
+}
+.booking-optional > summary::-webkit-details-marker{ display:none; }
+.booking-step-label{
+  text-align:left;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#8f8f8f;
+  font-weight:800;
+  margin:0 0 8px;
+}
+.booking-trust{
+  margin:10px 0 0;
+  font-size:.82rem;
+  color:#a9a9a9;
+  text-align:center;
+}
+
+/* =========================================================
+   PÁGINAS DE SERVICIO (SEO)
+   ========================================================= */
+.service-hero{
+  width:100%;
+  padding:38px 22px;
+  border-radius:22px;
+  background:linear-gradient(135deg, rgba(243,156,18,.14), rgba(10,10,10,.95));
+  border:1px solid rgba(243,156,18,.3);
+}
+.service-hero h1{
+  font-size:clamp(1.7rem,4vw,2.6rem);
+  color:#fff;
+  margin:0 0 12px;
+}
+.service-hero p{ color:#d6d6d6; max-width:760px; margin:0 auto 18px; line-height:1.6; }
+.service-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  align-items:center;
+  padding:16px 20px;
+  width:100%;
+}
+.service-nav a{
+  color:#e2e2e2;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.92rem;
+}
+.service-nav a:hover{ color:var(--primary); }
+.service-nav .brand{ color:var(--primary); font-weight:900; font-size:1.1rem; }
+.service-section{ width:100%; margin-top:46px; text-align:left; }
+.service-section h2{ font-size:1.6rem; font-weight:900; margin:0 0 14px; text-align:center; }
+.service-section > p{ color:#c6c6c6; line-height:1.7; max-width:860px; margin:0 auto 16px; text-align:center; }
+.service-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+  list-style:none;
+  padding:0;
+  margin:18px 0 0;
+}
+.service-list li{
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
+  padding:16px;
+  font-size:.93rem;
+  color:#d0d0d0;
+  line-height:1.5;
+}
+.service-list li strong{ color:#fff; display:block; margin-bottom:4px; }
+
+/* Fondo del hero por tamaño de pantalla: en móvil se carga una imagen mucho más ligera */
+@media (max-width: 900px){
+  #main-header{
+    background-image:
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+      image-set(
+        url('../img/logos/hero-1200.webp') type('image/webp'),
+        url('../img/logos/hero-1200.jpg') type('image/jpeg')
+      );
+  }
+}
+@media (max-width: 560px){
+  #main-header{
+    background-image:
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+      image-set(
+        url('../img/logos/hero-800.webp') type('image/webp'),
+        url('../img/logos/hero-800.jpg') type('image/jpeg')
+      );
+  }
+}
+
+/* Navegadores sin soporte de image-set: fallback JPG */
+@supports not (background-image: image-set(url('x.webp') type('image/webp'))){
+  #main-header{
+    background-image:
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+      url('../img/logos/hero-1920.jpg');
+  }
+}
+
+/* El botón de "Ver precios" no debe empujar el layout al hacer scroll suave */
+#packages{ scroll-margin-top:100px; }
+
+/* El aviso de almacenamiento no debe tapar la barra de contacto en móvil */
+@media (max-width: 768px){
+  .storage-consent{
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Con un modal abierto, la barra inferior estorba */
+body.modal-open .mobile-cta-bar{ display:none !important; }
+
+/* Opciones de efectos especiales en el formulario */
+.booking-addons{
+  margin-top:16px;
+  text-align:left;
+}
+.booking-addons h4{
+  margin:0 0 10px;
+  font-size:.95rem;
+}
+.booking-addon-options{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+  gap:8px;
+}
+.booking-addon-options label{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid #2a2a2a;
+  border-radius:12px;
+  background:#111;
+  font-size:.88rem;
+  cursor:pointer;
+  opacity:1;
+}
+.booking-addon-options label:hover{
+  border-color:var(--primary);
+}
+.booking-addon-options input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+  accent-color:var(--primary);
+  margin:0;
+}
+
+/* En el formulario de cotización, hora y AM/PM caben en una sola línea:
+   menos scroll = más solicitudes terminadas */
+@media (max-width: 768px){
+  .booking-form .time-row{
+    flex-direction:row;
+  }
+  .booking-form .time-row select{
+    width:96px;
+    flex:0 0 auto;
+  }
+}
