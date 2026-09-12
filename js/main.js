@@ -950,7 +950,12 @@ function getAllEquipmentPhotos() {
 function setupHomeGallery() {
   const galleryImages = document.querySelectorAll(".gallery-grid img[data-gallery-slot]");
   if (!galleryImages.length) return;
-  homeGalleryIntervals.forEach((id) => clearInterval(id));
+  // La lista ahora guarda tanto timeouts (el arranque escalonado) como
+  // intervalos, así que hay que cancelar los dos tipos.
+  homeGalleryIntervals.forEach((id) => {
+    clearTimeout(id);
+    clearInterval(id);
+  });
   homeGalleryIntervals = [];
   const photos = getAllEquipmentPhotos();
   if (!photos.length) return;
@@ -960,15 +965,34 @@ function setupHomeGallery() {
     img.loading = "lazy";
     img.decoding = "async";
     if (photos.length <= 1 || prefersReducedMotion) return;
-    const intervalId = setInterval(() => {
+
+    const advance = () => {
       currentIndex = (currentIndex + 1) % photos.length;
-      img.style.opacity = "0";
-      setTimeout(() => {
-        img.src = photos[currentIndex];
-        img.style.opacity = "1";
-      }, 250);
-    }, 3000);
-    homeGalleryIntervals.push(intervalId);
+      const next = photos[currentIndex];
+      // Cargar la siguiente foto ANTES de desvanecer: si no, el hueco queda en
+      // blanco mientras se descarga.
+      const preload = new Image();
+      preload.onload = () => {
+        // No bajar a 0: un hueco transparente sobre el fondo negro parece un
+        // fallo de carga. Con la foto ya precargada basta con atenuarla.
+        img.style.opacity = "0.35";
+        setTimeout(() => {
+          img.src = next;
+          img.style.opacity = "1";
+        }, 250);
+      };
+      preload.src = next;
+    };
+
+    // Escalonar los huecos. Arrancando los tres a la vez, la fila entera se
+    // apagaba de golpe cada 3 segundos y parecía que la galería fallaba.
+    const startDelay = slotIndex * 1000;
+    const timeoutId = setTimeout(() => {
+      advance();
+      const intervalId = setInterval(advance, 3000);
+      homeGalleryIntervals.push(intervalId);
+    }, startDelay);
+    homeGalleryIntervals.push(timeoutId);
   });
 }
 /*********************************

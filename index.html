@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#050505">
   <meta name="color-scheme" content="dark">
   <link rel="preload" as="image" href="img/logos/hero-1920.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="./css/style.css?v=1.1" />
+  <link rel="stylesheet" href="./css/style.css?v=1.2" />
   <link rel="icon" href="img/logos/favicon-64.png">
   <!-- ICONS -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -169,11 +169,15 @@
         <p class="section-subtitle" data-i18n="party_videos_subtitle">Enjoy highlights from recent celebrations.</p>
       </div>
       <div class="video-playlist-wrapper">
+        <!-- controls: en movil el reproductor no arranca solo (ver
+             initPartyVideoPlaylist), asi que sin controles no habia ninguna
+             forma de reproducir el video. -->
         <video
           id="party-video-player"
           class="party-video-player"
           data-playlist-src="img/video/party/videos.json"
           muted
+          controls
           preload="metadata"
           playsinline
         ></video>
