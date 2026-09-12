@@ -1,0 +1,11 @@
+# Guardar siempre los archivos de texto con saltos de línea LF, para que no
+# dependan del editor ni del sistema operativo con que se guarden.
+* text=auto eol=lf
+
+# Los binarios se dejan intactos.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.mp4 binary
+*.ico binary

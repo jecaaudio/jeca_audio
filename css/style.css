@@ -42,9 +42,18 @@ img{
   justify-content:center;
   align-items:center;
   text-align:center;
+  /* La portada original pesa 5,2 MB (7092x2625 PNG) y es lo primero que
+     descarga la página. Estas versiones son de 87 KB y 147 KB.
+     El JPEG es el respaldo para navegadores sin WebP. */
   background-image:
     linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)),
-    url('../img/logos/Hansel%20paquete_PORTADA%20AJUSTADA%20(1).png');
+    url('../img/logos/hero-1920.jpg');
+  background-image:
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)),
+    image-set(
+      url('../img/logos/hero-1920.webp') type('image/webp'),
+      url('../img/logos/hero-1920.jpg') type('image/jpeg')
+    );
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
