@@ -25,10 +25,13 @@ img{
   height:auto;
 }
 
-.lazy-section{
-  content-visibility:auto;
-  contain-intrinsic-size:1px 900px;
-}
+/* .lazy-section ya no lleva estilos. Tenía content-visibility:auto con
+   contain-intrinsic-size de 900px fijos, pero las secciones reales miden entre
+   127px y 813px: la página decía medir 6915px cuando el contenido ocupa 4395px,
+   dejando 2520px de vacío al final y una barra de scroll que saltaba al
+   recorrerla. La página entera pesa 0,24 MB, así que saltarse el render no
+   compensaba ese destrozo. La clase se mantiene en el HTML por si algún día se
+   vuelve a necesitar un tratamiento común para estas secciones. */
 
 /* HEADER */
 #main-header{
@@ -177,8 +180,12 @@ h1{
    FIX DEFINITIVO DE OVERFLOW MÓVIL
    =============================== */
 
-/* Ningún contenedor puede salirse del ancho */
-.container,
+/* Ningún contenedor puede salirse del ancho.
+   OJO: .container NO va aquí. Ya tiene width:100% + max-width:1200px, que no
+   puede desbordar, y ponerle max-width:100% le quitaba el límite de 1200px en
+   escritorio: la página se estiraba de borde a borde mientras .decision-grid
+   seguía a 1200px, así que las secciones no compartían margen y todo se veía
+   descuadrado. */
 .inventory-grid,
 .decision-grid,
 .decision-grid.main-page-grid{
@@ -1134,14 +1141,9 @@ footer{
 .contact-section{
   margin-top:36px;
 }
-.trust-section,
-.packages-section,
-.about-section,
-.contact-section,
-.video-playlist-section{
-  content-visibility:auto;
-  contain-intrinsic-size:1px 800px;
-}
+/* Aquí había una segunda copia del mismo content-visibility:auto, con 800px
+   reservados, que pisaba a .lazy-section y mantenía el vacío al final de la
+   página aunque aquella regla ya estuviera corregida. */
 .trust-header{
   text-align:center;
   margin-bottom:18px;

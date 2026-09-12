@@ -169,11 +169,15 @@
         <p class="section-subtitle" data-i18n="party_videos_subtitle">Enjoy highlights from recent celebrations.</p>
       </div>
       <div class="video-playlist-wrapper">
+        <!-- controls: en movil el reproductor no arranca solo (ver
+             initPartyVideoPlaylist), asi que sin controles no habia ninguna
+             forma de reproducir el video. -->
         <video
           id="party-video-player"
           class="party-video-player"
           data-playlist-src="img/video/party/videos.json"
           muted
+          controls
           preload="metadata"
           playsinline
         ></video>
