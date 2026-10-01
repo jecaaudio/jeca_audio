@@ -1,0 +1,468 @@
+/* Páginas de servicio (bodas, quinceañeras, eventos corporativos).
+   Independiente de style.css: esas páginas no usan el encabezado fijo ni el
+   JavaScript de la portada, así que cargan rápido y no se rompen si cambia
+   la portada. */
+
+:root{
+  --primary:#f39c12;
+  --primary-dark:#d35400;
+  --bg:#050505;
+  --surface:#111;
+  --surface-2:#181818;
+  --border:#262626;
+  --text:#fff;
+  --muted:#b3b3b3;
+  --whatsapp:#25d366;
+}
+
+*,
+*::before,
+*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; height:auto; display:block; }
+
+a{ color:var(--primary); }
+
+/* Idioma: el texto viene en los dos idiomas y se oculta el que no toca. */
+html[data-lang="es"] [lang="en"],
+html[data-lang="en"] [lang="es"]{ display:none !important; }
+
+.wrap{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+/* BARRA SUPERIOR */
+.lp-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(5,5,5,.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.lp-nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  height:56px;
+}
+.lp-logo{
+  font-weight:900;
+  letter-spacing:.04em;
+  color:var(--primary);
+  text-decoration:none;
+  font-size:1.15rem;
+}
+.lp-lang{ display:flex; gap:6px; }
+.lp-lang button{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--muted);
+  border-radius:999px;
+  padding:6px 12px;
+  font:inherit;
+  font-size:.8rem;
+  font-weight:700;
+  cursor:pointer;
+}
+.lp-lang button[aria-pressed="true"]{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#000;
+}
+
+/* PORTADA */
+.lp-hero{
+  position:relative;
+  padding:56px 0 48px;
+  overflow:hidden;
+}
+.lp-hero .wrap{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:40px;
+  align-items:center;
+}
+.lp-eyebrow{
+  display:inline-block;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin:0 0 12px;
+}
+.lp-hero h1{
+  font-size:clamp(2rem, 6vw, 3.4rem);
+  line-height:1.08;
+  font-weight:900;
+  margin:0 0 16px;
+}
+.lp-hero h1 em{
+  font-style:normal;
+  color:var(--primary);
+}
+.lp-lead{
+  font-size:1.1rem;
+  color:var(--muted);
+  margin:0 0 24px;
+  max-width:36em;
+}
+.lp-cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:20px;
+}
+.lp-hero-photo{
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  aspect-ratio:4/5;
+  background:var(--surface);
+}
+.lp-hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.lp-proof{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  color:var(--muted);
+  font-size:.92rem;
+}
+.lp-proof li::before{
+  content:"✓ ";
+  color:var(--primary);
+  font-weight:900;
+}
+
+/* BOTONES */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 20px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:1rem;
+  text-decoration:none;
+  border:2px solid transparent;
+  cursor:pointer;
+  min-height:48px;
+}
+.btn-wa{
+  background:var(--whatsapp);
+  color:#04210f;
+}
+.btn-wa:hover{ filter:brightness(1.08); }
+.btn-ghost{
+  border-color:var(--primary);
+  color:var(--primary);
+  background:transparent;
+}
+.btn-ghost:hover{ background:var(--primary); color:#000; }
+.btn:focus-visible,
+.lp-lang button:focus-visible,
+.lp-faq summary:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:3px;
+}
+
+/* SECCIONES */
+.lp-section{ padding:56px 0; }
+.lp-section.alt{ background:#0b0b0b; border-top:1px solid #151515; border-bottom:1px solid #151515; }
+.lp-section h2{
+  font-size:clamp(1.6rem, 4vw, 2.3rem);
+  font-weight:900;
+  margin:0 0 8px;
+}
+.lp-sub{
+  color:var(--muted);
+  margin:0 0 28px;
+  max-width:44em;
+}
+
+/* MOMENTOS */
+.lp-moments{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+  counter-reset:moment;
+}
+.lp-moments li{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  counter-increment:moment;
+}
+.lp-moments li::before{
+  content:counter(moment, decimal-leading-zero);
+  display:block;
+  font-weight:900;
+  color:var(--primary);
+  font-size:.85rem;
+  margin-bottom:6px;
+}
+.lp-moments strong{ display:block; font-size:1.05rem; margin-bottom:4px; }
+.lp-moments li > span{ color:var(--muted); font-size:.95rem; }
+
+/* QUÉ INCLUYE + FOTOS */
+.lp-split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:start;
+}
+.lp-checks{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:10px;
+}
+.lp-checks li{
+  position:relative;
+  padding:12px 14px 12px 44px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+.lp-checks li::before{
+  content:"✓";
+  position:absolute;
+  left:14px;
+  top:11px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#000;
+  font-weight:900;
+  font-size:.75rem;
+  display:grid;
+  place-items:center;
+}
+.lp-gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.lp-gallery figure{
+  margin:0;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--surface);
+  aspect-ratio:3/4;
+}
+.lp-gallery figure.wide{
+  grid-column:1 / -1;
+  aspect-ratio:16/9;
+}
+.lp-gallery img{ width:100%; height:100%; object-fit:cover; }
+
+/* PAQUETES */
+.lp-packages{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+}
+.lp-pkg{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.lp-pkg.featured{
+  border-color:var(--primary);
+  box-shadow:0 0 0 1px var(--primary), 0 12px 40px rgba(243,156,18,.15);
+}
+.lp-pkg-badge{
+  position:absolute;
+  top:-12px;
+  left:18px;
+  background:var(--primary);
+  color:#000;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.05em;
+  padding:4px 10px;
+  border-radius:999px;
+}
+.lp-pkg h3{ margin:4px 0 0; font-size:1.05rem; }
+.lp-pkg-price{ font-size:2rem; font-weight:900; line-height:1; }
+.lp-pkg-price small{ font-size:.85rem; font-weight:700; color:var(--muted); }
+.lp-pkg-cap{ color:var(--primary); font-weight:700; font-size:.9rem; margin:0; }
+.lp-pkg ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:.92rem;
+  flex:1;
+}
+.lp-pkg li{ margin-bottom:4px; }
+.lp-pkg .btn{ width:100%; padding:12px 14px; font-size:.95rem; }
+.lp-fine{
+  color:#8a8a8a;
+  font-size:.85rem;
+  margin:16px 0 0;
+}
+
+/* EXTRAS */
+.lp-addons{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:12px;
+}
+.lp-addon{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+}
+.lp-addon strong{ display:block; margin-bottom:4px; }
+.lp-addon > span{ color:var(--primary); font-weight:900; }
+.lp-addon > small{ color:var(--muted); }
+
+/* PREGUNTAS FRECUENTES */
+.lp-faq{ display:grid; gap:10px; max-width:820px; }
+.lp-faq details{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:0 18px;
+}
+.lp-faq summary{
+  cursor:pointer;
+  font-weight:700;
+  padding:16px 28px 16px 0;
+  list-style:none;
+  position:relative;
+}
+.lp-faq summary::-webkit-details-marker{ display:none; }
+.lp-faq summary::after{
+  content:"+";
+  position:absolute;
+  right:0;
+  top:12px;
+  font-size:1.4rem;
+  color:var(--primary);
+}
+.lp-faq details[open] summary::after{ content:"–"; }
+.lp-faq details p{ margin:0 0 16px; color:var(--muted); }
+
+/* LLAMADO FINAL */
+.lp-final{
+  text-align:center;
+  padding:64px 0;
+  background:
+    radial-gradient(ellipse at top, rgba(243,156,18,.18), transparent 60%),
+    var(--bg);
+}
+.lp-final h2{
+  font-size:clamp(1.7rem, 5vw, 2.6rem);
+  font-weight:900;
+  margin:0 0 10px;
+}
+.lp-final p{ color:var(--muted); margin:0 auto 24px; max-width:34em; }
+.lp-final .lp-cta-row{ justify-content:center; }
+.lp-phone{ color:var(--muted); font-size:.95rem; }
+.lp-phone a{ color:var(--text); font-weight:700; }
+
+/* PIE */
+.lp-footer{
+  border-top:1px solid var(--border);
+  padding:32px 0 96px;
+  color:var(--muted);
+  font-size:.9rem;
+  text-align:center;
+}
+.lp-footer nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px 20px;
+  margin-bottom:16px;
+}
+.lp-footer nav a{ color:var(--text); text-decoration:none; }
+.lp-footer nav a:hover{ color:var(--primary); }
+.lp-footer nav a[aria-current="page"]{ color:var(--primary); }
+.lp-social{ display:flex; justify-content:center; gap:18px; margin-bottom:12px; }
+.lp-social a{ color:var(--text); text-decoration:none; font-weight:700; }
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.lp-wa-fab{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--whatsapp);
+  color:#04210f;
+  font-weight:900;
+  text-decoration:none;
+  padding:14px 18px;
+  border-radius:999px;
+  box-shadow:0 8px 24px rgba(0,0,0,.45);
+}
+.lp-wa-fab svg,
+.btn-wa svg{ width:20px; height:20px; flex:none; }
+
+/* RESPONSIVO */
+@media (max-width: 960px){
+  .lp-packages,
+  .lp-addons{ grid-template-columns:repeat(2, 1fr); }
+  .lp-moments{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width: 760px){
+  .lp-hero{ padding:28px 0 36px; }
+  .lp-hero .wrap,
+  .lp-split{ grid-template-columns:1fr; gap:24px; }
+  .lp-hero-photo{ aspect-ratio:16/11; order:-1; }
+  .lp-section{ padding:44px 0; }
+  .lp-cta-row .btn{ flex:1 1 100%; }
+}
+@media (max-width: 520px){
+  .lp-packages,
+  .lp-addons,
+  .lp-moments{ grid-template-columns:1fr; }
+  .lp-pkg-badge{ top:-11px; }
+  .lp-wa-fab span{ display:none; }
+  .lp-wa-fab{ padding:16px; }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+}
