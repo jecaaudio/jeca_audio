@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#050505">
   <meta name="color-scheme" content="dark">
   <link rel="preload" as="image" href="img/logos/hero-1920.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="./css/style.css?v=1.1" />
+  <link rel="stylesheet" href="./css/style.css?v=1.2" />
   <link rel="icon" href="img/logos/favicon-64.png">
   <!-- ICONS -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -188,20 +188,27 @@
         <button class="btn-main quick-quote-btn" type="button" onclick="openBookingModal()" data-i18n="quick_quote_btn">Request Quick Quote</button>
       </div>
     </section>
-    <section class="packages-section lazy-section">
+    <section class="packages-section lazy-section" id="packages">
       <h2 class="section-title" data-i18n="packages_title">DJ Packages</h2>
-      <div id="promo-banner" class="promo-banner is-hidden" role="status" aria-live="polite">
-        <span id="promo-message" data-i18n="promo_message">Oferta por 24 horas termina en</span>
-        <span id="promo-countdown">00:00:00</span>
-      </div>
+      <p class="section-subtitle" data-i18n="packages_intro">Starting prices so you get an idea. Every event is different: tell us what you need and we'll send your exact quote on WhatsApp.</p>
+      <ul class="pkg-always">
+        <li data-i18n="always_1">Bilingual MC (EN/ES)</li>
+        <li data-i18n="always_2">Custom playlist</li>
+        <li data-i18n="always_3">Setup + breakdown</li>
+        <li data-i18n="always_4">Backup equipment</li>
+      </ul>
       <div class="package-grid">
-        <article class="package-card" data-normal="649" data-offer="499">
+        <article class="package-card">
           <h3 data-i18n="package1_title">BASIC DJ PACKAGE</h3>
+          <p class="pkg-ideal" data-i18n="package1_ideal">Ideal for: birthdays, baby showers, small gatherings</p>
           <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="package1_save" data-price-save>Save $150 – Limited Time Offer</div>
+            <span class="price-from" data-i18n="price_from">Starting at</span>
+            <span class="price-now">$649</span>
           </div>
+          <ul class="pkg-facts">
+            <li><span data-i18n="fact_guests">Guests</span><strong>30–60</strong></li>
+            <li><span data-i18n="fact_hours">DJ hours</span><strong data-i18n="package1_hours">4 hours</strong></li>
+          </ul>
           <p><strong data-i18n="package_includes_label">Includes</strong></p>
           <ul>
             <li data-i18n="package1_include_1">Professional DJ service</li>
@@ -211,18 +218,20 @@
             <li data-i18n="package1_include_5">Portable DJ booth</li>
             <li data-i18n="package1_include_6">Basic LED ambient lighting</li>
           </ul>
-          <p class="package-capacity" data-i18n="package1_capacity">Capacity: 30–60 guests</p>
-          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="BASIC DJ PACKAGE" data-package-en="BASIC DJ PACKAGE" data-package-es="PAQUETE DJ BÁSICO">Book Now</a>
-          <p class="package-fineprint" data-i18n="package_fineprint">Final price may vary based on hours, venue, and travel.</p>
+          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="BASIC DJ PACKAGE" data-package-en="BASIC DJ PACKAGE" data-package-es="PAQUETE DJ BÁSICO">Quote this package</a>
         </article>
-        <article class="package-card featured" data-normal="1099" data-offer="899">
+        <article class="package-card featured">
           <span class="package-badge" data-i18n="package2_badge">MOST POPULAR</span>
           <h3 data-i18n="package2_title">STANDARD DJ PACKAGE</h3>
+          <p class="pkg-ideal" data-i18n="package2_ideal">Ideal for: quinceañeras, weddings, family parties</p>
           <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="package2_save" data-price-save>Save $200</div>
+            <span class="price-from" data-i18n="price_from">Starting at</span>
+            <span class="price-now">$1,099</span>
           </div>
+          <ul class="pkg-facts">
+            <li><span data-i18n="fact_guests">Guests</span><strong>60–120</strong></li>
+            <li><span data-i18n="fact_hours">DJ hours</span><strong data-i18n="package2_hours">5 hours</strong></li>
+          </ul>
           <p><strong data-i18n="package_includes_label">Includes</strong></p>
           <ul>
             <li data-i18n="package2_include_1">Professional DJ service</li>
@@ -234,17 +243,19 @@
             <li data-i18n="package2_include_7">Dynamic lighting effects (beams + LED bars)</li>
             <li data-i18n="package2_include_8">Fog machine</li>
           </ul>
-          <p class="package-capacity" data-i18n="package2_capacity">Capacity: 60–120 guests</p>
-          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="STANDARD DJ PACKAGE" data-package-en="STANDARD DJ PACKAGE" data-package-es="PAQUETE DJ ESTÁNDAR">Book Now</a>
-          <p class="package-fineprint" data-i18n="package_fineprint">Final price may vary based on hours, venue, and travel.</p>
+          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="STANDARD DJ PACKAGE" data-package-en="STANDARD DJ PACKAGE" data-package-es="PAQUETE DJ ESTÁNDAR">Quote this package</a>
         </article>
-        <article class="package-card" data-normal="1699" data-offer="1399">
+        <article class="package-card">
           <h3 data-i18n="package3_title">PREMIUM DJ PACKAGE</h3>
+          <p class="pkg-ideal" data-i18n="package3_ideal">Ideal for: big weddings and quinceañeras, galas</p>
           <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="package3_save" data-price-save>Save $300</div>
+            <span class="price-from" data-i18n="price_from">Starting at</span>
+            <span class="price-now">$1,699</span>
           </div>
+          <ul class="pkg-facts">
+            <li><span data-i18n="fact_guests">Guests</span><strong>120–200</strong></li>
+            <li><span data-i18n="fact_hours">DJ hours</span><strong data-i18n="package3_hours">5 hours</strong></li>
+          </ul>
           <p><strong data-i18n="package_includes_label">Includes</strong></p>
           <ul>
             <li data-i18n="package3_include_1">Professional DJ service</li>
@@ -256,17 +267,19 @@
             <li data-i18n="package3_include_7">Professional lighting (moving heads & beams)</li>
             <li data-i18n="package3_include_8">Fog machine</li>
           </ul>
-          <p class="package-capacity" data-i18n="package3_capacity">Capacity: 120–200 guests</p>
-          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="PREMIUM DJ PACKAGE" data-package-en="PREMIUM DJ PACKAGE" data-package-es="PAQUETE DJ PREMIUM">Book Now</a>
-          <p class="package-fineprint" data-i18n="package_fineprint">Final price may vary based on hours, venue, and travel.</p>
+          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="PREMIUM DJ PACKAGE" data-package-en="PREMIUM DJ PACKAGE" data-package-es="PAQUETE DJ PREMIUM">Quote this package</a>
         </article>
-        <article class="package-card" data-normal="2499" data-offer="1999">
+        <article class="package-card">
           <h3 data-i18n="package4_title">ULTIMATE EVENT PACKAGE</h3>
+          <p class="pkg-ideal" data-i18n="package4_ideal">Ideal for: large events, stage-style shows</p>
           <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="package4_save" data-price-save>Save $500</div>
+            <span class="price-from" data-i18n="price_from">Starting at</span>
+            <span class="price-now">$2,499</span>
           </div>
+          <ul class="pkg-facts">
+            <li><span data-i18n="fact_guests">Guests</span><strong>200+</strong></li>
+            <li><span data-i18n="fact_hours">DJ hours</span><strong data-i18n="package4_hours">6 hours</strong></li>
+          </ul>
           <p><strong data-i18n="package_includes_label">Includes</strong></p>
           <ul>
             <li data-i18n="package4_include_1">Professional DJ service</li>
@@ -279,55 +292,75 @@
             <li data-i18n="package4_include_8">Premium lighting (RGBW moving heads)</li>
             <li data-i18n="package4_include_9">Low-lying fog machine (cloud effect)</li>
           </ul>
-          <p class="package-capacity" data-i18n="package4_capacity">Capacity: 200+ guests</p>
-          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="ULTIMATE EVENT PACKAGE" data-package-en="ULTIMATE EVENT PACKAGE" data-package-es="PAQUETE EVENTO ULTIMATE">Book Now</a>
-          <p class="package-fineprint" data-i18n="package_fineprint">Final price may vary based on hours, venue, and travel.</p>
+          <a class="btn-main package-btn" href="#" onclick="openBookingModal(this.dataset.packageEn); return false;" data-i18n="package_btn" data-package="ULTIMATE EVENT PACKAGE" data-package-en="ULTIMATE EVENT PACKAGE" data-package-es="PAQUETE EVENTO ULTIMATE">Quote this package</a>
         </article>
+      </div>
+
+      <h3 class="pkg-subtitle" data-i18n="compare_title">Compare packages</h3>
+      <div class="pkg-compare-wrap">
+        <table class="pkg-compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th data-i18n="compare_basic">Basic</th>
+              <th class="is-featured" data-i18n="compare_standard">Standard</th>
+              <th data-i18n="compare_premium">Premium</th>
+              <th data-i18n="compare_ultimate">Ultimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th data-i18n="price_from">Starting at</th><td>$649</td><td class="is-featured">$1,099</td><td>$1,699</td><td>$2,499</td></tr>
+            <tr><th data-i18n="fact_guests">Guests</th><td>30–60</td><td class="is-featured">60–120</td><td>120–200</td><td>200+</td></tr>
+            <tr><th data-i18n="fact_hours">DJ hours</th><td data-i18n="package1_hours">4 hours</td><td class="is-featured" data-i18n="package2_hours">5 hours</td><td data-i18n="package3_hours">5 hours</td><td data-i18n="package4_hours">6 hours</td></tr>
+            <tr><th data-i18n="row_speakers">Speakers</th><td>2</td><td class="is-featured">2</td><td>2</td><td>2</td></tr>
+            <tr><th data-i18n="row_subs">Subwoofers</th><td>—</td><td class="is-featured">1</td><td>2</td><td>2</td></tr>
+            <tr><th data-i18n="row_mics">Wireless mics</th><td>2</td><td class="is-featured">✓</td><td>✓</td><td>✓</td></tr>
+            <tr><th data-i18n="row_console">Digital mixing console</th><td>—</td><td class="is-featured">—</td><td>✓</td><td>✓</td></tr>
+            <tr><th data-i18n="row_lights">Lighting</th><td data-i18n="lights_basic">Basic LED</td><td class="is-featured" data-i18n="lights_standard">Beams + LED bars</td><td data-i18n="lights_premium">Moving heads + beams</td><td data-i18n="lights_ultimate">RGBW moving heads + truss</td></tr>
+            <tr><th data-i18n="row_fog">Fog</th><td>—</td><td class="is-featured">✓</td><td>✓</td><td data-i18n="fog_low">Low-lying (cloud)</td></tr>
+            <tr><th data-i18n="row_booth">DJ booth</th><td data-i18n="booth_portable">Portable</td><td class="is-featured">✓</td><td>✓</td><td data-i18n="booth_elegant">Elegant</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pkg-factors">
+        <h3 class="pkg-subtitle" data-i18n="factors_title">What changes your final price?</h3>
+        <ul>
+          <li><strong data-i18n="factor1_title">Hours</strong> <span data-i18n="factor1_text">Each extra DJ hour adds $180.</span></li>
+          <li><strong data-i18n="factor2_title">Guests and venue size</strong> <span data-i18n="factor2_text">More guests or a bigger room may need more speakers or lights.</span></li>
+          <li><strong data-i18n="factor3_title">Distance</strong> <span data-i18n="factor3_text">Louisville is covered. Events farther away may include travel.</span></li>
+          <li><strong data-i18n="factor4_title">Venue access</strong> <span data-i18n="factor4_text">Stairs, no power outlet nearby, or outdoor setups may change the setup.</span></li>
+          <li><strong data-i18n="factor5_title">Extras</strong> <span data-i18n="factor5_text">Effects, more lighting, extra mics or early setup (prices below).</span></li>
+        </ul>
       </div>
     </section>
     <section class="packages-section lazy-section">
       <h2 class="section-title" data-i18n="addons_title">Add-ons</h2>
       <div class="package-grid addon-grid">
-        <article class="package-card" data-normal="180" data-offer="125">
+        <article class="package-card">
           <h3 data-i18n="addon1_title">Extra Hour (DJ)</h3>
-          <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="addon1_save" data-price-save>Save $55</div>
-          </div>
+          <div class="package-pricing"><span class="price-now">$180</span></div>
         </article>
-        <article class="package-card" data-normal="75" data-offer="50">
+        <article class="package-card">
           <h3 data-i18n="addon2_title">Extra Wireless Mic</h3>
-          <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="addon2_save" data-price-save>Save $25</div>
-          </div>
+          <div class="package-pricing"><span class="price-now">$75</span></div>
         </article>
-        <article class="package-card" data-normal="350" data-offer="250">
+        <article class="package-card">
           <h3 data-i18n="addon3_title">Additional Lighting</h3>
-          <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="addon3_save" data-price-save>Save $100</div>
-          </div>
+          <div class="package-pricing"><span class="price-from" data-i18n="price_from">Starting at</span><span class="price-now">$350</span></div>
         </article>
-        <article class="package-card" data-normal="500" data-offer="350">
+        <article class="package-card">
           <h3 data-i18n="addon4_title">FX (Fog / Cold Sparks)</h3>
-          <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="addon4_save" data-price-save>Save $150</div>
-          </div>
+          <div class="package-pricing"><span class="price-from" data-i18n="price_from">Starting at</span><span class="price-now">$500</span></div>
         </article>
-        <article class="package-card" data-normal="200" data-offer="150">
+        <article class="package-card">
           <h3 data-i18n="addon5_title">Early Setup</h3>
-          <div class="package-pricing">
-            <span class="package-badge promo-badge is-hidden" data-promo-badge data-i18n="promo_badge">OFERTA 24H</span>
-            <div class="package-price"></div>
-            <div class="price-save" data-i18n="addon5_save" data-price-save>Save $50</div>
-          </div>
+          <div class="package-pricing"><span class="price-now">$200</span></div>
         </article>
+      </div>
+      <div class="pkg-cta">
+        <p data-i18n="pkg_cta_text">Not sure which one fits? Tell us your date and number of guests and we'll recommend one.</p>
+        <button class="btn-main" type="button" onclick="openBookingModal()" data-i18n="pkg_cta_btn">Get my exact quote</button>
       </div>
     </section>
     <section class="about-section lazy-section">
